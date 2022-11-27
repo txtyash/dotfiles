@@ -1,0 +1,11 @@
+{
+  "settings": {
+    "bullet": "*",
+    "ruleRepetition": 3,
+    "fences": true
+  },
+  "plugins": [
+    "remark-gfm",
+    "inline-links"
+  ]
+}

@@ -1,0 +1,69 @@
+# Font
+set font "FiraCode 14"
+set sandbox none
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+map u scroll half-up
+unmap Space
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+map g goto top
+
+# zathurarc-dark
+set default-bg "#13191c" #00
+set default-fg "#B0B0B0" #01
+
+set statusbar-bg "#13191c" #01
+set statusbar-fg "#B0B0B0" #04
+
+set inputbar-bg "#13191c" #00 currently not used
+set inputbar-fg "#B0B0B0" #02
+
+set notification-error-bg "#13191c" #00
+set notification-error-fg "#853500" #08
+
+set notification-warning-bg "#13191c" #00
+set notification-warning-fg "#853500" #08
+
+set highlight-color "#b052c0" #0A
+set highlight-active-color "#2af8ff" #0D
+set highlight-transparency 0.45
+
+set completion-highlight-bg "#26316d" #0C
+set completion-highlight-fg "#B0B0B0" #02
+
+set completion-bg "#13191c" #02
+set completion-fg "#B0B0B0" #0C
+
+set notification-bg "#13191c" #00
+set notification-fg "#ffffdd0" #0B
+
+set recolor "true"
+set recolor-lightcolor "#000a14" #00
+set recolor-darkcolor "#fffdd0" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

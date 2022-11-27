@@ -1,0 +1,255 @@
+{-# LANGUAGE MultiParamTypeClasses, FlexibleInstances #-} -- Hightlight Bar
+
+-- avoidStruts
+import XMonad.Hooks.ManageDocks
+ 
+-- ================================ IMPORT ==============================================
+import XMonad
+import XMonad.Util.EZConfig
+import XMonad.Util.Ungrab
+import qualified XMonad.StackSet as W
+import qualified Data.Map as M  
+import XMonad.Actions.SwapPromote                       -- TODO: M-f swapping
+ 
+-- EWMH compliance(fakefullscreen doesn't work with this)
+-- import XMonad.Hooks.EwmhDesktops
+ 
+import XMonad.Actions.Submap
+import XMonad.Actions.CycleWS 
+import XMonad.Actions.CycleRecentWS
+import XMonad.Layout.Reflect
+ 
+-- For Highlight bar 
+import XMonad.Layout.Decoration                         -- Creating decorated layouts.
+import XMonad.Util.Types                                -- Miscellaneous commonly used types.  
+ 
+-- For subTabbed 
+import XMonad.Layout.SubLayouts
+import XMonad.Layout.WindowNavigation  
+import XMonad.Layout.BoringWindows                      -- Skip hidden windows
+import XMonad.Actions.PerLayoutKeys                     -- Different M-j & M-k for subtabbed and full
+import XMonad.Layout.Renamed as RN
+import XMonad.Actions.PerWindowKeys                     -- TODO
+import XMonad.Actions.FloatKeys                         -- TODO
+ 
+ 
+import qualified XMonad.Util.Hacks as Hacks             -- Fixes fake fullscreen 
+ 
+-- For Scratchpad  
+import XMonad.ManageHook
+import XMonad.Util.NamedScratchpad
+import XMonad.Hooks.RefocusLast                         -- Supposed to fix scratchpad and subTabbed issue
+  
+-- ============================ GLOBALLY AVAILABLE =====================================
+thenRefocusAfter :: Query Bool -> X a -> X a            -- Supposed to fix scratchpad and subTabbed issue
+p `thenRefocusAfter` act = do
+  tag     <- gets (W.currentTag . windowset)
+  refocus <- refocusWhen p tag
+  act <* windows refocus
+
+isScratchPad :: NamedScratchpads -> Query Bool
+isScratchPad = foldr (\ns b -> query ns <||> b) (pure False)   
+    
+-- where                                                -- refocusLast stuff(now global)
+myPred = refocusingIsActive <||> isFloat
+refocusLastKeys cnf
+  = M.fromList
+  $ ((modMask cnf              , xK_a), toggleFocus)
+  : ((modMask cnf .|. shiftMask, xK_a), swapWithLast)
+  : ((modMask cnf              , xK_b), toggleRefocusing)
+  : [ ( (modMask cnf .|. shiftMask, n)
+      , windows =<< shiftRLWhen myPred wksp
+      )
+    | (n, wksp) <- zip [xK_1..xK_9] (workspaces cnf)
+    ]
+  
+scratchpads =
+  [ -- (className =? "htop")/(title =? "htop")
+    NS
+      "htop"
+      "alacritty -t htop -e htop"
+      (title =? "htop")
+      -- defaultFloating ,
+      (customFloating $ W.RationalRect (2 / 7) (1 / 9) (2 / 5) (2 / 4)),
+      --                                  x       y       l       h 
+    NS
+      "qBittorrent"
+      "qbittorrent"
+      (className =? "qBittorrent")
+      -- defaultFloating ,
+      (customFloating $ W.RationalRect (2 / 7) (1 / 9) (2 / 5) (2 / 4)),
+      --                                  x       y       l       h 
+    NS
+      "scratch"
+      "alacritty -t scratch -e lvim ~/.scratch.md ~/.todo.md ~/.ideas.md ~/.reference.md"
+      (title =? "scratch")
+      (customFloating $ W.RationalRect (2 / 6) (1 / 9) (2 / 5) (2 / 4)),
+      --                                  x       y       l       h 
+    NS
+      "tags"
+      "alacritty -t tags -e tags"
+      (title =? "tags")
+      (customFloating $ W.RationalRect (2 / 5) (2 / 9) (2 / 9) (2 / 5))
+      --                                  x       y       l       h 
+  ]
+  where
+    role = stringProperty "WM_WINDOW_ROLE"
+     
+rofi_launch = spawn "rofi -no-lazy-grab -show drun -modi run,drun,window -theme $HOME/.config/rofi/launcher/style -drun-icon-theme \'papirus\' "
+ 
+-- ============================== MY CONFIG ==============================================
+myConfig = def  
+      { modMask             = mod4Mask,
+        terminal            = "alacritty",
+        borderWidth         = 0,
+        manageHook          = myManageHook,
+        
+        handleEventHook     = refocusLastWhen myPred <> myEventHook      ,
+        -- use either layoutHook or logHook for refocuslast.
+        logHook             = refocusLastLogHook     <> logHook       def,
+        layoutHook          = myLayout                                   ,
+        keys                = refocusLastKeys        <> keys          def
+      }
+      `additionalKeysP` myKeys
+ 
+-- ============================== MY STUFF ==============================================
+myEventHook = handleEventHook def <> Hacks.windowedFullscreenFixEventHook
+ 
+myManageHook = namedScratchpadManageHook scratchpads
+ 
+myWorkspaces :: [WorkspaceId]
+myWorkspaces = map show [1 .. 9 :: Int]
+ 
+-- ================================= MY LAYOUT =======================================
+myLayout =  avoidStruts (tiled ||| Full)
+  where
+    tiled   =  renamed [RN.Replace "tiled"] $ myDecorate $ windowNavigation $ subTabbed $ boringWindows $ reflectHoriz $ Tall nmaster delta ratio
+    nmaster = 1      -- Default number of windows in the master pane
+    ratio   = 3/5    -- Default proportion of screen occupied by master pane
+    delta   = 3/100  -- Percent of screen to increment by when resizing panes
+
+-- ================================= KEYBINDINGS ======================================
+myKeys :: [(String, X ())]
+myKeys =
+    [
+      ("<XF86AudioMute>", spawn "amixer set Master toggle"),
+      ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%-"),
+      ("<XF86AudioRaiseVolume>", spawn "amixer set Master 3%+"),
+      ("<XF86MonBrightnessUp>", spawn "brightnessctl set 3%+"),
+      ("<XF86MonBrightnessDown>", spawn "brightnessctl set 3%-"),
+      ("M-<XF86PowerOff>", spawn "systemctl poweroff"),
+      ("<XF86PowerOff>", spawn "xset dpms force off && slock"),
+      ("<XF86TouchpadToggle>", spawn "toggle_touchpad"),
+      ("<Print>", spawn "killall flameshot; flameshot full -p ~/screenshots_full -c"),
+       
+      ("M-f", windows W.swapMaster),
+      ("M-<Backspace>", kill),
+      ("M-h", sendMessage Expand),
+      ("M-l", sendMessage Shrink),
+      -- ("M-i", namedScratchpadAction scratchpads "tags"),
+      -- ("M-o", namedScratchpadAction scratchpads "scratch"),
+      -- Below scratchpads are patched ones by [Leary] from xmonad IRC
+      ("M-o", isScratchPad scratchpads `thenRefocusAfter` namedScratchpadAction scratchpads "scratch"),
+      ("M-i", isScratchPad scratchpads `thenRefocusAfter` namedScratchpadAction scratchpads "tags"),
+       
+      -- SCREENSHOTS
+      ("M-p f", spawn "killall flameshot; flameshot full -p ~/screenshots_full -c"),
+      ("M-p s", spawn "killall flameshot; flameshot gui -s -p ~/screenshots_cutout -c"),
+      ("M-p a", spawn "scrotactive"),
+      
+      -- SPAWN APPLICATIONS
+      ("M-s b", spawn "brave"),
+      ("M-s l", spawn "lvim-gui"),
+      ("M-s s", asks (XMonad.terminal . config) >>= spawn), 
+      ("M-s r", rofi_launch),
+      ("M-s k", spawn "kitty"),
+      ("M-s q", spawn "qbittorrent"),
+      ("M-s h", spawn "htop"),
+      ("M-s e", spawn "microsoft-edge-stable"),
+       
+      -- MANAGING TABS  
+      ("M-j", bindByLayout [("tiled", focusDown), ("Full", windows W.focusDown)]),
+      ("M-k", bindByLayout [("tiled", focusUp), ("Full", windows W.focusUp)]),
+       
+      ("M-S-k", onGroup W.focusDown'),
+      ("M-S-j", onGroup W.focusUp'),
+       
+      ("M-C-j", windows W.swapDown),
+      ("M-C-k", windows W.swapUp),
+       
+      ("M-d h", sendMessage $ pullGroup L),
+      ("M-d l", sendMessage $ pullGroup R),
+      ("M-d k", sendMessage $ pullGroup U),
+      ("M-d j", sendMessage $ pullGroup D),
+      ("M-d m", withFocused (sendMessage . MergeAll)),
+      ("M-d u", withFocused (sendMessage . UnMerge)),
+       
+      -- SWITCH WORKSPACES
+      ("M-<L>", prevWS),
+      ("M-<R>", nextWS),
+      ("M-<U>", shiftToNext >> nextWS),
+      ("M-<D>", shiftToPrev >> prevWS),
+       
+      -- Combined submap for switching workspaces and moving windows 
+      -- ("M-w", submap . M.fromList $
+      --   [ ((m, k), windows $ f i)
+      --   | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
+      --   , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+      -- -- ((modm, xK_p), toggleWS),
+      --   ]),
+       
+      ("M-u", submap . M.fromList $
+        [
+         -- ((0, k), windows $ W.shift i) | (i, k) <- zip myWorkspaces [xK_1 .. xK_9] 
+         -- above line was geekosaurs and below one is [Leary]'s suggestion 
+         -- ((0, k), windows =<< shiftRLWhen myPred i) | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
+         -- Below line is an enhancement of the previous one as it takes you to the workspace you moved your window to 
+         ((0, k), shiftRLWhen myPred i >>= \shift -> windows (W.greedyView i . shift))  | (i, k) <- zip myWorkspaces [xK_1 .. xK_9]
+        ]),
+     
+      ("M-w p", toggleRecentWS)
+    ]
+    ++
+    [ ("M-w " ++ [k], windows $ W.greedyView i)
+     | (i, k) <- zip myWorkspaces ['1' .. '9']
+    ]
+
+-- ================================ HIGHLIGHT BAR ===================================
+--                    Make sure to add myDecorate to layoutHook 
+myTheme :: Theme
+myTheme = def
+  { activeColor         = "#FFFF00"
+  , inactiveColor       = "#444c42"
+  , activeBorderColor   = "#FFFF00"
+  , inactiveBorderColor = "#444c42"
+  , decoWidth           = 6
+  }
+
+-- The Decoration Style.
+myDecorate :: Eq a => l a -> ModifiedLayout (Decoration SideDecoration DefaultShrinker) l a
+myDecorate = decoration shrinkText myTheme (SideDecoration L)
+
+data SideDecoration a = SideDecoration Direction2D
+  deriving (Show, Read)
+
+instance Eq a => DecorationStyle SideDecoration a where
+
+  shrink b (Rectangle _ _ dw dh) (Rectangle x y w h)
+    | SideDecoration U <- b = Rectangle x (y + fi dh) w (h - dh)
+    | SideDecoration R <- b = Rectangle x y (w - dw) h
+    | SideDecoration D <- b = Rectangle x y w (h - dh)
+    | SideDecoration L <- b = Rectangle (x + fi dw) y (w - dw) h
+
+  pureDecoration b dw dh _ st _ (win, Rectangle x y w h)
+    | win `elem` W.integrate st && dw < w && dh < h = Just $ case b of
+      SideDecoration U -> Rectangle x y w dh
+      SideDecoration R -> Rectangle (x + fi (w - dw)) y dw h
+      SideDecoration D -> Rectangle x (y + fi (h - dh)) w dh
+      SideDecoration L -> Rectangle x y dw h
+    | otherwise = Nothing             
+      
+-- ================================ MAIN ==============================================
+main :: IO ()
+main = xmonad
+      . docks
+      $ myConfig    

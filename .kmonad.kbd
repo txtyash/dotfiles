@@ -1,0 +1,199 @@
+(defcfg                                                       ;; For linux & by-id lists pluggable devices
+  fallthrough true
+  allow-cmd true
+  input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "My KMonad output")
+)
+
+(defsrc
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  prnt  ins  del
+  `     1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft  z    x    c    v    b    n    m    ,    .    /    rsft up
+  lctl  lmet lalt           spc            ralt rctl left down right
+)
+
+(defalias
+sym  (layer-toggle syms)
+qwe  (layer-switch qwerty)
+cus  (layer-switch custom)
+
+vi   (layer-toggle vim)
+vis   (layer-switch vim)
+vimsb  (layer-toggle vimselectbottom)
+vimsen  (layer-toggle vimselectstartend)
+vimsx  (layer-switch vim)
+vimb  (layer-toggle vimbottom)
+vims  (layer-switch vimselect)
+vimen  (layer-toggle vimstartend)
+
+lsf  (layer-toggle lshift)
+
+newl (tap-macro home down S-enter up)
+newla (tap-macro home S-enter up)
+
+num  (tap-hold-next-release 300 , (layer-toggle nums))
+cp   (tap-hold-next-release 300 . rctl)
+
+;; veeb  (cmd-button "brave")
+rsf (layer-toggle rshift)
+)
+
+(deflayer custom                             ;; The default layer that'd be read when you launch kmonad
+  _         _        _       _       _       _      _       _        _        _       _      _        _     _       _      _
+  @qwe      1        2       \(      \)      @vi    6       7        8        bspc    0      -        =      bspc
+  lctl      q        w       e       r       t      brup    y        u        i       o      p        '      \
+  @lsf      a        s       d       f       g      brdn    h        j        k       l      @rsf     S-ret
+  lalt      z        x       c       v       b      b       n        m        @num    @cp    ralt     up
+  lctl      lalt     lmet                    spc                     @sym     C-sft   left   down     right
+)
+
+(deflayer rshift
+  _         _        _       _       _       _      _       _        _        _       _      _        _     _       _      _
+  ~         !        @       {       }       %      ^       &        *        _       \)     \_       +      bspc
+  S-tab     Q        W       E       R       T      _       Y        U        I       O      P        "      |
+  C--       A        S       D       F       G      _       H        J        K       L      _        _    
+  del       Z        X       C       V       B      B       N        M        <       >      _        _
+  _         _        lmet                    \_                      _        _       _      _        _
+)
+
+(deflayer lshift
+  _         _        _       _       _       _      _       _        _        _       _      _        _     _       _      _
+  ~         !        @       #       $       %      ^       &        *        C-bspc  \)     \_       +      bspc
+  S-tab     Q        W       E       R       T      _       Y        U        I       O      P        "      |
+  _         A        S       D       F       G      _       H        J        K       L      C-+      _    
+  _         Z        X       C       V       B      B       N        M        <       >      _        _
+  _         _        lmet                    S-spc                   _        _       _      _        _
+)
+
+(deflayer nums
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  _         _        _       [       ]       _      _       _        _        bspc    _      _         _     _
+  _         3        4       7       8       _      _       _        _        _       _      _         _     _
+  _         1        2       5       6       _      _       _        _        _       _      _         _
+  _         _        .       9       0       _      _       _        _        _       _      _         _
+  _         _        _                       spc                     _        _       _      _         _
+)
+
+(deflayer syms
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  _         _        _       [       ]       _      _       _        _        |       _      _         _     _
+  _         !        +       *       &       #      _       _        @        `       \      ~         _     _
+  f11       ^        -       esc     tab     =      _       ?        :        /       $      _         _
+  _         _        _       ;       @vis    _      _       _        %        _       _      _         _
+  _         _        _                       ret                     _        _       _      _         _
+)
+
+(deflayer vim
+  _         _        _          _       _       _         _       _        _        _       _      _         _     _       _      _
+  _         _        _          _       _       _         _       _        _        bspc    _      _         _     _
+  _         _        C-right    _       _       _         _       C-c      C-z      @cus    @newl  C-v       _     _
+  @vimb     _        _          _       _       pgup      _       left     down     up      right  @vimb     S-ret
+  _         _        bspc       _       @vims   C-left    C-left  _        _        _       _      _         _
+  _         _        _                       ret                  @vimen   _        _       _      _
+)
+
+(deflayer vimbottom
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _
+  _         _        _       _       _       _      _       _        _        _       @newla _         _     _
+  _         _        _       _       _       pgdn   _       _        _        _       _      _         _
+  _         _        _       _       _       _      _       _        _        _       _      _         _
+  _         _        _                       _                       _        _       _      _         _
+)
+
+
+(deflayer vimstartend
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _
+  _         home     _       _       _       _      _       _        _        _       end    _         _
+  _         _        _       _       _       _      _       _        _        _       _      _         _
+  _         _        _                       _                       _        _       _      _         _
+)
+
+(deflayer vimselect
+  _         _        _          _       _       _          _          _        _        _       _      _         _     _       _      _
+  _         _        _          _       _       _          _          _        _        bspc    _      _         _     _
+  _         _        C-S-right  _       _       _          _          C-c      C-z      @cus    @newl  C-v       _     _
+  @vimsb    _        _          _       _       S-pgup     _          S-left   S-down   S-up    S-right  @vimsb  S-ret
+  _         _        bspc       _       @vimsx  C-S-left   C-S-left   _        _        _       _      _         _
+  _         _        _                       ret                      @vimsen  _        _       _      _
+)
+
+(deflayer vimselectbottom
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _
+  _         _        _       _       _       _      _       _        _        _       @newla _         _     _
+  _         _        _       _       _       S-pgdn _       _        _        _       _      _         _
+  _         _        _       _       _       _      _       _        _        _       _      _         _
+  _         _        _                       _                       _        _       _      _         _
+)
+
+(deflayer vimselectstartend
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _
+  _         S-home   _       _       _       _      _       _        _        _       S-end  _         _
+  _         _        _       _       _       _      _       _        _        _       _      _         _
+  _         _        _                       _                       _        _       _      _         _
+)
+
+(deflayer qwerty
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  prnt  ins  del
+  @cus  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft  z    x    c    v    b    n    m    ,    .    /    rsft up
+  lctl  lmet lalt           spc            ralt rctl left down right
+)
+
+#|_________________________________________________________________________________
+ 
+(deflayer template
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _
+)
+
+(deflayer qwerty                            ;; The default layer that'd be read when you launch kmonad
+  caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  prnt  ins  del
+  `    1    2    3    4    5    6    7    8    bspc @tog bspc =    end
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @ec  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt lmet           spc            rmet rctl
+)
+
+(deflayer control
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  `         1        2       C--     C-+     5      6       7        8        del     0      -        =      bspc
+  C-tab     C-q      C-w     C-e     C-r     C-t    _       C-y      C-u      C-i     C-o    C-p      C-'    C-\
+  lctl      C-a      C-s     C-d     C-f     C-g    _       C-h      C-j      C-k     C-l    C-;      C-ret
+  lalt      C-z      C-x     C-c     C-v     C-b    C-b     C-n      C-m      C-,     C-.    ralt     _
+  C-sft     M-sft    A-sft                   C-spc                   @sym     C-sft    _       _      _
+)
+
+(deflayer controlshift
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  `         1        2       C--     C-+     5      6       7        8        C-S-bspc 0      -        =      C-S-prnt
+  C-S-tab   C-S-q    C-S-w   C-S-e   C-S-r   C-S-t  _       C-S-y    C-S-u    C-S-i    C-S-o  C-S-p    C-S-'  C-S-\
+  lctl      C-S-a    C-S-s   C-S-d   C-S-f   C-S-g  _       C-S-h    C-S-j    C-S-k    C-S-l  C-S-;    C-S-ret
+  lalt      C-S-z    C-S-x   C-S-c   C-S-v   C-S-b  C-S-b   C-S-n    C-S-m    C-S-,    C-S-.  ralt     C-S-up
+  C-S-sft   M-sft    lctl                    C-S-spc                 @sym     C-sft    C-S-left C-S-down C-S-right   
+)
+
+(deflayer altsft
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _       _      _
+  `         1        2       3       4       5      6       7        8        bspc    0      -        =      bspc
+  A-S-tab   A-S-q    A-S-w   A-S-e   A-S-r   A-S-t  _       A-S-y    A-S-u    A-S-i   A-S-o  A-S-p    A-S-'  A-S-\
+  lctl      A-S-a    A-S-s   A-S-d   A-S-f   A-S-g  _       A-S-h    A-S-j    A-S-k   A-S-l  rsft     A-S-ret
+  lalt      A-S-z    A-S-x   A-S-c   A-S-v   A-S-b  A-S-b   A-S-n    A-S-m    A-S-,   A-S-.  ralt     _
+  C-sft     M-sft    A-sft                   A-S-ret                 @asf     C-sft   _      _        _
+)
+
+|#
