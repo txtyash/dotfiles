@@ -1,3 +1,3 @@
 require "rice/themes"
 require "rice/statusbar"
-require "rice/titlebars"
+require "rice/titlebar"

@@ -1,12 +1,15 @@
-require "statusbar/widgets"
+-- local gfs = require("gears.filesystem")
+-- local dir = gfs.get_configuration_dir() .. "rice/statusbar/"
+
+-- require(dir .. "widgets")
 
 -- Widget and layout library
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
-local volume_widget = require("widgets/volume")
+-- local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local volume_widget = require "rice.statusbar.widgets.volume"
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -113,15 +116,15 @@ local date = wibox.widget {
   layout = wibox.layout.fixed.vertical,
 }
 
-local battery = wibox.widget {
-  battery_widget(
-    {
-      font               = "FontAwesome 5 Free Solid:size=12:style=Bold;3",
-      show_current_level = true,
-    }
-  ),
-  layout = wibox.layout.fixed.vertical,
-}
+-- local battery = wibox.widget {
+--   battery_widget(
+--     {
+--       font               = "FontAwesome 5 Free Solid:size=12:style=Bold;3",
+--       show_current_level = true,
+--     }
+--   ),
+--   layout = wibox.layout.fixed.vertical,
+-- }
 
 -- date = wibox.container.margin(date, 2, 2, 12, 2)
 
@@ -250,7 +253,7 @@ awful.screen.connect_for_each_screen(function(s)
     { -- Left widgets
       spacing = 12,
       clock,
-      battery,
+      -- battery,
       volume_widget(),
       s.mytaglist,
       s.mypromptbox,
