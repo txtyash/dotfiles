@@ -1,3 +1,3 @@
-require "themes"
-require "statusbar"
-require "titlebars"
+require "rice/themes"
+require "rice/statusbar"
+require "rice/titlebars"

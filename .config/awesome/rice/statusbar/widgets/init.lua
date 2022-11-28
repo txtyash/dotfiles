@@ -1,1 +1,1 @@
-require "volume"
+require "widgets.volume"

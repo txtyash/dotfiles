@@ -1,4 +1,4 @@
-require "widgets"
+require "statusbar/widgets"
 
 -- Widget and layout library
 local awful = require("awful")
