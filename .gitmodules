@@ -1,9 +1,1 @@
-[submodule "awesome/modules/bling"]
-	path = awesome/modules/bling
-	url = https://github.com/BlingCorp/bling
-[submodule "awesome/modules/rubato"]
-	path = awesome/modules/rubato
-	url = https://github.com/andOrlando/rubato
-[submodule "awesome/modules/color"]
-	path = awesome/modules/color
-	url = https://github.com/andOrlando/color
+
