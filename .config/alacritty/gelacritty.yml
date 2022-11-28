@@ -1,27 +1,34 @@
+# TokyoNight Alacritty Colors
 colors:
-  name: Rydgel
-  author: ""
+  name: TokyoNight Day
+  author: Folke
+  # Default colors
   primary:
-    background: "#000000"
-    foreground: "#ffffff"
-  cursor:
-    text: "#000000"
-    cursor: "#ffffff"
+    background: '0xe1e2e7'
+    foreground: '0x3760bf'
+
+  # Normal colors
   normal:
-    black: "#303430"
-    red: "#bf7979"
-    green: "#97b26b"
-    yellow: "#cdcdc1"
-    blue: "#86a2be"
-    magenta: "#d9b798"
-    cyan: "#a1b5cd"
-    white: "#ffffff"
+    black:   '0xe9e9ed'
+    red:     '0xf52a65'
+    green:   '0x587539'
+    yellow:  '0x8c6c3e'
+    blue:    '0x2e7de9'
+    magenta: '0x9854f1'
+    cyan:    '0x007197'
+    white:   '0x6172b0'
+
+  # Bright colors
   bright:
-    black: "#cdb5cd"
-    red: "#f4a45f"
-    green: "#c5f779"
-    yellow: "#ffffed"
-    blue: "#98afd9"
-    magenta: "#d7d998"
-    cyan: "#a1b5cd"
-    white: "#dedede"
+    black:   '0xa1a6c5'
+    red:     '0xf52a65'
+    green:   '0x587539'
+    yellow:  '0x8c6c3e'
+    blue:    '0x2e7de9'
+    magenta: '0x9854f1'
+    cyan:    '0x007197'
+    white:   '0x3760bf'
+
+  indexed_colors:
+    - { index: 16, color: '0xb15c00' }
+    - { index: 17, color: '0xc64343' }
