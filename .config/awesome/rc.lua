@@ -1,6 +1,6 @@
 pcall(require, "luarocks.loader")
 
--- require "lib"
+require "lib"
 Theme = "sun"
 Titlebar = "lightsaber"
 require "rice"
