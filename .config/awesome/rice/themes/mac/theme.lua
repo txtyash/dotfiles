@@ -8,12 +8,16 @@ local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
+local dir = gfs.get_configuration_dir()
 
 local theme = {}
 
 theme.font = "sans 6 bold"
 
-theme.bg_normal   = "#0e0000"
+theme.accent = "#d3d3d3"
+theme.cream = "#fffdd0"
+
+theme.bg_normal   = "#222222"
 theme.bg_focus    = "#535d6c"
 theme.bg_urgent   = "#ff0000"
 theme.bg_minimize = "#444444"
@@ -44,17 +48,18 @@ theme.border_marked = "#91231c"
 
 theme.tasklist_bg_focus = "#fff000"
 
-theme.titlebar_bg_normal = "#000"
-theme.titlebar_bg_focus = "#fff000"
+theme.titlebar_bg_normal = "#FAFAFA"
+theme.titlebar_bg_focus = "#FAFAFA"
 
-theme.taglist_fg_focus = "#fff000"
-theme.taglist_bg_focus = "#444"
-theme.taglist_fg_occupied = "#ffa500"
-theme.taglist_bg_occupied = "#000"
-theme.taglist_fg_urgent = "#ff0000"
-theme.taglist_bg_urgent = "#000"
-theme.taglist_fg_empty = "#fffdd0"
-theme.taglist_bg_empty = "#000"
+
+-- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
+theme.taglist_fg_focus = "#2196f3"
+theme.taglist_bg_focus = "#000"
+theme.taglist_bg_occupied = "#fff"
+theme.taglist_fg_occupied = "#000"
+theme.taglist_bg_urgent = "#fff"
+theme.taglist_bg_empty = "#fff"
+theme.taglist_bg_volatile = "#fff"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
@@ -75,13 +80,30 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
-theme.menu_height       = dpi(15)
-theme.menu_width        = dpi(100)
+theme.menu_height       = dpi(27)
+theme.menu_width        = dpi(180)
 
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
 --theme.bg_widget = "#cc0000"
+
+-- Define the image to load
+theme.titlebar_close_button_normal = dir .. "icons/mac_inactive_button.png"
+theme.titlebar_close_button_focus  = dir .. "icons/mac_close.png"
+
+theme.titlebar_minimize_button_normal = dir .. "icons/mac_inactive_button.png"
+theme.titlebar_minimize_button_focus  = dir .. "icons/mac_min.png"
+
+theme.titlebar_floating_button_normal_inactive = themes_path .. "default/titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_focus_inactive  = themes_path .. "default/titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_active   = themes_path .. "default/titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_active    = themes_path .. "default/titlebar/floating_focus_active.png"
+
+theme.titlebar_maximized_button_normal_inactive = dir .. "icons/mac_inactive_button.png"
+theme.titlebar_maximized_button_focus_inactive  = dir .. "icons/mac_max.png"
+theme.titlebar_maximized_button_normal_active   = dir .. "icons/mac_inactive_button.png"
+theme.titlebar_maximized_button_focus_active    = dir .. "icons/mac_max.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh      = themes_path .. "default/layouts/fairhw.png"

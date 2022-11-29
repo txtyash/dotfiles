@@ -4,7 +4,7 @@ local brightness = {}
 
 brightness.increase = function()
   local script = [[
-	brightnessctl set 3%+
+	brightnessctl set 1+
 	]]
 
   awful.spawn.with_shell(script)
@@ -12,7 +12,7 @@ end
 
 brightness.decrease = function()
   local script = [[
-	brightnessctl set 3%-
+	brightnessctl set 1-
 	]]
 
   awful.spawn.with_shell(script)

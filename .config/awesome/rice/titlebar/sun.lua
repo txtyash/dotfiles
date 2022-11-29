@@ -1,7 +1,7 @@
 local awful = require "awful"
-local gears = require "gears"
-local wibox = require "wibox"
 local beautiful = require "beautiful"
+local gears = require "gears"
+-- local wibox = require "wibox"
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
@@ -17,21 +17,10 @@ client.connect_signal("request::titlebars", function(c)
     end)
   )
 
-  local top_titlebar = awful.titlebar(c, {
-    size = 15,
+  awful.titlebar(c, {
+    size = 6,
     position = "top",
     bg_focus = beautiful.titlebar_bg_focus,
     bg_normal = beautiful.titlebar_bg_normal,
   })
-
-  top_titlebar:setup {
-    { -- Right
-      spacing = 4,
-      awful.titlebar.widget.closebutton(c),
-      awful.titlebar.widget.minimizebutton(c),
-      awful.titlebar.widget.maximizedbutton(c),
-      layout = wibox.layout.fixed.horizontal()
-    },
-    layout = wibox.layout.align.horizontal
-  }
 end)

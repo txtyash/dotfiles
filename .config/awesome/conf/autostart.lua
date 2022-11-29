@@ -1,27 +1,15 @@
 local awful = require("awful")
 
 local autostart = {}
-local desktop_autostart = {
-  " picom --experimental-backend -b --config ~/.config/picom/picom.conf"
+
+local startup_apps = {
+  Networking,
+  Compositor,
+  ScreenCapture,
 }
 
-local laptop_autostart = {
-  "nm-applet",
-  " picom --experimental-backend -b --config ~/.config/picom/picom.conf",
-  "flameshot",
-  "discord",
-}
-
-local laptop = true
-
-if laptop then
-  for _, app in ipairs(laptop_autostart) do
-    table.insert(autostart, app)
-  end
-else
-  for _, app in ipairs(desktop_autostart) do
-    table.insert(autostart, app)
-  end
+for _, app in ipairs(startup_apps) do
+  table.insert(autostart, app)
 end
 
 for _, app in ipairs(autostart) do

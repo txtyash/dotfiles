@@ -4,7 +4,7 @@ local volume = {}
 
 volume.increase = function()
   local script = [[
-   amixer set Master 3%+
+   pamixer -i 3
 	]]
 
   awful.spawn.with_shell(script)
@@ -12,7 +12,7 @@ end
 
 volume.toggle = function()
   local script = [[
- amixer set Master toggle
+ pamixer --toggle-mute
 	]]
 
   awful.spawn.with_shell(script)
@@ -20,7 +20,7 @@ end
 
 volume.decrease = function()
   local script = [[
-   amixer set Master 3%-
+   pamixer -d 3
 	]]
 
   awful.spawn.with_shell(script)

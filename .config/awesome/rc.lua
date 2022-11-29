@@ -1,9 +1,13 @@
 pcall(require, "luarocks.loader")
 
-require "lib"
+-- First check for errors
+require "awful.autofocus"
+require "errors"
+
+-- Load the UI
 Theme = "sun"
-Titlebar = "lightsaber"
+Titlebar = "sun"
 require "rice"
 
-require "awful.autofocus"
+-- Load the configuration
 require "conf"

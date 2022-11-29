@@ -1,5 +1,7 @@
--- local gfs = require("gears.filesystem")
--- local dir = gfs.get_configuration_dir() .. "rice/statusbar/"
+require "rice/menus/menus"
+
+local gfs = require("gears.filesystem")
+local dir = gfs.get_configuration_dir()
 
 -- require(dir .. "widgets")
 
@@ -51,21 +53,6 @@ local tasklist_buttons = gears.table.join(
     awful.client.focus.byidx(-1)
   end))
 
-local function set_wallpaper(s)
-  -- Wallpaper
-  if beautiful.wallpaper then
-    local wallpaper = beautiful.wallpaper
-    -- If wallpaper is a function, call it with the screen
-    if type(wallpaper) == "function" then
-      wallpaper = wallpaper(s)
-    end
-    gears.wallpaper.maximized(wallpaper, s, true)
-  end
-end
-
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
-
 -- Create a textclock widget
 local clock = wibox.widget {
   {
@@ -85,7 +72,7 @@ local clock = wibox.widget {
     },
     layout = wibox.layout.fixed.vertical,
     widget = wibox.container.background,
-    fg     = beautiful.white,
+    -- fg     = beautiful.black,
   },
   layout = wibox.layout.fixed.vertical,
 }
@@ -129,14 +116,13 @@ local date = wibox.widget {
 -- date = wibox.container.margin(date, 2, 2, 12, 2)
 
 awful.screen.connect_for_each_screen(function(s)
-  -- Wallpaper
-  set_wallpaper(s)
 
-  -- Each screen has its own tag table.
-  awful.tag({ "S", "D", "F", "K", "L" }, s, awful.layout.layouts[1])
-
-  MyLauncher = awful.widget.launcher({ image = "/home/zim/.config/awesome/icons/menu.png",
-    menu = MainMenu })
+  MyLauncher = awful.widget.launcher(
+    {
+      image = dir .. "icons/menu.png",
+      menu = MainMenu
+    }
+  )
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -170,7 +156,7 @@ awful.screen.connect_for_each_screen(function(s)
         margins = 3,
         widget = wibox.container.margin,
       },
-      bg = '#dddddd55',
+      bg = beautiful.taglist_bg_focus,
       shape = gears.shape.circle,
       widget = wibox.container.background,
     }
