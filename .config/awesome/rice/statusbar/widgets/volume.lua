@@ -16,9 +16,9 @@ return function(s)
             widget           = wibox.widget.slider,
             bar_shape        = gears.shape.rounded_rect,
             bar_height       = 4,
-            bar_color        = "#fff",
-            bar_active_color = "#fff000",
-            handle_color     = "#000",
+            bar_color        = beautiful.lbg,
+            bar_active_color = beautiful.white,
+            handle_color     = beautiful.white,
             handle_shape     = gears.shape.circle,
             handle_width     = 4,
             handle_cursor    = "sb_v_double_arrow",
@@ -44,7 +44,7 @@ return function(s)
       {
         {
           widget        = wibox.widget.textbox,
-          markup        = "<span foreground='" .. "#fff" .. "'>墳</span>",
+          markup        = "<span foreground='" .. beautiful.white .. "'>墳</span>",
           align         = "center",
           valign        = "center",
           font          = "JetBrains Mono Nerd Font Mono 18",
@@ -138,4 +138,3 @@ return function(s)
   end)
   return helpers.embox(volbar, false, 0, false)
 end
-

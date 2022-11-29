@@ -141,6 +141,9 @@ awful.screen.connect_for_each_screen(function(s)
     screen          = s,
     filter          = awful.widget.taglist.filter.all,
     buttons         = taglist_buttons,
+    style           = {
+      shape = gears.shape.circle,
+    },
     layout          = {
       spacing = 6,
       layout  = wibox.layout.fixed.vertical,
@@ -156,8 +159,7 @@ awful.screen.connect_for_each_screen(function(s)
         margins = 3,
         widget = wibox.container.margin,
       },
-      bg = beautiful.taglist_bg_focus,
-      shape = gears.shape.circle,
+      id = "background_role",
       widget = wibox.container.background,
     }
   }
@@ -240,7 +242,6 @@ awful.screen.connect_for_each_screen(function(s)
       spacing = 12,
       clock,
       -- battery,
-      volume_widget(),
       s.mytaglist,
       s.mypromptbox,
       layout = wibox.layout.fixed.vertical,
@@ -250,6 +251,7 @@ awful.screen.connect_for_each_screen(function(s)
       spacing = 12,
       layout = wibox.layout.fixed.vertical,
       s.tasklistmin,
+      volume_widget(),
       mysystray,
       date,
       MyLauncher,

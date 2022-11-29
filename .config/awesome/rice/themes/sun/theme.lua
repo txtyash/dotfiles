@@ -13,48 +13,90 @@ local theme = {}
 
 theme.font = "sans 6 bold"
 
-theme.bg_normal   = "#0e0000"
+-- Color palette
+theme.white = "#ffffff"
+theme.black = "#000000"
+theme.light_grey = "#bebebe"
+theme.grey = "#808080"
+theme.cream = "#f6e38a"
+
+-- Shades of red
+theme.dark_red1 = "#0e0000"
+theme.dark_red2 = "#1c0000"
+theme.dark_red3 = "#2a0000"
+theme.dark_red4 = "#380000"
+theme.dark_red5 = "#460000"
+theme.dark_red6 = "#530000"
+
+-- Shades of orange
+theme.orange1 = "#612400"
+theme.orange2 = "#7a2d00"
+theme.orange3 = "#b34200"
+theme.orange4 = "#e45500"
+theme.orange5 = "#ff6206"
+theme.orange6 = "#ff9657"
+
+-- Shades of purple
+theme.purple1 = "#100412"
+theme.purple2 = "#210c35"
+theme.purple3 = "#3e1046"
+theme.purple4 = "#4e1458"
+theme.purple5 = "#5e176a"
+theme.purple6 = "#9c27b0"
+
+theme.red = "#ff0000"
+theme.yellow = "#ffff00"
+
+theme.bg_normal   = theme.dark_red1
 theme.bg_focus    = "#535d6c"
-theme.bg_urgent   = "#ff0000"
+theme.bg_urgent   = theme.red
 theme.bg_minimize = "#444444"
 theme.bg_systray  = theme.bg_normal
 
-theme.fg_normal   = "#fffdd0"
-theme.fg_focus    = "#ffff00"
+theme.fg_normal   = theme.cream
+theme.fg_focus    = theme.yellow
 theme.fg_urgent   = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(0)
-theme.border_normal = "#000000"
+theme.border_normal = theme.black
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
--- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
--- tasklist_[bg|fg]_[focus|urgent]
--- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
+--
+theme.dbg = theme.dark_red4
+theme.lbg = theme.black
 
-theme.tasklist_bg_focus = "#fff000"
+theme.volume_bg_bar = theme.dark_red1
+theme.volume_fg_bar = theme.yellow
+theme.volume_handle = theme.white
+-- soft white "#fdfdfd"
 
-theme.titlebar_bg_normal = "#000"
-theme.titlebar_bg_focus = "#fff000"
+-- tasklist_[bg|fg]_[focus|urgent]
+theme.tasklist_bg_focus = theme.yellow
 
-theme.taglist_fg_focus = "#fff000"
-theme.taglist_bg_focus = "#444"
-theme.taglist_fg_occupied = "#ffa500"
-theme.taglist_bg_occupied = "#000"
-theme.taglist_fg_urgent = "#ff0000"
-theme.taglist_bg_urgent = "#000"
-theme.taglist_fg_empty = "#fffdd0"
-theme.taglist_bg_empty = "#000"
+-- titlebar_[bg|fg]_[normal|focus]
+theme.titlebar_bg_normal = theme.black
+theme.titlebar_bg_focus = theme.yellow
+
+-- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
+theme.taglist_fg_focus = theme.black
+theme.taglist_bg_focus = theme.yellow
+theme.taglist_fg_occupied = theme.yellow
+theme.taglist_bg_occupied = theme.black
+theme.taglist_fg_empty = theme.light_grey
+theme.taglist_bg_empty = theme.black
+theme.taglist_fg_urgent = theme.red
+theme.taglist_bg_urgent = theme.black
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
@@ -74,14 +116,12 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path .. "default/submenu.png"
-theme.menu_height       = dpi(15)
-theme.menu_width        = dpi(100)
 
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
+theme.menu_bg_focus = theme.black
+
+theme.menu_submenu_icon = themes_path .. "default/submenu.png"
+theme.menu_height       = dpi(30)
+theme.menu_width        = dpi(300)
 
 -- You can use your own layout icons like this:
 theme.layout_fairh      = themes_path .. "default/layouts/fairhw.png"
