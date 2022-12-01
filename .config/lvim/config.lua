@@ -184,6 +184,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- })
 
 require "autocmds"
+require "functions"
 require "settings"
 require "mappings"
 require "plugins"

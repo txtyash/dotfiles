@@ -12,13 +12,13 @@ lvim.keys.normal_mode["+"] = '"+P'
 lvim.keys.normal_mode["_"] = "a <esc>"
 lvim.keys.normal_mode["o"] = "o <BS><Esc>"
 lvim.keys.normal_mode["O"] = "O <BS><Esc>"
-lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
+lvim.keys.normal_mode["<C-s>"] = ":silent! w<CR>"
 lvim.keys.insert_mode["<Del>"] = "<esc>ciw"
 lvim.keys.normal_mode["<C-l>"] = ":nohl<CR>"
 lvim.keys.normal_mode["<C-w>s"] = ":new<CR>"
 lvim.keys.normal_mode["<C-w>v"] = ":vnew<CR>"
-lvim.keys.normal_mode["<M-c>"] = ':exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>'
-lvim.keys.insert_mode["<M-c>"] = '<esc>:exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>i'
+lvim.keys.normal_mode["<M-c>"] = ":silent! lua Theme()<CR>"
+lvim.keys.insert_mode["<M-c>"] = ":silent! lua Theme()<CR>"
 lvim.keys.visual_mode["s"] = "<CMD>lua require'hop'.hint_words()<CR>"
 lvim.keys.normal_mode["s"] = "<CMD>lua require'hop'.hint_words()<CR>"
 vim.api.nvim_set_keymap("o", "s", "<CMD>lua require'hop'.hint_words()<CR>", {})

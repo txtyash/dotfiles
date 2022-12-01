@@ -12,6 +12,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local volume_widget = require "rice.statusbar.widgets.volume"
+local battery_widget = require "rice.statusbar.widgets.battery"
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -77,7 +78,11 @@ local clock = wibox.widget {
   layout = wibox.layout.fixed.vertical,
 }
 
-clock = wibox.container.margin(clock, 2, 2, 12, 2)
+clock = wibox.container.margin(clock, 2, 2, 2, 2)
+
+-- Formatted = function()
+--   -- s:sub(1, 2)
+-- end
 
 local date = wibox.widget {
   spacing = 6,
@@ -88,14 +93,14 @@ local date = wibox.widget {
     valign = "center",
   },
   {
-    font   = "FontAwesome 5 Free Solid:size=12:style=Bold;3",
+    font   = beautiful.icon_font,
     markup = '',
     align  = "center",
     valign = "center",
     widget = wibox.widget.textbox
   },
   {
-    format = "0%w",
+    format = "%W",
     widget = wibox.widget.textclock,
     align  = "center",
     valign = "center",
@@ -103,26 +108,24 @@ local date = wibox.widget {
   layout = wibox.layout.fixed.vertical,
 }
 
--- local battery = wibox.widget {
---   battery_widget(
---     {
---       font               = "FontAwesome 5 Free Solid:size=12:style=Bold;3",
---       show_current_level = true,
---     }
---   ),
---   layout = wibox.layout.fixed.vertical,
--- }
-
 -- date = wibox.container.margin(date, 2, 2, 12, 2)
+
+local battery = wibox.widget {
+  battery_widget(
+    {
+      font               = beautiful.font,
+      size               = 26,
+      show_current_level = true,
+      arc_thickness      = 2,
+    }
+  ),
+  layout = wibox.layout.fixed.vertical,
+}
+
 
 awful.screen.connect_for_each_screen(function(s)
 
-  MyLauncher = awful.widget.launcher(
-    {
-      image = dir .. "icons/menu.png",
-      menu = MainMenu
-    }
-  )
+  MyLauncher = wibox.container.margin(MyLauncher, 2, 2, 12, 2)
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -225,11 +228,10 @@ awful.screen.connect_for_each_screen(function(s)
 
   s.tasklistmin = wibox.container.margin(s.tasklistmin, 1, 1, 1, 1)
 
-  local mysystray = wibox.container {
+  local tray = wibox.container {
     wibox.container.margin(wibox.widget.systray(), 1, 1, 1, 1),
     direction = 'east',
     widget    = wibox.container.rotate,
-    spacing   = 6,
   }
 
   -- Create the wibox
@@ -240,6 +242,7 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.vertical,
     { -- Left widgets
       spacing = 12,
+      MyLauncher,
       clock,
       -- battery,
       s.mytaglist,
@@ -252,9 +255,9 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.vertical,
       s.tasklistmin,
       volume_widget(),
-      mysystray,
+      battery,
+      tray,
       date,
-      MyLauncher,
       s.mylayoutbox,
     },
     left = 300, -- TODO

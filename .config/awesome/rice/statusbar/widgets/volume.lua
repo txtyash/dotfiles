@@ -1,5 +1,6 @@
 local wibox = require("wibox")
 local gears = require("gears")
+local debug = require("gears.debug")
 local beautiful = require("beautiful")
 local awful = require("awful")
 local rubato = require("modules.rubato")
@@ -7,6 +8,7 @@ local color = require("modules.color")
 local helpers = require("lib/helpers")
 
 return function(s)
+
   local volbar = wibox.widget {
     {
       {
@@ -43,11 +45,12 @@ return function(s)
     {
       {
         {
+          id            = "icon",
           widget        = wibox.widget.textbox,
-          markup        = "<span foreground='" .. beautiful.white .. "'>墳</span>",
+          markup        = "",
           align         = "center",
           valign        = "center",
-          font          = "JetBrains Mono Nerd Font Mono 18",
+          font          = beautiful.icon_font,
           forced_height = 28
         },
         widget = wibox.container.background,
@@ -60,15 +63,45 @@ return function(s)
     layout = wibox.layout.fixed.vertical
   }
 
+  local mute_status = wibox.widget {
+    {
+      id            = "is_mute",
+      widget        = wibox.widget.textbox,
+      markup        = "sex",
+      align         = "center",
+      valign        = "center",
+      font          = "JetBrains Mono Nerd Font Mono 18",
+      forced_height = 28
+    },
+  }
+
   local vol = volbar.reveal.margin.rotate.vol
+  local is_mute = mute_status.is_mute
+  local icon = volbar.shape.bgcol.icon
 
   volbar:buttons(gears.table.join(
-    awful.button({}, 4, function() vol:set_value(vol.value + 5) end),
-    awful.button({}, 5, function() vol:set_value(vol.value - 5) end))
+    awful.button({}, 4, function() vol:set_value(vol.value - 3) end),
+    awful.button({}, 5, function() vol:set_value(vol.value + 3) end))
   )
 
   volbar.shape:buttons(gears.table.join(
-    awful.button({}, 1, function() awful.spawn.with_shell("pamixer --toggle-mute") end))
+    awful.button({}, 1, function()
+
+      awful.spawn.with_shell("pamixer --toggle-mute")
+
+      awful.spawn.easy_async_with_shell("pamixer --get-mute", function(stdout)
+        is_mute:set_markup_silently(stdout)
+      end)
+
+      if is_mute.markup == "true\n" then
+        icon:set_markup_silently("")
+      elseif is_mute.markup == "false\n" then
+        icon:set_markup_silently("")
+      else
+        icon:set_markup_silently("?")
+      end
+
+    end))
   )
 
   local volume_slide = rubato.timed {

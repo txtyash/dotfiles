@@ -11,16 +11,27 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = "sans 6 bold"
+theme.font = "JetBrains Mono Nerd Font Mono Bold 12"
+theme.icon_font = "FontAwesome 5 Free Solid Bold 12"
 
 -- Color palette
 theme.white = "#ffffff"
 theme.black = "#000000"
 theme.light_grey = "#bebebe"
+theme.dark_grey = "#3a3b3c"
 theme.grey = "#808080"
-theme.cream = "#f6e38a"
+theme.cream = "#fffdd0"
+theme.khaki = "#f0e68d"
+theme.cherry = "#ff0636"
+theme.green = "#00ff00"
+theme.tangerine = "#f28500"
+theme.sky_blue = "#87ceeb"
+theme.green = "#00ff00"
+theme.glass = "#ffffff00"
+theme.smoked_glass = "#ffffff11"
 
 -- Shades of red
+theme.dark_red = "#ee4b2b"
 theme.dark_red1 = "#0e0000"
 theme.dark_red2 = "#1c0000"
 theme.dark_red3 = "#2a0000"
@@ -47,7 +58,7 @@ theme.purple6 = "#9c27b0"
 theme.red = "#ff0000"
 theme.yellow = "#ffff00"
 
-theme.bg_normal   = theme.dark_red1
+theme.bg_normal   = theme.dark_red4 -- bar color
 theme.bg_focus    = "#535d6c"
 theme.bg_urgent   = theme.red
 theme.bg_minimize = "#444444"
@@ -73,13 +84,16 @@ theme.border_marked = "#91231c"
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 --
-theme.dbg = theme.dark_red4
-theme.lbg = theme.black
+theme.dbg = theme.orange3
+theme.lbg = theme.dark_red6
 
-theme.volume_bg_bar = theme.dark_red1
+theme.systray_icon_spacing = 9
+
+theme.volume_bg_bar = theme.purple5
 theme.volume_fg_bar = theme.yellow
 theme.volume_handle = theme.white
--- soft white "#fdfdfd"
+
+theme.battery_arc = theme.white
 
 -- tasklist_[bg|fg]_[focus|urgent]
 theme.tasklist_bg_focus = theme.yellow
@@ -89,12 +103,12 @@ theme.titlebar_bg_normal = theme.black
 theme.titlebar_bg_focus = theme.yellow
 
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
-theme.taglist_fg_focus = theme.black
+theme.taglist_fg_focus = theme.dark_red6
 theme.taglist_bg_focus = theme.yellow
 theme.taglist_fg_occupied = theme.yellow
-theme.taglist_bg_occupied = theme.black
-theme.taglist_fg_empty = theme.light_grey
-theme.taglist_bg_empty = theme.black
+theme.taglist_bg_occupied = theme.orange2
+theme.taglist_fg_empty = theme.khaki
+theme.taglist_bg_empty = theme.dark_red4
 theme.taglist_fg_urgent = theme.red
 theme.taglist_bg_urgent = theme.black
 
