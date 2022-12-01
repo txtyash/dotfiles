@@ -79,19 +79,11 @@ return function(s)
   local is_mute = mute_status.is_mute
   local icon = volbar.shape.bgcol.icon
 
-  volbar:buttons(gears.table.join(
-    awful.button({}, 4, function() vol:set_value(vol.value - 3) end),
-    awful.button({}, 5, function() vol:set_value(vol.value + 3) end))
-  )
+  local icon_update =
+  function()
+    awful.spawn.easy_async_with_shell("pamixer --get-mute", function(stdout)
 
-  volbar.shape:buttons(gears.table.join(
-    awful.button({}, 1, function()
-
-      awful.spawn.with_shell("pamixer --toggle-mute")
-
-      awful.spawn.easy_async_with_shell("pamixer --get-mute", function(stdout)
-        is_mute:set_markup_silently(stdout)
-      end)
+      is_mute:set_markup_silently(stdout)
 
       if is_mute.markup == "true\n" then
         icon:set_markup_silently("")
@@ -101,8 +93,21 @@ return function(s)
         icon:set_markup_silently("?")
       end
 
-    end))
-  )
+    end)
+  end
+
+  icon_update()
+
+  volbar.shape:buttons(gears.table.join(
+    awful.button({}, 1, function()
+
+      awful.spawn.easy_async_with_shell("pamixer --toggle-mute", function()
+        icon_update()
+      end)
+
+    end),
+    awful.button({}, 4, function() vol:set_value(vol.value - 3) end),
+    awful.button({}, 5, function() vol:set_value(vol.value + 3) end)))
 
   local volume_slide = rubato.timed {
     pos        = 0,
