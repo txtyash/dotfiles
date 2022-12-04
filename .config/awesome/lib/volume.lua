@@ -11,9 +11,10 @@ volume.increase = function()
 end
 
 volume.toggle = function()
-  local script = [[
- pamixer --toggle-mute
-	]]
+  awful.spawn.easy_async_with_shell("pamixer --toggle-mute", function()
+    Icon_update()
+  end)
+
 
   awful.spawn.with_shell(script)
 end

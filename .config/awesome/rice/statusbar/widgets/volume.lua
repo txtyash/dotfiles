@@ -17,16 +17,16 @@ return function(s)
             id               = "vol",
             widget           = wibox.widget.slider,
             bar_shape        = gears.shape.rounded_rect,
-            bar_height       = 4,
+            bar_height       = 9,
             bar_color        = beautiful.lbg,
             bar_active_color = beautiful.white,
             handle_color     = beautiful.white,
             handle_shape     = gears.shape.circle,
-            handle_width     = 4,
+            handle_width     = 12,
             handle_cursor    = "sb_v_double_arrow",
             maximum          = 100,
             minimum          = 0,
-            forced_width     = 80,
+            forced_width     = 200,
           },
           id        = "rotate",
           widget    = wibox.container.rotate,
@@ -34,8 +34,8 @@ return function(s)
         },
         id     = "margin",
         widget = wibox.container.margin,
-        top    = 8,
-        bottom = 8
+        top    = 6,
+        bottom = 6
       },
       id       = "reveal",
       widget   = wibox.container.constraint,
@@ -79,8 +79,7 @@ return function(s)
   local is_mute = mute_status.is_mute
   local icon = volbar.shape.bgcol.icon
 
-  local icon_update =
-  function()
+  Icon_update = function()
     awful.spawn.easy_async_with_shell("pamixer --get-mute", function(stdout)
 
       is_mute:set_markup_silently(stdout)
@@ -96,13 +95,13 @@ return function(s)
     end)
   end
 
-  icon_update()
+  Icon_update()
 
   volbar.shape:buttons(gears.table.join(
     awful.button({}, 1, function()
 
       awful.spawn.easy_async_with_shell("pamixer --toggle-mute", function()
-        icon_update()
+        Icon_update()
       end)
 
     end),

@@ -18,8 +18,8 @@ client.connect_signal("request::titlebars", function(c)
   )
 
   awful.titlebar(c, {
-    size = 6,
-    position = "top",
+    size = beautiful.titlebar_size,
+    position = beautiful.titlebar_position,
     bg_focus = beautiful.titlebar_bg_focus,
     bg_normal = beautiful.titlebar_bg_normal,
   })

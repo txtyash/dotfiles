@@ -6,7 +6,7 @@ require "errors"
 
 -- Load the UI
 Theme = "sun"
-Titlebar = "sun"
+Titlebar = "lightsaber"
 require "rice"
 
 -- Load the configuration

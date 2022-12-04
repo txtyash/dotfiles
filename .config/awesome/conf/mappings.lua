@@ -7,7 +7,7 @@ local touchpad = require("lib.touchpad")
 require("lib.scratchpads")
 -- local bling = require("modules.bling")
 
-globalkeys = gears.table.join(
+GlobalKeys = gears.table.join(
   awful.key({ Modkey, "Shift" }, "Return", hotkeys_popup.show_help,
     { description = "show help", group = "awesome" }),
   awful.key({ Modkey, }, "Left", awful.tag.viewprev,
@@ -151,7 +151,14 @@ clientkeys = gears.table.join(
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
-  globalkeys = gears.table.join(globalkeys,
+  GlobalKeys = gears.table.join(GlobalKeys,
+
+    awful.key({ Modkey }, "p", function() awful.tag.viewnext() end,
+      { description = "focus previous tag", group = "client" }),
+
+    awful.key({ Modkey }, "n", function() awful.tag.viewprev() end,
+      { description = "focus next tag", group = "client" }),
+
     -- View tag only.
     awful.key({ Modkey }, "#" .. i + 9,
       function()
@@ -162,6 +169,7 @@ for i = 1, 9 do
         end
       end,
       { description = "view tag #" .. i, group = "tag" }),
+
     -- Toggle tag display.
     awful.key({ Modkey, "Control" }, "#" .. i + 9,
       function()
@@ -172,6 +180,7 @@ for i = 1, 9 do
         end
       end,
       { description = "toggle tag #" .. i, group = "tag" }),
+
     -- Move client to tag.
     awful.key({ Modkey, "Shift" }, "#" .. i + 9,
       function()
@@ -212,10 +221,7 @@ clientbuttons = gears.table.join(
 )
 
 -- Set keys
-root.keys(globalkeys)
-
--- Keyboard map indicator and switcher
-MyKeyboardLayout = awful.widget.keyboardlayout()
+root.keys(GlobalKeys)
 
 -- Mouse bindings
 root.buttons(gears.table.join(

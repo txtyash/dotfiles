@@ -100,6 +100,7 @@ local date = wibox.widget {
     widget = wibox.widget.textbox
   },
   {
+    id     = "day",
     format = "%W",
     widget = wibox.widget.textclock,
     align  = "center",
@@ -114,7 +115,7 @@ local battery = wibox.widget {
   battery_widget(
     {
       font               = beautiful.font,
-      size               = 26,
+      size               = 24,
       show_current_level = true,
       arc_thickness      = 2,
     }
@@ -124,6 +125,9 @@ local battery = wibox.widget {
 
 
 awful.screen.connect_for_each_screen(function(s)
+
+  -- Keyboard map indicator and switcher
+  -- MyKeyboardLayout = awful.widget.keyboardlayout()
 
   MyLauncher = wibox.container.margin(MyLauncher, 2, 2, 12, 2)
 
@@ -235,10 +239,10 @@ awful.screen.connect_for_each_screen(function(s)
   }
 
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "left", screen = s, width = 30 })
+  s.statusbar = awful.wibar({ position = "left", screen = s, width = 30 })
 
   -- Add widgets to the wibox
-  s.mywibox:setup {
+  s.statusbar:setup {
     layout = wibox.layout.align.vertical,
     { -- Left widgets
       spacing = 12,

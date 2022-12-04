@@ -31,22 +31,15 @@ theme.green = "#00ff00"
 theme.glass = "#ffffff00"
 theme.smoked_glass = "#ffffff11"
 
--- Shades of red
-theme.dark_red = "#ee4b2b"
-theme.dark_red1 = "#0e0000"
-theme.dark_red2 = "#1c0000"
-theme.dark_red3 = "#2a0000"
-theme.dark_red4 = "#380000"
-theme.dark_red5 = "#460000"
-theme.dark_red6 = "#530000"
-
--- Shades of orange
-theme.orange1 = "#612400"
-theme.orange2 = "#7a2d00"
-theme.orange3 = "#b34200"
-theme.orange4 = "#e45500"
-theme.orange5 = "#ff6206"
-theme.orange6 = "#ff9657"
+-- Shades of pink
+theme.pink = "#ffc0cb"
+theme.pink1 = "#7f3667"
+theme.pink2 = "#a53e76"
+theme.pink3 = "#bb437e"
+theme.pink4 = "#d24787"
+theme.pink5 = "#e44b8d"
+theme.pink6 = "#e2619f"
+theme.hot_pink = "#ff69b4"
 
 -- Shades of purple
 theme.purple1 = "#100412"
@@ -56,24 +49,21 @@ theme.purple4 = "#4e1458"
 theme.purple5 = "#5e176a"
 theme.purple6 = "#9c27b0"
 
-theme.red = "#ff0000"
-theme.yellow = "#ffff00"
-
-theme.bg_normal   = theme.dark_red4 -- statusbar color
-theme.bg_focus    = "#535d6c"
-theme.bg_urgent   = theme.red
-theme.bg_minimize = "#444444"
+theme.bg_normal   = theme.purple1 -- statusbar color
+theme.bg_focus    = theme.pink
+theme.bg_urgent   = theme.black
+theme.bg_minimize = theme.grey
 theme.bg_systray  = theme.bg_normal
 
 theme.fg_normal   = theme.cream
-theme.fg_focus    = theme.yellow
-theme.fg_urgent   = "#ffffff"
-theme.fg_minimize = "#ffffff"
+theme.fg_focus    = theme.pink
+theme.fg_urgent   = theme.white
+theme.fg_minimize = theme.white
 
-theme.useless_gap   = dpi(0)
+theme.useless_gap   = dpi(6)
 theme.border_width  = dpi(0)
 theme.border_normal = theme.black
-theme.border_focus  = theme.yellow
+theme.border_focus  = theme.pink
 theme.border_marked = theme.black
 
 -- There are other variable sets
@@ -86,52 +76,33 @@ theme.border_marked = theme.black
 -- Example:
 --
 theme.dbg = theme.orange3
-theme.lbg = theme.dark_red6
+theme.lbg = theme.dark_purple6
 
 theme.systray_icon_spacing = 9
 
 theme.volume_bg_bar = theme.purple5
-theme.volume_fg_bar = theme.yellow
+theme.volume_fg_bar = theme.pink
 theme.volume_handle = theme.white
 
-theme.bat_fg_arc = theme.white
-theme.bat_bg_arc = theme.black
-theme.bat_low = theme.cherry
-theme.bat_medium = theme.yellow
-theme.bat_charging = theme.sky_blue
-theme.bat_full = theme.green
-
-theme.bat_arc_bg = theme.black
-theme.bat_arc_low = theme.cherry
-theme.bat_arc_avg = theme.yellow
-theme.bat_arc_good = theme.white
-theme.charging_bg = theme.sky_blue
-theme.charging_fg = theme.black
-theme.discharging_bg = theme.glass
-theme.discharging_fg = theme.white
-theme.fulcharge_bg = theme.green
-theme.fulcharge_fg = theme.black
-
-theme.bat_warn_bg = "#F06060"
-theme.bat_warn_fg = "#EEE9EF"
+theme.battery_arc = theme.white
 
 -- tasklist_[bg|fg]_[focus|urgent]
-theme.tasklist_bg_focus = theme.yellow
+theme.tasklist_bg_focus = theme.pink
 
 -- titlebar_[bg|fg]_[normal|focus]
 theme.titlebar_size = 6
 theme.titlebar_position = "top"
 theme.titlebar_bg_normal = theme.black
-theme.titlebar_bg_focus = theme.yellow
+theme.titlebar_bg_focus = theme.hot_pink
 
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
-theme.taglist_fg_focus = theme.dark_red6
-theme.taglist_bg_focus = theme.yellow
-theme.taglist_fg_occupied = theme.yellow
-theme.taglist_bg_occupied = theme.orange2
+theme.taglist_fg_focus = theme.dark_purple6
+theme.taglist_bg_focus = theme.pink
+theme.taglist_fg_occupied = theme.pink
+theme.taglist_bg_occupied = theme.pink2
 theme.taglist_fg_empty = theme.khaki
-theme.taglist_bg_empty = theme.dark_red4
-theme.taglist_fg_urgent = theme.red
+theme.taglist_bg_empty = theme.dark_purple4
+theme.taglist_fg_urgent = theme.pink
 theme.taglist_bg_urgent = theme.black
 
 -- Generate taglist squares:

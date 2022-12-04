@@ -4,7 +4,7 @@ local autostart = {}
 
 local startup_apps = {
   Networking,
-  Compositor,
+  -- Compositor,
   ScreenCapture,
 }
 
