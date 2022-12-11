@@ -41,6 +41,7 @@ theme.dark_red5 = "#460000"
 theme.dark_red6 = "#530000"
 
 -- Shades of orange
+theme.orange = "#ffa500"
 theme.orange1 = "#612400"
 theme.orange2 = "#7a2d00"
 theme.orange3 = "#b34200"
@@ -94,14 +95,7 @@ theme.volume_bg_bar = theme.purple5
 theme.volume_fg_bar = theme.yellow
 theme.volume_handle = theme.white
 
-theme.bat_fg_arc = theme.white
-theme.bat_bg_arc = theme.black
-theme.bat_low = theme.cherry
-theme.bat_medium = theme.yellow
-theme.bat_charging = theme.sky_blue
-theme.bat_full = theme.green
-
-theme.bat_arc_bg = theme.black
+theme.bat_arc_bg = theme.glass
 theme.bat_arc_low = theme.cherry
 theme.bat_arc_avg = theme.yellow
 theme.bat_arc_good = theme.white
@@ -109,8 +103,8 @@ theme.charging_bg = theme.sky_blue
 theme.charging_fg = theme.black
 theme.discharging_bg = theme.glass
 theme.discharging_fg = theme.white
-theme.fulcharge_bg = theme.green
-theme.fulcharge_fg = theme.black
+theme.fullcharge_bg = theme.green
+theme.fullcharge_fg = theme.black
 
 theme.bat_warn_bg = "#F06060"
 theme.bat_warn_fg = "#EEE9EF"
@@ -131,8 +125,8 @@ theme.taglist_fg_occupied = theme.yellow
 theme.taglist_bg_occupied = theme.orange2
 theme.taglist_fg_empty = theme.khaki
 theme.taglist_bg_empty = theme.dark_red4
-theme.taglist_fg_urgent = theme.red
-theme.taglist_bg_urgent = theme.black
+theme.taglist_fg_urgent = theme.white
+theme.taglist_bg_urgent = theme.cherry
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)

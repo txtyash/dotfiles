@@ -6,6 +6,8 @@
 *   [x] tag colors
 *   [x] battery, volume modules
 *   [x] hotkeys
+*   [ ] `mod+f`-> `mod+space` bug
+*   [ ] calendar icon notif
 *   [ ] Investigate `exec dbus-launch --sh-syntax --exit-with-session awesome`
 *   [ ] Wallpaper match pattern
 *   [ ] workspaces:

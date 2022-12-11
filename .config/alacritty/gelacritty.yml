@@ -1,27 +1,27 @@
 colors:
-  name: Atelierforest (light)
-  author: Chris Kempson
+  name: Count Von Count
+  author: Baskerville
   primary:
-    background: "#f1efee"
-    foreground: "#68615e"
+    background: "#000000"
+    foreground: "#919191"
   cursor:
-    text: "#f1efee"
-    cursor: "#68615e"
+    text: "#000000"
+    cursor: "#919191"
   normal:
-    black: "#1b1918"
-    red: "#f22c40"
-    green: "#5ab738"
-    yellow: "#d5911a"
-    blue: "#407ee7"
-    magenta: "#6666ea"
-    cyan: "#00ad9c"
-    white: "#a8a19f"
+    black: "#303030"
+    red: "#c10023"
+    green: "#a83334"
+    yellow: "#b51d2c"
+    blue: "#8c4b46"
+    magenta: "#7d534f"
+    cyan: "#9a413d"
+    white: "#c6c6c6"
   bright:
-    black: "#766e6b"
-    red: "#f22c40"
-    green: "#5ab738"
-    yellow: "#d5911a"
-    blue: "#407ee7"
-    magenta: "#6666ea"
-    cyan: "#00ad9c"
-    white: "#f1efee"
+    black: "#5e5e5e"
+    red: "#ff8781"
+    green: "#ffa095"
+    yellow: "#ff948b"
+    blue: "#feb2aa"
+    magenta: "#ebbbb5"
+    cyan: "#ffaaa0"
+    white: "#ffffff"

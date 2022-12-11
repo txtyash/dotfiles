@@ -10,7 +10,6 @@ local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
--- local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local volume_widget = require "rice.statusbar.widgets.volume"
 local battery_widget = require "rice.statusbar.widgets.battery"
 
@@ -103,11 +102,14 @@ local date = wibox.widget {
     id     = "day",
     format = "%W",
     widget = wibox.widget.textclock,
-    align  = "center",
-    valign = "center",
+    align  = "left",
+    valign = "left",
   },
   layout = wibox.layout.fixed.vertical,
 }
+
+local day = date.day
+day:set_markup_silently(string.lower(day.markup:sub(1, 3)))
 
 -- date = wibox.container.margin(date, 2, 2, 12, 2)
 
@@ -122,7 +124,6 @@ local battery = wibox.widget {
   ),
   layout = wibox.layout.fixed.vertical,
 }
-
 
 awful.screen.connect_for_each_screen(function(s)
 
@@ -230,10 +231,10 @@ awful.screen.connect_for_each_screen(function(s)
     }
   }
 
-  s.tasklistmin = wibox.container.margin(s.tasklistmin, 1, 1, 1, 1)
+  s.tasklistmin = wibox.container.margin(s.tasklistmin, 3, 3, 2, 2)
 
   local tray = wibox.container {
-    wibox.container.margin(wibox.widget.systray(), 1, 1, 1, 1),
+    wibox.container.margin(wibox.widget.systray(), 2, 2, 2, 2),
     direction = 'east',
     widget    = wibox.container.rotate,
   }
@@ -248,7 +249,6 @@ awful.screen.connect_for_each_screen(function(s)
       spacing = 12,
       MyLauncher,
       clock,
-      -- battery,
       s.mytaglist,
       s.mypromptbox,
       layout = wibox.layout.fixed.vertical,

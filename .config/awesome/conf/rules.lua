@@ -16,16 +16,24 @@ awful.rules.rules = {
     }
   },
 
+  { rule_any = {
+    class = {
+      "scratchy",
+    },
+  },
+    properties = {
+      placement = awful.placement.top
+    }
+  },
+
   -- Floating clients.
   { rule_any = {
     instance = {
       "DTA", -- Firefox addon DownThemAll.
       "copyq", -- Includes session name in class.
       "pinentry",
-      "scratchy",
     },
     class = {
-      "scratchy",
       "flameshot",
       "Arandr",
       "Blueman-manager",

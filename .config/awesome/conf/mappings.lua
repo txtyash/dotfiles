@@ -4,8 +4,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local volume = require("lib.volume")
 local brightness = require("lib.brightness")
 local touchpad = require("lib.touchpad")
-require("lib.scratchpads")
--- local bling = require("modules.bling")
+local scratchy = require("lib.scratch")
 
 GlobalKeys = gears.table.join(
   awful.key({ Modkey, "Shift" }, "Return", hotkeys_popup.show_help,
@@ -35,9 +34,8 @@ GlobalKeys = gears.table.join(
     function()
       local master = awful.client.getmaster(awful.screen.focused())
       if master then
-        master:emit_signal(
-          "request::activate", { raise = true }
-        )
+        master:emit_signal("request::activate", "client.focus.byidx",
+          { raise = true })
       end
     end,
     { description = "focus master", group = "client" }
@@ -67,6 +65,16 @@ GlobalKeys = gears.table.join(
   awful.key({}, "XF86AudioLowerVolume", volume.decrease,
     { description = "Lower volume", group = "hotkeys" }),
 
+  -- Power keys
+  awful.key({}, "XF86PowerOff", function()
+    awful.spawn.with_shell("xset dpms force off")
+  end,
+    { description = "Screen off", group = "hotkeys" }),
+  awful.key({ Modkey }, "XF86PowerOff", function()
+    awful.spawn.with_shell("xset dpms force off && slock")
+  end,
+    { description = "Screen Lock", group = "hotkeys" }),
+
   -- Brightness keys
   awful.key({}, "XF86MonBrightnessUp", brightness.increase,
     { description = "Lower volume", group = "hotkeys" }),
@@ -90,8 +98,10 @@ GlobalKeys = gears.table.join(
     { description = "open a terminal", group = "launcher" }),
   awful.key({ Modkey, }, "b", function() awful.spawn(Browser) end,
     { description = "open a browser", group = "launcher" }),
-  -- awful.key({ Modkey, }, "e", function() Scratchy:toggle() end,
-  --   { description = "scratchpad", group = "client" }),
+  awful.key({ Modkey, }, "e", function()
+  scratchy.toggle("alacritty --class scratchy -e htop", {instance = "scratchy"})
+  end,
+    { description = "scratchpad", group = "client" }),
   awful.key({ Modkey, }, "r", function()
     awful.spawn.with_shell("rofi -no-lazy-grab -show drun -modi run,drun,window -theme $HOME/.config/rofi/launcher/style -drun-icon-theme \'papirus\' ")
   end,

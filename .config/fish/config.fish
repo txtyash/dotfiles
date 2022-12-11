@@ -60,6 +60,8 @@ alias la="ls -lha"
 
 alias x="exit"
 alias c="z"
+alias cat="bat"
+alias ping="gping"
 
 alias v="lvim"
 alias fm="joshuto"
