@@ -5,7 +5,7 @@ return {
   color_scheme = "Atelier Dune Light (base16)",
   tab_bar_at_bottom = true,
   default_cursor_style = 'BlinkingUnderline',
-  action = wezterm.action.CloseCurrentTab { confirm = false },
+  -- action = wezterm.action.CloseCurrentTab { confirm = false },
   window_close_confirmation = "NeverPrompt",
   keys = {
     { key = 'v', mods = 'ALT', action = 'ActivateCopyMode' },

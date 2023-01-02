@@ -18,7 +18,7 @@ lvim.keys.normal_mode["<C-l>"] = ":nohl<CR>"
 lvim.keys.normal_mode["<C-w>s"] = ":new<CR>"
 lvim.keys.normal_mode["<C-w>v"] = ":vnew<CR>"
 lvim.keys.normal_mode["<M-c>"] = ":silent! lua Theme()<CR>"
-lvim.keys.insert_mode["<M-c>"] = ":silent! lua Theme()<CR>"
+lvim.keys.insert_mode["<M-c>"] = "<esc>:silent! lua Theme()<CR>"
 lvim.keys.visual_mode["s"] = "<CMD>lua require'hop'.hint_words()<CR>"
 lvim.keys.normal_mode["s"] = "<CMD>lua require'hop'.hint_words()<CR>"
 vim.api.nvim_set_keymap("o", "s", "<CMD>lua require'hop'.hint_words()<CR>", {})

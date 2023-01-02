@@ -9,5 +9,9 @@ Theme = "sun"
 Titlebar = "lightsaber"
 require "rice"
 
--- Load the configuration
+-- config
 require "conf"
+
+-- tag retained restart
+-- require "lib.save_tag"
+-- LoadLastActiveTag()

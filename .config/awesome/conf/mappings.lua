@@ -1,31 +1,44 @@
-local awful = require("awful")
-local gears = require("gears")
-local hotkeys_popup = require("awful.hotkeys_popup")
-local volume = require("lib.volume")
-local brightness = require("lib.brightness")
-local touchpad = require("lib.touchpad")
-local scratchy = require("lib.scratch")
+local awful = require 'awful'
+local gears = require 'gears'
+local hotkeys_popup = require 'awful.hotkeys_popup'
+local volume = require 'lib.volume'
+local brightness = require 'lib.brightness'
+local touchpad = require 'lib.touchpad'
+local scratchy = require 'lib.scratch'
+local minsw = require 'lib.mini_switch'
+local maxsw = require 'lib.max_switch'
+local mouse = mouse
 
 GlobalKeys = gears.table.join(
   awful.key({ Modkey, "Shift" }, "Return", hotkeys_popup.show_help,
     { description = "show help", group = "awesome" }),
-  awful.key({ Modkey, }, "Left", awful.tag.viewprev,
+  awful.key({ Modkey, }, "Up", awful.tag.viewprev,
     { description = "view previous", group = "tag" }),
-  awful.key({ Modkey, }, "Right", awful.tag.viewnext,
+  awful.key({ Modkey, }, "Down", awful.tag.viewnext,
     { description = "view next", group = "tag" }),
   awful.key({ Modkey, }, "Escape", awful.tag.history.restore,
     { description = "go back", group = "tag" }),
 
   awful.key({ Modkey, }, "j",
     function()
-      awful.client.focus.byidx(1)
+      local layout = awful.layout.getname()
+      if layout == "max" or layout == "fullscreen" then
+        maxsw.switch(-1, "Super_L", "k", "j")
+      else
+        awful.client.focus.byidx(1)
+      end
     end,
     { description = "focus next by index", group = "client" }
   ),
 
   awful.key({ Modkey, }, "k",
     function()
-      awful.client.focus.byidx(-1)
+      local layout = awful.layout.getname()
+      if layout == "max" or layout == "fullscreen" then
+        maxsw.switch(1, "Super_L", "k", "j")
+      else
+        awful.client.focus.byidx(-1)
+      end
     end,
     { description = "focus previous by index", group = "client" }
   ),
@@ -45,7 +58,8 @@ GlobalKeys = gears.table.join(
 
   -- Screenshot keys
   awful.key({}, "Print", function()
-    awful.spawn.with_shell("flameshot full -c -p ~/screenshots_full -c")
+    -- awful.spawn.with_shell("flameshot full -c -p ~/screenshots_full -c")
+    awful.spawn.with_shell("flameshot gui -c -s")
   end,
     { description = "Full screenshot", group = "hotkeys" }),
   awful.key({ "Shift" }, "Print", function()
@@ -93,13 +107,21 @@ GlobalKeys = gears.table.join(
   awful.key({ Modkey, "Control" }, "k", function() awful.screen.focus_relative(-1) end,
     { description = "focus the previous screen", group = "screen" }),
 
+
+  -- Toggle fake fullscreen
+  --
+  awful.key({ Modkey, }, "g",
+    function() no_fullscreen = not no_fullscreen end,
+    { description = "toggle fullscreen", group = "client" }),
+
   -- Spawn!
   awful.key({ Modkey, }, "t", function() awful.spawn(Terminal) end,
     { description = "open a terminal", group = "launcher" }),
   awful.key({ Modkey, }, "b", function() awful.spawn(Browser) end,
     { description = "open a browser", group = "launcher" }),
   awful.key({ Modkey, }, "e", function()
-  scratchy.toggle("alacritty --class scratchy -e htop", {instance = "scratchy"})
+    scratchy.toggle("alacritty --class scratchy -e lvim /home/zim/.md/scratch.md /home/zim/.md/todo.md /home/zim/.md/routine.md /home/zim/.md/reference.md /home/zim/.md/ideas.md"
+      , { instance = "scratchy" })
   end,
     { description = "scratchpad", group = "client" }),
   awful.key({ Modkey, }, "r", function()
@@ -129,16 +151,12 @@ GlobalKeys = gears.table.join(
     { description = "decrease the number of columns", group = "layout" }),
   awful.key({ Modkey, }, "space", function() awful.layout.inc(1) end,
     { description = "select next", group = "layout" }),
+  -- awful.key({ Modkey, }, "'", function() awful.layout.set(awful.layout.suit.max.fullscreen) end,
+  --   { description = "select next", group = "layout" }),
   awful.key({ Modkey, }, "o",
     function()
-      local c = awful.client.restore()
-      if c then
-        c:emit_signal(
-          "request::activate", "key.unminimize", { raise = true }
-        )
-      end
-    end,
-    { description = "restore minimized", group = "client" })
+      minsw.switch(1, "Super_L", "o", "i")
+    end)
 )
 
 clientkeys = gears.table.join(
@@ -216,7 +234,7 @@ for i = 1, 9 do
   )
 end
 
-clientbuttons = gears.table.join(
+ClientButtons = gears.table.join(
   awful.button({}, 1, function(c)
     c:emit_signal("request::activate", "mouse_click", { raise = true })
   end),

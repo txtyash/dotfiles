@@ -2,17 +2,23 @@
 -- Default awesome theme --
 ---------------------------
 
+local gears = require 'gears'
+
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local gfs = require("gears.filesystem")
+local gfs = require 'gears.filesystem'
 local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
+theme.mstab_bar_ontop = false
+
 theme.font = "JetBrains Mono Nerd Font Mono Bold 12"
 theme.icon_font = "FontAwesome 5 Free Solid Bold 12"
+theme.help_font = "JetBrains Mono Nerd Font Mono BOLD 9"
+theme.help_desc_font = "JetBrains Mono Nerd Font Mono Italic 8"
 
 -- Color palette
 theme.white = "#ffffff"
@@ -117,6 +123,18 @@ theme.titlebar_size = 6
 theme.titlebar_position = "top"
 theme.titlebar_bg_normal = theme.black
 theme.titlebar_bg_focus = theme.yellow
+
+-- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
+theme.hotkeys_border_width = 9
+theme.hotkeys_group_margin = 12
+theme.hotkeys_fg = theme.cream
+theme.hotkeys_bg = theme.black
+theme.hotkeys_modifiers_fg = theme.orange4
+theme.hotkeys_shape = gears.shape.rounded_rect
+theme.hotkeys_border_color = theme.dark_red4
+theme.hotkeys_font = theme.help_font
+theme.hotkeys_description_font = theme.help_desc_font
+theme.hotkeys_opacity = 0.8 -- TODO: doesn't work
 
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
 theme.taglist_fg_focus = theme.dark_red6

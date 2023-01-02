@@ -68,6 +68,7 @@ alias fm="joshuto"
 alias rgi="rg -i"
 alias rmi="rm -i"
 alias sv="sudo vim"
+alias aur="paru"
 alias cop="xsel -b <"
 
 alias off="xset dpms force off"

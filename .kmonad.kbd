@@ -33,8 +33,8 @@ lsf  (layer-toggle lshift)
 newl (tap-macro home down S-enter up)
 newla (tap-macro home S-enter up)
 
-num  (tap-hold-next-release 300 , (layer-toggle nums))
-cp   (tap-hold-next-release 300 . rctl)
+num  (tap-hold-next-release 190 , (layer-toggle nums))
+cp   (tap-hold-next-release 190 . rctl)
 
 ;; veeb  (cmd-button "brave")
 rsf (layer-toggle rshift)

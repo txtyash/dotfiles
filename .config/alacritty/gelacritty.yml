@@ -1,27 +1,27 @@
 colors:
-  name: Count Von Count
-  author: Baskerville
+  name: Paraiso (light)
+  author: Chris Kempson
   primary:
-    background: "#000000"
-    foreground: "#919191"
+    background: "#e7e9db"
+    foreground: "#4f424c"
   cursor:
-    text: "#000000"
-    cursor: "#919191"
+    text: "#e7e9db"
+    cursor: "#4f424c"
   normal:
-    black: "#303030"
-    red: "#c10023"
-    green: "#a83334"
-    yellow: "#b51d2c"
-    blue: "#8c4b46"
-    magenta: "#7d534f"
-    cyan: "#9a413d"
-    white: "#c6c6c6"
+    black: "#2f1e2e"
+    red: "#ef6155"
+    green: "#48b685"
+    yellow: "#fec418"
+    blue: "#06b6ef"
+    magenta: "#815ba4"
+    cyan: "#5bc4bf"
+    white: "#a39e9b"
   bright:
-    black: "#5e5e5e"
-    red: "#ff8781"
-    green: "#ffa095"
-    yellow: "#ff948b"
-    blue: "#feb2aa"
-    magenta: "#ebbbb5"
-    cyan: "#ffaaa0"
-    white: "#ffffff"
+    black: "#776e71"
+    red: "#ef6155"
+    green: "#48b685"
+    yellow: "#fec418"
+    blue: "#06b6ef"
+    magenta: "#815ba4"
+    cyan: "#5bc4bf"
+    white: "#e7e9db"

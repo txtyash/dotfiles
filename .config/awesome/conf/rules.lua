@@ -10,11 +10,15 @@ awful.rules.rules = {
       focus = awful.client.focus.filter,
       raise = true,
       keys = clientkeys,
-      buttons = clientbuttons,
+      buttons = ClientButtons,
       screen = awful.screen.preferred,
       placement = awful.placement.no_overlap + awful.placement.no_offscreen
     }
   },
+
+  -- { rule_any = { maximized = true },
+  --   properties = { titlebars_enabled = false, }
+  -- },
 
   { rule_any = {
     class = {
@@ -22,7 +26,8 @@ awful.rules.rules = {
     },
   },
     properties = {
-      placement = awful.placement.top
+      placement = awful.placement.top,
+      floating = true,
     }
   },
 

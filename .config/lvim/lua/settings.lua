@@ -3,6 +3,7 @@ vim.o.guifont = "Iosevka Nerd Font:h8"
 vim.g.neovide_cursor_vfx_mode = "railgun"
 
 vim.cmd([[ set rnu]])
+vim.cmd([[ set wrap]])
 vim.cmd([[ set spell]])
 vim.cmd([[ set nomodeline]]) -- emit startup warning($lvim filename)
 vim.opt.clipboard = ""
