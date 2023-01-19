@@ -1,27 +1,27 @@
 colors:
-  name: Paraiso (light)
+  name: Eighties (light)
   author: Chris Kempson
   primary:
-    background: "#e7e9db"
-    foreground: "#4f424c"
+    background: "#f2f0ec"
+    foreground: "#515151"
   cursor:
-    text: "#e7e9db"
-    cursor: "#4f424c"
+    text: "#f2f0ec"
+    cursor: "#515151"
   normal:
-    black: "#2f1e2e"
-    red: "#ef6155"
-    green: "#48b685"
-    yellow: "#fec418"
-    blue: "#06b6ef"
-    magenta: "#815ba4"
-    cyan: "#5bc4bf"
-    white: "#a39e9b"
+    black: "#2d2d2d"
+    red: "#f2777a"
+    green: "#99cc99"
+    yellow: "#ffcc66"
+    blue: "#6699cc"
+    magenta: "#cc99cc"
+    cyan: "#66cccc"
+    white: "#d3d0c8"
   bright:
-    black: "#776e71"
-    red: "#ef6155"
-    green: "#48b685"
-    yellow: "#fec418"
-    blue: "#06b6ef"
-    magenta: "#815ba4"
-    cyan: "#5bc4bf"
-    white: "#e7e9db"
+    black: "#747369"
+    red: "#f2777a"
+    green: "#99cc99"
+    yellow: "#ffcc66"
+    blue: "#6699cc"
+    magenta: "#cc99cc"
+    cyan: "#66cccc"
+    white: "#f2f0ec"

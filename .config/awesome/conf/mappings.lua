@@ -120,7 +120,7 @@ GlobalKeys = gears.table.join(
   awful.key({ Modkey, }, "b", function() awful.spawn(Browser) end,
     { description = "open a browser", group = "launcher" }),
   awful.key({ Modkey, }, "e", function()
-    scratchy.toggle("alacritty --class scratchy -e lvim /home/zim/.md/scratch.md /home/zim/.md/todo.md /home/zim/.md/routine.md /home/zim/.md/reference.md /home/zim/.md/ideas.md"
+    scratchy.toggle("alacritty --class scratchy -e lvim /home/zim/.md/scratch.md /home/zim/.md/todo.md /home/zim/.md/roadmap.md /home/zim/.md/routine.md /home/zim/.md/reference.md /home/zim/.md/ideas.md"
       , { instance = "scratchy" })
   end,
     { description = "scratchpad", group = "client" }),
