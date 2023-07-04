@@ -1,0 +1,12 @@
+window {
+   background-image: url("/home/zim/backgrounds/dock.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-color: black;
+   color: #fffdd0;
+}
+#clock-label {
+   font-family:  "CaskaydiaCove Nerd Font", "JetBrainsMono Nerd Font";
+   font-size: 60px;
+}

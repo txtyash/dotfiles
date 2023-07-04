@@ -8,7 +8,7 @@ if status is-interactive
         for mode in insert default visual
             # bind -M $mode \cc end-of-buffer kill-whole-line repaint
             bind -M $mode \cc my-cancel-commandline
-            bind -M $mode \cz "fg"
+            bind -M $mode \cz fg
             bind -M $mode \ec "gela t; commandline -f repaint"
         end
         for mode in insert default visual
@@ -63,7 +63,7 @@ alias c="z"
 alias cat="bat"
 alias ping="gping"
 
-alias v="lvim"
+alias v="nvim"
 alias fm="joshuto"
 alias rgi="rg -i"
 alias rmi="rm -i"

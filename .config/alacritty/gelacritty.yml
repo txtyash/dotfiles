@@ -1,27 +1,38 @@
+# Colors (Jellybeans)
 colors:
-  name: Eighties (light)
-  author: Chris Kempson
+  # Default colors
   primary:
-    background: "#f2f0ec"
-    foreground: "#515151"
+    background: '#161616'
+    foreground: '#e4e4e4'
+
+  # Cursor volors
   cursor:
-    text: "#f2f0ec"
-    cursor: "#515151"
+    text: '#feffff'
+    cursor: '#ffb472'
+
+  # Normal colors
   normal:
-    black: "#2d2d2d"
-    red: "#f2777a"
-    green: "#99cc99"
-    yellow: "#ffcc66"
-    blue: "#6699cc"
-    magenta: "#cc99cc"
-    cyan: "#66cccc"
-    white: "#d3d0c8"
+    black:   '#a3a3a3'
+    red:     '#e98885'
+    green:   '#a3c38b'
+    yellow:  '#ffc68d'
+    blue:    '#a6cae2'
+    magenta: '#e7cdfb'
+    cyan:    '#00a69f'
+    white:   '#e4e4e4'
+
+  # Bright colors
   bright:
-    black: "#747369"
-    red: "#f2777a"
-    green: "#99cc99"
-    yellow: "#ffcc66"
-    blue: "#6699cc"
-    magenta: "#cc99cc"
-    cyan: "#66cccc"
-    white: "#f2f0ec"
+    black:   '#c8c8c8'
+    red:     '#ffb2b0'
+    green:   '#c8e2b9'
+    yellow:  '#ffe1af'
+    blue:    '#bddff7'
+    magenta: '#fce2ff'
+    cyan:    '#0bbdb6'
+    white:   '#feffff'
+
+  # Selection colors
+  selection:
+    text: '#5963a2'
+    background: '#f6f6f6'

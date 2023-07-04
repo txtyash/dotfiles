@@ -1,0 +1,3 @@
+return { {
+  "svban/YankAssassin.vim",
+} }

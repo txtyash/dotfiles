@@ -1,5 +1,0 @@
-x
-exxit
-exi
-cat $config.menu
-la
