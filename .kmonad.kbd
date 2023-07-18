@@ -42,7 +42,7 @@ rsf (layer-toggle rshift)
 
 (deflayer custom                             ;; The default layer that'd be read when you launch kmonad
   _         _        _       _       _       _      _       _        _        _       _      _        _     _       _      _
-  @qwe      1        2       \(      \)      @vi    6       7        8        bspc    0      -        =      bspc
+  @qwe      1        2       \(      \)      @vi    6       7        8        bspc    del    -        =      bspc
   lctl      q        w       e       r       t      brup    y        u        i       o      p        '      \
   @lsf      a        s       d       f       g      brdn    h        j        k       l      @rsf     S-ret
   lalt      z        x       c       v       b      b       n        m        @num    @cp    ralt     up
@@ -51,7 +51,7 @@ rsf (layer-toggle rshift)
 
 (deflayer rshift
   _         _        _       _       _       _      _       _        _        _       _      _        _     _       _      _
-  ~         !        @       {       }       %      ^       &        *        _       \)     \_       +      bspc
+  ~         !        @       {       }       %      ^       &        *        _       _      \_       +      bspc
   S-tab     Q        W       E       R       T      _       Y        U        I       O      P        "      |
   C--       A        S       D       F       G      _       H        J        K       L      _        _    
   del       Z        X       C       V       B      B       N        M        <       >      _        _
@@ -60,11 +60,11 @@ rsf (layer-toggle rshift)
 
 (deflayer lshift
   _         _        _       _       _       _      _       _        _        _       _      _        _     _       _      _
-  ~         !        @       #       $       %      ^       &        *        C-bspc  \)     \_       +      bspc
+  ~         !        @       #       $       %      ^       &        *        C-bspc  del    \_       +      bspc
   S-tab     Q        W       E       R       T      _       Y        U        I       O      P        "      |
   _         A        S       D       F       G      _       H        J        K       L      C-+      _    
   _         Z        X       C       V       B      B       N        M        <       >      _        _
-  _         _        lmet                    S-spc                   _        _       _      _        _
+  _         _        lmet                    C-A                   _        _       _      _        _
 )
 
 (deflayer nums
@@ -87,10 +87,10 @@ rsf (layer-toggle rshift)
 
 (deflayer vim
   _         _        _          _       _       _         _       _        _        _       _      _         _     _       _      _
-  _         _        _          _       _       _         _       _        _        bspc    _      _         _     _
-  _         _        C-right    _       _       _         _       C-c      C-z      @cus    @newl  C-v       _     _
+  _         _        _          _       _       _         _       _        _        bspc    del    _         _     _
+  _         _        C-right    C-right _       _         _       C-c      C-z      @cus    @newl  C-v       _     _
   @vimb     _        _          _       _       pgup      _       left     down     up      right  @vimb     S-ret
-  _         _        bspc       _       @vims   C-left    C-left  _        _        _       _      _         _
+  _         _        del        _       @vims   C-left    C-left  _        _        _       _      _         _
   _         _        _                       ret                  @vimen   _        _       _      _
 )
 

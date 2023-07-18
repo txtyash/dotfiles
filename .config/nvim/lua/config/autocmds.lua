@@ -1,4 +1,8 @@
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.tsx", "*.ts", "*.js", "*.jsx", "*.json", "*.yaml", "*.html", "*.css", "*.scss", "*.md" },
-  command = "Prettier",
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Close Netrw",
+  pattern = "netrw",
+  group = vim.api.nvim_create_augroup("netrw_mapping", { clear = true }),
+  callback = function()
+    vim.keymap.set("n", "<leader>e", "<cmd>Rex<cr>", { desc = "Close Netrw", buffer = true })
+  end,
 })

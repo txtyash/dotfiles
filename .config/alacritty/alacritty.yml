@@ -1,40 +1,26 @@
-env:
-  TERM: xterm-256color
 window:
   padding:
-    x: 3
-    y: 3
-  dynamic_padding: false
-  title: Alacritty
-  class:
-    instance: Alacritty
-    general: Alacritty
-scrolling:
-  history: 5000
-  multiplier: 3
-  auto_scroll: false
+    x: 6
+    y: 6
+
+shell:
+  program: /usr/bin/fish
+
 font:
   normal:
-    family:  Iosevka Nerd Font
+    family: FiraCode Nerd Font
     style: Medium
   bold:
-    family:  Iosevka Nerd Font
+    family: FiraCode Nerd Font
     style: Bold
   italic:
-    family:  Iosevka Nerd Font
+    family: FiraCode Nerd Font
     style: Italic
   bold_italic:
-    family:  Iosevka Nerd Font
+    family: FiraCode Nerd Font
     style: Bold Italic
-  size: 12
-  offset:
-    x: 0
-    y: 1
-draw_bold_text_with_bright_colors: true
-window.opacity: 1
-shell:
-  program: /usr/bin/zellij
-     
+  size: 12.5
+
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: P, mods: Alt, action: Paste }
@@ -44,13 +30,60 @@ key_bindings:
   - { key: Paste, mods: None, action: Paste }
   - { key: Copy, mods: None, action: Copy }
   - { key: L, mods: Control, action: ClearLogNotice }
-  - { key: L, mods: Control, chars: "\f" }
   - { key: V, mods: Alt, action: ToggleViMode }
   # - { key: C, mods: Alt, command: {program: "gela", args: ["t"]}} moved to config.fish
-  # - { key: K, mods: Control, action: ScrollHalfPageUp, mode: ~Alt }
-  # - { key: J, mods: Control, action: ScrollHalfPageDown, mode: ~Alt }
-  - { key: PageUp, mods: Alt, action: ScrollToTop, mode: ~Alt }
-  - { key: PageDown, mods: Alt, action: ScrollToBottom, mode: ~Alt }
-     
-import:
-- /home/zim/.config/alacritty/gelacritty.yml
+  - {
+      key: U,
+      mods: Alt,
+      action: ScrollHalfPageUp,
+      mode: ~Alt
+    }
+  - {
+      key: D,
+      mods: Alt,
+      action: ScrollHalfPageDown,
+      mode: ~Alt
+    }
+  - {
+      key: PageUp,
+      mods: Alt,
+      action: ScrollToTop,
+      mode: ~Alt
+    }
+  - {
+      key: PageDown,
+      mods: Alt,
+      action: ScrollToBottom,
+      mode: ~Alt
+    }
+  - { key: L, mods: Control, chars: "\f" }
+colors:
+  # Default colors
+  primary:
+    # hard contrast: background = '#f9f5d7'
+    background: '#fbf1c7'
+    # soft contrast: background = '#f2e5bc'
+    foreground: '#3c3836'
+
+  # Normal colors
+  normal:
+    black: '#fbf1c7'
+    red: '#cc241d'
+    green: '#98971a'
+    yellow: '#d79921'
+    blue: '#458588'
+    magenta: '#b16286'
+    cyan: '#689d6a'
+    white: '#7c6f64'
+
+  # Bright colors
+  bright:
+    black: '#928374'
+    red: '#9d0006'
+    green: '#79740e'
+    yellow: '#b57614'
+    blue: '#076678'
+    magenta: '#8f3f71'
+    cyan: '#427b58'
+    white: '#3c3836'
+theme: Gruvbox-Light

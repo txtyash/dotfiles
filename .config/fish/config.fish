@@ -1,3 +1,5 @@
+set -g fish_greeting
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
@@ -9,16 +11,23 @@ if status is-interactive
             # bind -M $mode \cc end-of-buffer kill-whole-line repaint
             bind -M $mode \cc my-cancel-commandline
             bind -M $mode \cz fg
-            bind -M $mode \ec "gela t; commandline -f repaint"
+            bind -M $mode \ec "alacritty-toggle; commandline -f repaint"
         end
         for mode in insert default visual
             bind -M $mode \ca beginning-of-buffer
             bind -M $mode \cw backward-kill-word
-            bind -M $mode \ce end-of-buffer
-            bind -M $mode \cr forward-word
-            bind -M $mode \cs forward-char
+            bind -M $mode \ce end-of-buffer forward-char
+            bind -M $mode \cf forward-word
         end
     end
+end
+
+function fish_prompt -d "Write out the prompt"
+    # This shows up as USER@HOST /home/user/ >, with the directory colored
+    # $USER and $hostname are set by fish, so you can just use them
+    # instead of using `whoami` and `hostname`
+    printf '%s%s %s%s%s > ' \
+        (set_color -o) (jobs | wc -l) (set_color $fish_color_cwd) (pwd) (set_color normal)\n
 end
 
 function my-cancel-commandline
@@ -29,28 +38,28 @@ function my-cancel-commandline
     commandline -f repaint
 end
 
-# # THEME.SH LOAD PREVIOUS THEME ON STARTUP
-#   if type -q theme.sh
-#     if test -e ~/.theme_history
-#     theme.sh (theme.sh -l|tail -n1)
-#     end
-# 
-#     # Optional
-#     # Bind C-o to the last theme.
-#     function last_theme
-#       theme.sh (theme.sh -l|tail -n2|head -n1)
-#     end
-# 
-#     bind \co last_theme
-# 
-#     alias th='theme.sh -i'
-# 
-#     # Interactively load a light theme
-#     alias thl='theme.sh --light -i'
-# 
-#     # Interactively load a dark theme
-#     alias thd='theme.sh --dark -i'
-#   end
+# THEME.SH LOAD PREVIOUS THEME ON STARTUP
+if type -q theme.sh
+    if test -e ~/.theme_history
+        theme.sh (theme.sh -l|tail -n1)
+    end
+
+    # Optional
+    # Bind C-o to the last theme.
+    function last_theme
+        theme.sh (theme.sh -l|tail -n2|head -n1)
+    end
+
+    bind \co last_theme
+
+    alias th='theme.sh -i'
+
+    # Interactively load a light theme
+    alias thl='theme.sh --light -i'
+
+    # Interactively load a dark theme
+    alias thd='theme.sh --dark -i'
+end
 
 fzf_configure_bindings --directory=\cd --history=\ch
 
@@ -60,22 +69,12 @@ alias la="ls -lha"
 
 alias x="exit"
 alias c="z"
-alias cat="bat"
 alias ping="gping"
 
 alias v="nvim"
 alias fm="joshuto"
 alias rgi="rg -i"
 alias rmi="rm -i"
-alias sv="sudo vim"
-alias aur="paru"
-alias cop="xsel -b <"
-
-alias off="xset dpms force off"
-alias reb="systemctl reboot"
-alias pow="systemctl poweroff"
-alias hib="systemctl hibernate"
-alias sus="systemctl suspend && slock"
 
 # Start X at login
 # if status is-login
@@ -84,7 +83,6 @@ alias sus="systemctl suspend && slock"
 #     end
 # end
 
-starship init fish | source
 zoxide init fish | source
 
 # run this as a bash script

@@ -24,18 +24,20 @@ map("n", "]<Tab>", "a    <esc>4h", { desc = "Append Tab" })
 map("n", "[<Tab>", "i    <esc>l", { desc = "Prepend Tab" })
 
 map("n", "<C-i>", "<C-i>", { desc = "jumplist" }) -- unmap nvim-cmp's C-i
+map("n", "<space>e", "<cmd>Ex<cr>", { desc = "netrw" })
+map("n", "<space>t", "<cmd>TableModeToggle<cr>", { desc = "Toggle TableMode" })
 
 map("n", "<M-c>", theme, { desc = "Toggle theme", silent = true })
 map("i", "<M-c>", theme, { desc = "Toggle theme", silent = true })
 
 map("n", "<C-y>", '"+y', { desc = "Copy to clipboard" })
 map("x", "<C-y>", '"+y', { desc = "Copy visual selection to clipboard" })
-map("v", "<C-y><C-y>", "<esc><cmd>!wl-copy < %<cr>", { desc = "Copy entire file" })
-map("i", "<C-y><C-y>", "<esc><cmd>!wl-copy < %<cr>", { desc = "Copy entire file" })
-map("n", "<C-y><C-y>", "<cmd>!wl-copy < %<cr>", { desc = "Copy entire file" })
+map({ "v", "i", "n", "s" }, "<C-y><C-y>", "<cmd>w<cr><bar><cmd>!wl-copy < %<cr>", { desc = "Copy entire file" })
+map({ "i", "v", "n", "s" }, "<C-s><C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+map({ "i", "v", "n", "s" }, "<C-s>s", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("i", "<C-l>", "<Esc>lxi", { desc = "Delete ahead" })
-map("n", "gp", '"+p', { desc = "Paste from clipboard" })
-map("n", "gP", '"+P', { desc = "Paste from clipboard" })
+map({ "v", "n" }, "gp", '"+p', { desc = "Paste from clipboard" })
+map({ "v", "n" }, "gP", '"+P', { desc = "Paste from clipboard" })
 
 vim.cmd([[nnoremap <expr> ^ match(getline('.'), '\S') == col('.') - 1 ? '0' : '^']])
 

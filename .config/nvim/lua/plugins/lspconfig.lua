@@ -8,6 +8,8 @@ return {
       keys[#keys + 1] = { "<c-k>", false, mode = "i" }
       -- Default i_Ctrl-h is used for <BS>
       keys[#keys + 1] = { "<C-h>", vim.lsp.buf.signature_help, mode = "i" }
+      keys[#keys + 1] = { "<C-s><C-d>", vim.diagnostic.open_float, mode = { "n", "i" } }
+      keys[#keys + 1] = { "<C-s>d", vim.diagnostic.open_float, mode = { "n", "i" } }
     end,
   },
 }

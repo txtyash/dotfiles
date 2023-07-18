@@ -1,19 +1,24 @@
 local function theme()
   if vim.o.background == "light" then
     vim.opt.bg = "dark"
-    vim.cmd([[  silent !gela d ]])
+    vim.cmd([[  silent !alacritty-themes Gruvbox-Dark]])
   else
     vim.opt.bg = "light"
-    vim.cmd([[  silent !gela l ]])
+    vim.cmd([[  silent !alacritty-themes Gruvbox-Light]])
   end
 end
 
-local function map(mode, lhs, rhs, opts)
+local function map(modes, lhs, rhs, opts)
+  if type(modes) == "string" then
+    modes = { modes }
+  end
   local keys = require("lazy.core.handler").handlers.keys
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
+  for _, mode in pairs(modes) do
+    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+      opts = opts or {}
+      opts.silent = opts.silent ~= false
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
   end
 end
 

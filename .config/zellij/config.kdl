@@ -9,7 +9,6 @@ keybinds clear-defaults=true {
         bind "Alt s" { SwitchToMode "scroll"; }
         bind "Alt e" { SwitchToMode "session"; }
         bind "Alt m" { SwitchToMode "move"; }
-        bind "Alt q" { Quit; }
         bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
@@ -28,9 +27,8 @@ keybinds clear-defaults=true {
         bind "Alt t" { SwitchToMode "tab"; }
         bind "Alt f" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         bind "Alt s" { SwitchToMode "scroll"; }
-        bind "Alt o" { SwitchToMode "session"; }
+        bind "Alt e" { SwitchToMode "session"; }
         bind "Alt m" { SwitchToMode "move"; }
-        bind "Alt q" { Quit; }
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
         bind "j" "Down" { MoveFocus "Down"; }
@@ -61,9 +59,8 @@ keybinds clear-defaults=true {
         bind "Alt t" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         bind "Alt s" { SwitchToMode "scroll"; }
         bind "Alt m" { SwitchToMode "move"; }
-        bind "Alt o" { SwitchToMode "session"; }
+        bind "Alt e" { SwitchToMode "session"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "Alt q" { Quit; }
         bind "h" "Left" "Up" "k" { GoToPreviousTab; }
         bind "l" "Right" "Down" "j" { GoToNextTab; }
         bind "n" { NewTab; SwitchToMode "normal"; }
@@ -94,9 +91,8 @@ keybinds clear-defaults=true {
         bind "Alt t" { SwitchToMode "tab"; }
         bind "Alt r" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         bind "Alt s" { SwitchToMode "scroll"; }
-        bind "Alt o" { SwitchToMode "session"; }
+        bind "Alt e" { SwitchToMode "session"; }
         bind "Alt m" { SwitchToMode "move"; }
-        bind "Alt q" { Quit; }
         bind "h" "Left" { Resize "Left"; }
         bind "j" "Down" { Resize "Down"; }
         bind "k" "Up" { Resize "Up"; }
@@ -120,8 +116,7 @@ keybinds clear-defaults=true {
         bind "Alt r" { SwitchToMode "resize"; }
         bind "Alt m" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         bind "Alt s" { SwitchToMode "scroll"; }
-        bind "Alt o" { SwitchToMode "session"; }
-        bind "Alt q" { Quit; }
+        bind "Alt e" { SwitchToMode "session"; }
         bind "n" "Tab" { MovePane; }
         bind "h" "Left" { MovePane "Left"; }
         bind "j" "Down" { MovePane "Down"; }
@@ -143,10 +138,9 @@ keybinds clear-defaults=true {
         bind "Alt g" { SwitchToMode "locked"; }
         bind "Alt f" { SwitchToMode "pane"; }
         bind "Alt m" { SwitchToMode "move"; }
-        bind "Alt o" { SwitchToMode "session"; }
+        bind "Alt e" { SwitchToMode "session"; }
         bind "Alt r" { SwitchToMode "resize"; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "normal"; }
-        bind "Alt q" { Quit; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
         bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
@@ -168,9 +162,8 @@ keybinds clear-defaults=true {
         bind "Alt f" { SwitchToMode "pane"; }
         bind "Alt m" { SwitchToMode "move"; }
         bind "Alt t" { SwitchToMode "tmux"; }
-        bind "Alt o" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
+        bind "Alt e" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         bind "Alt s" { SwitchToMode "scroll"; }
-        bind "Alt q" { Quit; }
         bind "d" { Detach; }
         bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
@@ -214,7 +207,6 @@ keybinds clear-defaults=true {
         bind "Alt o" "Enter" "Space" "Esc" { SwitchToMode "normal"; }
         bind "Alt s" { SwitchToMode "scroll"; }
         bind "[" { SwitchToMode "scroll"; }
-        bind "Alt q" { Quit; }
         bind "\"" { NewPane "Down"; SwitchToMode "normal"; }
         bind "%" { NewPane "Right"; SwitchToMode "normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
@@ -249,19 +241,19 @@ keybinds clear-defaults=true {
 //   - detach (Default)
 //   - quit
 //
-// on_force_close "quit"
+on_force_close "quit"
 
 // Send a request for a simplified ui (without arrow fonts) to plugins
 // Options:
 //   - true
 //   - false (Default)
 //
-// simplified_ui true
+simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-default_shell "/usr/bin/fish"
+default_shell "fish"
 
 // Toggle between having pane frames around the panes
 // Options:
@@ -273,17 +265,17 @@ pane_frames false
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "nord" 
+theme "nord"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
 //
-// default_mode "locked"
+default_mode "normal"
 
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
@@ -309,7 +301,7 @@ theme "nord"
 // Examples:
 //
 // copy_command "xclip -selection clipboard" // x11
-// copy_command "wl-copy"                    // wayland
+copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 
 // Choose the destination for copied text
@@ -329,7 +321,7 @@ copy_on_select true
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
 //
-scrollback_editor "/usr/bin/lvim"
+scrollback_editor "/usr/bin/nvim"
 
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -351,4 +343,11 @@ plugins {
     status-bar { path "status-bar"; }
     strider { path "strider"; }
     compact-bar { path "compact-bar"; }
+}
+
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name true
+    }
 }
