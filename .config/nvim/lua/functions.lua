@@ -1,10 +1,10 @@
 local function theme()
   if vim.o.background == "light" then
     vim.opt.bg = "dark"
-    vim.cmd([[  silent !alacritty-themes Gruvbox-Dark]])
+    -- vim.cmd([[  silent !alacritty-toggle d ]])
   else
     vim.opt.bg = "light"
-    vim.cmd([[  silent !alacritty-themes Gruvbox-Light]])
+    -- vim.cmd([[  silent !alacritty-toggle l ]])
   end
 end
 

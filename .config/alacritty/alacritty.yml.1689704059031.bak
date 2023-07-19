@@ -56,16 +56,15 @@ key_bindings:
       action: ScrollToBottom,
       mode: ~Alt
     }
-  - { key: L, mods: Control, chars: "\f" }
 colors:
-  name: 3024 (dark)
+  name: 3024 (light)
   author: Chris Kempson
   primary:
-    background: "#090300"
-    foreground: "#a5a2a2"
+    background: "#f7f7f7"
+    foreground: "#4a4543"
   cursor:
-    text: "#090300"
-    cursor: "#a5a2a2"
+    text: "#f7f7f7"
+    cursor: "#4a4543"
   normal:
     black: "#090300"
     red: "#db2d20"
@@ -84,4 +83,4 @@ colors:
     magenta: "#a16a94"
     cyan: "#b5e4f4"
     white: "#f7f7f7"
-theme: 3024.dark
+theme: 3024.light
