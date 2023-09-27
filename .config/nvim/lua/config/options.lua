@@ -6,6 +6,9 @@ local opt = vim.opt
 
 vim.cmd([[ set rnu]])
 vim.cmd([[ set autoread]]) -- Run :edit to refresh externally edited files
+vim.g.netrw_liststyle = 3
 
 opt.clipboard = "" -- Sync with system clipboard
 vim.opt.swapfile = false
+
+vim.cmd([[ command! BaleiaColorize call g:baleia.once(bufnr('%')) ]])

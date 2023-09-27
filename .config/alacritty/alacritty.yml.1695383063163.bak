@@ -1,0 +1,91 @@
+window:
+  padding:
+    x: 6
+    y: 6
+
+shell:
+  program: /usr/bin/fish
+
+font:
+  normal:
+    family: FiraCode Nerd Font
+    style: Medium
+  bold:
+    family: FiraCode Nerd Font
+    style: Bold
+  italic:
+    family: FiraCode Nerd Font
+    style: Italic
+  bold_italic:
+    family: FiraCode Nerd Font
+    style: Bold Italic
+  size: 12.5
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: P, mods: Alt, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Y, mods: Alt, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Paste, mods: None, action: Paste }
+  - { key: Copy, mods: None, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: V, mods: Alt, action: ToggleViMode }
+  # - { key: C, mods: Alt, command: {program: "gela", args: ["t"]}} moved to config.fish
+  - {
+      key: U,
+      mods: Alt,
+      action: ScrollHalfPageUp,
+      mode: ~Alt
+    }
+  - {
+      key: D,
+      mods: Alt,
+      action: ScrollHalfPageDown,
+      mode: ~Alt
+    }
+  - {
+      key: PageUp,
+      mods: Alt,
+      action: ScrollToTop,
+      mode: ~Alt
+    }
+  - {
+      key: PageDown,
+      mods: Alt,
+      action: ScrollToBottom,
+      mode: ~Alt
+    }
+  - { key: L, mods: Control, chars: "\f" }
+colors:
+  # Default colors
+  primary:
+    background: '0x24292e'
+    foreground: '0xd1d5da'
+
+  # Normal colors
+  normal:
+    black: '0x24292e'
+    red: '0xf14c4c'
+    green: '0x23d18b'
+    yellow: '0xe2e210'
+    blue: '0x3b8eea'
+    magenta: '0xbc3fbc'
+    cyan: '0x29b7da'
+    white: '0xd1d5da'
+
+  # Bright colors
+  bright:
+    black: '0x666666'
+    red: '0xf14c4c'
+    green: '0x23d18b'
+    yellow: '0xf5f543'
+    blue: '0x3b8eea'
+    magenta: '0xd670d6'
+    cyan: '0x29b7da'
+    white: '0xd1d5da'
+
+  indexed_colors:
+    - { index: 16, color: '0xd18616' }
+    - { index: 17, color: '0xf14c4c' }
+theme: github_dark

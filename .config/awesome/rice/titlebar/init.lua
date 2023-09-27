@@ -1,1 +1,0 @@
-require("rice/titlebar/" .. Titlebar)

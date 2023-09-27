@@ -1,4 +1,8 @@
 local api = vim.api
+vim.cmd([[ set cursorcolumn ]])
+vim.cmd([[ set ft=fish ]])
+vim.cmd([[ map q :qa!<CR> ]])
+vim.cmd([[ set clipboard+=unnamedplus ]])
 local orig_buf = api.nvim_get_current_buf()
 local term_buf = api.nvim_create_buf(false, true)
 api.nvim_set_current_buf(term_buf)

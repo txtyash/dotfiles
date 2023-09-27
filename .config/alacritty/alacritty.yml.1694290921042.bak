@@ -1,0 +1,108 @@
+window:
+  padding:
+    x: 6
+    y: 6
+
+shell:
+  program: /usr/bin/fish
+
+font:
+  normal:
+    family: FiraCode Nerd Font
+    style: Medium
+  bold:
+    family: FiraCode Nerd Font
+    style: Bold
+  italic:
+    family: FiraCode Nerd Font
+    style: Italic
+  bold_italic:
+    family: FiraCode Nerd Font
+    style: Bold Italic
+  size: 12.5
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: P, mods: Alt, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Y, mods: Alt, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Paste, mods: None, action: Paste }
+  - { key: Copy, mods: None, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: V, mods: Alt, action: ToggleViMode }
+  # - { key: C, mods: Alt, command: {program: "gela", args: ["t"]}} moved to config.fish
+  - {
+      key: U,
+      mods: Alt,
+      action: ScrollHalfPageUp,
+      mode: ~Alt
+    }
+  - {
+      key: D,
+      mods: Alt,
+      action: ScrollHalfPageDown,
+      mode: ~Alt
+    }
+  - {
+      key: PageUp,
+      mods: Alt,
+      action: ScrollToTop,
+      mode: ~Alt
+    }
+  - {
+      key: PageDown,
+      mods: Alt,
+      action: ScrollToBottom,
+      mode: ~Alt
+    }
+  - { key: L, mods: Control, chars: "\f" }
+colors:
+  # Default colors
+  primary:
+    background: '#2c2c2c'
+    foreground: '#d6d6d6'
+
+    dim_foreground: '#dbdbdb'
+    bright_foreground: '#d9d9d9'
+    dim_background: '#202020' # not sure
+    bright_background: '#3a3a3a' # not sure
+
+  # Cursor colors
+  cursor:
+    text: '#2c2c2c'
+    cursor: '#d9d9d9'
+
+  # Normal colors
+  normal:
+    black: '#1c1c1c'
+    red: '#bc5653'
+    green: '#909d63'
+    yellow: '#ebc17a'
+    blue: '#7eaac7'
+    magenta: '#aa6292'
+    cyan: '#86d3ce'
+    white: '#cacaca'
+
+  # Bright colors
+  bright:
+    black: '#636363'
+    red: '#bc5653'
+    green: '#909d63'
+    yellow: '#ebc17a'
+    blue: '#7eaac7'
+    magenta: '#aa6292'
+    cyan: '#86d3ce'
+    white: '#f7f7f7'
+
+  # Dim colors
+  dim:
+    black: '#232323'
+    red: '#74423f'
+    green: '#5e6547'
+    yellow: '#8b7653'
+    blue: '#556b79'
+    magenta: '#6e4962'
+    cyan: '#5c8482'
+    white: '#828282'
+theme: Afterglow

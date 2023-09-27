@@ -1,94 +1,73 @@
-set -g fish_greeting
+set -gx ATUIN_NOBIND true
+
+# Set available editor to open in current directory
+if command -v neovide >/dev/null
+    set -gx EDITOR (which neovide)
+    set -gx VISUAL (which neovide)
+else
+    set -gx EDITOR (which neovim)
+    set -gx VISUAL (which neovim)
+end
+
+bind \en $EDITOR
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-
-    # |=|=|=|=|=|=|=|=> UNAVAILABLE: C-d, C-h
-
     fish_vi_key_bindings
     function fish_user_key_bindings
-        for mode in insert default visual
-            # bind -M $mode \cc end-of-buffer kill-whole-line repaint
-            bind -M $mode \cc my-cancel-commandline
-            bind -M $mode \cz fg
-            bind -M $mode \ec "alacritty-toggle; commandline -f repaint"
+        for mode in normal default visual
+            bind -M $mode / _atuin_search
         end
         for mode in insert default visual
             bind -M $mode \ca beginning-of-buffer
-            bind -M $mode \cw backward-kill-word
             bind -M $mode \ce end-of-buffer forward-char
-            bind -M $mode \cf forward-word
+            bind -M $mode \cw backward-kill-word
+            bind -M $mode \ef forward-word
+        end
+        # ALL MODES
+        for mode in normal insert default visual
+            bind -M $mode \en $EDITOR
+            bind -M $mode \ch _atuin_search
+            bind -M $mode \cz "fg %(jobs | fzf | cut -c1)"
+            bind -M $mode \cc my-cancel-commandline
+            bind -M $mode \cp history-search-backward
+            bind -M $mode \cn history-search-forward
         end
     end
 end
 
 function fish_prompt -d "Write out the prompt"
-    # This shows up as USER@HOST /home/user/ >, with the directory colored
-    # $USER and $hostname are set by fish, so you can just use them
-    # instead of using `whoami` and `hostname`
-    printf '%s%s %s%s%s > ' \
-        (set_color -o) (jobs | wc -l) (set_color $fish_color_cwd) (pwd) (set_color normal)\n
+    printf '%s[%s] %s%s > ' \
+        (set_color $fish_color_cwd) (jobs | wc -l) (pwd) (set_color normal)\n
 end
 
 function my-cancel-commandline
     commandline ""
     emit fish_cancel
-    # Repaint even if we haven't cancelled anything,
-    # so the prompt refreshes and the terminal scrolls to it.
     commandline -f repaint
 end
 
-# THEME.SH LOAD PREVIOUS THEME ON STARTUP
-if type -q theme.sh
-    if test -e ~/.theme_history
-        theme.sh (theme.sh -l|tail -n1)
-    end
+fzf_configure_bindings --directory=\cf
 
-    # Optional
-    # Bind C-o to the last theme.
-    function last_theme
-        theme.sh (theme.sh -l|tail -n2|head -n1)
-    end
-
-    bind \co last_theme
-
-    alias th='theme.sh -i'
-
-    # Interactively load a light theme
-    alias thl='theme.sh --light -i'
-
-    # Interactively load a dark theme
-    alias thd='theme.sh --dark -i'
-end
-
-fzf_configure_bindings --directory=\cd --history=\ch
-
-alias l="ls"
-alias ll="ls -lh"
-alias la="ls -lha"
+alias l="eza"
+alias ll="eza -l"
+alias la="eza -la"
 
 alias x="exit"
-alias c="z"
-alias ping="gping"
+alias d="z"
+alias di="zi"
+alias dp="cd -"
 
 alias v="nvim"
 alias fm="joshuto"
-alias rgi="rg -i"
-alias rmi="rm -i"
-
-# Start X at login
-# if status is-login
-#     if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-#         exec startx -- -keeptty
-#     end
-# end
+alias drag="dragon-drop"
+alias top="btm"
 
 zoxide init fish | source
+atuin init fish | source
+starship init fish | source
 
-# run this as a bash script
-# fisher install jorgebucaran/fisher
-# fisher install andreiborisov/sponge
-# fisher install jorgebucaran/autopair.fish
-# fisher install nickeb96/puffer-fish
-# fisher install acomagu/fish-async-prompt
-# fisher install patrickf1/fzf.fish
+# My plugins:
+# jorgebucaran/fisher
+# jorgebucaran/autopair.fish
+# nickeb96/puffer-fish
+# patrickf1/fzf.fish
