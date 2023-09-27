@@ -6,64 +6,57 @@ local functions = require("functions")
 local map = functions.map
 local theme = functions.theme
 
---
--- -- Custom Keybindings -- --
---
-vim.keymap.del("i", "<C-s>")
-vim.keymap.del("n", "<C-s>")
-vim.keymap.del("v", "<C-s>")
+vim.keymap.del("n", "<C-h>")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-l>")
+vim.keymap.del("n", "<A-j>")
+vim.keymap.del("n", "<A-k>")
 
-map("n", "<C-i>", "<C-i>") -- Make vim stick to it's default C-i binding
+-- NEOVIDE bindings
+if vim.g.neovide then
+  map({ "n", "i" }, "<C-z>", function()
+    Util.float_term()
+  end, { desc = "Terminal (cwd)" })
+  map({ "v", "n" }, "<M-p>", '"+p', { desc = "Paste from clipboard" })
+end
+
+-- WARNING: These Change default bindings
+
+map("n", "-", "i <esc>l", { desc = "Prepend Space" })
+map("n", "+", "a <esc>h", { desc = "Append Space" })
+map({ "n", "v" }, "Y", '"+y', { desc = "Copy to clipboard" })
+map({ "n" }, "YY", "<cmd>%y+<cr>", { desc = "Copy entire file" })
+map({ "n", "v" }, "x", '"+d', { desc = "Copy to clipboard" })
+map({ "n" }, "xx", "<cmd>%d+<cr>", { desc = "Copy entire file" })
+map({ "n" }, "X", "<cmd>PP<cr>", { desc = "Dpaste the file" })
+
+map("n", "<CR>", "<cmd>set wrap!<cr>", { desc = "Toggle Wrap" })
 
 map("n", "o", "o <BS><esc>")
 map("n", "O", "O <BS><esc>")
 
-map("n", "<BS><BS>", "<cmd>bd<cr>", { desc = "Close This Buffer" })
-map("n", "<BS>h", "<cmd>BufferLineCloseLeft<cr>", { desc = "Close Left Buffers" })
-map("n", "<BS>l", "<cmd>BufferLineCloseRight<cr>", { desc = "Close Right Buffers" })
-map("n", "<BS>o", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close Other Buffers" })
+---------------------------------------------------------------
 
-map("n", "]<space>", "a <esc>h", { desc = "Append Space" })
-map("n", "[<space>", "i <esc>l", { desc = "Prepend Space" })
+map({ "n", "i" }, "<M-c>", theme, { desc = "Toggle theme", silent = true })
 
-map("n", "<esc>", "<cmd>nohl<cr><esc>", { desc = "No highlight" })
-
-map("n", "]<Tab>", "a    <esc>4h", { desc = "Append Tab" })
-map("n", "[<Tab>", "i    <esc>l", { desc = "Prepend Tab" })
-
-map("n", "<C-i>", "<C-i>", { desc = "jumplist" }) -- unmap nvim-cmp's C-i
-map("n", "<Leader>t", "<cmd>TableModeToggle<cr>", { desc = "Toggle TableMode" })
-
-map("n", "<M-c>", theme, { desc = "Toggle theme", silent = true })
-map("i", "<M-c>", theme, { desc = "Toggle theme", silent = true })
-
-map("i", "<C-z>", "<esc><C-z>", { desc = "suspend" })
-
-map("n", "<C-y>", '"+y', { desc = "Copy to clipboard" })
-map("x", "<C-y>", '"+y', { desc = "Copy visual selection to clipboard" })
-map({ "v", "i", "n", "s" }, "<C-y><C-y>", "<cmd>w<cr><bar><cmd>!wl-copy < %<cr>", { desc = "Copy entire file" })
-map({ "i", "v", "n", "s" }, "<C-s><C-s>", "<cmd>w<cr>", { remap = true, desc = "Save file" })
-map({ "i", "v", "n", "s" }, "<C-s>s", "<cmd>w<cr>", { remap = true, desc = "Save file" })
-map("i", "<C-l>", "<Esc>lxi", { desc = "Delete ahead" })
-map({ "v", "n" }, "gp", '"+p', { desc = "Paste from clipboard" })
-map({ "v", "n" }, "gP", '"+P', { desc = "Paste from clipboard" })
-
-map({ "n" }, "<Leader>iy", "<cmd>IconPickerYank<cr>", { desc = "Icon picker" })
-map({ "n" }, "<Leader>in", "<cmd>IconPickerNormal<cr>", { desc = "Icon picker" })
-map({ "i" }, "<C-s>i", "<cmd>IconPickerInsert<cr><esc>", { remap = true, desc = "Icon picker" })
-map({ "v", "i", "n", "s" }, "<C-s>w", function()
-  Util.toggle("wrap")
-end, { remap = true, desc = "Toggle Word Wrap" })
+map({ "n" }, "<Leader>I", "<cmd>IconPickerYank<cr>", { desc = "Icon Yanker" })
+map({ "n" }, "<Leader>i", "<cmd>IconPickerNormal<cr>", { desc = "Icon Picker" })
 
 map("n", "<leader>e", require("oil").open, { desc = "open oil" })
 map("n", "<leader>n", "<cmd>Ex<cr>", { desc = "open netrw" })
 
-map("n", "<M-h>", "<cmd>SidewaysLeft<cr>", { desc = "sidewaysleft" })
-map("n", "<M-l>", "<cmd>SidewaysRight<cr>", { desc = "sidewaysright" })
+-- C-j & C-k moves lines up & down
+map("n", "<C-h>", "<cmd>SidewaysLeft<cr>", { desc = "sidewaysleft" })
+map("n", "<C-l>", "<cmd>SidewaysRight<cr>", { desc = "sidewaysright" })
 
+-- Move Lines
+map("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<C-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<C-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<C-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- ^ once = ^ & ^ once again = 0
 vim.cmd([[nnoremap <expr> ^ match(getline('.'), '\S') == col('.') - 1 ? '0' : '^']])
-
--- map("v", "<C-q>", "<esc>:nohl<cr>", { desc = "Clear highlight" })
--- map("i", "<C-q>", "<esc>:nohl<cr>", { desc = "Clear highlight" })
--- map("n", "<C-q>", "<esc>:nohl<cr>", { desc = "Clear highlight" })
--- map("s", "<C-q>", "<esc>:nohl<cr>", { desc = "Clear highlight" })
