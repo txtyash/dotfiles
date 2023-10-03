@@ -64,7 +64,7 @@ rsf (layer-toggle rshift)
   S-tab     Q        W       E       R       T      _       Y        U        I       O      P        "      |
   _         A        S       D       F       G      _       H        J        K       L      C-+      _    
   _         Z        X       C       V       B      B       N        M        <       >      _        _
-  _         _        lmet                    C-A                   _        _       _      _        _
+  _         _        lmet                    S-spc                   _        _       _      _        _
 )
 
 (deflayer nums

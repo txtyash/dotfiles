@@ -12,6 +12,10 @@ vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
 vim.keymap.del("n", "<A-j>")
 vim.keymap.del("n", "<A-k>")
+vim.keymap.del("n", "<Space>ww")
+vim.keymap.del("n", "<Space>wd")
+vim.keymap.del("n", "<Space>w-")
+vim.keymap.del("n", "<Space>w|")
 
 -- NEOVIDE bindings
 if vim.g.neovide then
@@ -21,22 +25,24 @@ if vim.g.neovide then
   map({ "v", "n" }, "<M-p>", '"+p', { desc = "Paste from clipboard" })
 end
 
--- WARNING: These Change default bindings
+-- WARNING: These Change default bindings 💀
 
-map("n", "-", "i <esc>l", { desc = "Prepend Space" })
-map("n", "+", "a <esc>h", { desc = "Append Space" })
-map({ "n", "v" }, "Y", '"+y', { desc = "Copy to clipboard" })
-map({ "n" }, "YY", "<cmd>%y+<cr>", { desc = "Copy entire file" })
-map({ "n", "v" }, "x", '"+d', { desc = "Copy to clipboard" })
-map({ "n" }, "xx", "<cmd>%d+<cr>", { desc = "Copy entire file" })
-map({ "n" }, "X", "<cmd>PP<cr>", { desc = "Dpaste the file" })
-
-map("n", "<CR>", "<cmd>set wrap!<cr>", { desc = "Toggle Wrap" })
+map("n", "+", "a<space><esc>", { desc = "Append Space" })
+map("n", "-", "i<space><esc>", { desc = "Prepend Space" })
 
 map("n", "o", "o <BS><esc>")
 map("n", "O", "O <BS><esc>")
 
 ---------------------------------------------------------------
+
+map("i", "<C-l>", "<Right>", { desc = "move one character right" })
+map("i", "<C-h>", "<Left>", { desc = "move one character right" })
+
+map("n", "<leader>w", "<cmd>set wrap!<cr>", { desc = "Toggle Wrap" })
+
+map({ "n", "v" }, "<leader>y", '"+y', { desc = "yank to clipboard" })
+map({ "n", "v" }, "<leader>p", '"+p', { desc = "paste from clipboard" })
+map({ "n", "v" }, "<leader>P", '"+P', { desc = "paste from clipboard" })
 
 map({ "n", "i" }, "<M-c>", theme, { desc = "Toggle theme", silent = true })
 
