@@ -63,13 +63,12 @@
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
     bat
-
-    fish
   ];
   
   imports = [
 	./zoxide
 	./starship
+	./fish
 	];
   
  home.stateVersion = "23.05";
