@@ -16,7 +16,7 @@
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
-          ./vivobook
+          ./vivobook.nix
           ({ pkgs, ... }: {
             nixpkgs.overlays = [ rust-overlay.overlays.default ];
             environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
