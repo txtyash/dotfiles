@@ -48,7 +48,6 @@
     file
     broot
     lazygit
-    vscode
 
     fastfetch # OS fetch program
     nnn # tui file manager
@@ -71,7 +70,7 @@
   imports = [
 	./zoxide
 	./starship
-	]
+	];
   
  home.stateVersion = "23.05";
 # Let home Manager install and manage itself.
