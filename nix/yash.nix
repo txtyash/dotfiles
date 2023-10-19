@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   home.username = "yash";
   home.homeDirectory = "/home/yash";
@@ -18,6 +17,7 @@
   # home.file.".xxx".text = ''
   #     xxx
   # '';
+
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -69,6 +69,7 @@
 	./zoxide
 	./starship
 	./fish
+	./neovim
 	];
   
  home.stateVersion = "23.05";
