@@ -1,0 +1,80 @@
+#|
+(defsrc
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  prnt  ins  del
+  `     1    2    3    4    5    6    7    8    9    0    -    =    bks
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft  z    x    c    v    b    n    m    ,    .    /    rsft up
+  lctl  lmet lalt           spc            ralt rctl left down right
+)
+|#
+
+(defalias
+nu (layer-while-held numbers)
+sy (layer-while-held symbols)
+mi (layer-while-held miscellaneous)
+;; code block
+todo (macro ` ` ` ` ` ` lft lft lft)
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bks
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rctl
+)
+
+(deflayer custom
+  _         1        -       [       ]       S-=    6       7        @todo    lft     down   up       rght   @todo
+  tab       q        w       e       r       t      _       y        u        i       o      p        @mi    @todo
+  lctl      a        s       d       f       g      _       h        j        k       l      @nu      rctl
+  lalt      z        x       c       v       b      b       n        m        bks     @sy    ralt
+  lctl      lalt     lmet                    spc                     rsft     lmet
+)
+
+(deflayer numbers
+  _    _   S-min S-, S-.   S-=   _    _    _     home pgdn pgup  end  _   
+  '  S-apo  4    5    6    9    _    _    _     _    _    _     _    _ 
+  -    0    1    2    3    7    _    _    _     _    _    _     _
+ S-min /    .    ,    8    \    _    _    _     _    _    _
+  _    _    _              ret            _     _
+)
+
+(deflayer symbols
+  _      _     _     S-9   S-0   _      _    _    _     home pgdn pgup  end  _   
+  _      S-/   S-`   S-1   S-3   `      _    _    _     _    _    _     _    _ 
+ S-6     S-8   ;     S-7   =     S-4    _    _    _     _    _    _     _
+ S-min   S-5   S-=   S-;   S-2   S-\    _    _    _     _    _    _
+  _    _    _              esc            _     _
+)
+
+(deflayer miscellaneous
+  _    _    _    brdn bru   _     _    _    _     -    -    -     -    _   
+  _    _    _    _    end   mute  _    _    _     _    _    _     _    _ 
+  home _    _    del  volu  end   _    _    _     _    _    _     _
+  _    _    _    _    vold  home  _    _    _     _    _    _
+  _    _    _               mrgt            _     _
+)
+
+#|
+esc tab return bks
+* 2 symbol layers
+1 vi layer
+2 function layers
+
+(deflayer template
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _
+  _         _        _       _       _       _      _       _        _        _       _      _         _     _
+  _         _        _       _       _       _      _       _        _        _       _      _         _
+  _         _        _       _       _       _      _       _        _        _       _      _
+  _         _        _                       _                       _        _
+)
+(deflayer cluster
+  bks q    w    e    r    t    6    7    y    u    i    o    p     bks
+  lctl a    s    d    f    g    y    u    h    j    k    l    @nu  rctl
+  lalt  z    x    c    v    b    h    b    n    m    @sy  @en  ralt
+  lsft z    lmet lmet lmet b    n    m    ralt ralt /    rsft
+  lctl lmet lalt           spc            rsft @vi
+)
+|#

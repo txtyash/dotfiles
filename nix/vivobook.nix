@@ -1,17 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-let
-	webBrowser = "firefox";
-in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix # Auto generated
-    ];
-
+  config,
+  pkgs,
+  ...
+}: let
+  webBrowser = "firefox";
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix # Auto generated
+  ];
 
   # Enable Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -88,7 +88,7 @@ in
   users.users.yash = {
     isNormalUser = true;
     description = "yash shinde";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
     ];
   };
@@ -99,41 +99,41 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-      neovim
-      git
-      wget
-      curl
-      helix
-      firefox
-      hyprland
+    neovim
+    git
+    wget
+    curl
+    helix
+    firefox
+    hyprland
   ];
 
   environment.variables.EDITOR = "nvim";
-   
+
   xdg.mime = {
-  	enable = true;
-	defaultApplications = {
-		"application/pdf" =[
-			"zathura"
-			webBrowser
-		];
-		"image/png" = [
-			"nsxiv.desktop"
-			webBrowser
-		];
-	      "text/html" = webBrowser;
-	      "x-scheme-handler/http" = webBrowser;
-	      "x-scheme-handler/https" = webBrowser;
-	      "x-scheme-handler/about" = webBrowser;
-	      "x-scheme-handler/unknown" = webBrowser;
-	      "x-scheme-handler/chrome" = webBrowser;
-	      "application/x-exension-htm" = webBrowser;
-	      "application/x-exension-html" = webBrowser;
-	      "application/x-exension-shtml" = webBrowser;
-	      "application/xhtml+xml" = webBrowser;
-	      "application/x-exension-xhtml" = webBrowser;
-	      "application/x-exension-xht" = webBrowser;
-    	};
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = [
+        "zathura"
+        webBrowser
+      ];
+      "image/png" = [
+        "nsxiv.desktop"
+        webBrowser
+      ];
+      "text/html" = webBrowser;
+      "x-scheme-handler/http" = webBrowser;
+      "x-scheme-handler/https" = webBrowser;
+      "x-scheme-handler/about" = webBrowser;
+      "x-scheme-handler/unknown" = webBrowser;
+      "x-scheme-handler/chrome" = webBrowser;
+      "application/x-exension-htm" = webBrowser;
+      "application/x-exension-html" = webBrowser;
+      "application/x-exension-shtml" = webBrowser;
+      "application/xhtml+xml" = webBrowser;
+      "application/x-exension-xhtml" = webBrowser;
+      "application/x-exension-xht" = webBrowser;
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -162,5 +162,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }

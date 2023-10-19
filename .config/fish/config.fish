@@ -44,7 +44,6 @@ alias di="zi"
 alias dp="cd -"
 
 alias v="nvim"
-alias x="xplr"
 alias top="btm"
 
 zoxide init fish | source

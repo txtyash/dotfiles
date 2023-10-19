@@ -19,10 +19,10 @@ vim.keymap.del("n", "<Space>w|")
 
 -- NEOVIDE bindings
 if vim.g.neovide then
-  map({ "n", "i" }, "<C-z>", function()
-    Util.float_term()
-  end, { desc = "Terminal (cwd)" })
-  map({ "v", "n" }, "<M-p>", '"+p', { desc = "Paste from clipboard" })
+    map({ "n", "i" }, "<C-z>", function()
+        Util.float_term()
+    end, { desc = "Terminal (cwd)" })
+    map({ "v", "n" }, "<M-p>", '"+p', { desc = "Paste from clipboard" })
 end
 
 -- WARNING: These Change default bindings 💀

@@ -1,78 +1,52 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "yash";
   home.homeDirectory = "/home/yash";
 
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
-
-
-  # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-    userName = "Yash Shinde";
-    userEmail = "evccyr@proton.me";
-  };
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-  };
-
-  # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    wofi
-    gh
-    kanata
-    wezterm
-    ncdu
-    atuin
-    fd
-    sd
-    nerdfonts
-    bottom
-    evcxr
-    direnv
-    wl-clipboard
-    file
-    broot
-    lazygit
+    # GUI
+    fuzzel # wayland application launcher
+    wezterm # terminal emulator
 
-    fastfetch # OS fetch program
-    nnn # tui file manager
-    xplr # minimal tui file browser
+    # Non GUI
+    kanata # key binding modifier
+    nerdfonts # collection of patched fonts
 
-    # archives
-    zip
-    unzip
-
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
+    # TUI
+    bat # gnu cat replacement
+    bottom # system monitor
+    broot # file tree application
+    evcxr # rust repl
     eza # A modern replacement for ‘ls’
+    fastfetch # OS fetch program
+    fd # find replacement
+    file # nixos does not have a file command by default
     fzf # A command-line fuzzy finder
-    bat
+    gh # github cli
+    jq # A lightweight and flexible command-line JSON processor
+    lazygit # git tui frontend
+    ncdu # ncurses disk usage
+    nnn # tui file manager
+    ripgrep # grep replacement
+    sd # sed replacement
+    unzip # archives
+    wl-clipboard # wayland clipboard
+    xplr # minimal tui file browser
+    zip # archives
+    zig # zig language compiler
   ];
-  
+
   imports = [
-	./zoxide
-	./starship
-	./fish
-	./neovim
-	];
-  
- home.stateVersion = "23.05";
-# Let home Manager install and manage itself.
+    ./zoxide
+    ./starship
+    ./fish
+    ./neovim
+  ];
+
+  home.stateVersion = "23.05";
+  # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

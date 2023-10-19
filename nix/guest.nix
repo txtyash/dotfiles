@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "yash";
   home.homeDirectory = "/home/yash";
 
@@ -65,8 +67,8 @@
     fzf # A command-line fuzzy finder
     bat
   ];
-  
- home.stateVersion = "23.05";
-# Let home Manager install and manage itself.
+
+  home.stateVersion = "23.05";
+  # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
