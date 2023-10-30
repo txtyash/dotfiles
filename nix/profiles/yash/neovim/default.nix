@@ -1,16 +1,14 @@
-{pkgs, ...}: {
+{pkgs, profile, ...}:
+let
+  theme = profile.neovimTheme;
+in
+{
   home.shellAliases.v = "nvim";
   programs.nixvim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
-    highlight.ExtraWhitespace.bg = "red";
-    match.ExtraWhitespace = "\\s\\+$";
-    colorschemes.kanagawa.enable = true;
-    clipboard = {
-      register = "unnamedplus";
-      providers.wl-copy.enable = true;
-    };
+    colorschemes.${theme}.enable = true;
     # let bindings
     globals = {
       mapleader = " "; # Sets the leader key to space
@@ -44,8 +42,55 @@
       # todo comments
       {
         mode = "n";
-        key = "<leader>ft";
+        key = "<c-s>t";
         action = ":TodoTelescope<cr>";
+      }
+      # swtich to previous buffer
+      {
+        mode = "n";
+        key = "_";
+        action = ":b#<cr>";
+      }
+      # delete current buffer
+      {
+        mode = "n";
+        key = "d<cr>";
+        action = ":bd<cr>";
+      }
+      {
+        mode = "n";
+        key = "xx";
+        action = "<c-w>q";
+      }
+      {
+        mode = "n";
+        key = "xh";
+        action = "<c-w>h";
+      }
+      {
+        mode = "n";
+        key = "xl";
+        action = "<c-w>l";
+      }
+      {
+        mode = "n";
+        key = "xj";
+        action = "<c-w>j";
+      }
+      {
+        mode = "n";
+        key = "xk";
+        action = "<c-w>k";
+      }
+      {
+        mode = "n";
+        key = "xs";
+        action = ":split<cr>";
+      }
+      {
+        mode = "n";
+        key = "xv";
+        action = ":vsplit<cr>";
       }
       # better indentation
       {
@@ -123,7 +168,7 @@
       }
       {
         mode = "n";
-        key = "<c-s>";
+        key = "<leader>s";
         action = ":w<cr>";
       }
       {
@@ -137,13 +182,13 @@
         action = "gk";
       }
       {
-        mode = "n";
-        key = "<leader>h";
+        mode = ["v" "o" "n"];
+        key = "H";
         action = "^";
       }
       {
-        mode = "n";
-        key = "<leader>l";
+        mode = ["v" "o" "n"];
+        key = "L";
         action = "$";
       }
       {
@@ -155,26 +200,6 @@
         mode = "n";
         key = "<leader>u";
         action = ":UndotreeToggle<cr>";
-      }
-      {
-        mode = ["n" "o" "x"];
-        key = "w";
-        action = ":lua require('spider').motion('w')<CR>";
-      }
-      {
-        mode = ["n" "o" "x"];
-        key = "e";
-        action = ":lua require('spider').motion('e')<CR>";
-      }
-      {
-        mode = ["n" "o" "x"];
-        key = "b";
-        action = ":lua require('spider').motion('b')<CR>";
-      }
-      {
-        mode = ["n" "o" "x"];
-        key = "ge";
-        action = ":lua require('spider').motion('ge')<CR>";
       }
       {
         mode = "n";
@@ -265,10 +290,10 @@
     ];
     autoCmd = [
       # Vertically center document when entering insert mode
-      {
-        event = "InsertEnter";
-        command = "norm zz";
-      }
+      # {
+      #   event = "InsertEnter";
+      #   command = "norm zz";
+      # }
 
       # Remove trailing whitespace on save
       {
@@ -317,6 +342,13 @@
       comment-nvim = {
         enable = true;
       };
+      trouble = {
+        enable = true;
+      };
+      bufferline = {
+        enable = false;
+        alwaysShowBufferline = false;
+      };
       lsp = {
         enable = true;
 
@@ -326,6 +358,7 @@
             # Navigate in diagnostics
             "[d" = "goto_prev";
             "]d" = "goto_next";
+            "<leader>d" = "open_float";
           };
 
           lspBuf = {
@@ -335,7 +368,6 @@
             gi = "implementation";
             K = "hover";
             "<leader>r" = "rename";
-            # "<leader>d" = "show_line_diagnostics"; # vim.lsp.util...
           };
         };
 
@@ -364,7 +396,7 @@
           "<C-u>" = "cmp.mapping.scroll_docs(-3)";
           "<C-d>" = "cmp.mapping.scroll_docs(3)";
           "<C-Space>" = "cmp.mapping.complete()";
-          "<esc>" = "cmp.mapping.close()";
+          "<tab>" = "cmp.mapping.close()";
           "<c-n>" = {
             modes = ["i" "s"];
             action = "cmp.mapping.select_next_item()";
@@ -408,13 +440,21 @@
           };
         };
       };
-      # cmp-nvim-lsp = {
-      #   enable = true;
-      # };
       # files & dir navigation
       oil = {
         enable = true;
         deleteToTrash = false; # TODO: Configure trash
+        keymaps = {
+          "<C-s>" = "false";
+          "<C-h>" = "false";
+          "xv" = "actions.select_vsplit";
+          "xs" = "actions.select_split";
+        };
+        columns = {
+          icon.enable = true;
+          permissions.enable = true;
+          type.enable = true;
+        };
       };
       # buffer navigation
       flash = {
@@ -470,10 +510,6 @@
       todo-comments = {
         enable = true;
       };
-      # Smarter(Different) w, e, b motions
-      spider = {
-        enable = true;
-      };
       # Tim Pope's surround plugin
       surround = {
         enable = true;
@@ -483,15 +519,43 @@
         enable = true;
         keymaps = {
           # Find files using Telescope command-line sugar.
-          "<leader>ff" = "find_files";
-          "<leader>fg" = "live_grep";
-          "<leader>fh" = "help_tags";
-          "<leader>fd" = "diagnostics";
-          "<leader><leader>" = "buffers";
+          "<c-s>f" = "find_files";
+          "<c-s>g" = "live_grep";
+          "<c-s>b" = "current_buffer_fuzzy_find";
+          "<c-s>m" = "marks";
+          "<c-s>h" = "help_tags";
+          "<c-s>d" = "diagnostics";
+          "<c-s>D" = "lsp_definitions";
+          "<c-s>o" = "oldfiles";
+          "<c-s>c" = "commands";
+          "<c-s>C" = "command_history";
+          "<c-s>q" = "quickfix";
+          "<c-s>r" = "registers";
+          "<c-s>v" = "vim_options";
+          "<c-s>x" = "spell_suggest";
+          "<c-s>lr" = "lsp_references";
+          "<c-s>ls" = "lsp_document_symbols";
+          "<c-s>ld" = "diagnostics";
+          "<c-s>lD" = "lsp_definitions";
+          "<c-s>lt" = "lsp_type_definitions";
+          "<leader><space>" = "buffers";
           # TODO: FZF like bindings
           # "<C-p>" = "git_files";
           # "<leader>p" = "oldfiles";
           # "<C-f>" = "live_grep";
+        };
+        extraOptions.pickers.buffers = {
+          show_all_buffers = "true";
+          theme = "dropdown";
+          mappings = {
+            i = {
+              "<c-s>" = "delete_buffer";
+            };
+            n = {
+              "dd" = "delete_buffer";
+              "x" = "delete_buffer";
+            };
+          };
         };
         keymapsSilent = true;
         defaults = {
@@ -514,7 +578,7 @@
       };
       # Navigate your vim undo history
       undotree = {
-        enable = true;
+        enable = false;
       };
       # Indentation guides
       indent-blankline = {
@@ -549,29 +613,6 @@
       # icon-picker-nvim https://github.com/ziontee113/icon-picker.nvim
       # conform-nvim https://github.com/stevearc/conform.nvim
     ];
-    /*
-       extraConfigLua = ''
-      local lsp_zero = require('lsp-zero')
-
-      lsp_zero.on_attach(function(client, bufnr)
-        -- see :help lsp-zero-keybindings
-        -- to learn the available actions
-        lsp_zero.default_keymaps({buffer = bufnr})
-      end)
-
-      ---
-      -- Replace these language servers
-      -- with the ones you have installed in your system
-      ---
-      require('lspconfig').lua_ls.setup({})
-      require('lspconfig').nixd.setup({})
-      require('lspconfig').rust_analyzer.setup({})
-      require('lspconfig').eslint.setup({})
-      require('lspconfig').html.setup({})
-      require('lspconfig').jsonls.setup({})
-      require('lspconfig').cssls.setup({})
-    '';
-    */
   };
   # NOTE. Installing extra packages globally
   home.packages = with pkgs; [

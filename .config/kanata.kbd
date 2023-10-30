@@ -10,11 +10,25 @@
 |#
 
 (defalias
+vi (layer-switch vi)
+cu (layer-switch custom)
 nu (layer-while-held numbers)
 sy (layer-while-held symbols)
-mi (layer-while-held miscellaneous)
-;; code block
-todo (macro ` ` ` ` ` ` lft lft lft)
+cb (macro ` ` ` ` ` ` lft lft lft)
+pa (tap-dance 300 (. S-2))
+pp (tap-dance 300 (S-5 S-3))
+tc (tap-dance 300 (` @cb))
+aqq (tap-dance 300 (' S-apo S-/))
+ee (tap-dance 300 (= S-1))
+su (tap-dance 300 (S-` S-min))
+hp (tap-dance 300 (- S-=))
+cc (tap-dance 300 (S-; ,))
+cd (tap-dance 300 (S-6 S-4))
+aa (tap-dance 300 (S-8 S-7))
+ss (tap-dance 300 (/ ;))
+bb (tap-dance 300 (\ S-\))
+lpc (tap-dance 300 (S-9 S-,))
+rpc (tap-dance 300 (S-0 S-.))
 )
 
 (defsrc
@@ -26,38 +40,46 @@ todo (macro ` ` ` ` ` ` lft lft lft)
 )
 
 (deflayer custom
-  _         1        -       [       ]       S-=    6       7        @todo    lft     down   up       rght   @todo
-  tab       q        w       e       r       t      _       y        u        i       o      p        @mi    @todo
-  lctl      a        s       d       f       g      _       h        j        k       l      @nu      rctl
-  lalt      z        x       c       v       b      b       n        m        bks     @sy    ralt
+  _         1        -       [       ]       S-=    6       7        XX       lft     down   up       rght   XX
+  tab       q        w       e       r       t      _       y        u        i       o      p        @vi    _
+  lctl      a        s       d       f       g      _       h        j        k       l      @sy      rctl
+  lalt      z        x       c       v       b      b       n        m        bks     @nu    ralt
   lctl      lalt     lmet                    spc                     rsft     lmet
 )
 
-(deflayer numbers
-  _    _   S-min S-, S-.   S-=   _    _    _     home pgdn pgup  end  _   
-  '  S-apo  4    5    6    9    _    _    _     _    _    _     _    _ 
-  -    0    1    2    3    7    _    _    _     _    _    _     _
- S-min /    .    ,    8    \    _    _    _     _    _    _
-  _    _    _              ret            _     _
-)
-
 (deflayer symbols
-  _      _     _     S-9   S-0   _      _    _    _     home pgdn pgup  end  _   
-  _      S-/   S-`   S-1   S-3   `      _    _    _     _    _    _     _    _ 
- S-6     S-8   ;     S-7   =     S-4    _    _    _     _    _    _     _
- S-min   S-5   S-=   S-;   S-2   S-\    _    _    _     _    _    _
-  _    _    _              esc            _     _
+  _   _     _     @lpc  @rpc      _     _    _    _     home pgdn pgup  end  _
+  _   @aqq  @su   @ee   rpt-any   @tc   _    _    _     _    _    _     _    _
+  @pp @aa   @ss   @hp   esc       @pa   _    _    _     _    _    _     _
+  _   _     _     @cc   @cd       @bb   _    _    _     _    _    _
+  _   _     _                     ret             _     _
 )
 
+(deflayer numbers
+  _    _    _    S-, S-.   _    _    _    _     home pgdn pgup  end  _
+  _    3    4    7    8    _    _    _    _     _    _    _     _    _
+  _    1    2    5    6    .    _    _    _     _    _    _     _
+  _    _    _    9    0    _    _    _    _     _    _    _
+  _    _    _              spc            _     _
+)
+
+(deflayer vi
+  _         1        -       [       ]       S-=    6       7        XX       lft     down   up       rght   XX
+  tab       q        w       end     r       t      _       y        u        i       o      p        @vi      _
+  lctl      home     s       d       f       pgup   _       lft      down     up      rght   @cu      rctl
+  lalt      z        x       c       pgdn    b      b       n        m        bks     @nu    ralt
+  lctl      lalt     lmet                    spc                     rsft     lmet
+)
+
+#|
 (deflayer miscellaneous
-  _    _    _    brdn bru   _     _    _    _     -    -    -     -    _   
-  _    _    _    _    end   mute  _    _    _     _    _    _     _    _ 
+  _    _    _    brdn bru   _     _    _    _     -    -    -     -    _
+  _    _    _    _    end   mute  _    _    _     _    _    _     _    _
   home _    _    del  volu  end   _    _    _     _    _    _     _
   _    _    _    _    vold  home  _    _    _     _    _    _
   _    _    _               mrgt            _     _
 )
 
-#|
 esc tab return bks
 * 2 symbol layers
 1 vi layer

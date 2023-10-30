@@ -5,10 +5,7 @@
     enableTransience = true;
     settings = {
       add_newline = true;
-      shlvl = {
-        threshold = 1;
-        disabled = false;
-      };
+      shlvl.disabled = false;
     };
   };
 }
