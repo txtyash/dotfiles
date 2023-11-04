@@ -513,9 +513,13 @@
       };
       conform-nvim = {
         enable = true;
+        formatOnSave = {
+          timeoutMs = 500;
+          lspFallback = true;
+        };
         formattersByFt = {
           javascript = ["prettier"];
-          nix = ["nix fmt"];
+          nix = ["alejandra"];
           rust = ["rustfmt"];
         };
       };
