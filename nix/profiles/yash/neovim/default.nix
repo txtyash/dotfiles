@@ -510,6 +510,14 @@ in
       todo-comments = {
         enable = true;
       };
+      conform-nvim = {
+        enable = true;
+        formattersByFt = {
+          javascript = [ "prettier"];
+          nix = [ "nix fmt"];
+          rust = ["rustfmt"];
+        };
+      };
       # Tim Pope's surround plugin
       surround = {
         enable = true;
