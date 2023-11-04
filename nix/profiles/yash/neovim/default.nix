@@ -1,5 +1,6 @@
-{pkgs, profile, ...}:
+{pkgs, ...}:
 let
+  profile = "yash";
   theme = profile.neovimTheme;
 in
 {

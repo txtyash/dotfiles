@@ -1,5 +1,6 @@
-{lib, profile, ...}: let
+{lib, ...}: let
   mkSettings = (import ../../modules/settings/default.nix {inherit lib;}).mkSettings;
+  profile = "yash";
 in {
   imports = [./home-manager];
   options = mkSettings profile;
