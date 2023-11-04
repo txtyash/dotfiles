@@ -29,7 +29,6 @@ with inputs; {
         broot # file tree application
         evcxr # rust repl
         eza # A modern replacement for ‘ls’
-        fastfetch # OS fetch program
         fd # find replacement
         file # nixos does not have a file command by default
         fzf # A command-line fuzzy finder
