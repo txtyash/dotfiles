@@ -45,7 +45,7 @@
             # Machine configuration
             ./machines/vivobook
             # User profiles and their config
-            ./profiles/yash
+            ./general
           ];
         };
       };

@@ -1,35 +1,35 @@
-{lib, ...}: let
-  mkSettings = (import ../../modules/settings {inherit lib;}).mkSettings;
+{
+  lib,
+  config,
+  ...
+}: let
   profile = "yash";
 in {
-  imports = [./home-manager];
-  options = {${profile} = mkSettings profile;};
+  imports = [../../home-manager];
+
   config = {
-    ${profile} = {
-      editor = "nvim";
-      email = "shindeyash@proton.me";
-      workEmail = "evccyr@proton.me";
-      colorscheme = "kanagawa";
-      polarity = "light";
-      neovimColorscheme = "kanagawa";
-    };
-
     nix.settings.trusted-users = [profile];
-
     users.users.${profile} = {
       isNormalUser = true;
-      description = "Yash Shinde.";
       extraGroups = ["networkmanager" "wheel"];
+    };
+    profiles = {
+      ${profile} = {
+        description = "Yash Shinde";
+        editor = "nvim";
+        email = "shindeyash@proton.me";
+        workEmail = "evccyr@proton.me";
+        # Browse here: https://github.com/tinted-theming/base16-schemes
+        theme = "gruvbox-light-medium";
+        polarity = "light";
+        # Browse here: https://nix-community.github.io/nixvim/colorschemes/ayu.html
+        nvimTheme = "kanagawa";
+        browser = "chromium";
+        term = "wezterm";
+      };
     };
   };
 }
-# # ---- SYSTEM SETTINGS ---- #
-# system = "x86_64-linux"; # system arch
-# hostname = "snowfire"; # hostname
-# profile = "personal"; # select a profile defined from my profiles directory
-# timezone = "America/Chicago"; # select timezone
-# locale = "en_US.UTF-8"; # select locale
-#
 # # ----- USER SETTINGS ----- #
 # username = "emmet"; # username
 # name = "Emmet"; # name/identifier

@@ -1,16 +1,10 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
-  colorscheme = config.yash.neovimColorscheme;
-in {
+{pkgs, ...}: {
   home.shellAliases.v = "nvim";
   programs.nixvim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
-    colorschemes.${colorscheme}.enable = true;
+    colorschemes.kanagawa.enable = true;
     # let bindings
     globals = {
       mapleader = " "; # Sets the leader key to space
