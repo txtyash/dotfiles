@@ -1,15 +1,15 @@
 {pkgs, ...}:
-let
-  profile = "yash";
-  theme = profile.neovimTheme;
-in
+# let
+#   profile = "yash";
+#   theme = profile.neovimTheme;
+# in
 {
   home.shellAliases.v = "nvim";
   programs.nixvim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
-    colorschemes.${theme}.enable = true;
+    colorschemes.kanagawa.enable = true;
     # let bindings
     globals = {
       mapleader = " "; # Sets the leader key to space
