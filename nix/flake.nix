@@ -2,7 +2,7 @@
   description = "Yash's NixOS Flake";
 
   nixConfig = {
-    experimental-features = ["nix-command" "flakes"];
+    # experimental-features = ["nix-command" "flakes"];
     substituters = [
       # Replace the official cache with a mirror located in China
       "https://mirrors.ustc.edu.cn/nix-channels/store"
