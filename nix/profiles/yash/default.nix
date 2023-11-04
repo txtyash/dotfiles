@@ -1,14 +1,16 @@
 {lib, ...}: let
-  mkSettings = (import ../../modules/settings/default.nix {inherit lib;}).mkSettings;
+  mkSettings = (import ../../modules/settings {inherit lib;}).mkSettings;
   profile = "yash";
 in {
   imports = [./home-manager];
-  options = mkSettings profile;
+  options = {${profile} = mkSettings profile;};
   config = {
     ${profile} = {
       editor = "nvim";
       email = "shindeyash@proton.me";
       workEmail = "evccyr@proton.me";
+      colorscheme = "kanagawa";
+      polarity = "light";
       neovimColorscheme = "kanagawa";
     };
 

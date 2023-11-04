@@ -7,6 +7,16 @@ with lib; {
         default = "nvim";
         description = "Default text editor.";
       };
+      colorscheme = mkOption {
+        type = types.str;
+        default = "ayu-light";
+        description = "Global colorscheme.";
+      };
+      polarity = mkOption {
+        type = types.str;
+        default = "light";
+        description = "Global colorscheme type.";
+      };
       neovimColorscheme = mkOption {
         type = types.str;
         default = "default";
