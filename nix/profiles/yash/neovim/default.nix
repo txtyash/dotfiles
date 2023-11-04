@@ -514,8 +514,8 @@
       conform-nvim = {
         enable = true;
         formattersByFt = {
-          javascript = [ "prettier"];
-          nix = [ "nix fmt"];
+          javascript = ["prettier"];
+          nix = ["nix fmt"];
           rust = ["rustfmt"];
         };
       };

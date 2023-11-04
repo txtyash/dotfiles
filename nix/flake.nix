@@ -39,7 +39,10 @@
         # Target Machine
         vivobook = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = {inherit inputs; profile = "yash";};
+          specialArgs = {
+            inherit inputs;
+            profile = "yash";
+          };
           modules = [
             # Machine configuration
             ./machines/vivobook
