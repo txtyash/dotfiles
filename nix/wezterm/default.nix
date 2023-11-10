@@ -11,6 +11,7 @@ in {
         set_environment_variables = {
           TERM = 'wezterm',
         },
+        default_prog = { 'fish' },
         keys = {
           { key = 'h', mods = 'ALT', action = wezterm.action.ActivateTabRelative(-1) },
           { key = 'l', mods = 'ALT', action = wezterm.action.ActivateTabRelative(1) },
