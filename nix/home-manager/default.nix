@@ -43,7 +43,6 @@ with inputs; {
         unzip # archives
         wl-clipboard # wayland clipboard
         yazi # tui file manager
-        zig # zig language compiler
         zip # archives
       ];
       imports = [
