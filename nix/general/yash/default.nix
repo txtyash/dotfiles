@@ -20,7 +20,7 @@ in {
         email = "shindeyash@proton.me";
         workEmail = "evccyr@proton.me";
         # Browse here: https://github.com/tinted-theming/base16-schemes
-        theme = "gruvbox-light-medium";
+        theme = "gruvbox-dark-medium";
         polarity = "light";
         # Browse here: https://nix-community.github.io/nixvim/colorschemes/ayu.html
         nvimTheme = "kanagawa";
