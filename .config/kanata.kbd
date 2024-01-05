@@ -1,4 +1,5 @@
 #|
+TEMPLATE
 (defsrc
   esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  prnt  ins  del
   `     1    2    3    4    5    6    7    8    9    0    -    =    bks
@@ -10,25 +11,23 @@
 |#
 
 (defalias
-vi (layer-switch vi)
-cu (layer-switch custom)
-nu (layer-while-held numbers)
-sy (layer-while-held symbols)
 cb (macro ` ` ` ` ` ` lft lft lft)
-pa (tap-dance 300 (. S-2))
-pp (tap-dance 300 (S-5 S-3))
-tc (tap-dance 300 (` @cb))
-aqq (tap-dance 300 (' S-apo S-/))
-ee (tap-dance 300 (= S-1))
-su (tap-dance 300 (S-` S-min))
-hp (tap-dance 300 (- S-=))
-cc (tap-dance 300 (S-; ,))
-cd (tap-dance 300 (S-6 S-4))
-aa (tap-dance 300 (S-8 S-7))
-ss (tap-dance 300 (/ ;))
-bb (tap-dance 300 (\ S-\))
-lpc (tap-dance 300 (S-9 S-,))
-rpc (tap-dance 300 (S-0 S-.))
+
+num (layer-while-held numbers)
+sym (layer-while-held symbols)
+vi (layer-while-held vi)
+
+sv (tap-hold-release 200 200 spc @vi)
+
+as (tap-hold-release 200 200 a @sym)
+sm (tap-hold-release 200 200 s lmet)
+dc (tap-hold-release 200 200 d lctl)
+fa (tap-hold-release 200 200 f lalt)
+
+in (tap-hold-release 200 200 i @num)
+ja (tap-hold-release 200 200 j lalt)
+kc (tap-hold-release 200 200 k lctl)
+lm (tap-hold-release 200 200 l lmet)
 )
 
 (defsrc
@@ -39,39 +38,67 @@ rpc (tap-dance 300 (S-0 S-.))
   lctl lmet lalt           spc            ralt rctl
 )
 
-(deflayer custom
-  _         1        -       [       ]       S-=    6       7        XX       lft     down   up       rght   XX
-  tab       q        w       e       r       t      _       y        u        i       o      p        @vi    _
-  lctl      a        s       d       f       g      _       h        j        k       l      @sy      rctl
-  lalt      z        x       c       v       b      b       n        m        bks     @nu    ralt
-  lctl      lalt     lmet                    spc                     rsft     lmet
+(deflayer qwerty
+  XX        XX       XX      [       ]       XX     XX      XX       XX       XX      XX        XX       XX     XX
+  tab       q        w       e       r       t      _       y        u        @in     o         p        XX     XX
+  ret       @as      @sm     @dc     @fa     g      _       h        @ja      @kc     @lm       @sym     XX
+  XX        z        x       c       v       b      b       n        m        bks     rpt-any   XX
+  XX        XX       XX                      @sv                     rsft     XX
 )
 
 (deflayer symbols
-  _   _     _     @lpc  @rpc      _     _    _    _     home pgdn pgup  end  _
-  _   @aqq  @su   @ee   rpt-any   @tc   _    _    _     _    _    _     _    _
-  @pp @aa   @ss   @hp   esc       @pa   _    _    _     _    _    _     _
-  _   _     _     @cc   @cd       @bb   _    _    _     _    _    _
-  _   _     _                     ret             _     _
+  XX        XX       XX      S-,     S-.     XX     XX      XX       XX       XX      XX     XX       XX     XX
+  tab       S-/      '       =       S-'       `      XX      XX       S-min    S-1     S-2    S-3      _      _
+  XX        S-`      /       ;       S-8     .      XX      S-6      S-=      -       S-4    S-;      @cb
+  XX        XX       XX      ,       \       S-\    XX      S-7      S-5      XX      XX     XX
+  XX        XX       XX                      esc                     XX       XX
 )
 
 (deflayer numbers
-  _    _    _    S-, S-.   _    _    _    _     home pgdn pgup  end  _
-  _    3    4    7    8    _    _    _    _     _    _    _     _    _
-  _    1    2    5    6    .    _    _    _     _    _    _     _
-  _    _    _    9    0    _    _    _    _     _    _    _
-  _    _    _              spc            _     _
+  XX   _    _    S-9 S-0   _    _    _    _     _    _    _     _    _
+  XX   3    4    7    8    _    _    _    _     _    _    _     _    _
+  XX   1    2    5    6    .    _    _    _     _    _    _     _
+  XX   XX   ,    9    0    _    _    _    _     _    _    _
+  XX   _    _              spc            _     _
 )
 
 (deflayer vi
-  _         1        -       [       ]       S-=    6       7        XX       lft     down   up       rght   XX
-  tab       q        w       end     r       t      _       y        u        i       o      p        @vi      _
-  lctl      home     s       d       f       pgup   _       lft      down     up      rght   @cu      rctl
-  lalt      z        x       c       pgdn    b      b       n        m        bks     @nu    ralt
-  lctl      lalt     lmet                    spc                     rsft     lmet
+  XX         XX       XX      XX     XX    XX      XX       XX        XX        XX       XX    XX        XX      XX
+  XX         XX       XX      XX     XX    XX      XX       XX        pgup      home     end   XX        XX      XX
+  XX         XX       _       _      _     XX      XX       lft       down      up       rght  XX        XX
+  XX         XX       XX      XX     XX    XX      XX       pgdn      XX        XX       XX    XX
+  XX         XX       XX                   XX                         _         XX
+)
+
+(deflayer normal
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bks
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rctl
 )
 
 #|
+
+alt met ctrl num sym
+
+met sft arrow num
+
+alt sft
+
+ctrl sft
+
+ctrlsft arrow
+
+(deflayer oldsymbols
+  _   _     _     S-9   S-0       _     _    _    _     home pgdn pgup  end  _
+S-/   @aq   @sp   @ee   rpt-any   @tc   _    _    _     _    _    _     _    _
+S-min @aa   @ss   min   esc       @pa   _    _    _     _    _    _     _
+  _   S-5   S-=   @cc   @cd       @bb   _    _    _     _    _    _
+  _   _     _                     ret             _     _
+)
+
+
 (deflayer miscellaneous
   _    _    _    brdn bru   _     _    _    _     -    -    -     -    _
   _    _    _    _    end   mute  _    _    _     _    _    _     _    _
