@@ -3,3 +3,6 @@
 .gitmodules
 ^/README.*
 ^/LICENSE.*
+flake.*
+nix/
+nix-old/

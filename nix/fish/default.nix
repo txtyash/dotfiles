@@ -1,36 +1,5 @@
-{pkgs, ...}: let
-  fishConfig = ''
-    set -g EDITOR (which nvim)
-    set -g VISUAL (which nvim)
-    set -g SHELL (which fish)
-    set fish_greeting ""
-
-    if status is-interactive
-        fish_vi_key_bindings
-        function fish_user_key_bindings
-    	for mode in default insert
-    	    bind -M $mode \cz "fg %(jobs | fzf | cut -c1)"
-    	    bind -M $mode \cc cancel-cmd
-    	    bind -M $mode \cp history-search-backward
-    	    bind -M $mode \cn history-search-forward
-    	    bind -M $mode \ca beginning-of-buffer
-    	    bind -M $mode \ce end-of-buffer forward-char
-    	    bind -M $mode \cw backward-kill-word
-    	    bind -M $mode \ef forward-word
-    	    bind -M $mode \ee $EDITOR .
-    	end
-        end
-    end
-
-    function cancel-cmd
-        commandline ""
-        emit fish_cancel
-        commandline -f repaint
-    end
-
-    fzf_configure_bindings --directory=\cf --history=\cr
-  '';
-in {
+{pkgs,lib, ...}:
+{
   programs.fish = {
     enable = true;
     plugins = [
@@ -52,21 +21,6 @@ in {
       }
     ];
 
-    shellAliases = {
-      l = "eza --icons";
-      ll = "eza --icons -l";
-      la = "eza --icons -la";
-      d = "z";
-      di = "zi";
-      dp = "cd -";
-      g = "git";
-      top = "btm";
-    };
-
-    shellInit = fishConfig;
-
-    interactiveShellInit = ''
-      zoxide init fish | source
-    '';
+    shellInit = lib.fileContents  ../../.config/fish/config.fish;
   };
 }
