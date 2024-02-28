@@ -1,0 +1,86 @@
+
+// Based on https://github.com/Egosummiki/dotfiles/tree/master/waybar/config
+
+{
+    "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar at the bottom of your screen
+    "height": 36, // Waybar height
+    "spacing": 4,
+    "margin-top": 2,
+    "margin-left": 30,
+    "margin-right": 30,
+    "modules-left": [ "hyprland/workspaces", "hyprland/mode" ],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["pulseaudio", "network", "memory", "battery", "clock#date", "clock#time", "tray" ],
+    "hyprland/workspaces": {
+        "format": "• {name} {icon}",
+	"format-icons": {
+        	"1": "",
+        	"2": "",
+        	"3": "",
+        	"4": "",
+        	"5": "",
+        	"6": "",
+        	"7": "",
+        	"8": "",
+        	"9": ""
+	},
+        "persistent-workspaces": {
+             "*": 3
+        }
+    },
+    "clock#time": {
+        "interval": 1,
+        "format": "   {:%H:%M}   ",
+        "tooltip": false
+    },
+
+    "clock#date": {
+      "interval": 10,
+      "format": "    {:%e %b %Y}", // Icon: calendar-alt
+      "tooltip-format": "{:%e %B %Y}"
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "cpu": {
+        "format": "{usage}% "
+    },
+    "memory": {
+        "format": "  {}%"
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 25,
+            "critical": 15
+        },
+        "format": "{icon}   {capacity}%",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    "network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format-wifi": "   {essid} ({signalStrength}%)",
+        "format-ethernet": "󰈀  {ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "  Disconnected"
+    },
+    "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" ", " "]
+        },
+        "on-click": "pavucontrol"
+    }
+}

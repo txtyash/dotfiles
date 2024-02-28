@@ -47,11 +47,14 @@
     enable = true;
     desktopManager = {gnome.enable = true;};
     displayManager = {
-      defaultSession = "gnome";
+      defaultSession = "hyprland";
       gdm.enable = true;
     };
     excludePackages = [pkgs.xterm];
   };
+
+  # Installs the hyprland window manager
+  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -60,6 +63,9 @@
       variant = "";
     };
   };
+
+  # Enable Blueman to print documents.
+  services.blueman.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

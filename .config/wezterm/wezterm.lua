@@ -7,6 +7,7 @@ return {
     TERM = 'wezterm',
   },
   default_prog = { 'fish' },
+  -- TODO: Map Alt+V to copyMode
   keys = {
     { key = 'h', mods = 'ALT', action = wezterm.action.ActivateTabRelative(-1) },
     { key = 'l', mods = 'ALT', action = wezterm.action.ActivateTabRelative(1) },

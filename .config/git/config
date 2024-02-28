@@ -1,0 +1,40 @@
+[user]
+	name = Yash Shinde
+	email = shinde27yash@gmail.com
+	username = txtyash
+[init]
+	defaultBranch = master
+[core]
+	editor = hx
+	pager = delta
+[web]
+	browser = microsoft-edge
+[diff]
+	colorMoved = default
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+    conflictstyle = diff3
+[delta]
+	navigate = true
+	light = false
+	line-numbers = true
+	features = line-numbers decorations
+[delta "decorations"]
+	minus-style = red bold normal
+	plus-style = green bold normal
+	minus-emph-style = white bold red
+	minus-non-emph-style = red bold normal
+	plus-emph-style = white bold green
+	plus-non-emph-style = green bold normal
+	file-style = yellow bold none
+	file-decoration-style = yellow box
+	hunk-header-style = magenta bold
+	hunk-header-decoration-style = magenta box
+	minus-empty-line-marker-style = normal normal
+	plus-empty-line-marker-style = normal normal
+	line-numbers-right-format = "{np:^4}│ "
+[github]
+	user = txtyash
+[alias]
+	a = add --all

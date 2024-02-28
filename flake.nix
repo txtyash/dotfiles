@@ -10,14 +10,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     stylix,
-    hyprland,
     ...
   }: let
     system = "x86_64-linux";
@@ -35,8 +33,6 @@
       modules = [
         ./nix/home.nix
         stylix.homeManagerModules.stylix
-        hyprland.homeManagerModules.default
-        {wayland.windowManager.hyprland.enable = true;}
       ];
 
       # Optionally use extraSpecialArgs
