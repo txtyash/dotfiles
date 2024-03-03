@@ -1,86 +1,121 @@
-
-// Based on https://github.com/Egosummiki/dotfiles/tree/master/waybar/config
-
+// TODO: Format the file
 {
-    "layer": "top", // Waybar at top layer
-    "position": "bottom", // Waybar at the bottom of your screen
-    "height": 36, // Waybar height
-    "spacing": 4,
-    "margin-top": 2,
+	"layer": "top",
+	"position": "bottom",
     "margin-left": 30,
     "margin-right": 30,
-    "modules-left": [ "hyprland/workspaces", "hyprland/mode" ],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "memory", "battery", "clock#date", "clock#time", "tray" ],
-    "hyprland/workspaces": {
-        "format": "• {name} {icon}",
-	"format-icons": {
-        	"1": "",
-        	"2": "",
-        	"3": "",
-        	"4": "",
-        	"5": "",
-        	"6": "",
-        	"7": "",
-        	"8": "",
-        	"9": ""
+
+	"modules-left": [
+        "custom/nix", 
+        "hyprland/workspaces",
+	],
+  
+    "modules-center": [
+		"clock",
+    ],
+
+	"modules-right": [
+        "pulseaudio",
+        "backlight",
+    	"battery",
+        "network",
+        "custom/power",
+        "tray"
+	],
+
+	"battery": {
+		"interval": 10,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": "<span color='#f5e0dc'>{icon}</span>  {capacity}%",
+		"format-charging": "<span color='#f5e0dc'> </span> {capacity}%",
+		"format-charging-full": "<span color='#f5e0dc'> </span> {capacity}%",
+		"format-full": "{icon}  {capacity}%",
+		"format-alt": "{icon}  {power}W",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
 	},
-        "persistent-workspaces": {
-             "*": 3
-        }
+    "clock": {
+        "format": "<span color='#f5e0dc'>  </span>{:%I:%M %p}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+        "tooltip-format": false, 
+    }, 
+ 
+    "custom/nix": {
+        "format": "<span color='#f5e0dc'>❄ </span>",
+        "tooltip":false,
+     },
+
+  "custom/power": {
+    "format": "<span color='#f5e0dc'>⏻</span>",
+    // TODO: Replace wlougout
+    "on-click": "exec wlogout",
+    "tooltip":false
+  },
+  
+"network": {
+		"interval": 5,
+		"format-wifi": "<span color='#f5e0dc'> </span> {essid}",
+		"format-ethernet": "{ifname}",
+		"format-disconnected": "<span color='#ffffff'>󰖪 </span>",
+		"format-alt": "{ipaddr}/{cidr}",
+		"tooltip": false
+	},
+
+ "wlr/workspaces": {
+      "active-only": false,
+      "all-outputs": false,
+      "disable-scroll": false,
+      "format": "{name}",
+      "format-icons": {
+        "active": "",
+        "default": "",
+        "sort-by-number": true,
+        "urgent": ""
+      },
+      "on-click": "activate",
+      "on-scroll-down": "hyprctl dispatch workspace e+1",
+      "on-scroll-up": "hyprctl dispatch workspace e-1"
     },
-    "clock#time": {
-        "interval": 1,
-        "format": "   {:%H:%M}   ",
-        "tooltip": false
+  
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "<span color='#f5e0dc'>{icon} </span>{percent}%",
+      "format-icons": ["", "", "", "", "", "", "", "", ""],
+      "tooltip": false
     },
 
-    "clock#date": {
-      "interval": 10,
-      "format": "    {:%e %b %Y}", // Icon: calendar-alt
-      "tooltip-format": "{:%e %B %Y}"
-    },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
-    "cpu": {
-        "format": "{usage}% "
-    },
-    "memory": {
-        "format": "  {}%"
-    },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 25,
-            "critical": 15
-        },
-        "format": "{icon}   {capacity}%",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "]
-    },
-    "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "   {essid} ({signalStrength}%)",
-        "format-ethernet": "󰈀  {ifname}: {ipaddr}/{cidr}",
-        "format-disconnected": "  Disconnected"
-    },
-    "pulseaudio": {
-        //"scroll-step": 1,
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon}  {volume}%",
-        "format-muted": " ",
-        "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [" ", " "]
-        },
-        "on-click": "pavucontrol"
-    }
+	
+  "pulseaudio": {
+		"format": "<span color='#f5e0dc'>{icon} </span> {volume}%",
+		"format-bluetooth": "{icon}  {volume}%",
+		"format-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+        // TODO: Install pavucontrol or other a music program 
+		"on-click": "pavucontrol",
+		"tooltip": false
+	},
+
 }
+
