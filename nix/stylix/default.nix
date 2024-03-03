@@ -1,10 +1,10 @@
 {pkgs, ...}:  {
   stylix =
     {
-      cursor.package = pkgs.catppuccin-cursors;
+      cursor.package = pkgs.fuchsia-cursor;
       image = ../../Pictures/gruv-room.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-light-medium.yaml";
-      cursor.name = "macchiatoFlamingo";
+      cursor.name = "Fuchsia";
       polarity = "light";
     };
 }
