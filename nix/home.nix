@@ -159,26 +159,6 @@
   imports = [
     ./stylix
   ];
-  # Just link the config files for applications
-  # TODO: This is repetitive. Can we link the entire .config dir recursively?
-  # xdg.configFile."helix/config.toml".source = ../.config/helix/config.toml;
-  # xdg.configFile."helix/languages.toml".source = ../.config/helix/languages.toml;
-  # xdg.configFile."wezterm/wezterm.lua".source = ../.config/wezterm/wezterm.lua;
-  # xdg.configFile."alacritty/alacritty.toml".source = ../.config/alacritty/alacritty.toml;
-  # xdg.configFile."foot/foot.ini".source = ../.config/foot/foot.ini;
-  # xdg.configFile."hypr/hyprland.conf".source = ../.config/hypr/hyprland.conf;
-  # xdg.configFile."fuzzel/fuzzel.ini".source = ../.config/fuzzel/fuzzel.ini;
-  # xdg.configFile."dunst/dunstrc".source = ../.config/dunst/dunstrc;
-  # xdg.configFile."dunst/volume.sh".source = ../.config/dunst/volume.sh;
-  # xdg.configFile."dunst/brightness.sh".source = ../.config/dunst/brightness.sh;
-  # xdg.configFile."waybar/config".source = ../.config/waybar/config;
-  # xdg.configFile."waybar/style.css".source = ../.config/waybar/style.css;
-  # xdg.configFile."starship.toml".source = ../.config/starship.toml;
-  # xdg.configFile."yazi/yazi.toml".source = ../.config/yazi/yazi.toml;
-  # xdg.configFile."yazi/keymap.toml".source = ../.config/yazi/keymap.toml;
-  # xdg.configFile."yazi/theme.toml".source = ../.config/yazi/theme.toml;
-  # xdg.configFile."git/config".source = ../.config/git/config;
-  # xdg.configFile."mimeapps.list".source = ../.config/mimeapps.list;
   home.file.".config" = { 
     source = ../.config; 
     recursive = true; 
