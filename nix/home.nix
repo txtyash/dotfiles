@@ -59,6 +59,7 @@
     # Miscellaneous
     bun
     dunst
+    swaybg
     direnv
     pamixer
     grimblast
@@ -157,7 +158,7 @@
     home-manager.enable = true;
   };
   imports = [
-    # ./stylix
+    ./stylix
   ];
   home.file.".config" = { 
     source = ../.config; 
