@@ -60,7 +60,6 @@
     bun
     dunst
     swaybg
-    direnv
     pamixer
     grimblast
     nerdfonts
@@ -154,6 +153,12 @@
 
       shellInit = lib.fileContents ../.config/fish/config.fish;
     };
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
   };

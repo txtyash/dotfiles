@@ -1,26 +1,27 @@
-// TODO: Format the file
+// TODO: Fix missing fonts problem
 {
 	"layer": "top",
 	"position": "bottom",
-    "margin-left": 30,
-    "margin-right": 30,
+	// TODO: Add 30 margin after adding transparent background & Add padding
+	"margin-left": 0,
+	"margin-right": 0,
 
 	"modules-left": [
-        "custom/nix", 
-        "hyprland/workspaces",
+    "custom/nix", 
+    "hyprland/workspaces",
 	],
   
-    "modules-center": [
+  "modules-center": [
 		"clock",
-    ],
+  ],
 
 	"modules-right": [
-        "pulseaudio",
-        "backlight",
-    	"battery",
-        "network",
-        "custom/power",
-        "tray"
+    "pulseaudio",
+    "backlight",
+		"battery",
+    "network",
+    "custom/power",
+	"tray"
 	],
 
 	"battery": {
@@ -44,20 +45,19 @@
 		],
 		"tooltip": false
 	},
-    "clock": {
-        "format": "<span color='#f5e0dc'>  </span>{:%I:%M %p}",
-        "format-alt": "{:%A, %B %d, %Y (%R)}",
-        "tooltip-format": false, 
-    }, 
+     "clock": {
+  "format": "<span color='#f5e0dc'>  </span>{:%I:%M %p}",
+  "format-alt": "{:%A, %B %d, %Y (%R)}",
+  "tooltip-format": false, 
+}, 
  
-    "custom/nix": {
-        "format": "<span color='#f5e0dc'>❄ </span>",
-        "tooltip":false,
-     },
+ "custom/nix": {
+    "format": "<span color='#f5e0dc'>❄ </span>",
+    "tooltip":false,
+  },
 
   "custom/power": {
     "format": "<span color='#f5e0dc'>⏻</span>",
-    // TODO: Replace wlougout
     "on-click": "exec wlogout",
     "tooltip":false
   },
@@ -87,16 +87,12 @@
       "on-scroll-up": "hyprctl dispatch workspace e-1"
     },
   
-    "backlight": {
+  "backlight": {
       "device": "intel_backlight",
       "format": "<span color='#f5e0dc'>{icon} </span>{percent}%",
       "format-icons": ["", "", "", "", "", "", "", "", ""],
       "tooltip": false
-    },
-
-    "tray": {
-        "spacing": 10
-    },
+},
 	
   "pulseaudio": {
 		"format": "<span color='#f5e0dc'>{icon} </span> {volume}%",
@@ -104,6 +100,7 @@
 		"format-muted": "",
 		"format-icons": {
 			"headphone": "",
+			// TODO: Fix bad icons
 			"hands-free": "",
 			"headset": "",
 			"phone": "",
@@ -112,10 +109,12 @@
 			"default": ["", ""]
 		},
 		"scroll-step": 1,
-        // TODO: Install pavucontrol or other a music program 
 		"on-click": "pavucontrol",
 		"tooltip": false
 	},
 
-}
+	"tray": {
+		"spacing": 10,
+	},
 
+}

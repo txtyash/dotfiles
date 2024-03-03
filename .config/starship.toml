@@ -1,1 +1,6 @@
+# ~/.config/starship.toml
 
+[shlvl]
+disabled = false
+format = '$shlvl level(s) down'
+threshold = 2
