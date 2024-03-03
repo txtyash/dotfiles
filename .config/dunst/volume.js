@@ -1,5 +1,6 @@
-#! /usr/bin/env nix-shell
-#! nix-shell -i "bun run" -p bun
+// #! /usr/bin/env nix-shell
+// #! nix-shell -i "bun run" -p bun
+// TODO: Make a ticket bun github
  
 import { $ } from "bun";
 
