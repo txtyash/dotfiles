@@ -1,6 +1,7 @@
 \.git
 .gitignore
 .gitmodules
+scratch.md
 ^/README.*
 ^/LICENSE.*
 flake.*

@@ -157,7 +157,7 @@
     home-manager.enable = true;
   };
   imports = [
-    ./stylix
+    # ./stylix
   ];
   home.file.".config" = { 
     source = ../.config; 
