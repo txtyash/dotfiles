@@ -2,5 +2,5 @@
 
 [shlvl]
 disabled = false
-format = '$shlvl level(s) down'
-threshold = 2
+format = '$shlvl| '
+threshold = 3

@@ -7,8 +7,9 @@ else
     set -gx VISUAL (which nvim)
 end
 
-# set -gx ATUIN_NOBIND true
-set -g SHELL (which fish)
+set -gx ATUIN_NOBIND true
+set -gx SHELL (which fish)
+set -gx DIRENV_LOG_FORMAT ""
 set fish_greeting ""
 
 if status is-interactive
