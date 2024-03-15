@@ -55,7 +55,6 @@
 
   # Installs the hyprland window manager
   programs.hyprland.enable = true;
-  programs.sway.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
