@@ -3,22 +3,27 @@ auto-format = true
 name = "rust"
 
 [[language]]
+auto-format = true
 language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
 name = "html"
 
 [[language]]
+auto-format = true
 language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
 name = "css"
 
 [[language]]
+auto-format = true
 language-servers = ["typescript-language-server", "tailwindcss-ls"]
 name = "jsx"
 
 [[language]]
+auto-format = true
 language-servers = ["typescript-language-server", "tailwindcss-ls"]
 name = "tsx"
 
 [[language]]
+auto-format = true
 language-servers = ["svelteserver", "tailwindcss-ls"]
 name = "svelte"
 
