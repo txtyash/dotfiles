@@ -150,8 +150,6 @@
           src = pkgs.fishPlugins.puffer.src;
         }
       ];
-
-      shellInit = lib.fileContents ../.config/fish/config.fish;
     };
 
     direnv = {

@@ -109,7 +109,7 @@
     curl
     helix
     firefox
-    wezterm
+    alacritty
     # Standalone Home-Manager Installation
     home-manager
   ];
