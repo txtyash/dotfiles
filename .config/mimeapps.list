@@ -1,22 +1,25 @@
 [Default Applications]
+text/html=microsoft-edge.desktop
+x-scheme-handler/http=microsoft-edge.desktop
+x-scheme-handler/https=microsoft-edge.desktop
+x-scheme-handler/about=microsoft-edge.desktop
+x-scheme-handler/unknown=microsoft-edge.desktop
 x-scheme-handler/chrome=firefox.desktop
+application/pdf=zathura.desktop
+application/pdf=microsoft-edge.desktop
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop
 application/x-extension-shtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
-text/html=microsoft-edge.desktop
-x-scheme-handler/http=microsoft-edge.desktop
-x-scheme-handler/https=microsoft-edge.desktop
-x-scheme-handler/about=microsoft-edge.desktop
-x-scheme-handler/unknown=microsoft-edge.desktop
 x-scheme-handler/http=vivaldi-stable.desktop
 x-scheme-handler/https=vivaldi-stable.desktop
 text/html=vivaldi-stable.desktop
 x-scheme-handler/about=vivaldi-stable.desktop
 inode/directory=caja-folder-handler.desktop
 text/plain=Helix.desktop
+
 audio/flac=org.xfce.Parole.desktop
 audio/x-flac=org.xfce.Parole.desktop
 audio/mpeg=org.xfce.Parole.desktop
@@ -35,18 +38,22 @@ video/x-flv=org.xfce.Parole.desktop
 video/x-matroska=org.xfce.Parole.desktop
 video/x-mpeg=org.xfce.Parole.desktop
 video/x-ogm+ogg=org.xfce.Parole.desktop
+
 image/bmp=brave-browser.desktop
 image/gif=brave-browser.desktop
 image/jpeg=brave-browser.desktop
 image/png=brave-browser.desktop
 image/tiff=brave-browser.desktop
-application/pdf=microsoft-edge.desktop
-application/pdf=zathura.desktop
 application/pdf=atril.desktop
 x-scheme-handler/unknown=vivaldi-stable.desktop
 
 [Added Associations]
 text/plain=Helix.desktop;
+text/html=microsoft-edge.desktop
+x-scheme-handler/http=microsoft-edge.desktop
+x-scheme-handler/https=microsoft-edge.desktop
+x-scheme-handler/about=microsoft-edge.desktop
+x-scheme-handler/unknown=microsoft-edge.desktop
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/chrome=firefox.desktop;
@@ -58,11 +65,6 @@ application/xhtml+xml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 inode/directory=caja-folder-handler.desktop;
-text/html=microsoft-edge.desktop
-x-scheme-handler/http=microsoft-edge.desktop
-x-scheme-handler/https=microsoft-edge.desktop
-x-scheme-handler/about=microsoft-edge.desktop
-x-scheme-handler/unknown=microsoft-edge.desktop
 audio/flac=org.xfce.Parole.desktop;
 audio/x-flac=org.xfce.Parole.desktop;
 audio/mpeg=org.xfce.Parole.desktop;
