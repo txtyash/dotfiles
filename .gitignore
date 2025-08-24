@@ -15,6 +15,8 @@
 !sops/
 !television/
 !kanata/
+# Temporary for windows
+!windows/
 
 # Whitelist files inside the whitelisted directories
 !backgrounds/**
@@ -27,6 +29,8 @@
 !secrets/**
 !television/**
 !kanata/**
+# Temporary for windows
+!windows/**
 
 # Whitelist specific files
 !.gitignore

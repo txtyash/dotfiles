@@ -1,0 +1,1542 @@
+history --clear
+history
+history --
+history --long
+history | print --raw
+history | print
+history | get command
+history | get command | str join "\n"
+something
+history | get command | str join "\n"
+history | get command | str join "\n" | reverse
+format
+json
+history | to md
+history | raw
+history | format
+history
+table
+table -h
+print "yash\nyash"
+print "yash\nyash" | tv
+tv -h
+history | table --collapse
+history | to text
+history | select command
+history | get command | str join "\n"
+history | reverse | str join (char nl) | tv | decode utf-8 | str trim
+history | get command | str join '\n' | reverse | str join (char nl) | tv | decode utf-8 | str trim
+history | get command | reverse | str join '\n' | str join (char nl) | tv | decode utf-8 | str trim
+history | get command | reverse | str join '\n' 
+history | get command | reverse | str join '\n'
+history | get command | reverse | str join '\n' | str join (char nl) | tv | decode utf-8 | str trim
+history | get command | reverse | str join '\n' | str join (char nl) | tv 
+history | get command | reverse | uniq | fzf --height 40% | str trim | ^sh -c $"echo ($in) && ($in)"
+history | get command | reverse | str join (char nl) | tv | str trim
+history | get command | reverse | str join (char nl) | tv | str trim | input --suffix $"Running: ($in)" | ^sh -c $in
+history | get command | reverse | str join (char nl) | tv | str trim
+history | to html
+history | to html | format
+format number 1.4
+format number
+2.5 | format number
+format 
+02/04/2025 | format date
+'02/04/2025' | format date
+format 
+help\
+help
+help commands
+less
+tv
+z empo
+git log | explore
+git log
+nvim
+nvim
+config nu
+http get https://google.com
+http get https://google.com | to html
+http get https://google.com | to json
+http get https://google.com | detect html
+http get https://google.com
+http get 'https://amazon.in'
+http get 'https://amazon.in' | get headers
+http get 'https://amazon.in' | from html | to json
+http post 
+http post --help
+http post --user yashnfinite --password 'Eroms@123' https://infinite.eroms.works/#login
+http post --user yashnfinite --password 'Eroms@123' https://infinite.eroms.works/#login 'body'
+http post --user yashnfinite --password 'Eroms@123' https://jsonplaceholder.typicode.com/todos/1
+http post --user yashnfinite --password 'Eroms@123' https://jsonplaceholder.typicode.com/todos/1 'body'
+http post get https://jsonplaceholder.typicode.com/todos/1
+http get get https://jsonplaceholder.typicode.com/todos/1
+http get https://jsonplaceholder.typicode.com/todos/1
+http get https://jsonplaceholder.typicode.com/todos/1 | json 
+http get https://jsonplaceholder.typicode.com/todos/1 | to json
+http get https://jsonplaceholder.typicode.com/todos/1 | select 1
+http get https://jsonplaceholder.typicode.com/todos/1
+http get https://jsonplaceholder.typicode.com/todos/1 | where title = 1
+http get https://jsonplaceholder.typicode.com/todos/1 | where title : 1
+http get https://jsonplaceholder.typicode.com/todos/1
+http get https://jsonplaceholder.typicode.com/todos/1 | to json
+http get https://jsonplaceholder.typicode.com/todos/1 | to json | to md
+http get https://jsonplaceholder.typicode.com/todos/1 | select user
+http get https://jsonplaceholder.typicode.com/todos/1 | select userId
+http get https://jsonplaceholder.typicode.com/todos/1 
+http get https://jsonplaceholder.typicode.com/posts
+http get https://jsonplaceholder.typicode.com/posts | select title
+nvim
+ls
+z eroms
+z ~/source/repos/eroms_A6/
+[ 112931910010<\n>112931910010<\n>112963690029<\n>112963690029<\n>114891300012<\n>114891300012<\n>124122130033<\n>124122130033<\n>125795940251<\n>140567290029<\n>140567290029<\n>176002940044] | select unique
+[ 112931910010<\n>112931910010<\n>112963690029<\n>112963690029<\n>114891300012<\n>114891300012<\n>124122130033<\n>124122130033<\n>125795940251<\n>140567290029<\n>140567290029<\n>176002940044] | select distinct
+[ 112931910010,112931910010<\n>112963690029,112963690029<\n>114891300012,114891300012<\n>124122130033,124122130033<\n>125795940251,140567290029<\n>140567290029,176002940044] | select distinct
+[ 112931910010,112931910010<\n>112963690029,112963690029<\n>114891300012,114891300012<\n>124122130033,124122130033<\n>125795940251,140567290029<\n>140567290029,176002940044] | select 
+[ 112931910010,112931910010<\n>112963690029,112963690029<\n>114891300012,114891300012<\n>124122130033,124122130033<\n>125795940251,140567290029<\n>140567290029,176002940044] | filter
+filter
+filter -h
+git status
+git restore
+git pull
+mkdir ~/Downloads/brn-error
+d ~/Downloads/brn-error/
+z ~/Downloads/brn-error/
+yazi
+z eroms
+git status
+git diff
+git restore .
+git pull
+z empo
+pwd
+git pull
+git status
+git pull
+node
+npm start
+z eroms
+z a6
+rg 'chronology'
+rg -i 'chronology'
+rg CHRONOLOGY_TYPE
+rg 'Chronology Type'
+nvim
+mkdir ~/tmp/tmpdir
+z empo
+z eroms
+zi erom
+git status
+nvim
+zi erom
+git pull
+git status
+z emp
+git status
+git restore .
+git pull
+git switch -c chore/uat-infinite-db
+git status
+git add -m "chore: change infinite uat db pointing"
+git add .
+git diff
+git commit -m "chore: change infinite uat db pointing"
+git diff
+git diff --staged
+git status
+git log
+git show dcc9d1b56afbf633d33a961745b853017dd670ee
+git status
+git log
+git push
+git push --set-upstream origin chore/uat-infinite-db
+z emp
+git status
+z striv
+z erom
+exit
+nvim
+exit
+exit
+node
+exit
+npm start
+exit
+z striv
+nvim
+z repo
+git clone https://github.com/txtyash/textyash.com
+git status
+gh repo clone textyash.com
+z textyash.com\
+git status
+git branch
+git switch -c dev
+git pull
+git switch main
+git pull
+git pull -a
+git pull --all
+git pull --alls
+git switch dev
+git pull
+git push --set-upstream-to=origin/dev dev
+git push
+git push --set-upstream origin dev
+git status
+cat .gitignore
+open .gitignore
+rm -r *
+git status
+git commit -m "chore: cleanup for a re-write"
+git add .
+git commit -m "chore: cleanup for a re-write"
+git push
+git log
+git reset --soft HEAD~2
+rm -r *
+rm --help
+explorer.exe .
+git status
+git config
+git config -h
+git config set -h
+tldr git config
+git config --local user.name 'txtyash'
+git config --local user.email 'shinde27yash@gmail.com'
+git add --all
+git commit -m "chore: cleanup for a re-write"
+gitp push -f
+git push -f
+git log
+sv -h
+sv create -h
+sv create .
+git commit -m "initial commit"
+git add .
+open .gitignore
+git add .
+git commit -m "initial commit"
+git push
+bun run dev --open
+z textyash.com\
+z repos
+z textyash.com\
+git status
+git add .
+git commit -m "feat: adds landing page structure"
+git push
+z nos
+z repos
+z nos\
+z tmp
+z notes
+z ~/notes/work/
+nvim
+z ~/notes/work/
+nvim
+git status
+z eroms
+git status
+git diff
+bun repl
+node
+deno
+deno repl
+node
+z text
+nvim src\routes\+layout.svelte
+z src\routes\
+z blog\
+mkdir my-first-blog
+touch my-first-blog\+page.svx
+..
+mv blog posts
+mv posts\ blog
+z blog\
+open my-first-blog.md | metadata
+bun run dev --open
+nvim
+node
+z empo
+git switch prod_eroms_api
+git status
+git log
+git switch e349cdcd893ca22cadb1e5d9f21d2b8ec558f691
+git switch e349cdcd893ca22cadb1e5d9f21d2b8ec558f691 --detach
+git restore .
+git switch e349cdcd893ca22cadb1e5d9f21d2b8ec558f691 --detach
+z empo
+git switch 429eedcd0884b09789331d2a795c342e711ea4b8 --detach
+git log
+git switch HEAD
+git switch HEAD --detach
+git log
+git switch prod_eroms_api
+git switch f3c2b97c60b16d94525d8a0dead86bee7e10d443 --detach
+git switch 5d3cbbc38df694a7644d9f1a311afd768eba73f9 --detach
+git switch 0211af396eea4599c02131e41c42e65d2ab2b8b9 --detach
+git show 0211af396eea4599c02131e41c42e65d2ab2b8b9
+git show --help
+git diff 0211af396eea4599c02131e41c42e65d2ab2b8b9
+git show --verbose 0211af396eea4599c02131e41c42e65d2ab2b8b9
+git switch prod_eroms_api
+git show 0211af396eea4599c02131e41c42e65d2ab2b8b9
+git diff HEAD~0211af396eea4599c02131e41c42e65d2ab2b8b9
+git show 0211af396eea4599c02131e41c42e65d2ab2b8b9 --compact-history
+git show 0211af396eea4599c02131e41c42e65d2ab2b8b9
+git show --first-parent 0211af396eea4599c02131e41c42e65d2ab2b8b9
+git switch 5d3cbbc38df694a7644d9f1a311afd768eba73f9 --detach
+git switch 0211af396eea4599c02131e41c42e65d2ab2b8b9 --detach
+git log --help
+git log -S "if (service.ServiceProviderCommodity.CeilUsage)"
+git log
+git switch 0211af396eea4599c02131e41c42e65d2ab2b8b9 --detach
+git switch prod_eroms_api
+git switch 5d3cbbc38df694a7644d9f1a311afd768eba73f9 --detach
+git status
+git switch 0211af396eea4599c02131e41c42e65d2ab2b8b9 --detach
+git log -S "if (service.ServiceProviderCommodity.CeilUsage)"
+git switch prod_eroms_api
+bun run dev --open
+z text
+dprint init
+dprint
+git status
+bun run dev --open
+bun i
+bun run dev --open
+rm -r node_modules
+bun run dev
+bun i
+bun check:watch
+bun run dev
+npm i --help
+npm --help
+npm help install
+bun i --help
+bun install -d vite-plugin-devtools-json
+yazi
+explorer.exe .
+bun run dev
+git log
+z erom
+git status
+git pull
+git switch uat_eroms_ui
+git pull
+nvim
+git switch -
+git status
+git pull
+npm start
+nvim
+bun install @bitmachina/highlighter@1.0.0-alpha.6
+git add .
+git status
+git commit -m "update"
+git push
+git status
+git switch main
+git merge dev
+git status
+git add .
+git commit -m "merge dev"
+git push
+git merge dev
+git switch -
+bun i @vercel/speed-insights
+git add .
+git commit -m "feat:add vercel speed insights"
+git push
+git switch  -
+git merge dev
+git push
+z erom
+git status
+z erom
+zi erom
+rg GRIDPRICING
+rg 'app-view-product-partial'
+rg 'view-rate-plan-modal'
+node
+git status
+gitui
+git commit --amend
+git status
+git add .
+git commit -m "adds blog 2025-06-25"
+git push
+git push -f
+git switch dev
+git merge main
+git push
+git switch -
+git merge dev
+git status
+git restore .
+git switch -
+touch src\lib\helpers.ts
+bun install -D svelte-target-blank
+git add .
+git commit -m "update"
+git push
+nvim
+node
+sd --help
+scoop install sd
+git status
+git add .
+git commit -m "update"
+git push
+git log
+git status
+sd --help
+tldr sd
+scoop install tldr
+tldr sd
+sd "text-teal-500" "text-sky-500"
+nvim
+nvim
+git status
+git diff
+git restore .
+git status
+git add .
+git commit -m "update"
+git push
+git switch main
+git merge dev
+git push
+git status
+git diff
+git add .
+git commit -m "update"
+bun run dev
+git status
+git diff
+git status
+git commit -m "update"
+git add .
+git commit -m "update"
+git push
+git switch main
+git merge dev
+git switch dev
+git diff
+git add .
+git commit -m "update"
+git push
+git switch main
+git merge dev
+git push
+git switch -
+git diff
+git status
+git add .
+git commit -m "update"
+git push
+git log
+git switch -
+git merge dev
+git push
+git switch -
+git merge main
+z striver
+z -
+scoop install exercism
+exercism --version
+exercism version
+z ~/source/repos/
+mkdir ~/exercism
+z exer
+z ~/exercism/
+csm download --track=zig --exercise=hello-world
+exercism download --track=zig --exercise=hello-world
+exercism --configure --token=69816303-a042-4eda-89cf-490de2c84d3a
+exercism configure --token=69816303-a042-4eda-89cf-490de2c84d3a
+exercism configure --token=69816303-a042-4eda-89cf-490de2c84d3a --workspace=C:\Users\YashS\exercism
+ls
+exercism download --track=zig --exercise=hello-world
+cd zig\
+z hello-world\
+exercism submit .
+exercism submit hello_world.zig
+exercism download --track=zig --exercise=isogram
+..
+exercism submit isogram\isogram.zig
+exercism download --track=zig --exercise=leap
+exercism submit leap\leap.zig
+exercism download --track=zig --exercise=nucleotide-count
+rg TODO
+rg 'TODO'
+rg 'TODO' zig/*
+rg -h
+rg --recursive 'TODO'
+rg --recurse 'TODO'
+rg --recurse 'TODO' .
+rg 'TODO' .
+man rg
+rg --help
+rg --help | less
+tldr rg
+rg --files TODO
+rg --files | rg todo
+rg --files | rg TODO
+rg TODO
+exercism download --track=zig --exercise=nucleotide-count
+exercism submit nucleotide-count\nucleotide_count.zig
+exercism download --track=zig --exercise=pangram
+exercism submit pangram\pangram.zig
+exercism download --track=zig --exercise=raindrops
+zig help test
+zig test help
+zig test --help
+zig test 
+zig test raindrops\test_raindrops.zig
+zig test 
+zig test raindrops\test_raindrops.zig --name='the sound for 1 is 1'
+zig test  --name='the sound for 1 is 1' raindrops\test_raindrops.zig
+zig test  --name 'the sound for 1 is 1' raindrops\test_raindrops.zig
+zig test 
+zig test -h
+zig -h test
+zig help 
+zig help test
+zig test -h
+exercism submit raindrops\test_raindrops.zig
+exercism submit raindrops\raindrops.zig
+exercism download --track=zig --exercise=resistor-color
+node
+exercism submit resistor-color\resistor_color.zig
+exercism download --track=zig --exercise=resistor-color-duo
+exercism submit resistor-color-duo\resistor_color_duo.zig
+exercism download --track=zig --exercise=reverse-string
+exercism submit reverse-string\reverse_string.zig
+exercism download --track=zig --exercise=rna-transcription
+exercism submit rna-transcription\rna_transcription.zig
+z empo
+git status
+node 'InvoiceAccount.Invoice() failed. InvoiceAccount.Account.AccountKey: '.len
+node 'InvoiceAccount.Invoice() failed. InvoiceAccount.Account.AccountKey: '.length
+node
+node
+exercism download --track=zig --exercise=scrabble-score
+exercism submit scrabble-score\scrabble_score.zig
+exercism download --track=zig --exercise=space-age
+exercism submit space-age\space_age.zig
+exercism download --track=zig --exercise=sum-of-multiples
+z exer
+z notes\work\
+mkdir infinite-rate-ready-uninvoiced-accounts
+z infinite-rate-ready-uninvoiced-accounts\
+touch mark-cancel-usages-invoiced.sql
+touch mark-pre-rebill-usages-invoiced.sql
+cp ~/tmp/query-checker.sql ~/Downloads/null-invoicekey-checker.sql
+bun i -g @google/gemini-cli
+gemini -h
+gemini --help
+gemini help
+gemini -p 'why is google gemini cli so slow?'
+gemini
+z zig\
+z ~
+cat .azcopy\
+ls .azcopy\
+z sum
+z exer
+exercism submit zig\sum-of-multiples\sum_of_multiples.zig
+exercism download --track=zig --exercise=triangle
+z zig\
+exercism submit triangle\triangle.zig
+exercism download --track=zig --exercise=two-fer
+exercism --help
+exercism configure
+exercism configure --token=69816303-a042-4eda-89cf-490de2c84d3a --workspace=C:\Users\YashS\exercism
+exercism help configure
+exercism download --track=zig --exercise=two-fer
+exercism download --track=zig --exercise=two-fer --force
+exercism submit two-fer\two_fer.zig
+exercism submit triangle\triangle.zig
+exercism download --track=zig --exercise=acronym
+exercism submit acronym\acronym.zig
+exercism download --track=zig --exercise=armstrong-numbers
+exercism submit armstrong-numbers\armstrong_numbers.zig
+exercism download --track=zig --exercise=collatz-conjecture
+nvim
+nvim
+z striv
+neetcode.io
+z exer
+exercism submit zig\collatz-conjecture\collatz_conjecture.zig
+exercism download --track=zig --exercise=darts
+exercism submit zig\darts\darts.zig
+exercism download --track=zig --exercise=difference-of-squares
+z notes\work\
+z nvim
+z
+zi eroms
+git status
+git pull
+git switch -c fix/13161
+git switch -
+git branch -D fix/13161
+git pull
+git switch -c fix/13161
+git branch -D fix/13161
+git switch -c fix/13161-cascades-allowed-flag
+git status
+git config
+git config --help
+git config list
+git status
+git diff
+git add .
+git commit -m "fix: inverts logic for no cascades allowed flag"
+git push
+nvim
+acpi
+z exer
+exercism submit zig\difference-of-squares\difference_of_squares.zig
+exercism download --track=zig --exercise=eliuds-eggs
+z work
+exercism download --track=zig --exercise=eliuds-eggs
+exercism submit zig\eliuds-eggs\eliuds_eggs.zig
+exercism download --track=zig --exercise=grains
+ping https://api.taxrating.net/Services/Energy/V01/SureTax.asmx/PostRequest
+ping 'https://api.taxrating.net/Services/Energy/V01/SureTax.asmx/PostRequest'
+ping https://api.taxrating.net/Services/Energy/V01
+ping https://api.taxrating.net
+ping https://taxrating.net
+exercism download --track=zig --exercise=hamming
+z eroms
+rg 'Contract Details'
+rg 'PRODUCT_DETAILS'
+rg 'RATEINDEXES'
+rg 'Cascades Allowed'
+rg 'NO_CASCADES_ALLOWED'
+exercism submit zig\hamming\
+exercism submit zig\hamming\hamming.zig
+exercism download --track=zig --exercise=square-root
+nvim
+npm start
+exercism download --track=zig --exercise=square-root
+exercism download --track=zig --exercise=allergies
+z eroms
+git status
+git switch uat_eroms_ui
+git pull
+git config list
+git remote -v
+git status
+git pull
+git pull origin uat_eroms_ui
+git remote -v
+git switch dev
+git pull
+git status
+git branch
+git switch PROD_Eroms_UI
+git pull
+git switch dev
+..
+rm -r eroms_A6\
+explorer.exe .
+z eroms
+explorer.exe .
+nvim
+cd 
+git config --global
+git config --global list
+git config list --global
+z repos
+pwd
+git clone https://epsolutionsinc.visualstudio.com/DefaultCollection/empower/_git/eroms_A6.git
+z eroms_A6\
+git switch uat_eroms_ui
+git branch
+git branch -a
+git switch UAT_Eroms_UI
+git pull
+npm i
+npm -h
+npm i -h
+npm i --ignore-scripts
+git log --help
+git log --follow src\ng2\app\component\alert\disconnection-notice-approval-queue\disconnection-notice-approval-queue.component.ts
+git log --follow src\ng2\app\component\alert\disconnection-notice-approval-queue\disconnection-notice-approval-queue.component.html
+git log --follow src\ng2\app\shared\approval.service.ts
+z
+z eroms_A6\
+z eroms_a
+pwd
+git branch
+git switch PROD_Eroms_UI
+git switch Prod_Eroms_UI
+git pull
+pwd
+git branch
+git status
+git diff
+git branch
+git log -s 'key="Http'
+git log -S 'key="Http'
+git log -S 'key\=Http'
+git log -S 'arrow.eroms.works'
+git show 485ca579cd71b8120114a657db27767f84a21bf8
+..
+z empower
+chrome
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk
+Start-Process "chrome.exe" -ArgumentList "--disable-web-security", "--user-data-dir=C:\temp\chrome_dev"
+nvim
+npm start
+nvim
+z eroms
+git status
+z
+zi zig
+exercism submit grains\grains.zig
+z emp
+git switch release/Aug_29_2021
+git diff
+git restore .
+git switch release/Aug_29_2021
+git switch -c hotfix/timeout-suretax-log
+git diff
+git add .
+git config list
+git status
+git commit -m "hotfix: logs suretax api call"
+git push
+git log
+git switch -
+git add .
+git commit --amend
+git switch -
+git pull
+git switch -
+git merge release/Aug_29_2021
+git log
+git merge release/Aug_29_2021
+git push
+git push -f
+git switch -
+nvim
+git status
+z erom
+git switch uat_eroms_ui
+git pull
+git branch
+git switch UAT_Eroms_UI
+git pu
+git pull
+git restore .
+git pull
+git status
+npm start
+exercism download --track=zig --exercise=anagram
+z striv
+rg isanagram
+rg isAnagram
+rg -i isanagram
+which nu
+exit
+C:\Users\YashS\scoop\shims\nu.exe
+ls
+nvim
+fzf
+exercism submit anagram\anagram.zig
+zig zen
+exercism submit anagram\anagram.zig
+exercism download --track=zig --exercise=binary-search
+date
+time
+date
+date now
+date to-timezone utc
+date now 
+date now
+date to-timezone utc
+date now | date to-timezone
+date now | date to-timezone utc
+date now | date to-timezone gmt
+date now | date to-timezone gx
+date now | date to-timezone ist
+date now | date to-timezone eu
+date now | date to-timezone pst
+date now | date to-timezone -h
+date list-timezone
+(2.8+3.2)/2
+exercism download --track=zig --exercise=binary-search
+exercism submit binary-search\binary_search.zig
+exercism download --track=zig --exercise=bob
+z striv
+z
+z striv
+z exer
+exercism download --track=zig --exercise=bottle-song
+exercism submit zig\bottle-song\bottle_song.zig
+exercism download --track=zig --exercise=dnd-character
+exercism download --track=zig --exercise=isbn-verifier
+z Downloads\
+z eroms
+git pull
+ascii d
+ascii
+exercism submit zig\isbn-verifier\isbn_verifier.zig
+exercism download --track=zig --exercise=kindergarten-garden
+npm start
+exercism submit zig\kindergarten-garden\kindergarten_garden.zig
+node
+exercism submit zig\kindergarten-garden\kindergarten_garden.zig
+exercism download --track=zig --exercise=perfect-numbers
+exercism submit zig/perfect-numbers/perfect_numbers.zig
+exercism download --track=zig --exercise=phone-number
+exercism submit zig\phone-number\phone_number.zig
+exercism download --track=zig --exercise=prime-factors
+z zig\prime-factors\
+zig test test_prime_factors.zig
+z
+nvim infb0314_UnprocessedRecords.txt
+z exercism
+exercism submit zig\prime-factors\prime_factors.zig
+exercism download --track=zig --exercise=proverb
+exercism submit zig/proverb/proverb.zig
+exercism download --track=zig --exercise=queen-attack
+exercism submit zig\queen-attack\queen_attack.zig
+exercism download --track=zig --exercise=rotational-cipher
+node
+exercism submit zig/rotational-cipher/rotational_cipher.zig
+exercism download --track=zig --exercise=secret-handshake
+exercism submit zig\bob\bob.zig
+exercism submit zig/secret-handshake/secret_handshake.zig
+exercism download --track=zig --exercise=sieve
+z
+z exercism
+exercism submit zig\sieve\sieve.zig
+exercism download --track=zig --exercise=sublist
+exercism submit zig\sublist\sublist.zig
+exercism submit zig/sublist/sublist.zig
+exercism download --track=zig --exercise=twelve-days
+reverse
+reverse tac
+tac
+revrse -h
+reverse -h\
+reverse -h
+reverse {<\n>    "Drummers Drumming",<\n>    "Pipers Piping",<\n>    "Lords-a-Leaping",<\n>    "Ladies Dancing",<\n>    "Maids-a-Milking",<\n>    "Swans-a-Swimming",<\n>    "Geese-a-Laying",<\n>    "Gold Rings",<\n>    "Calling Birds",<\n>    "French Hens",<\n>    "Turtle Doves",<\n>    "Partridge in a Pear Tree",<\n>    }
+reverse [<\n>    "Drummers Drumming",<\n>    "Pipers Piping",<\n>    "Lords-a-Leaping",<\n>    "Ladies Dancing",<\n>    "Maids-a-Milking",<\n>    "Swans-a-Swimming",<\n>    "Geese-a-Laying",<\n>    "Gold Rings",<\n>    "Calling Birds",<\n>    "French Hens",<\n>    "Turtle Doves",<\n>    "Partridge in a Pear Tree",<\n>    ]
+exercism submit zig\twelve-days\twelve_days.zig
+exercism download --track=zig --exercise=all-your-base
+zig zen
+z down
+unzip pictures-nord-locker.zip
+nvim
+mv thinkbridge-coding-round-set-c.md ~/notes/personal/
+exercism download --track=zig --exercise=all-your-base
+z zig
+zig test all-your-base\test_all_your_base.zig
+exercism submit all-your-base\all_your_base.zig
+node
+exercism download --track=zig --exercise=atbash-cipher
+node
+exercism submit atbash-cipher\atbash_cipher.zig
+exercism download --track=zig --exercise=house
+z down
+mv `Batch Payment MoneyGram 07.25.2025.xlsx` batch-pay.xlsx
+mv batch-pay.xlsx batch-payment-moneygram-upload-test-zendesk-121317.xlsx
+mv batch-payment-moneygram-upload-test-zendesk-121317.xlsx batch-payment-moneygram-upload-test-zendesk-121317-attempt-2.xlsx
+z erom
+z empo
+git status
+git diff
+git status Eroms/Eroms.Data/DatabaseScripts/Misc/texpo/
+git diff Eroms/Eroms.Data/DatabaseScripts/Misc/texpo/
+git switch -c fix/13220-non-legacy-cascade
+git add .
+git commit -m "fix: cascade product display for non-legacy charge plans"
+git status
+git push
+z repos
+z text
+z txtya
+git status
+git switch main
+git status
+git switch dev
+git log
+git diff
+bun run fmt
+bun run format
+git add .
+git commit -m "chore: formats all files"
+z exer
+exercism submit zig\house\house.zig
+git status
+zig zen
+exercism download --track=zig --exercise=largest-series-product
+exercism submit zig\largest-series-product\largest_series_product.zig
+exercism download --track=zig --exercise=linked-list
+z empo
+git reset --soft HEAD~1
+git status
+git add .
+git status
+git commit --amend
+git pull
+git branch -D fix/13220-non-legacy-cascade
+git switch -
+git branch -D fix/13220-non-legacy-cascade
+git switch -
+git switch fix/13220-non-legacy-cascade
+git pull
+git log
+git reset --soft HEAD~1
+git status
+git add .
+git commit -m "fix: cascade product display for non-legacy charge plans"
+git log
+git push
+git push -f
+exercism --help
+exercism completion
+z repos
+z engage-ui\
+git remote -v
+git branch
+git branch -a
+git pull
+git log
+git switch UAT_Engage
+git pull
+git log
+cat README.md
+open README.md | print
+open package.json | print
+open package.json | print | json
+open package.json | json
+open package.json | tojson
+open package.json | to json
+npm run start
+npm i
+open package.json | to json
+fnm 
+fnm ls
+fnm use 12
+npm i
+npm start
+rg host
+open package.json | json
+open package.json | to json
+ls src\
+npm run start
+nvim package.json
+git status
+git restore package.json
+npm start
+fnm use 16.16.0
+nvim
+git restore .
+npm start
+Y
+fnm ls
+fnm use 16.16.0
+fnm ls
+rm -r node_modules\
+npm i
+npm config --local
+npm i
+fnm ls
+fnm use 12
+npm i
+fnm use 10.13.0
+fnm ls
+npm i
+rm -r node_modules\
+npm i
+rm -r node_modules\
+rm package-lock.json
+npm i
+git status
+npm start
+npm ng
+npm run ng serve --host 0.0.0.0 --port 9001
+npm ng ng serve --host 0.0.0.0 --port 9001
+npm ng serve --host 0.0.0.0 --port 9001
+npm start
+nvim
+git status
+git restore .
+npm start
+rm -r node_modules\
+git status
+git diff
+git restore .
+git status
+ls node_modules.zip
+unzip node_modules.zip
+explorer.exe .
+git status
+ls node_modules
+ls node_modules\node_modules\
+explorer.exe .
+git status
+fnm ls
+npm start
+git status
+fnm ls
+git restore .
+git status
+fnm ls
+npm i
+git status
+npm start
+git status
+z notes\work\
+..
+ls personal\
+..
+mv notes\ notes-old
+mv obsidian\ notes
+ls notes\
+z ~/AppData/Local/nvim/
+nvim
+nvim
+pwd
+z ~/notes/
+mv thinkbridge\* .
+ls templates\
+ls attachments\
+nvim
+ls ~/notes
+pwd
+ls yash\
+mv yash ~/obsidian-yash
+rm -r daily\*
+rm -r attachments\*
+rm `Untitled 1.canvas`
+rm Untitled.canvas
+rm disconnect-notice.md
+rm emPower_GetDisconnectNoticeDuepayment.md
+rm eroms_Paged_GetInvoices.md
+rm 202508071224.md
+ls Excalidraw\
+rm Excalidraw\*
+ls Clippings\
+open Clippings\Claude.md | print
+rm Clippings\*
+rm daily\
+mkdir daily
+ls fleeting\
+rm fleeting\*
+ls
+ls thinkbridge\
+rm -r thinkbridge\
+ls tickets\
+rm -r tickets\
+ls weekly\
+ls
+ls notes\
+rm notes\202508071228.md
+z notes\
+rm 202508071228.md
+rm yash.md
+rm yash2.md
+rm something.md
+ls
+rm dail.md
+nvim
+rm 202508071254.md
+rm 202508071255.md
+rm 202508071256.md
+rm -r fleeting\
+nvim package.json
+z repos
+rm -r eroms_A6\ ep-solutions-documentation\ emsigner\ empower\ Release\ .npmrc src\ svelte.config.js package.json vite.config.ts 
+rm -r empower\
+rm -r engage-ui\
+rm -r tsconfig.json
+open .gitignore | print
+rm -r .gitignore
+open .gitignore | print
+open README.md | print
+rm -r README.md
+ls spec-parser\
+ls -la spec-parser\
+rm -r spec-parser\
+ls dotfiles\
+ls nos\
+ls static\
+rm -r static\
+ls striver\
+ls textyash.com\
+..
+git config list --global
+git config --help
+tldr git config
+tldr git config set
+tldr git config 
+git config list --global
+git config --global user.name "Yash Shinde"
+git config --global user.email "yshinde@callthecar.com"
+git config --global
+git config --global list
+git config list --global 
+git config --global core.editor "nvim"
+git config list --global 
+git config remove --global "user.name|user.email"
+git config --unset "user.name|user.email"
+git config --global --edit
+rm C:\Users\YashS\AppData\Local\nvim-data\shada\main.shada.tmp.X
+git config list --global
+git clone https://CallTheCar@dev.azure.com/CallTheCar/Software%20Development/_git/CCERRTS%20Core%20Web%20App
+git clone ❯ : git clone https://CallTheCar@dev.azure.com/CallTheCar/Software%20Development/_git/CCERRTS%20Core%20Web%20App
+git clone https://CallTheCar@dev.azure.com/CallTheCar/Software%20Development/_git/CCERRTS%20Core%20Web%20App --verbose
+git config --global user.name "yshinde"
+git config --global list
+git config list --global 
+git clone https://CallTheCar@dev.azure.com/CallTheCar/Software%20Development/_git/CCERRTS%20Core%20Web%20App --verbose
+mv CCERRTS%20Core%20Web%20App\ core-web-app
+z core-web-app\
+dotnet -h
+dotnet run
+dotnet --version
+..
+..
+mv core-web-app\ ccerrts-core-web-app
+git clone https://CallTheCar@dev.azure.com/CallTheCar/Software%20Development/_git/CCERRTS%20API ccerrts-api
+git clone https://CallTheCar@dev.azure.com/CallTheCar/Software%20Development/_git/CCERRTS%20API ccerrts-api --verbose
+z ccerrts-core-web-app\
+dotnet nuget add source https://nuget.telerik.com/v3/index.json -n "Telerik" -u your-telerik-email -p your-telerik-password
+dotnet nuget add source https://nuget.telerik.com/v3/index.json -n "Telerik"
+..
+explorer.exe .
+dotnet add package Telerik.UI.for.AspNet.Mvc5 --version 2023.1.314
+z `CCERRTS Core Web App\`
+dotnet add package Telerik.UI.for.AspNet.Mvc5 --version 2023.1.314
+z CalltheCar-HC\
+dotnet add package Telerik.UI.for.AspNet.Mvc5 --version 2023.1.314
+dotnet nuget locals all --clear
+dotnet nuget list source
+Registered Sources:
+dotnet nuget remove source "Microsoft Visual Studio Offline Packages"
+dotnet nuget add source 'C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\' -n 'Microsoft Visual Studio Offline Packages'
+dotnet nuget list source
+Telerik [Enabled]
+dotnet add package Telerik.UI.for.AspNet.Mvc5 --version 2023.1.314
+..
+git status
+git switch development
+git switch 'development'
+git switch --help
+git checkout development
+git switch development
+git log
+git switch master
+git branch -a
+git switch remotes/origin/development
+git branch
+git status
+pwd
+nuget sources add -name "Telerik" -source "https://nuget.telerik.com/v3/index.json" -username "pwilliams@callthecar.com" -password "akP1}t!o*i0yebI,a51tQ)Y'S9DO7]u"
+z CalltheCar-HC\
+nuget sources add -name "Telerik" -source "https://nuget.telerik.com/v3/index.json" -username "pwilliams@callthecar.com" -password "akP1}t!o*i0yebI,a51tQ)Y'S9DO7]u"
+dotnet nuget remove source "Package Source"
+dotnet nuget list source
+explorer.exe .
+dotnet remove package Telerik.UI.for.AspNet.Mvc5
+dotnet nuget remove source "Telerik"
+dotnet nuget add source https://nuget.telerik.com/v3/index.json -n 'Telerik'
+git status
+git restore .
+git status
+..
+git status
+dotnet nuget remove source "Telerik"
+git status
+rg nuget.config
+fd nuget.config
+fd nuget.config | nvim
+nvim CalltheCar-HC\NuGet.config
+git status
+git restore .
+git status
+dotnet --version
+../ccerrts-api/
+..
+mv ccerrts-api\ 'CCERRTS API'
+ls
+ls repos\
+z repos\dotfiles\
+git status
+..
+ls dotfiles\
+z dotfiles\
+git status
+git fetch
+git pull
+../nos/
+git status
+../striver/
+git status
+rm tmp.zig
+open README.md | print
+git status
+git add .
+git commit -m "update"
+git push
+git log
+..
+rm -r striver\
+..
+dotnet --help
+dotnet new --help
+dotnet new mvc -o todo
+z todo\
+nvim --help
+scoop install omnisharp
+omnisharp --help
+nvim
+z `../CCERRTS API/`
+git status
+git restore .
+git branch
+git branch -a
+git switch dev
+git switch remotes/origin/dev
+git switch remote/origin/dev
+git switch dev
+git checkout dev
+git fetch -a
+git switch WEB-4.7.2-DotNetFramework Branch
+git switch WEB-4.7.2-DotNetFramework
+git switch origin/WEB-4.7.2-DotNetFramework
+git branch -a
+gitui
+git branch -a
+z `../CCERRTS API/`
+z api
+git branch -a
+git switch development-v1
+git status
+ls ..
+../todo/
+mv Views\Home\ Views\Homer
+git status
+rg "The reservation has a leg over"
+z `../CCERRTS Core Web App/`
+rg "The reservation has a leg over"
+dotnet watch
+nvim
+`../CCERRTS Core Web App/`
+dotnet watch
+rg "The reservation has a leg over"
+rg "The reservation has a leg over"
+git pull
+rg "The reservation has a leg with over "
+rg 'onclick="ShowSupervisorAuthorization()"'
+rg -h
+rg --help
+tldr rg
+rg -F 'onclick="ShowSupervisorAuthorization()"'
+rg 'onclick.*ShowSupervisorAuthorization\(\)'
+nvim
+z source\
+sv -h
+sv create --help
+mkdir ctc
+z ctc
+sv create --template minimal ui
+z ui
+..
+git status
+git init
+git switch -c dev
+git branch
+git switch master
+git switch -c master
+git branch -a
+git switch -c dev
+git status
+z ui
+git status
+git add .
+git status
+git commit -m "initial commit"
+z web
+rg -i membersearchpanel
+..
+git status
+z ~/source/ctc/
+mkdir api
+z api
+pi -n YourApiName
+dotnet new webapi .
+dotnet new webapi
+dotnet --version
+dotnet new webapi
+rm -r .
+rm -r *
+dotnet new webapi
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet nuget remove source https://nuget.telerik.com/v3/index.json
+dotnet nuget remove source telerik
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet ef dbcontext scaffold "Server=ctc-dev-server.32fc1efdac51.database.windows.net;User Id=ctcadmin;Password=9orhTA7Nc4Uu4kd;TrustServerCertificate=true;Encrypt=true;Database=your-database-name;" Microsoft.EntityFrameworkCore.SqlServer --force
+dotnet tool install --global dotnet-ef
+dotnet ef dbcontext scaffold "Server=ctc-dev-server.32fc1efdac51.database.windows.net;User Id=ctcadmin;Password=9orhTA7Nc4Uu4kd;TrustServerCertificate=true;Encrypt=true;Database=CalltheCar-HC;" Microsoft.EntityFrameworkCore.SqlServer --force
+dotnet build
+dotnet watch
+dotnet ef dbcontext scaffold "Server=ctc-dev-server.32fc1efdac51.database.windows.net;User Id=ctcadmin;Password=9orhTA7Nc4Uu4kd;TrustServerCertificate=true;Encrypt=true;Database=CalltheCar-HC;" Microsoft.EntityFrameworkCore.SqlServer --force
+yazi
+dotnet ef dbcontext scaffold "Server=ctc-dev-server.32fc1efdac51.database.windows.net;User Id=ctcadmin;Password=9orhTA7Nc4Uu4kd;TrustServerCertificate=true;Encrypt=true;Database=your-database-name;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models --context-dir Data --context AppDbContext --force
+dotnet ef dbcontext scaffold "Server=ctc-dev-server.32fc1efdac51.database.windows.net;User Id=ctcadmin;Password=9orhTA7Nc4Uu4kd;TrustServerCertificate=true;Encrypt=true;Database=your-database-name;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models --context-dir Data --context AppDbContext --force
+dotnet build
+git status
+dotnet build
+z ..
+z ~/tmp/
+dotnet new webapi
+nvim Program.cs
+dotnet ef dbcontext scaffold "Server=ctc-dev-server.32fc1efdac51.database.windows.net;User Id=ctcadmin;Password=9orhTA7Nc4Uu4kd;TrustServerCertificate=true;Encrypt=true;Database=your-database-name;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models --context-dir Data --context AppDbContext --force
+dotnet ef dbcontext scaffold "Server=ctc-dev-server.32fc1efdac51.database.windows.net;User Id=ctcadmin;Password=9orhTA7Nc4Uu4kd;TrustServerCertificate=true;Encrypt=true;Database=CalltheCar-HC;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models --context-dir Data --context AppDbContext --force
+dotnet add package Swashbuckle.AspNetCore
+dotnet watch
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.AspNetCore.Identity
+dotnet add package Microsoft.IdentityModel.Tokens
+dotnet add package System.IdentityModel.Tokens.Jwt
+curl -X 'GET' \
+nvim
+curl -X 'GET' \ 'http://localhost:5298/api/Session/test-auth' \ -H 'accept: */*' \ -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjViYmI0OS05M2U1LTQwZTAtODhkZS1kOWFiMjg5NDAyNzMiLCJlbWFpbCI6InlzaGluZGVAY2FsbHRoZWNhci5jb20iLCJqdGkiOiJjN2Y0ZWJmNy0yMzkxLTQwYmMtODVmMi1mYmYzZTA1MmY5ZGUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoieXNoaW5kZSIsIlVzZXJUeXBlIjoiMSIsIklzQWN0aXZlIjoiMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkNUQyBBY2Nlc3MgTGV2ZWwgSVgiLCJuYmYiOjE3NTUyODEyOTUsImV4cCI6MTc1NTI4NDg5NSwiaXNzIjoiQ2FsbCBUaGUgQ2FyIiwiYXVkIjoiVGhpbmticmlkZ2UifQ.3lNMDzveQUUMdDDha7Q9Rmf01rEKkXbOKQOQanJ85Zk'
+dotnet watch
+nvim
+bun run dev --open
+z ~/tmp/
+z ..
+z web
+z
+z exer
+nvim
+z
+exercism download --track=zig --exercise=luhn
+exercism submit exercism\zig\luhn\luhn.zig
+z web
+rg "The reservation has a leg with over "
+The "reservation has a leg with over "
+rg "reservation has a leg with over "
+rg "miles ."
+rg -F "miles ."
+git status
+git restore .
+git status
+git switch -c fix/1315-supervisor-auth-link
+git diff
+git status
+git add .
+git diff --staged
+gitui
+git log
+git push
+exercism download --track=zig --exercise=matching-brackets
+exercism submit exercism\zig\matching-brackets\
+exercism submit exercism\zig\matching-brackets\matching_brackets.zig
+git status
+git branch -a
+git switch development
+git pull
+git log
+git switch --detach e6e556092c2886260ab64315e9a4c387402fe5e0
+git switch -
+git blame build-validation.yml
+git blame CalltheCar-HC\CalltheCar-HC.csproj
+git pull
+git switch -c fix/1333-past-reservation
+exercism download --track=zig --exercise=nth-prime
+nvim
+nvim
+z sour
+z repos\
+z textyash.com\
+git status
+rm -r peng\
+git status
+git pull
+git push
+..
+rm -r textyash.com\
+z nos\
+git status
+git config --local user.email 'shinde27yash@gmail.com'
+git init
+git config --local user.email 'shinde27yash@gmail.com'
+git config --local user.name 'txtyash'
+git push
+git remote -v
+../dotfiles/
+git remote -v
+z -
+git remote add origin 'https://github.com/txtyash/nos'
+git remote -v
+git push
+git push --set-upstream origin master
+gh repo 
+gh repo create --public nos
+git push
+git push --set-upstream origin master
+git push --set-upstream origin main
+git remote -v
+git push
+git push --set-upstream origin master
+git add .
+git status
+git restore .
+git status
+git rm --cached .
+git rm -r --cached .
+git status
+nvim .gitignore
+git status
+nvim .gitignore
+git status
+git add .
+git commit -m "initial commit"
+git push
+git push --set-upstream origin master
+..
+rm -r nos\
+z dotfiles\
+git status
+git pull
+git push
+git log
+git branch
+git switch dev
+z sour
+z repos\
+z dotfiles\
+..
+rm -r dotfiles\
+z
+scoop list
+git -h
+z AppData\Local\
+ls nvim\
+z nvim\
+z ~/source/repos/
+-
+..
+rm -r repos\
+gh repo clone dotfiles
+gh repo clone dotfiles --depth 1
+gh repo clone --depth 1 dotfiles 
+gh repo clone -- --depth 1 dotfiles 
+gh repo clone dotfiles -- --depth 1
+z dotfiles\
+git log
+z nvim\
+..
+nvim scooplist
+z nvim\
+nvim
+z ~
+z dotfiles\
+z
+z dotfiles\
+..
+pwd
+cp -r ~/AppData/Local/nvim/ nvim-windows
+scoop list
+z exerci
+rg TODO
+rg NOTE
+..
+cp -r exercism\ ~/source/dotfiles/exercism
+z dotfiles\
+..
+rm -r repos\
+z sour
+ls repos\
+rm -r repo
+rm -r repos\
+ls repos\
+rm -r repos\
+ls
+mv `CCERRTS API\` repos\
+mv `CCERRTS Core Web App\` repos\
+mv ctc\ repos\
+mv todo\ repos\
+mv dotfiles\ repos\
+z repos\
+z dot
+pwd
+ls
+git status
+git log
+ls ..
+z web
+z `../CCERRTS Core Web App/`
+git status
+z ../dotfiles/
+ls
+git status
+git log
+git branch -a
+git add .
+git status
+nvim scooplist
+git status
+git pull
+git fetch
+git fetch -a
+git status
+git add .
+git commit -m "update"
+git status
+z sourc
+z repos\
+..
+mv dotfiles\ old-dotfiles
+mv dotfiles\ old
+ls
+gh repo clone dotfiles dot
+mv dotfiles\scooplist.md dot\
+mv dotfiles\nvim-windows\ dot\
+cp ~/.wezterm.lua dot\
+ls ~
+open ~/.gemini/ | print
+open ~/.gemini/google_account_id | print
+rm -r ~/.gemini/
+z dot\
+git status
+gitui
+git log
+git remote -v
+git log --oneline
+ls .git\
+open .gitignore | print
+git status
+mkdir windows
+z windows\
+mv ../nvim-windows/ nvim
+ls
+mv ../scooplist.md .
+git status
+..
+git status
+git status windows\
+git add .
+git commit -m "update"
+git status 
+git log
+git reset --soft HEAD~1
+git status 
+config path
+config nu
