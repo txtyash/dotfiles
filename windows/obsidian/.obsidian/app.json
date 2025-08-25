@@ -1,0 +1,8 @@
+{
+  "promptDelete": false,
+  "vimMode": true,
+  "attachmentFolderPath": "attachments",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "fleeting",
+  "alwaysUpdateLinks": true
+}

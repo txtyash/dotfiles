@@ -1,0 +1,1 @@
+1. Learn how to find `2^n` mentally without needing a calculator. Related to [[u16#range|u16 datatype in zig]].

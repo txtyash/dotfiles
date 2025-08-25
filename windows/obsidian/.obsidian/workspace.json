@@ -1,0 +1,251 @@
+{
+  "main": {
+    "id": "91aa2cc396622043",
+    "type": "split",
+    "children": [
+      {
+        "id": "8e3b156bfd260ffc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e4cf6836dd9c53ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily/2025-04-05.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-04-05"
+            }
+          },
+          {
+            "id": "cb1d6c001149dd33",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "fleeting/Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "d85c2f1581ed0a63",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2025-05-03 19.37.38.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-05-03 19.37.38.excalidraw"
+            }
+          },
+          {
+            "id": "0ca34824434de912",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "fleeting/dsa.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "dsa"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "295156e3f368d920",
+    "type": "split",
+    "children": [
+      {
+        "id": "c37e05f8d1ffdd91",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9c51baa4211790e5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c1a997753671f2fd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e6b8fa0090aa174a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "b2696bde298bd499",
+    "type": "split",
+    "children": [
+      {
+        "id": "aa3233e9432d3b80",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f709d9f9d0eb5f6a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "fleeting/many-item-pointers.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for many-item-pointers"
+            }
+          },
+          {
+            "id": "2215d33eba0ef247",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "zig.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from zig"
+            }
+          },
+          {
+            "id": "88508c8e5039d715",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0e8e6f1b6ff68372",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "zig.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of zig"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "0ca34824434de912",
+  "lastOpenFiles": [
+    "fleeting/dsa.md",
+    "Excalidraw/Drawing 2025-05-03 19.37.38.excalidraw.md",
+    "fleeting/google.md",
+    "fleeting/Untitled.md",
+    "daily/2025-04-05.md",
+    "daily/2025-04-06.md",
+    "daily/2025-05-01.md",
+    "fleeting/927.md",
+    "u16.md",
+    "fleeting/poem-new-start.md",
+    "fleeting/many-item-pointers.md",
+    "fleeting/example-lsp-values.md",
+    "fleeting/arithmetic-summation-series.md",
+    "fleeting/cpu.md",
+    "fleeting/zig-habits.md",
+    "fleeting/synced-web-datatypes.md",
+    "fleeting/todo.md",
+    "fleeting/quick-sort.md",
+    "fleeting/poem-yash.md",
+    "fleeting/poem-everything.md",
+    "fleeting/zig-error-handling.md",
+    "fleeting/leetcode-31-next-permutation.md",
+    "byte-addressability.md",
+    "Excalidraw/byte-addressable-memory.excalidraw.md",
+    "Excalidraw/bits-and-values.excalidraw.md",
+    "fleeting/limerence.md",
+    "Excalidraw",
+    "Clippings",
+    "poems",
+    "fleeting",
+    "weekly",
+    "templates",
+    "images",
+    "daily"
+  ]
+}
