@@ -1666,3 +1666,6 @@ git commit -m "update"
 git status 
 gh repo browse
 git status 
+git add .
+git commit -m "update"
+git status 
