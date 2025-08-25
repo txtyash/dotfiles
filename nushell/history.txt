@@ -1669,3 +1669,49 @@ git status
 git add .
 git commit -m "update"
 git status 
+git add .
+git commit -m "update"
+git push
+git status 
+git diff
+git status 
+git diff
+git status 
+nvim
+ls
+copy
+print "yash" | copy
+print "yash" | cp
+print "yash" | clipboard copy
+z dot
+z C:/Users/Public/dotfiles/
+..
+ls
+z dot
+..
+z sour
+z repo
+z `CCERRTS Core Web App\`
+z web
+git switch development
+git status 
+git restore .
+git pull
+git status 
+git restore .
+git status 
+nvim brave-recovery-phrase.txt
+mv C:/Users/Public/obsidian notes
+ls
+ls notes\
+scoop search proton
+mv ~/Downloads/yash-bookmarks-2025-08-24.html C:/Users/Public/dotfiles/BraveSoftware/Brave-Browser/Default/Bookmarks
+z dot
+git status
+git config --global --add safe.directory C:/Users/Public/dotfiles
+git status
+git diff
+git add .
+git commit -m "update"
+git config --global user.name "txtyash"
+git status
