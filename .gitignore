@@ -31,8 +31,6 @@
 !television/**
 
 # Whitelist specific files
-!.gitignore
-!.wezterm.lua
 !flake.lock
 !flake.nix
 !mimeapps.list

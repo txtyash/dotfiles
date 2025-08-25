@@ -1660,3 +1660,9 @@ git status
 mv windows\exercism\ C:/Users/Public/
 mv windows\* C:/Users/Public/
 git status 
+git add .
+ggit commit -m "update"
+git commit -m "update"
+git status 
+gh repo browse
+git status 
