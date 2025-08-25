@@ -15,9 +15,6 @@ map("n", "<leader>w", helpers.toggle_wrap, { desc = "Toggle line wrap", silent =
 map("n", "<leader>X", helpers.toggle_background, { desc = "Toggle background", silent = true })
 map("n", "<leader>n", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree", noremap = true, silent = true })
 map("n", "<leader>N", "<cmd>Neotree focus<cr>", { desc = "Focus file explorer", noremap = true, silent = true })
-map("n", "<leader>o", "<cmd>Oil --float<cr>", { desc = "Oil", noremap = true, silent = true })
-map("n", "<leader>O", "<cmd>Oil --float .<cr>", { desc = "Oil cwd", noremap = true, silent = true })
-map("n", "<leader>z", "<cmd>Telekasten panel<cr>", { desc = "Telekasten", noremap = true, silent = true })
 
 -- Clipboard
 map("v", "<leader>y", '"+ygv', { desc = "Copy" })
@@ -31,12 +28,12 @@ map("n", "<leader>P", '"+P', { desc = "Paste before" })
 -- Telescope
 map("n", "<leader>x", telescope_builtin.colorscheme, { desc = "Colorschemes" })
 map("n", "<leader>h", telescope_builtin.oldfiles, { desc = "File history" })
+map("n", "<leader>H", telescope_builtin.search_history, { desc = "Search history" })
 map("n", "<leader>v", telescope_builtin.vim_options, { desc = "Vim options" })
 map("n", "<leader><leader>", telescope_builtin.buffers, { desc = "Buffers" })
 map("n", "<leader>f", telescope_builtin.find_files, { desc = "Files" })
 map("n", "<leader>t", "<cmd>TodoTelescope<cr>", { desc = "TODO comments" })
 map("n", "<leader>s", telescope_builtin.live_grep, { desc = "Search cwd" })
-map("n", "<leader>S", telescope_builtin.search_history, { desc = "Search history" })
 map("n", "<leader>u", telescope_builtin.grep_string, { desc = "Search word under cursor" })
 map("n", "<leader>m", telescope_builtin.marks, { desc = "Marks" })
 map("n", "<leader>/", telescope_builtin.current_buffer_fuzzy_find, { desc = "Find in buffer" })
@@ -61,6 +58,8 @@ map("n", "<leader>li", vim.lsp.buf.implementation, { desc = "Goto implementation
 
 map("n", "<c-j>", "<cmd>tabnext<cr>", { desc = "Next tab" })
 map("n", "<c-k>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
+
+map("n", "<leader>z", "<cmd>Telekasten panel<cr>", { desc = "Telekasten", noremap = true, silent = true })
 
 map(
 	"n",

@@ -1,3 +1,4 @@
+-- BUG: Hitting <C-N> in the telescope window for "find notes" palette command creates a new note with the name set to the search query
 return {
 	"renerocksai/telekasten.nvim",
 	dependencies = {
@@ -9,21 +10,21 @@ return {
 		require("telekasten").setup({
 
 			-- Main paths
-			home = "/home/yash/personal/notes", -- path to main notes folder
-			dailies = "/home/yash/personal/notes/daily", -- path to daily notes
-			weeklies = "/home/yash/personal/notes/weekly", -- path to weekly notes
-			templates = "/home/yash/personal/notes/templates", -- path to templates
+			home = "C:/Users/YashS/notes", -- path to main notes folder
+			dailies = "C:/Users/YashS/notes/daily", -- path to daily notes
+			weeklies = "C:/Users/YashS/notes/weekly", -- path to weekly notes
+			templates = "C:/Users/YashS/notes/templates", -- path to templates
 
 			-- Specific note templates
 			-- set to `nil` or do not specify if you do not want a template
-			template_new_note = "/home/yash/personal/notes/templ/new.md", -- template for new notes
-			template_new_daily = "/home/yash/personal/notes/templ/daily.md", -- template for new daily notes
-			template_new_weekly = "/home/yash/personal/notes/templ/weekly.md", -- template for new weekly notes
+			template_new_note = "C:/Users/YashS/notes/templates/fleeting.md", -- template for new notes
+			template_new_daily = "C:/Users/YashS/notes/templates/daily.md", -- template for new daily notes
+			template_new_weekly = "C:/Users/YashS/notes/templates/weekly.md", -- template for new weekly notes
 
 			-- Image subdir for pasting
 			-- subdir name
 			-- or nil if pasted images shouldn't go into a special subdir
-			image_subdir = "/home/yash/personal/notes/images",
+			image_subdir = "C:/Users/YashS/notes/attachments",
 
 			-- File extension for note files
 			extension = ".md",
@@ -40,7 +41,7 @@ return {
 			uuid_sep = "-",
 
 			-- Flags for creating non-existing notes
-			follow_creates_nonexisting = true, -- create non-existing on follow
+			follow_creates_nonexisting = false, -- create non-existing on follow
 			dailies_create_nonexisting = true, -- create non-existing dailies
 			weeklies_create_nonexisting = true, -- create non-existing weeklies
 
@@ -117,8 +118,8 @@ return {
 
 			vaults = {
 				-- personal = {
-					-- configuration for personal vault. E.g.:
-					-- home = "/home/user/vaults/personal",
+				-- configuration for personal vault. E.g.:
+				-- home = "/home/user/vaults/personal",
 				-- },
 			},
 

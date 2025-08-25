@@ -1,1 +1,0 @@
-When hovering over a datatype let's say struct then we can show an example value of its properties based on our previous runs of the program. When we run program it will store the values in cache so later we can view examplesl values.

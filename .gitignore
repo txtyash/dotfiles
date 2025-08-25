@@ -10,13 +10,12 @@
 !gitui/
 !home-manager/
 !hypr/
+!kanata/
+!nushell/
 !nvim/
 !secrets/
 !sops/
 !television/
-!kanata/
-# Temporary for windows
-!windows/
 
 # Whitelist files inside the whitelisted directories
 !backgrounds/**
@@ -25,21 +24,18 @@
 !gitui/**
 !home-manager/**
 !hypr/**
+!kanata/**
+!nushell/**
 !nvim/**
 !secrets/**
 !television/**
-!kanata/**
-# Temporary for windows
-!windows/**
 
 # Whitelist specific files
 !.gitignore
-!.sops.yaml
-!.profile
-!flake.nix
+!.wezterm.lua
 !flake.lock
+!flake.nix
 !mimeapps.list
-!personal*gpg
 # !BraveSoftware/
 # !BraveSoftware/Brave-Browser/
 # !BraveSoftware/Brave-Browser/Default/
