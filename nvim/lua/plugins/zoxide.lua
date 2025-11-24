@@ -1,6 +1,6 @@
 return {
   {
-    dir = "~/source/repos/zoxide.nvim",
+    dir = "~/work/zoxide.nvim",
     config = function()
       local zoxide = require("zoxide")
     end

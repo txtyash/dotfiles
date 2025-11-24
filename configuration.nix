@@ -48,12 +48,16 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
   };
 
   users.users.yash = {
     isNormalUser = true;
     description = "Yash Shinde";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   services.kanata = {
@@ -68,6 +72,7 @@
   systemd.services."autovt@tty1".enable = false;
 
   programs.firefox.enable = true;
+  programs.niri.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

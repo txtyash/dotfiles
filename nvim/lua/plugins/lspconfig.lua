@@ -18,6 +18,7 @@ return {
       "eslint",
       "html",
       "jsonls",
+      "nil_ls",
       "svelte",
       "tailwindcss",
       "ts_ls",
