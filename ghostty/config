@@ -1,6 +1,7 @@
 font-size = 11
 command = fish
 shell-integration = fish
-theme = light:catppuccin-latte,dark:catppuccin-mocha
-keybind = alt+j=next_tab
-keybind = alt+k=previous_tab
+theme = light:Gruvbox Light Hard,dark:Gruvbox Dark Hard
+window-decoration = none
+window-show-tab-bar = auto
+keybind = global:ctrl+grave_accent=toggle_quick_terminal

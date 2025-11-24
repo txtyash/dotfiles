@@ -34,6 +34,7 @@ return {
         "nu",
         "powershell",
         "python",
+        "qmljs",
         "razor",
         "regex",
         "rust",

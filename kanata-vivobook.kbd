@@ -8,9 +8,9 @@ Examples      - https://github.com/jtroo/kanata/tree/main/cfg_samples
   concurrent-tap-hold yes
 )
 
-(defsrc caps)
+(defsrc caps lmet lalt)
 
-(deflayer capslock lctl)
+(deflayer capslock lctl lalt lmet)
 
 ;; converting the copilot key into a ctrl key
 (defchordsv2

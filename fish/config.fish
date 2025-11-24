@@ -13,11 +13,9 @@ if status is-interactive
     fish_default_key_bindings -M insert
     fish_vi_key_bindings --no-erase insert
     for mode in default insert
-        bind -M $mode \ee 'nvim .'
-        bind -M $mode \ey 'yazi'
-        bind -M $mode \eg 'gitui'
-        bind -M $mode \cr tv_shell_history
-        bind -M $mode \ct tv_smart_autocomplete
+        # bind -M $mode \ee 'nvim .'
+        # bind -M $mode \ey 'yazi'
+        # bind -M $mode \eg 'gitui'
     end
   end
 
@@ -33,10 +31,5 @@ if command -q nix-your-shell
   nix-your-shell fish | source
 end
 
-alias ls="eza"
-alias d="z"
-alias di="zi"
-
 starship init fish | source
 zoxide init fish | source
-tv init fish | source

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware/vivobook.nix
   ];
 
   nix.settings.experimental-features = [
@@ -12,8 +12,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "vivobook";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "vivobook";
+    networkmanager.enable = true;
+    networkmanager.dns = "none";
+    nameservers = [
+      "9.9.9.9"
+      "149.112.112.112"
+    ];
+  };
 
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -48,12 +55,16 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
   };
 
   users.users.yash = {
     isNormalUser = true;
     description = "Yash Shinde";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   services.kanata = {
@@ -61,13 +72,11 @@
     keyboards.default.configFile = ./kanata-vivobook.kbd;
   };
 
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "yash";
-
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
   programs.firefox.enable = true;
+  programs.niri.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

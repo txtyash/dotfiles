@@ -18,13 +18,15 @@ return {
       "eslint",
       "html",
       "jsonls",
+      "nil_ls",
       "svelte",
       "tailwindcss",
       "ts_ls",
       -- dotnet
       "lemminx",
       -- "csharp_ls",
-      "omnisharp"
+      "omnisharp",
+      "qmlls"
     })
   end,
 }
