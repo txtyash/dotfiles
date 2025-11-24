@@ -23,8 +23,12 @@
   programs = {
 	git = {
 	  enable = true;
-	  userName = "txtyash";
-	  userEmail = "textyash@proton.me";
+          settings = {
+	    user = {
+	      name = "txtyash";
+	      email = "textyash@proton.me";
+	    };
+	  };
 	};
 
 	starship = {
