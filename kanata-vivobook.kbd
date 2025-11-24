@@ -1,0 +1,18 @@
+#|
+Configuration - https://github.com/jtroo/kanata/blob/main/docs/config.adoc
+Examples      - https://github.com/jtroo/kanata/tree/main/cfg_samples
+|#
+
+(defcfg
+  process-unmapped-keys yes
+  concurrent-tap-hold yes
+)
+
+(defsrc caps)
+
+(deflayer capslock lctl)
+
+;; converting the copilot key into a ctrl key
+(defchordsv2
+(lsft lmet f23) lctl 200 all-released ()
+)
