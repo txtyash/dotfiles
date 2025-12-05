@@ -15,6 +15,7 @@ vim.opt.smartcase = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.guifont = "JetBrainsMono_Nerd_Font:h11"
+vim.opt.shell = '/usr/bin/fish'
 
 vim.opt.autoindent = true
 vim.opt.expandtab = true
