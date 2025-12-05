@@ -21,6 +21,7 @@
       ghostty
       google-chrome
       lazygit
+      localsend
       mako
       marksman
       neovide

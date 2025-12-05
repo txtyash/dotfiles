@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  # TODO: Host based configuration
   imports = [
     ./hardware/vivobook.nix
   ];
@@ -67,9 +68,10 @@
     ];
   };
 
+  # TODO: Host based configuration
   services.kanata = {
     enable = true;
-    keyboards.default.configFile = ./kanata-vivobook.kbd;
+    keyboards.default.configFile = ./kanata/vivobook.kbd;
   };
 
   systemd.services."getty@tty1".enable = false;
