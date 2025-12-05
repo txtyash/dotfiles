@@ -15,6 +15,7 @@ unmap <a-f>
 ```
 
 ## Search engines
+
 ```
 - m: https://www.merriam-webster.com/dictionary/%s/ Merriam
 - y: https://youtube.com/search?q=%s Youtube
