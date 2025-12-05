@@ -15,8 +15,12 @@
 
   networking = {
     hostName = "vivobook";
-    networkmanager.enable = true;
-    networkmanager.dns = "none";
+    networkmanager = {
+      enable = true;
+      dns = "none";
+      wifi.macAddress = "02:01:02:03:04:09";
+      ethernet.macAddress = "02:01:02:03:04:08";
+    };
     nameservers = [
       "9.9.9.9"
       "149.112.112.112"
