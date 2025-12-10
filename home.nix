@@ -17,6 +17,7 @@
       dprint
       fd
       fuzzel
+      gemini-cli
       gh
       ghostty
       google-chrome
@@ -35,6 +36,7 @@
       swayosd
       tldr
       tree-sitter
+      wrangler
       yazi
       zig
     ];
