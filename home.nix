@@ -36,6 +36,7 @@
       swayosd
       tldr
       tree-sitter
+      wl-clipboard
       wrangler
       yazi
       zig
