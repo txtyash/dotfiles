@@ -30,7 +30,6 @@
       nil
       nodejs_latest
       protonvpn-gui
-      quickshell
       ripgrep
       swaybg
       swayosd
@@ -46,7 +45,6 @@
       ".config/lazygit".source = ./lazygit;
       ".config/nvim".source = ./nvim;
       ".config/niri".source = ./niri;
-      ".config/quickshell".source = ./quickshell;
       "Pictures/wallpaper".source = pkgs.fetchurl {
         url = "https://i.imgur.com/X4hJMs7.jpg";
         sha256 = "sha256-ksPiYxfeSY1pil9rqUmxf+MW837drUddjUbNgxE0Bv0=";
