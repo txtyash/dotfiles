@@ -1,8 +1,14 @@
-{ config, pkgs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 {
   # TODO: Host based configuration
-  imports = [
+  imports = with inputs; [
     ./hardware/vivobook.nix
+    niri.nixosModules.niri
+    dankMaterialShell.nixosModules.greeter
   ];
 
   nix.settings.experimental-features = [
@@ -42,8 +48,6 @@
   };
 
   services.xserver.enable = true;
-
-  services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
   services.xserver.xkb = {
@@ -81,8 +85,19 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  programs.firefox.enable = true;
-  programs.niri.enable = true;
+  programs = {
+    dankMaterialShell.greeter = {
+      enable = true;
+      compositor.name = "niri";
+      configHome = "/home/yash";
+    };
+    niri = {
+      enable = true;
+    };
+    firefox = {
+      enable = true;
+    };
+  };
 
   nixpkgs.config.allowUnfree = true;
 

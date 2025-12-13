@@ -4,7 +4,7 @@
 -- TODO: preserve folds throught sessions
 
 vim.cmd("cd " .. vim.fn.getcwd())
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme rose-pine")
 vim.cmd("set completeopt+=noselect")
 vim.opt.wrap = false
 vim.opt.scrolloff = 3
