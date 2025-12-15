@@ -16,6 +16,7 @@ return {
       -- web dev
       "cssls",
       "eslint",
+      "harper_ls",
       "html",
       "jsonls",
       "nil_ls",
