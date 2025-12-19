@@ -1,4 +1,3 @@
--- FIX: Does not work
 return {
 	"lewis6991/gitsigns.nvim",
 	config = function()

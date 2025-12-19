@@ -1,10 +1,4 @@
--- Use `:help` to learn about these options
--- TODO: Listchars
--- TODO: tabout
--- TODO: preserve folds throught sessions
-
 vim.cmd("cd " .. vim.fn.getcwd())
-vim.cmd("colorscheme rose-pine")
 vim.cmd("set completeopt+=noselect")
 vim.opt.wrap = false
 vim.opt.scrolloff = 3
@@ -17,6 +11,7 @@ vim.opt.relativenumber = true
 vim.opt.guifont = "JetBrainsMono_Nerd_Font:h11"
 vim.opt.shell = 'fish'
 
+vim.cmd("colorscheme rose-pine")
 vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
