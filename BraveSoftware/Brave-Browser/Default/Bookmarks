@@ -1,0 +1,289 @@
+{
+   "checksum": "c14b094db90f94c514f700a07c4c246e",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13408483968907155",
+            "date_last_used": "0",
+            "guid": "6e6d13c6-a07f-47f7-833f-70b9c59d09d4",
+            "id": "5",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "NixOS Search - Packages",
+            "type": "url",
+            "url": "https://search.nixos.org/packages?channel=unstable&"
+         }, {
+            "date_added": "13408483973477580",
+            "date_last_used": "0",
+            "guid": "50cfd17a-d1df-4907-8b79-d4254c401964",
+            "id": "6",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "NixOS Search - Options",
+            "type": "url",
+            "url": "https://search.nixos.org/options?channel=unstable&"
+         }, {
+            "date_added": "13408483987131481",
+            "date_last_used": "0",
+            "guid": "c1112791-bb2f-4d3f-9308-a61e759f7051",
+            "id": "7",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Home Manager - Option Search",
+            "type": "url",
+            "url": "https://home-manager-options.extranix.com/?query=&release=master"
+         }, {
+            "date_added": "13408740273100343",
+            "date_last_used": "0",
+            "guid": "cf1638b3-3626-4009-8d65-cff90b4bf7e8",
+            "id": "9",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "CSS named colors",
+            "type": "url",
+            "url": "https://www.w3.org/TR/css-color-4/#named-colors"
+         }, {
+            "date_added": "13408805303636178",
+            "date_last_used": "0",
+            "guid": "9bade3b0-6626-4f29-bfbe-faa860e918c4",
+            "id": "10",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://interconnected.org/"
+         }, {
+            "date_added": "13408805313556193",
+            "date_last_used": "0",
+            "guid": "22527723-ea90-449e-bc9f-6c91824cfddb",
+            "id": "11",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://www.openmymind.net/"
+         }, {
+            "date_added": "13409138996378783",
+            "date_last_used": "0",
+            "guid": "b0756cf1-c13a-48d8-a3b0-f09e5fc86734",
+            "id": "13",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://github.com/AvengeMedia/DankMaterialShell"
+         }, {
+            "date_added": "13409140891881646",
+            "date_last_used": "0",
+            "guid": "50a1e955-c304-44ad-ae67-ab2fb67241d0",
+            "id": "14",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://danklinux.com/"
+         }, {
+            "date_added": "13409658362397906",
+            "date_last_used": "0",
+            "guid": "06f64b0d-a3b6-49a1-9380-a40e1568ca44",
+            "id": "17",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Google Gemini chat",
+            "type": "url",
+            "url": "https://gemini.google.com/u/1"
+         }, {
+            "date_added": "13409851414689039",
+            "date_last_used": "0",
+            "guid": "eb7591cd-7896-4fae-8c77-0d8a0a17790a",
+            "id": "19",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://matklad.github.io/"
+         }, {
+            "date_added": "13409858679650047",
+            "date_last_used": "0",
+            "guid": "48fca23a-0fb7-4d0c-8e09-e90e05d3701b",
+            "id": "20",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "proton mail inbox",
+            "type": "url",
+            "url": "https://mail.proton.me/u/0/inbox"
+         }, {
+            "date_added": "13410001757482801",
+            "date_last_used": "0",
+            "guid": "4ddb97de-9d3f-4973-9623-1608a7509347",
+            "id": "22",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "textyash website cloudflare Yash Shinde",
+            "type": "url",
+            "url": "https://textyash.pages.dev/"
+         }, {
+            "date_added": "13410004425023859",
+            "date_last_used": "0",
+            "guid": "435e1066-bfbd-4996-a4c4-760722a51f98",
+            "id": "23",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://mitchellh.com/"
+         }, {
+            "date_added": "13410114042208114",
+            "date_last_used": "0",
+            "guid": "140913a0-63ca-47ae-885e-a5656c568ef4",
+            "id": "25",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://fasterthanli.me/"
+         }, {
+            "date_added": "13410215782140086",
+            "date_last_used": "0",
+            "guid": "8d46fbe1-e817-4e0a-853f-4dc80bec7d8a",
+            "id": "28",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://geoff.greer.fm/about/"
+         }, {
+            "date_added": "13410278607122695",
+            "date_last_used": "0",
+            "guid": "008a4330-33f4-4f20-9ffe-ccf678ae9fd8",
+            "id": "30",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://neocities.org/"
+         }, {
+            "date_added": "13410296029905887",
+            "date_last_used": "0",
+            "guid": "7e76ef5a-b3f4-4f08-9e02-2694ad7fe359",
+            "id": "32",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "zig reference 0.15.2",
+            "type": "url",
+            "url": "https://ziglang.org/documentation/0.15.2/"
+         }, {
+            "date_added": "13410297404302286",
+            "date_last_used": "0",
+            "guid": "057e6276-95d1-4572-bcac-02f414f77bb3",
+            "id": "33",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "zig standard std library",
+            "type": "url",
+            "url": "https://ziglang.org/documentation/0.15.2/std/"
+         }, {
+            "date_added": "13410346625163508",
+            "date_last_used": "0",
+            "guid": "dfa18cf4-56cb-4f2d-88aa-62be5c3ac008",
+            "id": "35",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://bhankas.org/"
+         }, {
+            "date_added": "13410348101123757",
+            "date_last_used": "0",
+            "guid": "5892d63b-5594-4b93-a023-06bddf80ba24",
+            "id": "36",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://batsov.com/"
+         }, {
+            "date_added": "13410375273015128",
+            "date_last_used": "0",
+            "guid": "3619e8a2-bbb8-446f-a344-08d3121aa3e6",
+            "id": "37",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "later",
+            "type": "url",
+            "url": "https://ratfactor.com/"
+         }, {
+            "date_added": "13410515040681253",
+            "date_last_used": "0",
+            "guid": "1b734799-c439-4f4f-aa39-e33fef5ad7ff",
+            "id": "38",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "settings",
+            "type": "url",
+            "url": "chrome://settings/"
+         }, {
+            "date_added": "13410521507935588",
+            "date_last_used": "0",
+            "guid": "ffd66228-d328-488a-a8f6-63a5b72e41fc",
+            "id": "39",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "The Copenhagen Book auth lucia",
+            "type": "url",
+            "url": "https://thecopenhagenbook.com/"
+         } ],
+         "date_added": "13408472953125785",
+         "date_last_used": "0",
+         "date_modified": "13410521507935588",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13408472953125785",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13408472953125785",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
