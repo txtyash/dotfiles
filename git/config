@@ -1,0 +1,9 @@
+[user]
+	email = "codeberg.geologic635@passmail.net"
+	name = "textyash"
+
+[user "core"]
+	editor = "nvim"
+
+[user "init"]
+	defaultBranch = "master"
