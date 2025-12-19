@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -24,12 +23,14 @@
       fish
       gh
       ghostty
+      git
       google-chrome
       lazygit
       marksman
       nerd-fonts.jetbrains-mono
       nil
       nodejs_latest
+      protonmail-desktop
       protonvpn-gui
       ripgrep
       tldr
@@ -48,17 +49,6 @@
     zoxide = {
       enable = true;
       enableFishIntegration = true;
-    };
-
-    git = {
-      enable = true;
-      # TODO: Set editor and auth method to ssh
-      settings.user = {
-        name = "txtyash";
-        email = "textyash@proton.me";
-        core.editor = "nvim";
-        init.defaultBranch = "master";
-      };
     };
 
     direnv = {
