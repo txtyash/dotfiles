@@ -1,35 +1,34 @@
-# Only run this in interactive shells
+### Environment Variables (from shellInit)
+set -gx EDITOR nvim
+set -g fish_greeting
+
+### Interactive Settings (from interactiveShellInit)
 if status is-interactive
+    # Enable Vi Key Bindings
+    fish_vi_key_bindings
 
-  # Set the cursor shapes for the different vi modes.
-  set fish_cursor_default     block      blink
-  set fish_cursor_insert      line       blink
-  set fish_cursor_replace_one underscore blink
-  set fish_cursor_visual      block
-  set fish_greeting
+    # Emacs-style bindings for Insert Mode
+    bind -M insert \cA beginning-of-line
+    bind -M insert \cE end-of-line
+    bind -M insert \cU backward-kill-line
+    bind -M insert \cK kill-line
+    bind -M insert \cW backward-kill-word
+    bind -M insert \cY yank
+    bind -M insert \cB backward-char
+    bind -M insert \cF forward-char
+    bind -M insert \cp up-or-search
+    bind -M insert \cn down-or-search
+    bind -M insert \cr history-pager
 
-  function fish_user_key_bindings
-    # Execute this once per mode that emacs bindings should be used in
-    fish_default_key_bindings -M insert
-    fish_vi_key_bindings --no-erase insert
-    for mode in default insert
-        # bind -M $mode \ee 'nvim .'
-        # bind -M $mode \ey 'yazi'
-        # bind -M $mode \eg 'gitui'
+    # Repaint function to avoid artifacts
+    function cancel-cmd
+        commandline ""
+        emit fish_cancel
+        commandline -f repaint
     end
-  end
 
+    # Tool Initializations
+    starship init fish | source
+    zoxide init fish | source
+    direnv hook fish | source
 end
-
-function cancel-cmd
-    commandline ""
-    emit fish_cancel
-    commandline -f repaint
-end
-
-if command -q nix-your-shell
-  nix-your-shell fish | source
-end
-
-starship init fish | source
-zoxide init fish | source
