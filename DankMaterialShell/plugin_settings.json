@@ -1,0 +1,33 @@
+{
+  "wallpaperBing": {
+    "enabled": true
+  },
+  "grimblast": {
+    "enabled": false
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "="
+  },
+  "asusControlCenter": {
+    "enabled": true
+  },
+  "dankBatteryAlerts": {
+    "enabled": true
+  },
+  "wallpaperDiscovery": {
+    "enabled": true,
+    "downloadLocation": "~/Pictures/Wallpapers"
+  },
+  "wallpaperShufflerPlugin": {
+    "enabled": true,
+    "shuffleInterval": "2",
+    "wallpaperPath": "~/Pictures/Wallpapers/walls-catppuccin-mocha"
+  },
+  "dankDesktopWeather": {
+    "enabled": true
+  },
+  "gitmojiLauncher": {
+    "enabled": true
+  }
+}
