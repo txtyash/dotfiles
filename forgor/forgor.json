@@ -1,0 +1,23 @@
+{
+	"last_updated": 20440,
+	"topics": [
+		{
+			"name": "leetcode top k frequent elements",
+			"last_viewed": 20435,
+			"strength": 2,
+			"retention": 8.20849986238988
+		},
+		{
+			"name": "leetcode group anagrams",
+			"last_viewed": 20435,
+			"strength": 2,
+			"retention": 8.20849986238988
+		},
+		{
+			"name": "zig stdin & stdout",
+			"last_viewed": 20440,
+			"strength": 2,
+			"retention": 100
+		}
+	]
+}
