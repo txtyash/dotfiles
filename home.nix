@@ -17,19 +17,23 @@
     packages = with pkgs; [
       anki
       beekeeper-studio
+      chafa # telekasten
       dprint
       dsearch
       fd
+      ffmpegthumbnailer # telekasten
       fish
       gh
       ghostty
       git
       google-chrome
+      imagemagick # telekasten
       lazygit
       marksman
       nerd-fonts.jetbrains-mono
       nil
       nodejs_latest
+      poppler-utils # telekasten
       protonmail-desktop
       protonvpn-gui
       ripgrep
