@@ -27,12 +27,12 @@ return {
       quarterlies = 'quarterly', 
       yearlies = 'yearly',     
       templates = 'templates',    
-      template_new_note = 'new',    
-      template_new_daily = 'daily',  
-      template_new_weekly = 'weekly', 
-      template_new_monthly = 'monthly',
-      template_new_quarterly = 'quarterly',
-      template_new_yearly = 'yearly',  
+      template_new_note =  '/home/yash/notes/templates/new.md',    
+      template_new_daily = '/home/yash/notes/templates/daily.md',  
+      template_new_weekly =  '/home/yash/notes/templates/weekly.md', 
+      template_new_monthly = '/home/yash/notes/templates/monthly.md',
+      template_new_quarterly = '/home/yash/notes/templates/quarterly.md',
+      template_new_yearly = '/home/yash/notes/templates/yearly.md',  
 
       image_subdir = "images",
 
