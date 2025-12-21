@@ -1,7 +1,8 @@
 # Dotfiles
 
-- [ ] Set clock from New York to India
-- [ ] How do I convert my dotfiles also to a devshell so that I have lua lsp in the dotfiles directory
+- [ ] set spell for markdown files
+- [ ] create a shortcut for :w
+- [ ] How do I convert my dotfiles also to a devshell so that I have lua lsp in the .config directory
 - [ ] remove focus follows cursor from niri
 - [ ] remove xf86 keymappings and use dank shell stuff instead
 - [ ] use prettier for formatting files
@@ -9,7 +10,6 @@
 - [ ] Configure api key management using sops
 - [ ] Pressing `o`/`O` in normal mode should insert an empty line without going into insert mode.
 - [ ] Configure ways to sync vimiumc configurations and brave bookmarks with dotfiles
-- [ ] Create vimiumcC custom search engines for searching nix/hm packages/options.
 - [ ] drag and drop yazi
 - [ ] `installerIso` flake output parameter for NixOS
 - [ ] Customize github profile README.md to show shenanigans like the back to the future flying car GIF
