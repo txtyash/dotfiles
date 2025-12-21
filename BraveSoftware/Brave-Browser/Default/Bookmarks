@@ -1,5 +1,5 @@
 {
-   "checksum": "5ad2270b2c1497f4f376049e67bbe9fd",
+   "checksum": "a8caf78b72a60660bc7c46f97214f74d",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -35,17 +35,6 @@
             "name": "Karl Seguin Openmymind",
             "type": "url",
             "url": "https://www.openmymind.net/"
-         }, {
-            "date_added": "13409658362397906",
-            "date_last_used": "13410706776273583",
-            "guid": "06f64b0d-a3b6-49a1-9380-a40e1568ca44",
-            "id": "17",
-            "meta_info": {
-               "power_bookmark_meta": ""
-            },
-            "name": "Google Gemini chat",
-            "type": "url",
-            "url": "https://gemini.google.com/u/1"
          }, {
             "date_added": "13409851414689039",
             "date_last_used": "13410706759842372",
@@ -200,10 +189,21 @@
             "name": "Andrew Kelley",
             "type": "url",
             "url": "https://andrewkelley.me/"
+         }, {
+            "date_added": "13410716994733128",
+            "date_last_used": "0",
+            "guid": "b180e181-ae6f-460c-aa10-b315c0be5608",
+            "id": "45",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "bookmarks",
+            "type": "url",
+            "url": "chrome://bookmarks/"
          } ],
          "date_added": "13408472953125785",
          "date_last_used": "0",
-         "date_modified": "13410707208003479",
+         "date_modified": "13410716994733128",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks",
