@@ -15,3 +15,4 @@
 - [ ] Customize github profile README.md to show shenanigans like the back to the future flying car GIF
 - [ ] Use a single scratchpad file for all todos and everything
 - [ ] add default branch name as master for git
+- [ ] dms dark theme toggle should also toggle gsettings dark mode
