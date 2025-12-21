@@ -1,5 +1,5 @@
 {
-   "checksum": "a8caf78b72a60660bc7c46f97214f74d",
+   "checksum": "99f27d0843b1bd14a0af874c6bd00023",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -200,10 +200,32 @@
             "name": "bookmarks",
             "type": "url",
             "url": "chrome://bookmarks/"
+         }, {
+            "date_added": "13410790569650823",
+            "date_last_used": "0",
+            "guid": "611a3d5d-d4d0-499e-998b-f5d67c5a77f3",
+            "id": "46",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Paul Copplestone",
+            "type": "url",
+            "url": "https://paul.copplest.one/"
+         }, {
+            "date_added": "13410790598352536",
+            "date_last_used": "0",
+            "guid": "408580f6-18f6-4b8d-8979-778edaf86665",
+            "id": "47",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Guillermo Rauch",
+            "type": "url",
+            "url": "https://rauchg.com/"
          } ],
          "date_added": "13408472953125785",
          "date_last_used": "0",
-         "date_modified": "13410716994733128",
+         "date_modified": "13410790598352536",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks",
