@@ -1,23 +1,29 @@
 {
-	"last_updated": 20442,
+	"last_updated": 20443,
 	"topics": [
-		{
-			"name": "leetcode top k frequent elements",
-			"last_viewed": 20435,
-			"strength": 2,
-			"retention": 3.0197383422318502
-		},
 		{
 			"name": "leetcode group anagrams",
 			"last_viewed": 20435,
 			"strength": 2,
-			"retention": 3.0197383422318502
+			"retention": 1.8315638888734178
 		},
 		{
 			"name": "zig stdin & stdout",
 			"last_viewed": 20440,
 			"strength": 2,
-			"retention": 36.787944117144235
+			"retention": 22.313016014842983
+		},
+		{
+			"name": "leetcode top k frequent elements",
+			"last_viewed": 20442,
+			"strength": 2,
+			"retention": 60.653065971263345
+		},
+		{
+			"name": "heap",
+			"last_viewed": 20442,
+			"strength": 2,
+			"retention": 60.653065971263345
 		}
 	]
 }
