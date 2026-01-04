@@ -1,15 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    -- BUG: Overriding dprint command causes it to not activate
-    -- vim.lsp.config('dprint', {
-    --   cmd = { "dprint", "fmt" },
-    -- })
     vim.lsp.enable({
       -- note taking
       "tinymist",
-      "marksman",
-      "dprint",
+      -- "marksman",
       -- system
       "lua_ls",
       "zls",
@@ -22,11 +17,8 @@ return {
       "nil_ls",
       "svelte",
       "tailwindcss",
+      "angularls",
       "ts_ls",
-      -- dotnet
-      "lemminx",
-      -- "csharp_ls",
-      "omnisharp",
       "qmlls"
     })
   end,

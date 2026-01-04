@@ -37,6 +37,7 @@ unfocused-split-fill = #44464f
 
 # Tab configuration
 gtk-titlebar = false
+gtk-tabs-location = bottom
 
 # Shell integration
 shell-integration = fish

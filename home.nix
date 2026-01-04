@@ -18,7 +18,6 @@
       anki
       beekeeper-studio
       chafa # telekasten
-      dprint
       dsearch
       fd
       ffmpegthumbnailer # telekasten
@@ -30,6 +29,7 @@
       imagemagick # telekasten
       lazygit
       marksman
+      neovide
       nerd-fonts.jetbrains-mono
       nil
       nodejs_latest
@@ -40,6 +40,7 @@
       tldr
       tree-sitter
       yazi
+      zed-editor
       zig
     ];
   };

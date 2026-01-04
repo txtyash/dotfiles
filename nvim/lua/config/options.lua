@@ -8,7 +8,7 @@ vim.opt.cursorline = true
 vim.opt.smartcase = true
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.guifont = "JetBrainsMono_Nerd_Font:h11"
+vim.opt.guifont = "JetBrainsMono_Nerd_Font:h12"
 vim.opt.shell = 'fish'
 
 vim.cmd("colorscheme rose-pine")
