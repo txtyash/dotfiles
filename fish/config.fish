@@ -1,11 +1,12 @@
 ### Environment Variables (from shellInit)
 set -gx EDITOR nvim
 set -g fish_greeting
+set --global fish_key_bindings fish_vi_key_bindings
+set --erase --universal fish_key_bindings
 
 ### Interactive Settings (from interactiveShellInit)
 if status is-interactive
     # Enable Vi Key Bindings
-    fish_vi_key_bindings
 
     # Emacs-style bindings for Insert Mode
     bind -M insert \cA beginning-of-line

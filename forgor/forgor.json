@@ -1,119 +1,119 @@
 {
-	"last_updated": 20456,
+	"last_updated": 20458,
 	"topics": [
 		{
 			"name": "css content-visibility property",
 			"last_viewed": 20450,
 			"strength": 5,
-			"retention": 30.11942119122021
+			"retention": 20.189651799465537
 		},
 		{
 			"name": "leetcode longest repeating character replacement",
 			"last_viewed": 20455,
 			"strength": 3,
-			"retention": 71.65313105737893
-		},
-		{
-			"name": "leetcode 3sum",
-			"last_viewed": 20455,
-			"strength": 4.5,
-			"retention": 80.0737402916808
-		},
-		{
-			"name": "zig stdin & stdout",
-			"last_viewed": 20455,
-			"strength": 5,
-			"retention": 81.87307530779819
-		},
-		{
-			"name": "leetcode longest substring without repeating characters",
-			"last_viewed": 20455,
-			"strength": 5,
-			"retention": 81.87307530779819
-		},
-		{
-			"name": "leetcode best time to buy and sell stock",
-			"last_viewed": 20455,
-			"strength": 5,
-			"retention": 81.87307530779819
-		},
-		{
-			"name": "leetcode container with most water",
-			"last_viewed": 20455,
-			"strength": 5,
-			"retention": 81.87307530779819
-		},
-		{
-			"name": "css image cumulative layout shift",
-			"last_viewed": 20455,
-			"strength": 12.5,
-			"retention": 92.31163463866358
-		},
-		{
-			"name": "leetcode two sum",
-			"last_viewed": 20455,
-			"strength": 12.5,
-			"retention": 92.31163463866358
-		},
-		{
-			"name": "leetcode group anagrams",
-			"last_viewed": 20455,
-			"strength": 12.5,
-			"retention": 92.31163463866358
-		},
-		{
-			"name": "leetcode valid anagram",
-			"last_viewed": 20455,
-			"strength": 12.5,
-			"retention": 92.31163463866358
-		},
-		{
-			"name": "leetcode valid palindrome",
-			"last_viewed": 20455,
-			"strength": 18.75,
-			"retention": 94.80639384933956
-		},
-		{
-			"name": "leetcode minimum window substring",
-			"last_viewed": 20456,
-			"strength": 5,
-			"retention": 100
-		},
-		{
-			"name": "leetcode contains duplicate",
-			"last_viewed": 20456,
-			"strength": 18.75,
-			"retention": 100
-		},
-		{
-			"name": "leetcode product of array except itself",
-			"last_viewed": 20456,
-			"strength": 12.5,
-			"retention": 100
-		},
-		{
-			"name": "leetcode longest consecutive sequence",
-			"last_viewed": 20456,
-			"strength": 12.5,
-			"retention": 100
-		},
-		{
-			"name": "leetcode encode and decode strings",
-			"last_viewed": 20456,
-			"strength": 5,
-			"retention": 100
-		},
-		{
-			"name": "leetcode top k frequent elements",
-			"last_viewed": 20456,
-			"strength": 7.5,
-			"retention": 100
+			"retention": 36.787944117144235
 		},
 		{
 			"name": "leetcode valid parentheses",
 			"last_viewed": 20456,
 			"strength": 2,
-			"retention": 100
+			"retention": 36.787944117144235
+		},
+		{
+			"name": "leetcode 3sum",
+			"last_viewed": 20455,
+			"strength": 4.5,
+			"retention": 51.3417119032592
+		},
+		{
+			"name": "zig stdin & stdout",
+			"last_viewed": 20455,
+			"strength": 5,
+			"retention": 54.88116360940265
+		},
+		{
+			"name": "leetcode longest substring without repeating characters",
+			"last_viewed": 20455,
+			"strength": 5,
+			"retention": 54.88116360940265
+		},
+		{
+			"name": "leetcode best time to buy and sell stock",
+			"last_viewed": 20455,
+			"strength": 5,
+			"retention": 54.88116360940265
+		},
+		{
+			"name": "leetcode container with most water",
+			"last_viewed": 20455,
+			"strength": 5,
+			"retention": 54.88116360940265
+		},
+		{
+			"name": "leetcode minimum window substring",
+			"last_viewed": 20456,
+			"strength": 5,
+			"retention": 67.03200460356393
+		},
+		{
+			"name": "leetcode encode and decode strings",
+			"last_viewed": 20456,
+			"strength": 5,
+			"retention": 67.03200460356393
+		},
+		{
+			"name": "leetcode top k frequent elements",
+			"last_viewed": 20456,
+			"strength": 7.5,
+			"retention": 76.59283383646486
+		},
+		{
+			"name": "css image cumulative layout shift",
+			"last_viewed": 20455,
+			"strength": 12.5,
+			"retention": 78.66278610665533
+		},
+		{
+			"name": "leetcode two sum",
+			"last_viewed": 20455,
+			"strength": 12.5,
+			"retention": 78.66278610665533
+		},
+		{
+			"name": "leetcode group anagrams",
+			"last_viewed": 20455,
+			"strength": 12.5,
+			"retention": 78.66278610665533
+		},
+		{
+			"name": "leetcode valid anagram",
+			"last_viewed": 20455,
+			"strength": 12.5,
+			"retention": 78.66278610665533
+		},
+		{
+			"name": "leetcode valid palindrome",
+			"last_viewed": 20455,
+			"strength": 18.75,
+			"retention": 85.21437889662113
+		},
+		{
+			"name": "leetcode product of array except itself",
+			"last_viewed": 20456,
+			"strength": 12.5,
+			"retention": 85.21437889662113
+		},
+		{
+			"name": "leetcode longest consecutive sequence",
+			"last_viewed": 20456,
+			"strength": 12.5,
+			"retention": 85.21437889662113
+		},
+		{
+			"name": "leetcode contains duplicate",
+			"last_viewed": 20456,
+			"strength": 18.75,
+			"retention": 89.88252314716088
 		}
 	]
 }

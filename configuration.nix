@@ -103,10 +103,11 @@
     dms-shell = {
       enable = true;
       quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+      package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
       systemd = {
         enable = true;
-        restartIfChanged = true; # Auto-restart dms.service when dms-shell changes
+        restartIfChanged = true;
       };
 
       enableSystemMonitoring = true; # System monitoring widgets (dgop)

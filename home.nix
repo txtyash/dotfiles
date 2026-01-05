@@ -34,13 +34,11 @@
       nil
       nodejs_latest
       poppler-utils # telekasten
-      protonmail-desktop
       protonvpn-gui
       ripgrep
       tldr
       tree-sitter
       yazi
-      zed-editor
       zig
     ];
   };
