@@ -1,4 +1,3 @@
--- TODO: Map alt in tamper monkey to put focs on 'window' TODO When reopening <leader>fg picker. Preserve the previous search query.
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.2.0",
@@ -9,15 +8,22 @@ return {
     local builtin = require("telescope.builtin")
     local actions = require("telescope.actions")
     local action_state = require("telescope.actions.state")
+    local z_utils = require("telescope._extensions.zoxide.utils")
     local function switch_to_picker(picker_name)
         return function(prompt_bufnr)
             -- Get the current text in the prompt
             local current_picker = action_state.get_current_picker(prompt_bufnr)
             local text = current_picker:_get_prompt() 
 
-            -- Close current and open new with the text
+            -- Close current picker
             actions.close(prompt_bufnr)
-            builtin[picker_name]({ default_text = text })
+
+            -- Check if it's an extension or a builtin
+            if picker_name == "zoxide" then
+                telescope.extensions.zoxide.list({ default_text = text })
+            else
+                builtin[picker_name]({ default_text = text })
+            end
         end
     end
 
@@ -34,17 +40,17 @@ return {
         mappings = {
           i = {
               ["<C-f>"] = switch_to_picker("find_files"),
-              ["<C-g>"] = switch_to_picker("live_grep"),
               ["<C-o>"] = switch_to_picker("oldfiles"),
-              ["<C-s>"] = switch_to_picker("builtin"),
-              ["<c-b>"] = switch_to_picker("buffers"),
+              ["<C-b>"] = switch_to_picker("buffers"),
+              ["<C-z>"] = switch_to_picker("zoxide"),
+              ["<C-c>"] = actions.close,
           },
           n = {
               ["<C-f>"] = switch_to_picker("find_files"),
-              ["<C-g>"] = switch_to_picker("live_grep"),
               ["<C-o>"] = switch_to_picker("oldfiles"),
-              ["<C-s>"] = switch_to_picker("builtin"),
               ["<c-b>"] = switch_to_picker("buffers"),
+              ["<C-c>"] = actions.close,
+              ["<C-z>"] = switch_to_picker("zoxide"),
               ["dd"] = actions.delete_buffer,
           },
         },
@@ -64,6 +70,33 @@ return {
           },
         },
       },
+      extensions = {
+        zoxide = {
+          prompt_title = "Zoxide",
+          mappings = {
+            default = {
+              after_action = function(selection)
+                print("Update to (" .. selection.z_score .. ") " .. selection.path)
+              end
+            },
+            ["<C-x>"] = { action = z_utils.create_basic_command("split") },
+            ["<C-s>"] = {
+              action = function()
+                builtin.builtin()
+              end
+            },
+            ["<C-e>"] = {
+              before_action = function(selection) print("before C-s") end,
+              action = function(selection)
+                vim.cmd.edit(selection.path)
+              end
+            },
+            -- Opens the selected entry in a new split
+            ["<C-q>"] = { action = z_utils.create_basic_command("split") },
+          },
+        }
+      }
     })
+    telescope.load_extension('zoxide')
   end,
 }

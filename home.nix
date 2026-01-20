@@ -15,31 +15,32 @@
       x11.enable = true;
     };
     packages = with pkgs; [
-      anki
-      beekeeper-studio
-      chafa # telekasten
+      brightnessctl
       dsearch
       fd
-      ffmpegthumbnailer # telekasten
       fish
+      fuzzel
+      gcc
       gh
       ghostty
       git
       google-chrome
-      imagemagick # telekasten
       lazygit
       marksman
       neovide
       nerd-fonts.jetbrains-mono
       nil
       nodejs_latest
-      poppler-utils # telekasten
       protonvpn-gui
+      qbittorrent
       ripgrep
       tldr
       tree-sitter
+      unzip
       yazi
-      zig
+    ];
+    sessionPath = [
+      "$HOME/go/bin"
     ];
   };
 

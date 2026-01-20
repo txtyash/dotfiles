@@ -4,7 +4,7 @@ return {
     vim.lsp.enable({
       -- note taking
       "tinymist",
-      -- "marksman",
+      "marksman",
       -- system
       "lua_ls",
       "zls",
@@ -14,6 +14,7 @@ return {
       "harper_ls",
       "html",
       "jsonls",
+      "gopls",
       "nil_ls",
       "svelte",
       "tailwindcss",

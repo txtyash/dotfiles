@@ -11,11 +11,13 @@ vim.opt.relativenumber = true
 vim.opt.guifont = "JetBrainsMono_Nerd_Font:h12"
 vim.opt.shell = 'fish'
 
-vim.cmd("colorscheme rose-pine")
-vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.cmd("colorscheme zenbones")
+
+vim.opt.autoindent = true    -- Copy indent from current line when starting a new one
+vim.opt.smartindent = true   -- Insert indents automatically in some cases
+vim.opt.expandtab = true -- Convert tabs to spaces
+vim.opt.shiftwidth = 4 -- Use 4 spaces for indent
+vim.opt.tabstop = 4 -- Render tabs as 4 spaces
 
 -- Window padding for GUI client Neovide
 if vim.g.neovide then

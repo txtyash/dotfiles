@@ -1,7 +1,7 @@
 .direnv/
 .wrangler
 BraveSoftware/
-Proton\ Mail/
+Proton*
 Rygel
 beekeeper-studio
 cava
@@ -29,3 +29,10 @@ rygel.conf
 systemd
 turso
 vlc
+alacritty
+foot
+equibop
+go
+wezterm
+ibus/
+.gsd-keyboard.settings-ported

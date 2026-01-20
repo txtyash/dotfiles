@@ -1,119 +1,191 @@
 {
-	"last_updated": 20458,
+	"last_updated": 20473,
 	"topics": [
 		{
-			"name": "css content-visibility property",
-			"last_viewed": 20450,
-			"strength": 5,
-			"retention": 20.189651799465537
+			"name": "leetcode subtree of another tree",
+			"last_viewed": 20470,
+			"strength": 2,
+			"retention": 22.313016014842983
 		},
 		{
-			"name": "leetcode longest repeating character replacement",
-			"last_viewed": 20455,
-			"strength": 3,
-			"retention": 36.787944117144235
+			"name": "leetcode binary tree level order traversal",
+			"last_viewed": 20470,
+			"strength": 2,
+			"retention": 22.313016014842983
 		},
 		{
-			"name": "leetcode valid parentheses",
-			"last_viewed": 20456,
+			"name": "leetcode validate binary search tree",
+			"last_viewed": 20471,
 			"strength": 2,
 			"retention": 36.787944117144235
 		},
 		{
-			"name": "leetcode 3sum",
-			"last_viewed": 20455,
-			"strength": 4.5,
-			"retention": 51.3417119032592
-		},
-		{
-			"name": "zig stdin & stdout",
-			"last_viewed": 20455,
+			"name": "leetcode maximum depth of binary tree",
+			"last_viewed": 20470,
 			"strength": 5,
 			"retention": 54.88116360940265
+		},
+		{
+			"name": "leetcode invert binary tree",
+			"last_viewed": 20470,
+			"strength": 5,
+			"retention": 54.88116360940265
+		},
+		{
+			"name": "leetcode search in rotated sorted array",
+			"last_viewed": 20468,
+			"strength": 12.5,
+			"retention": 67.03200460356393
 		},
 		{
 			"name": "leetcode longest substring without repeating characters",
-			"last_viewed": 20455,
-			"strength": 5,
-			"retention": 54.88116360940265
-		},
-		{
-			"name": "leetcode best time to buy and sell stock",
-			"last_viewed": 20455,
-			"strength": 5,
-			"retention": 54.88116360940265
-		},
-		{
-			"name": "leetcode container with most water",
-			"last_viewed": 20455,
-			"strength": 5,
-			"retention": 54.88116360940265
+			"last_viewed": 20468,
+			"strength": 31.25,
+			"retention": 85.21437889662113
 		},
 		{
 			"name": "leetcode minimum window substring",
-			"last_viewed": 20456,
-			"strength": 5,
-			"retention": 67.03200460356393
+			"last_viewed": 20468,
+			"strength": 31.25,
+			"retention": 85.21437889662113
+		},
+		{
+			"name": "leetcode merge k sorted lists",
+			"last_viewed": 20470,
+			"strength": 18.75,
+			"retention": 85.21437889662113
+		},
+		{
+			"name": "leetcode same tree",
+			"last_viewed": 20471,
+			"strength": 12.5,
+			"retention": 85.21437889662113
+		},
+		{
+			"name": "leetcode longest repeating character replacement",
+			"last_viewed": 20469,
+			"strength": 28.125,
+			"retention": 86.74284731834108
+		},
+		{
+			"name": "leetcode merge two sorted lists",
+			"last_viewed": 20470,
+			"strength": 31.25,
+			"retention": 90.84640160687061
+		},
+		{
+			"name": "leetcode remove nth node from end of list",
+			"last_viewed": 20470,
+			"strength": 31.25,
+			"retention": 90.84640160687061
+		},
+		{
+			"name": "leetcode reorder list",
+			"last_viewed": 20470,
+			"strength": 31.25,
+			"retention": 90.84640160687061
+		},
+		{
+			"name": "leetcode linked list cycle",
+			"last_viewed": 20470,
+			"strength": 31.25,
+			"retention": 90.84640160687061
+		},
+		{
+			"name": "leetcode reverse linked list",
+			"last_viewed": 20470,
+			"strength": 31.25,
+			"retention": 90.84640160687061
+		},
+		{
+			"name": "leetcode valid parentheses",
+			"last_viewed": 20470,
+			"strength": 31.25,
+			"retention": 90.84640160687061
 		},
 		{
 			"name": "leetcode encode and decode strings",
-			"last_viewed": 20456,
-			"strength": 5,
-			"retention": 67.03200460356393
+			"last_viewed": 20470,
+			"strength": 31.25,
+			"retention": 90.84640160687061
 		},
 		{
 			"name": "leetcode top k frequent elements",
-			"last_viewed": 20456,
-			"strength": 7.5,
-			"retention": 76.59283383646486
+			"last_viewed": 20470,
+			"strength": 46.875,
+			"retention": 93.80049995307294
 		},
 		{
-			"name": "css image cumulative layout shift",
-			"last_viewed": 20455,
-			"strength": 12.5,
-			"retention": 78.66278610665533
+			"name": "leetcode 3sum",
+			"last_viewed": 20470,
+			"strength": 70.3125,
+			"retention": 95.82307470869327
 		},
 		{
-			"name": "leetcode two sum",
-			"last_viewed": 20455,
-			"strength": 12.5,
-			"retention": 78.66278610665533
+			"name": "leetcode container with most water",
+			"last_viewed": 20470,
+			"strength": 78.125,
+			"retention": 96.23279327216105
 		},
 		{
-			"name": "leetcode group anagrams",
-			"last_viewed": 20455,
-			"strength": 12.5,
-			"retention": 78.66278610665533
+			"name": "leetcode best time to buy and sell stock",
+			"last_viewed": 20470,
+			"strength": 78.125,
+			"retention": 96.23279327216105
 		},
 		{
 			"name": "leetcode valid anagram",
-			"last_viewed": 20455,
-			"strength": 12.5,
-			"retention": 78.66278610665533
+			"last_viewed": 20470,
+			"strength": 78.125,
+			"retention": 96.23279327216105
 		},
 		{
-			"name": "leetcode valid palindrome",
-			"last_viewed": 20455,
-			"strength": 18.75,
-			"retention": 85.21437889662113
+			"name": "leetcode group anagrams",
+			"last_viewed": 20470,
+			"strength": 78.125,
+			"retention": 96.23279327216105
 		},
 		{
 			"name": "leetcode product of array except itself",
-			"last_viewed": 20456,
-			"strength": 12.5,
-			"retention": 85.21437889662113
+			"last_viewed": 20470,
+			"strength": 78.125,
+			"retention": 96.23279327216105
 		},
 		{
 			"name": "leetcode longest consecutive sequence",
-			"last_viewed": 20456,
-			"strength": 12.5,
-			"retention": 85.21437889662113
+			"last_viewed": 20470,
+			"strength": 78.125,
+			"retention": 96.23279327216105
+		},
+		{
+			"name": "leetcode two sum",
+			"last_viewed": 20470,
+			"strength": 78.125,
+			"retention": 96.23279327216105
+		},
+		{
+			"name": "leetcode valid palindrome",
+			"last_viewed": 20470,
+			"strength": 117.1875,
+			"retention": 97.47249016017939
 		},
 		{
 			"name": "leetcode contains duplicate",
-			"last_viewed": 20456,
-			"strength": 18.75,
-			"retention": 89.88252314716088
+			"last_viewed": 20470,
+			"strength": 117.1875,
+			"retention": 97.47249016017939
+		},
+		{
+			"name": "leetcode find minimum in rotated sorted array",
+			"last_viewed": 20473,
+			"strength": 46.875,
+			"retention": 100
+		},
+		{
+			"name": "leetcode lowest common ancestor of a binary search tree",
+			"last_viewed": 20473,
+			"strength": 5,
+			"retention": 100
 		}
 	]
 }

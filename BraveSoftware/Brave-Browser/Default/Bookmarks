@@ -1,5 +1,5 @@
 {
-   "checksum": "6afe09d16c6791fec2344eb29487405b",
+   "checksum": "3b94b801aed10f006806ea9be6d730d1",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -244,10 +244,54 @@
             "name": "Desigeist - Daily Design Inspiration",
             "type": "url",
             "url": "https://www.desigeist.com/?category=Web+Design"
+         }, {
+            "date_added": "13412359647968364",
+            "date_last_used": "0",
+            "guid": "eb062dfe-fa10-4804-9888-3dd3e1830ea5",
+            "id": "53",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "localhost:5173",
+            "type": "url",
+            "url": "http://localhost:5173/"
+         }, {
+            "date_added": "13412710372540047",
+            "date_last_used": "0",
+            "guid": "c732f8e9-08ec-4719-82c1-40a25c184db1",
+            "id": "54",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Preston Thorpe pthorpe92.dev",
+            "type": "url",
+            "url": "https://pthorpe92.dev/"
+         }, {
+            "date_added": "13413117400783753",
+            "date_last_used": "0",
+            "guid": "db54c9ce-16b0-4822-b447-df0a2ceca280",
+            "id": "55",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "g.p. anders",
+            "type": "url",
+            "url": "https://gpanders.com/"
+         }, {
+            "date_added": "13413225328410850",
+            "date_last_used": "0",
+            "guid": "5d18a096-e3a2-463d-ab98-09011fb526f5",
+            "id": "57",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Algorithm Visualizer",
+            "type": "url",
+            "url": "https://algorithm-visualizer.org/"
          } ],
          "date_added": "13408472953125785",
          "date_last_used": "0",
-         "date_modified": "13411646105798688",
+         "date_modified": "13413225328410850",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks",

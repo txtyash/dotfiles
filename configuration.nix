@@ -1,11 +1,10 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 {
   # TODO: Host based configuration
-  imports = with inputs; [
+  imports = [
     ./hardware/vivobook.nix
   ];
 
@@ -79,18 +78,6 @@
     enable = true;
     keyboards.default.configFile = ./kanata/vivobook.kbd;
   };
-  services.displayManager.dms-greeter = {
-    enable = true;
-    compositor = {
-      name = "niri"; # Required. Can be also "hyprland" or "sway"
-    };
-
-    # Sync your user's DankMaterialShell theme with the greeter. You'll probably want this
-    configHome = "/home/yash";
-
-    # Custom Quickshell Package
-    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
-  };
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
@@ -99,30 +86,9 @@
     niri = {
       enable = true;
     };
-
-    dms-shell = {
-      enable = true;
-      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
-      package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
-
-      systemd = {
-        enable = true;
-        restartIfChanged = true;
-      };
-
-      enableSystemMonitoring = true; # System monitoring widgets (dgop)
-      enableClipboard = true; # Clipboard history manager
-      enableVPN = true; # VPN management widget
-      enableDynamicTheming = true; # Wallpaper-based theming (matugen)
-      enableAudioWavelength = true; # Audio visualizer (cava)
-      enableCalendarEvents = true; # Calendar integration (khal)
-    };
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "beekeeper-studio-5.3.4"
-  ];
 
   environment = {
     systemPackages = with pkgs; [
