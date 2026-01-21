@@ -46,6 +46,9 @@
 
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.displayManager.gdm.banner = "Stay hydrated!";
+  services.displayManager.defaultSession = "niri";
 
   services.xserver.xkb = {
     layout = "us";
