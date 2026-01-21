@@ -9,12 +9,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+    };
   };
 
   outputs =
     inputs@{
       nixpkgs,
       home-manager,
+      niri-flake,
       ...
     }:
     {
@@ -33,6 +37,7 @@
                 extraSpecialArgs = { inherit inputs; };
               };
             }
+            niri-flake.nixosModules.niri
           ];
         };
       };

@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -85,9 +86,12 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  nixpkgs.overlays = with inputs; [ niri-flake.overlays.niri ];
+
   programs = {
     niri = {
       enable = true;
+      package = pkgs.niri-unstable;
     };
   };
 
