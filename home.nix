@@ -38,6 +38,7 @@
       tree-sitter
       unzip
       yazi
+      vlc
     ];
     sessionPath = [
       "$HOME/go/bin"
