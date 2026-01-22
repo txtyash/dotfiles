@@ -1,6 +1,6 @@
 command = fish
 # Font Configuration
-font-size = 12
+font-size = 10
 
 # Window Configuration
 window-decoration = false
