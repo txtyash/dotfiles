@@ -51,7 +51,6 @@ return {
               ["<c-b>"] = switch_to_picker("buffers"),
               ["<C-c>"] = actions.close,
               ["<C-z>"] = switch_to_picker("zoxide"),
-              ["dd"] = actions.delete_buffer,
           },
         },
       },
@@ -61,14 +60,14 @@ return {
         },
         buffers = {
           mappings = {
-            i = {
-              -- ["<c-k>"] = actions.delete_buffer + actions.move_to_top,
-            },
             n = {
-              -- ["x"] = actions.delete_buffer + actions.move_to_top,
+              ["x"] = actions.delete_buffer + actions.move_to_top,
             },
           },
         },
+        find_files = {
+            hidden = true 
+        }
       },
       extensions = {
         zoxide = {
