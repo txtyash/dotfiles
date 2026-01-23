@@ -26,6 +26,7 @@
       git
       google-chrome
       lazygit
+      localsend
       marksman
       neovide
       nerd-fonts.jetbrains-mono
@@ -37,8 +38,8 @@
       tldr
       tree-sitter
       unzip
-      yazi
       vlc
+      yazi
     ];
     sessionPath = [
       "$HOME/go/bin"
