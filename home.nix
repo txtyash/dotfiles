@@ -25,6 +25,7 @@
       ghostty
       git
       google-chrome
+      kew
       lazygit
       localsend
       marksman
