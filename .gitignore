@@ -37,3 +37,7 @@ go
 wezterm
 ibus/
 .gsd-keyboard.settings-ported
+btop/
+kew/
+QtProject.conf
+gnome-initial-setup-done
