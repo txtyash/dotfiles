@@ -15,6 +15,7 @@
       x11.enable = true;
     };
     packages = with pkgs; [
+      bitwig-studio
       brightnessctl
       dsearch
       fd
