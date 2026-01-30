@@ -14,7 +14,7 @@ vim.opt.shell = 'fish'
 vim.cmd("colorscheme zenbones")
 
 vim.opt.autoindent = true    -- Copy indent from current line when starting a new one
-vim.opt.smartindent = true   -- Insert indents automatically in some cases
+vim.opt.smartindent = true
 vim.opt.expandtab = true -- Convert tabs to spaces
 vim.opt.shiftwidth = 4 -- Use 4 spaces for indent
 vim.opt.tabstop = 4 -- Render tabs as 4 spaces
