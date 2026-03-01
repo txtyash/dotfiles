@@ -68,12 +68,15 @@
     wireplumber.enable = true;
   };
 
+  virtualisation.docker.enable = true;
+
   users.users.yash = {
     isNormalUser = true;
     description = "Yash Shinde";
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
   };
 
