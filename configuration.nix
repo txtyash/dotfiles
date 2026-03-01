@@ -77,13 +77,17 @@
       "networkmanager"
       "wheel"
       "docker"
+      "tty"
     ];
   };
 
   # TODO: Host based configuration
   services.kanata = {
     enable = true;
-    keyboards.default.configFile = ./kanata/vivobook.kbd;
+    keyboards.default = {
+      devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
+      configFile = ./kanata/vivobook.kbd;
+    };
   };
 
   systemd.services."getty@tty1".enable = false;

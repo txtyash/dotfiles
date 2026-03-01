@@ -6,6 +6,7 @@ Examples      - https://github.com/jtroo/kanata/tree/main/cfg_samples
 (defcfg
   process-unmapped-keys yes
   concurrent-tap-hold yes
+  linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
 )
 
 (defsrc caps lmet lalt)
