@@ -108,6 +108,8 @@
     systemPackages = with pkgs; [
       neovim
       brave
+      alsa-utils
+      i2c-tools
     ];
   };
 
