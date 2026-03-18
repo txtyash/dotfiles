@@ -1,6 +1,6 @@
 [user]
-	email = "codeberg@textyash.com"
-	name = "textyash"
+	email = "github@textyash.com"
+	name = "txtyash"
 
 [user "core"]
 	editor = "nvim"
