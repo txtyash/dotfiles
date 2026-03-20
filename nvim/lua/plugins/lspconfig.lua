@@ -15,13 +15,15 @@ return {
       "harper_ls",
       "html",
       "jsonls",
-      "gopls",
       "nil_ls",
       "svelte",
       "tailwindcss",
       "angularls",
       "ts_ls",
-      "qmlls"
+      "qmlls",
+      -- Go Backend
+      "docker_language_server",
+      "gopls"
     })
 
     -- Enable Harper LSP for only select file types
