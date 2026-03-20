@@ -6,11 +6,17 @@ input {
         scroll-factor 0.15
     }
 }
+gestures {
+    hot-corners {
+        off
+    }
+}
 // https://yalter.github.io/niri/Configuration%3A-Outputs.html
 output "eDP-1" {
     mode "1920x1200@60.003"
     scale 1.08
 }
+
 layout {
     gaps 6
     focus-ring {
