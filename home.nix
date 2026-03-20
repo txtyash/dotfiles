@@ -16,7 +16,6 @@
     };
     packages = with pkgs; [
       brightnessctl
-      dsearch
       fd
       fish
       fuzzel
