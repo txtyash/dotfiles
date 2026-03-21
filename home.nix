@@ -18,7 +18,9 @@
       brightnessctl
       fd
       fish
+      fishPlugins.fzf-fish
       fuzzel
+      fzf
       gcc
       gh
       ghostty
