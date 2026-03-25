@@ -17,8 +17,6 @@
     packages = with pkgs; [
       brightnessctl
       fd
-      fish
-      fishPlugins.fzf-fish
       fuzzel
       fzf
       gcc
@@ -49,6 +47,18 @@
   };
 
   programs = {
+    fish = {
+      enable = true;
+      plugins = [
+        {
+          name = "fzf-fish";
+          src = pkgs.fishPlugins.fzf-fish.src;
+        }
+      ];
+      interactiveShellInit = ''
+        fzf_configure_bindings --history=\cr --variables=\cv --git_status=\cs
+      '';
+    };
     starship = {
       enable = true;
       enableFishIntegration = true;
