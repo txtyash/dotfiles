@@ -146,10 +146,11 @@
 
   environment = {
     systemPackages = with pkgs; [
-      neovim
-      brave
       alsa-utils
+      brave
       i2c-tools # Speaker fix
+      mako
+      neovim
     ];
   };
 
