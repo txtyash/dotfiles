@@ -16,6 +16,7 @@
     };
     packages = with pkgs; [
       brightnessctl
+      btop
       fd
       fuzzel
       fzf
