@@ -16,6 +16,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelModules = [ "i2c-dev" ];
 
   networking = {
     hostName = "vivobook";
@@ -109,6 +110,28 @@
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
+  systemd.services.fix-vivobook-speakers = {
+    description = "Fix TAS2781 speakers.";
+    after = [ "multi-user.target" ];
+    wantedBy = [
+      "multi-user.target"
+      "post-resume.target"
+    ];
+
+    # This provides i2cset to the script environment
+    path = [
+      pkgs.i2c-tools
+      pkgs.bash
+    ];
+
+    # This reads the file from your local directory and puts it in the Nix store
+    script = builtins.readFile ./fix-speakers.sh;
+
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+  };
 
   nixpkgs.overlays = with inputs; [ niri-flake.overlays.niri ];
 
@@ -126,7 +149,7 @@
       neovim
       brave
       alsa-utils
-      i2c-tools
+      i2c-tools # Speaker fix
     ];
   };
 
