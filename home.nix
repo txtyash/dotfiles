@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -21,6 +22,7 @@
       fuzzel
       fzf
       gcc
+      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
       gh
       ghostty
       git

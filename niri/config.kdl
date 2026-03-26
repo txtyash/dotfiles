@@ -18,7 +18,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 6
+    gaps 15
     focus-ring {
         off
     }
@@ -27,6 +27,8 @@ layout {
     }
 }
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "awww" "img" "~/.config/bg.jpg"
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
