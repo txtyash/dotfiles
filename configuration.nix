@@ -77,6 +77,8 @@
       "networkmanager"
       "wheel"
       "docker"
+      "video"
+      "render"
       "tty"
     ];
   };
@@ -88,6 +90,21 @@
       devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
       configFile = ./kanata/vivobook.kbd;
     };
+  };
+
+  # GPU Fixes
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vpl-gpu-rt
+      intel-compute-runtime
+      libvdpau-va-gl
+      level-zero
+    ];
+  };
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
   };
 
   systemd.services."getty@tty1".enable = false;
