@@ -1,5 +1,11 @@
 # Dotfiles
 
+- Mako notification systemd service
+    - for low battery
+    - Time after every hour
+    - High CPU Usage
+    - Bluetooth toggle
+    - Wifi connection
 - setup iio on niri https://github.com/Zhaith-Izaliel/iio-niri?tab=readme-ov-file#usage
 - In neovim if there are no suggestions then <C-n> & <C-p> can be used for line up/down.
 - 3 finger tap and keyboard shortcut to pause media
