@@ -1,3 +1,10 @@
+// RTFM: https://niri-wm.github.io/niri/Configuration%3A-Introduction.html
+
+spawn-at-startup "awww-daemon"
+spawn-at-startup "awww" "img" "~/.config/bg.jpg"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+
 input {
     touchpad {
         tap
@@ -27,8 +34,7 @@ layout {
     }
 }
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
-spawn-at-startup "awww-daemon"
-spawn-at-startup "awww" "img" "~/.config/bg.jpg"
+
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true

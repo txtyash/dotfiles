@@ -3,10 +3,14 @@ set -gx EDITOR nvim
 set -g fish_greeting
 set --global fish_key_bindings fish_vi_key_bindings
 set --erase --universal fish_key_bindings
+set -gx FZF_DEFAULT_OPTS "--layout=reverse --height=50% --border --info=inline"
 
 ### Interactive Settings (from interactiveShellInit)
 if status is-interactive
-    # Enable Vi Key Bindings
+    if type -q fzf-share
+        source (fzf-share)/key-bindings.fish
+        fzf_key_bindings
+    end
 
     # Emacs-style bindings for Insert Mode
     bind -M insert \cA beginning-of-line
@@ -19,7 +23,6 @@ if status is-interactive
     bind -M insert \cF forward-char
     bind -M insert \cp up-or-search
     bind -M insert \cn down-or-search
-    bind -M insert \cr history-pager
 
     # Repaint function to avoid artifacts
     function cancel-cmd
@@ -32,4 +35,23 @@ if status is-interactive
     starship init fish | source
     zoxide init fish | source
     direnv hook fish | source
+end
+
+function clip
+    # We store the selection in a variable first
+    set -l result (cliphist list | fzf --no-sort \
+        --prompt "󱘖 Clipboard > " \
+        --header "Ctrl-R: Refresh | Ctrl-X: Delete | Alt-W: Wipe" \
+        --height=100% \
+        --layout=reverse \
+        --bind 'alt-w:execute(cliphist wipe)+reload(cliphist list)' \
+        --bind 'ctrl-x:execute(echo {} | cliphist delete)+reload(cliphist list)' \
+        --bind 'ctrl-r:reload(cliphist list)' \
+        --preview 'echo {} | cliphist decode' \
+        --preview-window 'right,50%,border-left,wrap,<100(bottom,50%,border-top,wrap)') 
+
+    # Only decode and copy if the user actually picked something (didn't hit ESC)
+    if test -n "$result"
+        echo "$result" | cliphist decode | wl-copy
+    end
 end
