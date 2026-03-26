@@ -18,15 +18,16 @@
     packages = with pkgs; [
       brightnessctl
       btop
+      cliphist
       fd
       fuzzel
       fzf
       gcc
-      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
       gh
       ghostty
       git
       google-chrome
+      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
       kew
       lazygit
       localsend
