@@ -146,9 +146,15 @@
 
   environment = {
     systemPackages = with pkgs; [
+      # Required mostly by Niri
       alsa-utils
       brave
+      brightnessctl
+      fuzzel
+      gcc
+      ghostty
       i2c-tools # Speaker fix
+      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
       mako
       neovim
     ];

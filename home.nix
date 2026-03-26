@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -16,18 +15,13 @@
       x11.enable = true;
     };
     packages = with pkgs; [
-      brightnessctl
       btop
       cliphist
       fd
       fish
-      fuzzel
-      gcc
       gh
-      ghostty
       git
       google-chrome
-      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
       kew
       lazygit
       localsend
@@ -39,7 +33,6 @@
       protonvpn-gui
       qbittorrent
       ripgrep
-      tldr
       tree-sitter
       unzip
       vlc
@@ -56,17 +49,14 @@
       enable = true;
       enableFishIntegration = true;
     };
-
     zoxide = {
       enable = true;
       enableFishIntegration = true;
     };
-
     fzf = {
       enable = true;
       enableFishIntegration = true;
     };
-
     direnv = {
       enable = true;
       nix-direnv.enable = true;
