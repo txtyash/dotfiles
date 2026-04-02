@@ -36,22 +36,3 @@ if status is-interactive
     zoxide init fish | source
     direnv hook fish | source
 end
-
-function clip
-    # We store the selection in a variable first
-    set -l result (cliphist list | fzf --no-sort \
-        --prompt "󱘖 Clipboard > " \
-        --header "Ctrl-R: Refresh | Ctrl-X: Delete | Alt-W: Wipe" \
-        --height=100% \
-        --layout=reverse \
-        --bind 'alt-w:execute(cliphist wipe)+reload(cliphist list)' \
-        --bind 'ctrl-x:execute(echo {} | cliphist delete)+reload(cliphist list)' \
-        --bind 'ctrl-r:reload(cliphist list)' \
-        --preview 'echo {} | cliphist decode' \
-        --preview-window 'right,50%,border-left,wrap,<100(bottom,50%,border-top,wrap)') 
-
-    # Only decode and copy if the user actually picked something (didn't hit ESC)
-    if test -n "$result"
-        echo "$result" | cliphist decode | wl-copy
-    end
-end

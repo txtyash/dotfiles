@@ -16,7 +16,7 @@
     };
     packages = with pkgs; [
       btop
-      cliphist
+      copyq
       fd
       fish
       gh
