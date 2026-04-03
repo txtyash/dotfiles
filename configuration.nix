@@ -148,8 +148,8 @@
     systemPackages = with pkgs; [
       # Required mostly by Niri
       alsa-utils
-      brave
       brightnessctl
+      firefox
       fuzzel
       gcc
       ghostty
