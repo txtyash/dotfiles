@@ -30,7 +30,9 @@
       nerd-fonts.jetbrains-mono
       nil
       nodejs_latest
-      protonvpn-gui
+      proton-pass
+      proton-pass-cli
+      proton-vpn
       qbittorrent
       ripgrep
       tree-sitter
