@@ -1,5 +1,6 @@
 # Dotfiles
 
+- Swayidle/Swaylock or gtklock
 - Mako notification systemd service
     - for low battery
     - Time after every hour
