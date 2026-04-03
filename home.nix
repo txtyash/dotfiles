@@ -15,6 +15,7 @@
       x11.enable = true;
     };
     packages = with pkgs; [
+      brave
       btop
       copyq
       fd
@@ -26,7 +27,6 @@
       lazygit
       localsend
       marksman
-      neovide
       nerd-fonts.jetbrains-mono
       nil
       nodejs_latest
