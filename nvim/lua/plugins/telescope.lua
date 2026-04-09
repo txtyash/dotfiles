@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.2.0",
+  version = '*',
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local map = vim.keymap.set
