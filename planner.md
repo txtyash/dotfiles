@@ -1,6 +1,7 @@
 # Dotfiles
 
 - Swayidle/Swaylock or gtklock
+- nix shell should use fish
 - Mako notification systemd service
     - for low battery
     - Time after every hour
@@ -13,3 +14,4 @@
 - How do I convert my dotfiles also to a devshell so that I have lua lsp in the .config directory
 - customize vimiumc heads up and hints
 - `installerIso` flake output parameter for NixOS
+- nvim bind ctrl+g to replace space+p
