@@ -94,15 +94,21 @@
   };
 
   # GPU Fixes
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      vpl-gpu-rt
-      intel-compute-runtime
-      libvdpau-va-gl
-      level-zero
-    ];
+  hardware = {
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        vpl-gpu-rt
+        intel-compute-runtime
+        libvdpau-va-gl
+        level-zero
+      ];
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
