@@ -15,8 +15,10 @@
       x11.enable = true;
     };
     packages = with pkgs; [
+      bluetui
       brave
       btop
+      claude-code
       copyq
       fd
       fish
