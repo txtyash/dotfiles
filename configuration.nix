@@ -158,6 +158,7 @@
       firefox
       fuzzel
       gcc
+      gnumake
       ghostty
       i2c-tools # Speaker fix
       inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
