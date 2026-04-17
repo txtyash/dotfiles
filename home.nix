@@ -23,7 +23,6 @@
       fd
       fish
       gh
-      git
       google-chrome
       kew
       lazygit
@@ -52,6 +51,10 @@
     starship = {
       enable = true;
       enableFishIntegration = true;
+    };
+    git = {
+      enable = true;
+      ignores = [ ".claude/settings.json" ];
     };
     zoxide = {
       enable = true;
