@@ -4,7 +4,6 @@
   ...
 }:
 {
-  # TODO: Host based configuration
   imports = [
     ./hardware/vivobook.nix
   ];
@@ -17,6 +16,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = [ "i2c-dev" ];
+  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
+  boot.kernelParams = [
+    "quiet"
+    "udev.log_level=3"
+    "vt.global_cursor_default=0"
+  ];
 
   networking = {
     hostName = "vivobook";
@@ -46,15 +53,15 @@
     LC_TIME = "en_IN";
   };
 
-  services.xserver.enable = true;
-  services.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.displayManager.gdm.banner = "Stay hydrated!";
   services.displayManager.defaultSession = "niri";
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --greeting 'Stay hydrated!' --cmd niri";
+        user = "greeter";
+      };
+    };
   };
 
   services.printing.enable = true;
@@ -67,6 +74,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
+  };
+  services.power-profiles-daemon = {
+    enable = true;
+  };
+  services.upower = {
+    enable = true;
   };
 
   virtualisation.docker.enable = true;
@@ -84,7 +97,6 @@
     ];
   };
 
-  # TODO: Host based configuration
   services.kanata = {
     enable = true;
     keyboards.default = {
@@ -112,6 +124,12 @@
   };
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.niri.default = [ "gtk" ];
   };
 
   systemd.services."getty@tty1".enable = false;
@@ -142,9 +160,18 @@
   nixpkgs.overlays = with inputs; [ niri-flake.overlays.niri ];
 
   programs = {
+    dconf.enable = true;
     niri = {
       enable = true;
       package = pkgs.niri-unstable;
+    };
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
   };
 
@@ -152,18 +179,46 @@
 
   environment = {
     systemPackages = with pkgs; [
-      # Required mostly by Niri
       alsa-utils
+      bluetui
+      brave
       brightnessctl
+      btop
+      claude-code
+      copyq
+      fd
       firefox
+      fish
       fuzzel
+      fzf
       gcc
-      gnumake
+      gh
       ghostty
+      git
+      gnumake
+      google-chrome
       i2c-tools # Speaker fix
-      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-      mako
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+      kew
+      lazygit
+      localsend
+      marksman
       neovim
+      nerd-fonts.jetbrains-mono
+      nil
+      nodejs_latest
+      proton-pass
+      proton-pass-cli
+      proton-vpn
+      qbittorrent
+      ripgrep
+      tree-sitter
+      unzip
+      vlc
+      wl-clipboard
+      yazi
+      starship
     ];
   };
 
