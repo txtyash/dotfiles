@@ -183,7 +183,6 @@
       xwayland-satellite
       alsa-utils
       bluetui
-      brave
       brightnessctl
       btop
       claude-code
