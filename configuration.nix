@@ -161,6 +161,7 @@
 
   programs = {
     dconf.enable = true;
+    fish.enable = true;
     niri = {
       enable = true;
       package = pkgs.niri-unstable;
@@ -179,6 +180,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      xwayland-satellite
       alsa-utils
       bluetui
       brave
@@ -188,7 +190,6 @@
       copyq
       fd
       firefox
-      fish
       fuzzel
       fzf
       gcc
@@ -213,12 +214,12 @@
       proton-vpn
       qbittorrent
       ripgrep
+      starship
       tree-sitter
       unzip
       vlc
       wl-clipboard
       yazi
-      starship
     ];
   };
 
