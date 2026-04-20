@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }:
 {
@@ -13,7 +14,11 @@
     "flakes"
   ];
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = [ "i2c-dev" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -180,7 +185,6 @@
 
   environment = {
     systemPackages = with pkgs; [
-      xwayland-satellite
       alsa-utils
       bluetui
       brightnessctl
@@ -213,11 +217,13 @@
       proton-vpn
       qbittorrent
       ripgrep
+      sbctl
       starship
       tree-sitter
       unzip
       vlc
       wl-clipboard
+      xwayland-satellite
       yazi
     ];
   };
