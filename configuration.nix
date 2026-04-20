@@ -59,6 +59,8 @@
   };
 
   services.displayManager.defaultSession = "niri";
+  # services.gnome.gnome-keyring.enable = true; # Uncomment if login keyring fails to unlock
+  security.pam.services.greetd.enableGnomeKeyring = true;
   services.greetd = {
     enable = true;
     settings = {
