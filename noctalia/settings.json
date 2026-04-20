@@ -664,7 +664,7 @@
         "linkLightAndDarkWallpapers": false,
         "monitorDirectories": [
         ],
-        "overviewBlur": 0.11999999999999995,
+        "overviewBlur": 0,
         "overviewEnabled": true,
         "overviewTint": 0.6,
         "panelPosition": "follow_bar",
@@ -692,7 +692,7 @@
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "nurburgring",
+        "wallhavenQuery": "lotus",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",

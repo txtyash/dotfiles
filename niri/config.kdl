@@ -27,7 +27,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 15
+    gaps 6
     focus-ring {
         off
     }
@@ -43,12 +43,12 @@ window-rule {
     open-floating true
 }
 window-rule {
-    geometry-corner-radius 20
+    geometry-corner-radius 6
     clip-to-geometry true
 }
 window-rule {
     match is-active=false
-    opacity 0.9
+    opacity 0.96
 }
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
