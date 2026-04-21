@@ -23,7 +23,7 @@ gestures {
 // https://yalter.github.io/niri/Configuration%3A-Outputs.html
 output "eDP-1" {
     mode "1920x1200@60.003"
-    scale 1.08
+    scale 1
 }
 
 layout {
