@@ -14,21 +14,25 @@
     "flakes"
   ];
 
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
+  boot = {
+    loader = {
+      systemd-boot.enable = lib.mkForce false;
+      efi.canTouchEfiVariables = true;
+    };
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
+    kernelModules = [ "i2c-dev" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "udev.log_level=3"
+      "vt.global_cursor_default=0"
+    ];
   };
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = [ "i2c-dev" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
-  boot.kernelParams = [
-    "quiet"
-    "udev.log_level=3"
-    "vt.global_cursor_default=0"
-  ];
 
   networking = {
     hostName = "vivobook";
@@ -45,40 +49,54 @@
   };
 
   time.timeZone = "Asia/Kolkata";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_IN";
+      LC_IDENTIFICATION = "en_IN";
+      LC_MEASUREMENT = "en_IN";
+      LC_MONETARY = "en_IN";
+      LC_NAME = "en_IN";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_IN";
+      LC_TELEPHONE = "en_IN";
+      LC_TIME = "en_IN";
+    };
   };
 
-  services.displayManager.defaultSession = "niri";
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.displayManager.gdm.banner = "Stay hydrated!";
-  services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
+  services = {
+    xserver.enable = true;
+    displayManager = {
+      gdm = {
+        enable = true;
+        banner = "Stay hydrated!";
+      };
+      defaultSession = "niri";
+    };
+    printing.enable = true;
+    pulseaudio.enable = false;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+    power-profiles-daemon = {
+      enable = true;
+    };
+    upower = {
+      enable = true;
+    };
+    kanata = {
+      enable = true;
+      keyboards.default = {
+        devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
+        configFile = ./kanata/vivobook.kbd;
+      };
+    };
+  };
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
-  services.power-profiles-daemon = {
-    enable = true;
-  };
-  services.upower = {
-    enable = true;
-  };
 
   virtualisation.docker.enable = true;
 
@@ -93,14 +111,6 @@
       "render"
       "tty"
     ];
-  };
-
-  services.kanata = {
-    enable = true;
-    keyboards.default = {
-      devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
-      configFile = ./kanata/vivobook.kbd;
-    };
   };
 
   # GPU Fixes
@@ -120,6 +130,7 @@
       powerOnBoot = true;
     };
   };
+
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
   };
@@ -130,32 +141,39 @@
     config.niri.default = [ "gtk" ];
   };
 
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  systemd.services.fix-vivobook-speakers = {
-    description = "Fix TAS2781 speakers.";
-    after = [ "multi-user.target" ];
-    wantedBy = [
-      "multi-user.target"
-      "post-resume.target"
-    ];
+  systemd = {
+    services = {
+      "getty@tty1".enable = false;
+      "autovt@tty1".enable = false;
+      fix-vivobook-speakers = {
+        description = "Fix TAS2781 speakers.";
+        after = [ "multi-user.target" ];
+        wantedBy = [
+          "multi-user.target"
+          "post-resume.target"
+        ];
 
-    # This provides i2cset to the script environment
-    path = [
-      pkgs.i2c-tools
-      pkgs.bash
-    ];
+        # This provides i2cset to the script environment
+        path = [
+          pkgs.i2c-tools
+          pkgs.bash
+        ];
 
-    # This reads the file from your local directory and puts it in the Nix store
-    script = builtins.readFile ./fix-speakers.sh;
+        # This reads the file from your local directory and puts it in the Nix store
+        script = builtins.readFile ./fix-speakers.sh;
 
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+        };
+      };
     };
   };
 
-  nixpkgs.overlays = with inputs; [ niri-flake.overlays.niri ];
+  nixpkgs = {
+    overlays = with inputs; [ niri-flake.overlays.niri ];
+    config.allowUnfree = true;
+  };
 
   programs = {
     dconf.enable = true;
@@ -173,8 +191,6 @@
       nix-direnv.enable = true;
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   environment = {
     systemPackages = with pkgs; [
