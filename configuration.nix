@@ -194,7 +194,6 @@
       claude-code
       copyq
       fd
-      firefox
       fuzzel
       fzf
       gcc
@@ -208,6 +207,7 @@
       inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
       kew
       lazygit
+      librewolf
       localsend
       marksman
       neovim
