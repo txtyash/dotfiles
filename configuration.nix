@@ -59,19 +59,9 @@
   };
 
   services.displayManager.defaultSession = "niri";
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.greetd.enableGnomeKeyring = true;
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --greeting 'Stay hydrated!' --cmd niri";
-        user = "greeter";
-      };
-    };
-  };
-
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.banner = "Stay hydrated!";
   services.printing.enable = true;
 
   services.pulseaudio.enable = false;
