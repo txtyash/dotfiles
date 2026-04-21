@@ -27,7 +27,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 6
+    gaps 12
     focus-ring {
         off
     }
@@ -43,7 +43,7 @@ window-rule {
     open-floating true
 }
 window-rule {
-    geometry-corner-radius 6
+    geometry-corner-radius 12
     clip-to-geometry true
 }
 window-rule {
