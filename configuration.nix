@@ -168,6 +168,14 @@
         };
       };
     };
+    tmpfiles.rules =
+      let
+        username = "yash";
+      in
+      [
+        "f+ /var/lib/AccountsService/users/${username}  0600 root root - [User]\\nIcon=/var/lib/AccountsService/icons/${username}\\n"
+        "L+ /var/lib/AccountsService/icons/${username}  - - - - ${./avatar.jpg}"
+      ];
   };
 
   nixpkgs = {
