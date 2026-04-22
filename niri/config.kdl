@@ -1,5 +1,9 @@
 // RTFM: https://niri-wm.github.io/niri/Configuration%3A-Introduction.html
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 // spawn-at-startup "awww-daemon"
 // spawn-at-startup "awww" "img" "~/.config/bg.jpg"
 // spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
