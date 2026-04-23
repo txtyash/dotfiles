@@ -250,7 +250,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": true,
+        "darkMode": false,
         "generationMethod": "tonal-spot",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -653,7 +653,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/yash/Pictures/Wallpapers",
+        "directory": "/home/yash/Pictures",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
@@ -673,7 +673,7 @@
         "showHiddenFiles": false,
         "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
-        "sortOrder": "name",
+        "sortOrder": "date_desc",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
@@ -687,12 +687,12 @@
         "useOriginalImages": false,
         "useSolidColor": false,
         "useWallhaven": true,
-        "viewMode": "recursive",
+        "viewMode": "single",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "lotus",
+        "wallhavenQuery": "night",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
