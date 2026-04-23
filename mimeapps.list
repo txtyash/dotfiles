@@ -1,10 +1,10 @@
 [Default Applications]
 x-scheme-handler/mailto=brave-browser.desktop
-text/html=firefox.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
-x-scheme-handler/about=brave-browser.desktop
-x-scheme-handler/unknown=brave-browser.desktop
+text/html=helium.desktop
+x-scheme-handler/http=helium.desktop
+x-scheme-handler/https=helium.desktop
+x-scheme-handler/about=helium.desktop
+x-scheme-handler/unknown=helium.desktop
 video/x-matroska=org.gnome.Showtime.desktop
 x-scheme-handler/chrome=firefox.desktop
 application/x-extension-htm=firefox.desktop

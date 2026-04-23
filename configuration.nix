@@ -219,6 +219,7 @@
       gnumake
       google-chrome
       i2c-tools # Speaker fix
+      inputs.helium.packages.${system}.default
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
       kew
