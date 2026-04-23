@@ -1,0 +1,361 @@
+{
+   "checksum": "4a6c1cba44202349956292ce571439b8",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "d433d003-1d40-4067-9c1b-5b38a8f10606",
+            "id": "5",
+            "name": "mail",
+            "type": "url",
+            "url": "https://mail.proton.me/u/0/inbox"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "7c6be414-c88c-4d8f-96ba-7b162954f720",
+            "id": "6",
+            "name": "Matt Webb Interconnected",
+            "type": "url",
+            "url": "https://interconnected.org/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "8821aa67-3269-45db-8167-ad81ee62c71d",
+            "id": "7",
+            "name": "Karl Seguin Openmymind",
+            "type": "url",
+            "url": "https://www.openmymind.net/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "7c8dfb71-c1e7-433b-842c-fd9ef65776fc",
+            "id": "8",
+            "name": "Alex Kladov Matklad",
+            "type": "url",
+            "url": "https://matklad.github.io/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "168d1055-1e7d-4424-8699-2e2f9d3b31ba",
+            "id": "9",
+            "name": "Mitchell Hashimoto",
+            "type": "url",
+            "url": "https://mitchellh.com/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "09a22efc-5f28-422c-bf11-8b79becec46a",
+            "id": "10",
+            "name": "Amos Fasterthanlime",
+            "type": "url",
+            "url": "https://fasterthanli.me/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "4d0b22c8-06f7-47ad-a950-df9740667586",
+            "id": "11",
+            "name": "Neocities",
+            "type": "url",
+            "url": "https://neocities.org/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "c70a348b-bf09-4e03-a801-bf2e6b78157a",
+            "id": "12",
+            "name": "zig reference 0.15.2",
+            "type": "url",
+            "url": "https://ziglang.org/documentation/0.15.2/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "76fba7bd-020b-4a1b-a092-dc1db4626b2e",
+            "id": "13",
+            "name": "zig standard std library 0.15.2",
+            "type": "url",
+            "url": "https://ziglang.org/documentation/0.15.2/std/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "803f34f9-49a0-4be3-91df-b6464315ba7b",
+            "id": "14",
+            "name": "Bhankas",
+            "type": "url",
+            "url": "https://bhankas.org/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "0ba2bcd9-9c71-4bbe-9dad-99286e395b8e",
+            "id": "15",
+            "name": "Bozhidar Batsov",
+            "type": "url",
+            "url": "https://batsov.com/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "23fce791-f502-4561-8357-95cdecf85be8",
+            "id": "16",
+            "name": "Dave Gauer",
+            "type": "url",
+            "url": "https://ratfactor.com/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "d3b10e16-2648-463e-89c0-5296e003ebbe",
+            "id": "17",
+            "name": "The Copenhagen Book auth lucia",
+            "type": "url",
+            "url": "https://thecopenhagenbook.com/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "010f1381-6e6c-4358-af31-e90a4ac47daf",
+            "id": "18",
+            "name": "Geoff Greer",
+            "type": "url",
+            "url": "https://geoff.greer.fm/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "8785fc4f-84fe-4fc2-b70f-aa031c118b3c",
+            "id": "19",
+            "name": "‎Gemini",
+            "type": "url",
+            "url": "https://gemini.google.com/u/1/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "bb26bfe9-bb12-4e0f-a82b-73d6c105fa45",
+            "id": "20",
+            "name": "Andrew Kelley",
+            "type": "url",
+            "url": "https://andrewkelley.me/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "cac58a05-95c4-41d8-9d48-c290d7eb6f6d",
+            "id": "21",
+            "name": "Paul Copplestone",
+            "type": "url",
+            "url": "https://paul.copplest.one/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "bba98ee2-7a1c-4043-b7c8-d85c15c56817",
+            "id": "22",
+            "name": "Guillermo Rauch",
+            "type": "url",
+            "url": "https://rauchg.com/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "70775a78-6d98-4962-879a-8e10d54ed143",
+            "id": "23",
+            "name": "Origins.fm: Developer Origins",
+            "type": "url",
+            "url": "https://origins.fm/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "33067972-6d7e-4895-8a92-807c9078d5d9",
+            "id": "24",
+            "name": "Desigeist - Daily Design Inspiration",
+            "type": "url",
+            "url": "https://www.desigeist.com/?category=Web+Design"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "87e18be0-7d87-4cd4-9e7f-6dcbf1602012",
+            "id": "25",
+            "name": "localhost:5173",
+            "type": "url",
+            "url": "http://localhost:5173/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "9aaab389-7851-4f17-8e58-7c1265edfb10",
+            "id": "26",
+            "name": "Preston Thorpe pthorpe92.dev",
+            "type": "url",
+            "url": "https://pthorpe92.dev/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "c9730fe3-5f34-4904-962d-90622a584d8d",
+            "id": "27",
+            "name": "g.p. anders",
+            "type": "url",
+            "url": "https://gpanders.com/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "d1e54054-8825-460e-ad83-b273a31fec06",
+            "id": "28",
+            "name": "Algorithm Visualizer",
+            "type": "url",
+            "url": "https://algorithm-visualizer.org/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "79863bc2-8195-442d-a597-930b3d8a7889",
+            "id": "29",
+            "name": "Writing | Adam Majmudar",
+            "type": "url",
+            "url": "https://adammaj.com/writing"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "0df2b61b-6afa-4ec9-ae42-0aa33fd37bd8",
+            "id": "30",
+            "name": "rraks - Rakshit Ramesh",
+            "type": "url",
+            "url": "https://rraks.github.io/"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "269f5dd2-680a-4dcc-a6b3-fa7388cc0ed9",
+            "id": "31",
+            "name": "competitive programmer's handbook",
+            "type": "url",
+            "url": "https://cses.fi/book/book.pdf"
+         }, {
+            "date_added": "13419701767000000",
+            "date_last_used": "0",
+            "guid": "3ca25501-0cc5-4090-881f-2cd14faf4f8b",
+            "id": "32",
+            "name": "Mia Heidenstedt",
+            "type": "url",
+            "url": "https://heidenstedt.org/"
+         }, {
+            "date_added": "13419785751000000",
+            "date_last_used": "0",
+            "guid": "4152bafb-758c-40d5-9b26-68c745eac996",
+            "id": "33",
+            "name": "Saiansh (Yash) Singh's Blog",
+            "type": "url",
+            "url": "https://www.yashsingh.us/blog"
+         }, {
+            "date_added": "13419786706000000",
+            "date_last_used": "0",
+            "guid": "e81b68ed-5f6f-4980-a8c1-757b07178753",
+            "id": "34",
+            "name": "Tree-sitter migration guide for Neovim 0.12",
+            "type": "url",
+            "url": "https://www.qu8n.com/posts/treesitter-migration-guide-for-nvim-0-12"
+         }, {
+            "date_added": "13419868748000000",
+            "date_last_used": "0",
+            "guid": "29db5bbe-7e3f-475d-9800-b3be0cf80418",
+            "id": "35",
+            "name": "Alexa Fazio's Portfolio",
+            "type": "url",
+            "url": "https://alexafazio.dev/blog"
+         }, {
+            "date_added": "13420369793000000",
+            "date_last_used": "0",
+            "guid": "6a5aa8de-7fa2-47e0-a9b9-0617000d79c8",
+            "id": "36",
+            "name": "The Grug Brained Developer",
+            "type": "url",
+            "url": "https://grugbrain.dev/"
+         }, {
+            "date_added": "13420460674000000",
+            "date_last_used": "0",
+            "guid": "a5242bb2-140e-4183-8478-9face33a0a87",
+            "id": "37",
+            "name": "Proton Mail",
+            "type": "url",
+            "url": "https://mail.proton.me/"
+         }, {
+            "children": [ {
+               "children": [ {
+                  "date_added": "13419701755000000",
+                  "date_last_used": "0",
+                  "guid": "03c7ca06-1840-44cf-baed-9af21c35fa15",
+                  "id": "40",
+                  "name": "Get Help",
+                  "type": "url",
+                  "url": "https://support.mozilla.org/products/firefox"
+               }, {
+                  "date_added": "13419701755000000",
+                  "date_last_used": "0",
+                  "guid": "3acbec92-ac3b-44b5-b487-213bcc35c49e",
+                  "id": "41",
+                  "name": "Customize Firefox",
+                  "type": "url",
+                  "url": "https://support.mozilla.org/kb/customize-firefox-controls-buttons-and-toolbars?utm_source=firefox-browser&utm_medium=default-bookmarks&utm_campaign=customize"
+               }, {
+                  "date_added": "13419701755000000",
+                  "date_last_used": "0",
+                  "guid": "2d2559cd-d1fd-4aa6-b41a-d11b0c990c8b",
+                  "id": "42",
+                  "name": "Get Involved",
+                  "type": "url",
+                  "url": "https://www.mozilla.org/contribute/"
+               }, {
+                  "date_added": "13419701755000000",
+                  "date_last_used": "0",
+                  "guid": "91afe5cb-d276-4bb5-a86b-d0443942a8d1",
+                  "id": "43",
+                  "name": "About Us",
+                  "type": "url",
+                  "url": "https://www.mozilla.org/about/"
+               } ],
+               "date_added": "13421407741184393",
+               "date_last_used": "0",
+               "date_modified": "0",
+               "guid": "7310b4c3-7b78-44cc-b412-fad3744c0d33",
+               "id": "39",
+               "name": "Mozilla Firefox",
+               "type": "folder"
+            }, {
+               "date_added": "13421409072506668",
+               "date_last_used": "0",
+               "guid": "770de7c2-d52e-4277-b348-c3a5b8f45c09",
+               "id": "44",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Lumo AI",
+               "type": "url",
+               "url": "https://lumo.proton.me/u/2/"
+            } ],
+            "date_added": "13421407741184327",
+            "date_last_used": "0",
+            "date_modified": "13421409072506668",
+            "guid": "001a4203-2434-4ff0-b461-a298369dfcb3",
+            "id": "38",
+            "name": "Imported from Mozilla Firefox",
+            "type": "folder"
+         } ],
+         "date_added": "13421407688272927",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13421407688272927",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13421407688272927",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
