@@ -44,7 +44,7 @@ layout {
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"helium$"# title="^Picture-in-Picture$"
     open-floating true
 }
 window-rule {
@@ -58,7 +58,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+B hotkey-overlay-title="Open a Terminal: ghostty" { spawn "firefox"; }
+    Mod+B hotkey-overlay-title="Open a Terminal: ghostty" { spawn "helium"; }
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: Noctalia" { spawn "noctalia-shell ipc call lockScreen lock"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
