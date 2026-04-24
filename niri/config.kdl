@@ -4,8 +4,6 @@ hotkey-overlay {
     skip-at-startup
 }
 
-// spawn-at-startup "awww-daemon"
-// spawn-at-startup "awww" "img" "~/.config/bg.jpg"
 // spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 // spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"

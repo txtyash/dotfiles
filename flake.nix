@@ -15,9 +15,6 @@
     niri-flake = {
       url = "github:sodiboo/niri-flake";
     };
-    awww = {
-      url = "git+https://codeberg.org/LGFae/awww";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
