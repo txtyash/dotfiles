@@ -218,8 +218,8 @@
       git
       gnumake
       google-chrome
-      i2c-tools # Speaker fix
-      inputs.helium.packages.${system}.default
+      i2c-tools
+      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
       kew
@@ -237,6 +237,7 @@
       ripgrep
       sbctl
       starship
+      swayidle
       tree-sitter
       unzip
       vlc
