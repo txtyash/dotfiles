@@ -244,6 +244,7 @@
       wl-clipboard
       xwayland-satellite
       yazi
+      gemini-cli
     ];
   };
 
