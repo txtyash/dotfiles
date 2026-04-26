@@ -15,5 +15,5 @@
 - [Yazi](https://github.com/sxyazi/yazi)
 - [Lazygit](https://github.com/jesseduffield/lazygit)
 - [Claude Code](https://claude.com/product/claude-code)
-- Firefox
+- [Helium Browser](https://helium.computer)
 - [Proton apps](https://proton.me)
