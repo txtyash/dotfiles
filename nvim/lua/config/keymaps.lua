@@ -5,6 +5,10 @@
 -- TODO: Install extend key objects for conveniences like dac(delete around condition), etc.
 local map = vim.keymap.set
 
+-- Navigate wrapped lines
+map({ "n", "x" }, "j", "gj", { desc = "Down (wrapped)" })
+map({ "n", "x" }, "k", "gk", { desc = "Up (wrapped)" })
+
 -- Tabs
 map("n", "<c-j>", "<cmd>tabnext<cr>", { desc = "Next tab" })
 map("n", "<c-k>", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
