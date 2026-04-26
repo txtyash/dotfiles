@@ -39,8 +39,8 @@
     networkmanager = {
       enable = true;
       dns = "none";
-      wifi.macAddress = "02:01:02:03:04:09";
-      ethernet.macAddress = "02:01:02:03:04:08";
+      wifi.macAddress = "random";
+      ethernet.macAddress = "random";
     };
     nameservers = [
       "9.9.9.9"
