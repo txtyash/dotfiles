@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-04-27 21:33
+**Last Updated**: 2026-04-28 00:49
 
 ## Self-Maintenance Instructions
 
@@ -198,6 +198,10 @@ TODOs, issues, and plans are manually added to `planner.md`. A place to dump thi
 ---
 
 ## Conventions
+
+### Git
+
+- **No `Co-Authored-By` trailer** in commit messages. Do not append `Co-Authored-By: Claude ...` or similar lines.
 
 - All system packages declared in `configuration.nix` under `environment.systemPackages`
 - Flake-based packages use `inputs.<name>.packages.${pkgs.stdenv.hostPlatform.system}.default`
