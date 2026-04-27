@@ -14,6 +14,7 @@ application/xhtml+xml=helium.desktop
 application/x-extension-xhtml=helium.desktop
 application/x-extension-xht=helium.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+application/pdf=helium.desktop
 
 [Added Associations]
 video/x-matroska=org.gnome.Showtime.desktop;
