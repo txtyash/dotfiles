@@ -1,11 +1,11 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-04-25 00:19
+**Last Updated**: 2026-04-27 21:33
 
 ## Self-Maintenance Instructions
 
 ### Timestamp rule
-Every time this file is edited for any reason, update the **Last Updated** date at the top to today's date. No exceptions.
+Every time this file is edited for any reason, update the **Last Updated** date and time at the top using `date "+%Y-%m-%d %H:%M"`. No exceptions.
 
 ### On session start (passive check)
 Check git log for commits after the Last Updated date:
@@ -190,6 +190,12 @@ Kanata runs as NixOS service (enabled in `configuration.nix`).
 - nixpkgs search: https://search.nixos.org/packages
 - Kanata config: https://github.com/jtroo/kanata/blob/main/docs/config.adoc
 - Lanzaboote: https://github.com/nix-community/lanzaboote
+
+## Local Planning
+
+TODOs, issues, and plans are manually added to `planner.md`. A place to dump things to avoid forgetting them later.
+
+---
 
 ## Conventions
 
