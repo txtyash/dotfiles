@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/mailto=brave-browser.desktop
+x-scheme-handler/mailto=protonmail-desktop.desktop
 text/html=helium.desktop
 x-scheme-handler/http=helium.desktop
 x-scheme-handler/https=helium.desktop
