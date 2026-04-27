@@ -233,6 +233,7 @@
       proton-pass
       proton-pass-cli
       proton-vpn
+      proton-vpn-cli
       protonmail-desktop
       qbittorrent
       ripgrep
