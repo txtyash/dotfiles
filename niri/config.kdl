@@ -11,6 +11,11 @@ spawn-at-startup "noctalia-shell"
 spawn-at-startup "protonvpn" "connect"
 spawn-at-startup "swayidle" "-w" "timeout" "300" "noctalia-shell ipc call lockScreen lock" "before-sleep" "noctalia-shell ipc call lockScreen lock"
 
+cursor {
+    xcursor-theme "Afterglow-Recolored-Catppuccin-Flamingo"
+    xcursor-size 24
+}
+
 input {
     touchpad {
         tap

@@ -247,7 +247,12 @@
       xwayland-satellite
       yazi
       gemini-cli
+      afterglow-cursors-recolored
     ];
+    variables = {
+      XCURSOR_THEME = "Afterglow-Recolored-Catppuccin-Flamingo";
+      XCURSOR_SIZE = "24";
+    };
   };
 
   system.stateVersion = "25.05";
