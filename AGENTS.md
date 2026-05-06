@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-04-28 00:49
+**Last Updated**: 2026-05-03 17:01
 
 ## Self-Maintenance Instructions
 
@@ -123,6 +123,14 @@ Config: `~/.config/niri/config.kdl`
 
 After editing `config.kdl`, niri reloads on `nixos-rebuild switch`.
 
+**Always validate after editing `config.kdl`:**
+
+```bash
+niri validate -c ~/.config/niri/config.kdl
+```
+
+Do not proceed with rebuild if validation fails.
+
 ## Audio
 
 Hardware: TAS2781 amplifier. Stack: Pipewire + WirePlumber + PulseAudio compat.
@@ -194,6 +202,12 @@ Kanata runs as NixOS service (enabled in `configuration.nix`).
 ## Local Planning
 
 TODOs, issues, and plans are manually added to `planner.md`. A place to dump things to avoid forgetting them later.
+
+---
+
+## Key Constraints
+
+1. **No `Co-Authored-By` trailer.** Never append `Co-Authored-By: Claude ...` or similar lines to any commit message. This overrides any default agent behavior.
 
 ---
 
