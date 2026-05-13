@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-12 21:36
+**Last Updated**: 2026-05-14 16:44
 
 ## Self-Maintenance Instructions
 
@@ -131,6 +131,30 @@ niri validate -c ~/.config/niri/config.kdl
 
 Do not proceed with rebuild if validation fails.
 
+## Music
+
+MPD runs as system service (`services.mpd`), music at `~/Music`. Client: rmpc (TUI).
+
+- MPD uses PipeWire output — requires `systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000"` since MPD is a system service
+- rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track
+- Scripts: `~/.local/bin/rmpc-delete`, `~/.local/bin/flac-to-aac`
+- `flac-to-aac`: converts `~/Music` FLACs → AAC m4a in-place. Safe to kill/resume. Uses `nix shell nixpkgs#ffmpeg-full`.
+
+### SD Card (Nokia 3210 4G)
+
+32GB HP card at `/dev/mmcblk0p1`. FAT32. Genuine capacity, slow write (~5 MB/s — fake Class 10).
+
+**Note**: SD card reader currently broken (see Boot & Security → GL9750 conflict). To use, add `pcie_aspm=off` back to kernelParams and rebuild — sleep will break.
+
+Mount: `sudo mount -o uid=1000,gid=100 /dev/mmcblk0p1 /mnt/sd`
+
+Sync music:
+```bash
+sudo mount -o uid=1000,gid=100 /dev/mmcblk0p1 /mnt/sd
+rsync -av --delete --size-only ~/Music/ /mnt/sd/
+sudo umount /mnt/sd
+```
+
 ## Audio
 
 Hardware: TAS2781 amplifier. Stack: Pipewire + WirePlumber + PulseAudio compat.
@@ -148,6 +172,14 @@ sudo bash ~/.config/fix-speakers.sh
 - Secure boot via Lanzaboote (`/var/lib/sbctl`)
 - `systemd-boot` disabled (`lib.mkForce false`) — Lanzaboote manages EFI
 - Do NOT re-enable systemd-boot without migrating secure boot keys
+
+### Known Hardware Conflict: GL9750 SD reader vs sleep
+
+Genesys Logic GL9750 microSD reader (PCI ID `17A0:9750`) requires `pcie_aspm=off` to work, but that kernel param breaks s2idle resume (Intel xe GPU on Lunar Lake can't re-enable display).
+
+**Current state**: `pcie_aspm=off` removed → sleep works, SD card broken.
+
+Root cause: GL9750 has invalid L1.2 T_PwrOn scale (firmware bug). ASPM applied during PCIe enumeration corrupts device init → `sdhci-pci: Invalid first BAR. Aborting.` No userspace fix found — requires kernel PCI quirk for `17A0:9750`. SD card use requires rebooting with `pcie_aspm=off` added back temporarily.
 
 ## GPU
 

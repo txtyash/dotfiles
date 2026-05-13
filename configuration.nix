@@ -66,6 +66,7 @@
 
   services = {
     xserver.enable = true;
+
     displayManager = {
       gdm = {
         enable = true;
@@ -95,7 +96,19 @@
         configFile = ./kanata/vivobook.kbd;
       };
     };
+    mpd = {
+      enable = true;
+      musicDirectory = "/home/yash/Music";
+      user = "yash";
+      settings.audio_output = [{
+        type = "pipewire";
+        name = "PipeWire";
+      }];
+    };
   };
+
+  systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000";
+
   security.rtkit.enable = true;
 
   virtualisation.docker.enable = true;
@@ -202,17 +215,17 @@
 
   environment = {
     systemPackages = with pkgs; [
+      afterglow-cursors-recolored
       alsa-utils
       bluetui
       brightnessctl
       btop
       claude-code
-      copyq
       fd
       firefox
-      fuzzel
       fzf
       gcc
+      gemini-cli
       gh
       ghostty
       git
@@ -222,7 +235,6 @@
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
-      kew
       lazygit
       localsend
       marksman
@@ -237,6 +249,8 @@
       protonmail-desktop
       qbittorrent
       ripgrep
+      libnotify
+      rmpc
       sbctl
       starship
       swayidle
@@ -246,8 +260,6 @@
       wl-clipboard
       xwayland-satellite
       yazi
-      gemini-cli
-      afterglow-cursors-recolored
     ];
     variables = {
       XCURSOR_THEME = "Afterglow-Recolored-Catppuccin-Flamingo";

@@ -29,21 +29,21 @@ gestures {
         off
     }
 }
-// https://yalter.github.io/niri/Configuration%3A-Outputs.html
 output "eDP-1" {
     mode "1920x1200@60.003"
     scale 1
 }
 
 layout {
-    gaps 12
+    gaps 15
     focus-ring {
-        off
+        width 6
+        active-gradient from="#ff0000aa" to="#ff000000" angle=90
     }
     border {
         off
     }
-  background-color "transparent"
+    background-color "transparent"
 }
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
@@ -57,7 +57,6 @@ window-rule {
 }
 window-rule {
     match is-active=false
-    opacity 0.96
 }
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -68,7 +67,8 @@ binds {
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     Mod+Space { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
-    Mod+D { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+E { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+Shift+D hotkey-overlay-title="Delete current rmpc track" { spawn "sh" "-c" "~/.local/bin/rmpc-delete"; }
     Mod+S { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+Shift+S { spawn-sh "noctalia-shell ipc call settings toggle"; }
 
@@ -81,6 +81,7 @@ binds {
     XF86AudioRaiseVolume { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
     XF86AudioLowerVolume { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
     XF86AudioMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    Mod+P { spawn "rmpc" "togglepause"; }
     XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
     XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
     Mod+O repeat=false { toggle-overview; }
