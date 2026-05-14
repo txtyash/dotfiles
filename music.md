@@ -1726,7 +1726,7 @@
 - [Kendrick Lamar - You Ain't Gotta Lie (Momma Said)](https://www.youtube.com/results?search_query=Kendrick%20Lamar%20You%20Ain%27t%20Gotta%20Lie%20%28Momma%20Said%29)
 - [Kendrick Lamar - i](https://www.youtube.com/results?search_query=Kendrick%20Lamar%20i)
 - [Kendrick Lamar - u](https://www.youtube.com/results?search_query=Kendrick%20Lamar%20u)
-- Kendrick Lamar - untitled 05 \
+- [Kendrick Lamar - untitled 05 | 09.21.2014.](https://www.youtube.com/results?search_query=Kendrick%20Lamar%20untitled%2005%2009.21.2014.)
 - [Kesha - TiK ToK](https://www.youtube.com/results?search_query=Kesha%20TiK%20ToK)
 - [Kesha - Your Love Is My Drug](https://www.youtube.com/results?search_query=Kesha%20Your%20Love%20Is%20My%20Drug)
 - [Kevin Gates - 2 Phones](https://www.youtube.com/results?search_query=Kevin%20Gates%202%20Phones)
