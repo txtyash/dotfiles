@@ -11,3 +11,4 @@
 - `installerIso` flake output parameter for NixOS
 - Nvim bind ctrl+g to replace space+p
 - Sync music.md to YouTube Music playlist via ytmusicapi — add/remove tracks in music.md reflect in YT playlist
+- TuneMyMusic can bulk import text/CSV file → YouTube Music playlist (no scripting). Strip markdown from music.md → one "Artist - Title" per line → upload. Free tier limit ~500 songs/transfer.
