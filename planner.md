@@ -10,3 +10,4 @@
 - Customize vimiumc heads up and hints
 - `installerIso` flake output parameter for NixOS
 - Nvim bind ctrl+g to replace space+p
+- Sync music.md to YouTube Music playlist via ytmusicapi — add/remove tracks in music.md reflect in YT playlist
