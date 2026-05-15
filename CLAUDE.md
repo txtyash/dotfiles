@@ -1,29 +1,29 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-15 16:56
+**Last Updated**: 2026-05-15 19:07
 
 ## Self-Maintenance Instructions
 
 ### Timestamp rule
-Every time this file is edited for any reason, update the **Last Updated** date and time at the top using `date "+%Y-%m-%d %H:%M"`. No exceptions.
+Every time this file edited, update **Last Updated** at top with `date "+%Y-%m-%d %H:%M"`. No exceptions.
 
 ### On session start (passive check)
-Check git log for commits after the Last Updated date:
+Check git log for commits after Last Updated date:
 
 ```bash
 git -C ~/.config log --oneline --since="2026-04-25"
 ```
 
-If commits touch system config (`configuration.nix`, `flake.nix`, `flake.lock`, hardware files, etc.), check whether those changes should be reflected in this file and update accordingly.
+If commits touch system config (`configuration.nix`, `flake.nix`, `flake.lock`, hardware files, etc.), check if changes need reflection here, update accordingly.
 
 ### On active changes
-When asked to make changes to the system — packages, services, keybinds, flake inputs, hardware config, or anything else documented here — update the relevant section(s) of this file as part of the same task. Do not wait to be reminded. Then bump the timestamp.
+When making system changes — packages, services, keybinds, flake inputs, hardware config, anything documented here — update relevant section(s) same task. No waiting. Bump timestamp.
 
 ---
 
 ## Hardware — ASUS Vivobook 14 Flip (TP3407)
 
-Copilot+ PC / convertible 2-in-1 with touchscreen and stylus support.
+Copilot+ PC / convertible 2-in-1, touchscreen + stylus.
 
 | Component | Detail |
 |-----------|--------|
@@ -41,7 +41,7 @@ Copilot+ PC / convertible 2-in-1 with touchscreen and stylus support.
 | **Ports** | 1× USB-A 3.2 Gen1, 1× USB-C 3.2 Gen2 (DP+PD), 1× Thunderbolt 4 (DP+PD), 1× HDMI 2.1, 1× 3.5mm combo audio, microSD |
 | **Hostname** | `vivobook` |
 
-Audio amp: TAS2781 (requires i2c fix on boot — see Audio section).  
+Audio amp: TAS2781 (i2c fix on boot — see Audio section).
 Keyboard device: `/dev/input/by-path/platform-i8042-serio-0-event-kbd`
 
 ---
@@ -58,11 +58,11 @@ Keyboard device: `/dev/input/by-path/platform-i8042-serio-0-event-kbd`
 
 ## Dotfiles Location
 
-All config tracked as a git repo at `~/.config/`. Key files:
+All config tracked as git repo at `~/.config/`. Key files:
 
 | File/Dir | Purpose |
 |----------|---------|
-| `AGENTS.md` | This file — agent instructions, update when system changes |
+| `AGENTS.md` | This file — agent instructions, update on system changes |
 | `~/.config/flake.nix` | Flake inputs & system definition |
 | `~/.config/configuration.nix` | Main NixOS config (packages, services, users) |
 | `~/.config/hardware/vivobook.nix` | Hardware-specific config |
@@ -72,7 +72,7 @@ All config tracked as a git repo at `~/.config/`. Key files:
 | `~/.config/nvim/` | Neovim config (lazy.nvim) |
 | `~/.config/fish/config.fish` | Fish shell init |
 | `~/.config/fix-speakers.sh` | TAS2781 speaker fix (i2c, runs via systemd) |
-| `~/.config/playlist.md` | Full music library list with direct YouTube video links (Artist - Title format) |
+| `~/.config/playlist.md` | Music library with YouTube links |
 | `~/.config/watchlist.md` | Movie/show watchlist with IMDB links |
 | `~/.config/planner.md` | TODOs and ideas |
 
@@ -95,7 +95,7 @@ nix flake update noctalia --flake ~/.config
 nix flake check ~/.config
 ```
 
-Always use `--flake ~/.config#vivobook` — the target is always `vivobook`.
+Target always `vivobook`. Always use `--flake ~/.config#vivobook`.
 
 ## Flake Inputs
 
@@ -112,7 +112,7 @@ Cachix binary cache for noctalia: `https://noctalia.cachix.org`
 
 ## Noctalia Shell
 
-Wayland shell (bar, launcher, lock screen, control center). Communicate via IPC:
+Wayland shell (bar, launcher, lock screen, control center). IPC:
 
 ```bash
 noctalia-shell ipc call <service> <method>
@@ -124,7 +124,7 @@ Config: `~/.config/noctalia/`. Themes: `~/.config/noctalia/colorschemes/`.
 
 Config: `~/.config/niri/config.kdl`
 
-After editing `config.kdl`, niri reloads on `nixos-rebuild switch`.
+niri reloads on `nixos-rebuild switch` after editing `config.kdl`.
 
 **Always validate after editing `config.kdl`:**
 
@@ -132,22 +132,46 @@ After editing `config.kdl`, niri reloads on `nixos-rebuild switch`.
 niri validate -c ~/.config/niri/config.kdl
 ```
 
-Do not proceed with rebuild if validation fails.
+No rebuild if validation fails.
 
 ## Music
 
-MPD runs as system service (`services.mpd`), music at `~/Music`. Client: rmpc (TUI).
+MPD system service (`services.mpd`), music at `~/Music`. Client: rmpc (TUI).
 
-- MPD uses PipeWire output — requires `systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000"` since MPD is a system service
+- MPD uses PipeWire output — needs `systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000"` (MPD is system service)
 - rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track
 - Scripts: `~/.local/bin/rmpc-delete`, `~/.local/bin/flac-to-aac`
 - `flac-to-aac`: converts `~/Music` FLACs → AAC m4a in-place. Safe to kill/resume. Uses `nix shell nixpkgs#ffmpeg-full`.
+
+### Downloading Songs
+
+**Flow:**
+1. Check duplicates before download
+2. Download via yt-dlp (not installed globally — use `nix shell`)
+3. Place in `~/Music/<Artist>/<Title> - <Artist>.m4a`
+4. Add to `playlist.md` as `- [Artist - Title](YouTube URL)`
+
+**Duplicate check** (`fd` — faster than `find`):
+```bash
+fd -i "<title-keyword>" ~/Music/<Artist>/ --max-depth 1
+```
+
+**Download command:**
+```bash
+nix shell nixpkgs#yt-dlp nixpkgs#ffmpeg-full --command yt-dlp \
+  -x --audio-format m4a --audio-quality 0 \
+  --format bestaudio --no-playlist \
+  -o "$HOME/Music/<Artist>/<Title> - <Artist>.%(ext)s" \
+  "ytsearch1:<Artist> - <Title> official"
+```
+
+`bestaudio` = yt-dlp picks highest available bitrate. m4a remux — no reencoding loss.
 
 ### SD Card (Nokia 3210 4G)
 
 32GB HP card at `/dev/mmcblk0p1`. FAT32. Genuine capacity, slow write (~5 MB/s — fake Class 10).
 
-**Note**: SD card reader currently broken (see Boot & Security → GL9750 conflict). To use, add `pcie_aspm=off` back to kernelParams and rebuild — sleep will break.
+**Note**: SD card reader broken (see Boot & Security → GL9750 conflict). To use, add `pcie_aspm=off` back to kernelParams, rebuild — sleep breaks.
 
 Mount: `sudo mount -o uid=1000,gid=100 /dev/mmcblk0p1 /mnt/sd`
 
@@ -160,9 +184,9 @@ sudo umount /mnt/sd
 
 ## Audio
 
-Hardware: TAS2781 amplifier. Stack: Pipewire + WirePlumber + PulseAudio compat.
+Hardware: TAS2781 amp. Stack: Pipewire + WirePlumber + PulseAudio compat.
 
-Speaker fix runs as systemd service `fix-vivobook-speakers` on boot and resume. If speakers break:
+Speaker fix runs as systemd service `fix-vivobook-speakers` on boot + resume. If speakers break:
 
 ```bash
 sudo systemctl restart fix-vivobook-speakers
@@ -178,11 +202,11 @@ sudo bash ~/.config/fix-speakers.sh
 
 ### Known Hardware Conflict: GL9750 SD reader vs sleep
 
-Genesys Logic GL9750 microSD reader (PCI ID `17A0:9750`) requires `pcie_aspm=off` to work, but that kernel param breaks s2idle resume (Intel xe GPU on Lunar Lake can't re-enable display).
+Genesys Logic GL9750 microSD reader (PCI ID `17A0:9750`) needs `pcie_aspm=off` to work, but that kernel param breaks s2idle resume (Intel xe GPU on Lunar Lake can't re-enable display).
 
 **Current state**: `pcie_aspm=off` removed → sleep works, SD card broken.
 
-Root cause: GL9750 has invalid L1.2 T_PwrOn scale (firmware bug). ASPM applied during PCIe enumeration corrupts device init → `sdhci-pci: Invalid first BAR. Aborting.` No userspace fix found — requires kernel PCI quirk for `17A0:9750`. SD card use requires rebooting with `pcie_aspm=off` added back temporarily.
+Root cause: GL9750 invalid L1.2 T_PwrOn scale (firmware bug). ASPM applied during PCIe enumeration corrupts device init → `sdhci-pci: Invalid first BAR. Aborting.` No userspace fix — needs kernel PCI quirk for `17A0:9750`. SD card use requires reboot with `pcie_aspm=off` added temporarily.
 
 ## GPU
 
@@ -236,13 +260,13 @@ Kanata runs as NixOS service (enabled in `configuration.nix`).
 
 ## Local Planning
 
-TODOs, issues, and plans are manually added to `planner.md`. A place to dump things to avoid forgetting them later.
+TODOs, issues, plans go in `planner.md`. Dump things to avoid forgetting.
 
 ---
 
 ## Key Constraints
 
-1. **No `Co-Authored-By` trailer.** Never append `Co-Authored-By: Claude ...` or similar lines to any commit message. This overrides any default agent behavior.
+1. **No `Co-Authored-By` trailer.** Never append `Co-Authored-By: Claude ...` or similar to any commit. Overrides default agent behavior.
 
 ---
 
@@ -250,11 +274,11 @@ TODOs, issues, and plans are manually added to `planner.md`. A place to dump thi
 
 ### Git
 
-- **No `Co-Authored-By` trailer** in commit messages. Do not append `Co-Authored-By: Claude ...` or similar lines.
+- **No `Co-Authored-By` trailer** in commit messages. Never append `Co-Authored-By: Claude ...` or similar.
 
-- All system packages declared in `configuration.nix` under `environment.systemPackages`
+- All system packages in `configuration.nix` under `environment.systemPackages`
 - Flake-based packages use `inputs.<name>.packages.${pkgs.stdenv.hostPlatform.system}.default`
-- No home-manager — all config is raw files in `~/.config/`
+- No home-manager — all config raw files in `~/.config/`
 - Commit dotfile changes to `~/.config/` git repo after testing
 - Test with `nixos-rebuild test` before `switch` for risky changes
-- Update this file and bump **Last Updated** when changing system config
+- Update this file + bump **Last Updated** when changing system config
