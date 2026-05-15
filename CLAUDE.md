@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-15 01:07
+**Last Updated**: 2026-05-15 10:26
 
 ## Self-Maintenance Instructions
 
@@ -72,7 +72,7 @@ All config tracked as a git repo at `~/.config/`. Key files:
 | `~/.config/nvim/` | Neovim config (lazy.nvim) |
 | `~/.config/fish/config.fish` | Fish shell init |
 | `~/.config/fix-speakers.sh` | TAS2781 speaker fix (i2c, runs via systemd) |
-| `~/.config/music.md` | Full music library list with YouTube search links (Artist - Title format) |
+| `~/.config/music.md` | Full music library list with direct YouTube video links (Artist - Title format) |
 | `~/.config/wishlist.md` | Movie/show watchlist with IMDB links |
 | `~/.config/planner.md` | TODOs and ideas |
 
