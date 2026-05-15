@@ -3499,6 +3499,7 @@
 - [Big Sean - One Man Can Change the World](https://www.youtube.com/watch?v=GBVotNefYME)
 - [Bobby Shmurda - No Time](https://www.youtube.com/watch?v=hQTfR3v3jJ8)
 - [Bobby Shmurda - Shmoney Dance](https://www.youtube.com/watch?v=wHcV-gj5djE)
+- [Bobby Shmurda - Hot Nigga](https://www.youtube.com/watch?v=vJwKKKd2ZYE)
 - [Olivia Dean - Dive](https://www.youtube.com/watch?v=NM4e606yFJg)
 - [Olivia Dean - The Hardest Part](https://www.youtube.com/watch?v=72p1VhZhlMU)
 - [Olivia Dean - Danger](https://www.youtube.com/watch?v=7x2vthADVZo)
