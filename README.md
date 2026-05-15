@@ -17,3 +17,8 @@
 - [Claude Code](https://claude.com/product/claude-code)
 - [Helium Browser](https://helium.computer)
 - [Proton apps](https://proton.me)
+
+## Media
+
+- [Watchlist](./watchlist.md)
+- [Playlist](./playlist.md)
