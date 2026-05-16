@@ -109,6 +109,16 @@
 
   systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000";
 
+  systemd.user.services.mpdris2 = {
+    description = "MPRIS bridge for MPD";
+    wantedBy = [ "default.target" ];
+    after = [ "mpd.service" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.mpdris2-rs}/bin/mpdris2-rs";
+      Restart = "on-failure";
+    };
+  };
+
   security.rtkit.enable = true;
 
   virtualisation.docker.enable = true;

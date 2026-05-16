@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-15 19:07
+**Last Updated**: 2026-05-16 15:24
 
 ## Self-Maintenance Instructions
 
@@ -139,6 +139,7 @@ No rebuild if validation fails.
 MPD system service (`services.mpd`), music at `~/Music`. Client: rmpc (TUI).
 
 - MPD uses PipeWire output — needs `systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000"` (MPD is system service)
+- MPRIS bridge: `mpdris2-rs` (user service) — replaced `mpd-mpris` which had unreliable `Seeked` signals causing Noctalia progress bar drift
 - rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track
 - Scripts: `~/.local/bin/rmpc-delete`, `~/.local/bin/flac-to-aac`
 - `flac-to-aac`: converts `~/Music` FLACs → AAC m4a in-place. Safe to kill/resume. Uses `nix shell nixpkgs#ffmpeg-full`.
@@ -161,6 +162,7 @@ fd -i "<title-keyword>" ~/Music/<Artist>/ --max-depth 1
 nix shell nixpkgs#yt-dlp nixpkgs#ffmpeg-full --command yt-dlp \
   -x --audio-format m4a --audio-quality 0 \
   --format bestaudio --no-playlist \
+  --embed-metadata \
   -o "$HOME/Music/<Artist>/<Title> - <Artist>.%(ext)s" \
   "ytsearch1:<Artist> - <Title> official"
 ```
