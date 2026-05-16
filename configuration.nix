@@ -111,11 +111,12 @@
 
   systemd.user.services.mpdris2 = {
     description = "MPRIS bridge for MPD";
-    wantedBy = [ "default.target" ];
-    after = [ "mpd.service" ];
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
     serviceConfig = {
       ExecStart = "${pkgs.mpdris2-rs}/bin/mpdris2-rs";
-      Restart = "on-failure";
+      Restart = "always";
+      RestartSec = "2s";
     };
   };
 
