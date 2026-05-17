@@ -31,10 +31,15 @@ normalize_title() {
         | sed -E 's/[[:space:]]+/ /g; s/^[[:space:]]+|[[:space:]]+$//'
 }
 
+# Check if content is synced (.lrc format with timestamps)
+is_synced() {
+    printf '%s' "$1" | grep -qE '^\[[0-9]+:[0-9]+\.[0-9]+\]'
+}
+
 # Strip LRC timestamps → plain text; handle both synced and plain .lrc
 lrc_to_plain() {
     local c="$1"
-    if printf '%s' "$c" | grep -qE '^\[[0-9]+:[0-9]+\.[0-9]+\]'; then
+    if is_synced "$c"; then
         printf '%s' "$c" \
             | sed -E 's/^\[[0-9]+:[0-9]+\.[0-9]+\] ?//' \
             | grep -v '^\[' \
@@ -153,11 +158,12 @@ fetch_all() {
     local ntitle; ntitle=$(normalize_title "$title")
     local tmpd; tmpd=$(mktemp -d)
 
-    fetch_lrclib    "$title"  "$artist" "$duration" > "$tmpd/lrclib"   2>/dev/null &
-    fetch_lyricsovh "$title"  "$artist"             > "$tmpd/ovh"      2>/dev/null &
+    # Parallel fetching with explicit subshells to ensure output redirection works reliably
+    ( fetch_lrclib    "$title"  "$artist" "$duration" > "$tmpd/lrclib"   ) &
+    ( fetch_lyricsovh "$title"  "$artist"             > "$tmpd/ovh"      ) &
     if [[ "$ntitle" != "$title" ]]; then
-        fetch_lrclib    "$ntitle" "$artist" "$duration" > "$tmpd/lrclib_n" 2>/dev/null &
-        fetch_lyricsovh "$ntitle" "$artist"             > "$tmpd/ovh_n"    2>/dev/null &
+        ( fetch_lrclib    "$ntitle" "$artist" "$duration" > "$tmpd/lrclib_n" ) &
+        ( fetch_lyricsovh "$ntitle" "$artist"             > "$tmpd/ovh_n"    ) &
     fi
     wait
 
@@ -192,46 +198,74 @@ get_meta
 log "$(basename "$FILE") | $ARTIST — $TITLE"
 
 embedded=$(get_embedded)
-has_tags=false;  [[ -n "$embedded" ]] && has_tags=true
-has_lrc=false;   [[ -f "$LRC_FILE" && -s "$LRC_FILE" ]] && has_lrc=true
+has_synced_tags=false; [[ -n "$embedded" ]] && is_synced "$embedded" && has_synced_tags=true
+has_synced_lrc=false;  [[ -f "$LRC_FILE" && -s "$LRC_FILE" ]] && is_synced "$(cat "$LRC_FILE")" && has_synced_lrc=true
 
-if $has_tags && $has_lrc; then
-    log "Both tags and .lrc present — skipping"
+# If we already have synced lyrics in both places, we're done
+if $has_synced_tags && $has_synced_lrc; then
+    log "Synced lyrics already present in both tags and .lrc — skipping"
     exit 0
 fi
 
-if $has_tags && ! $has_lrc; then
-    log "Tags have lyrics → writing .lrc"
+# If we have synced lyrics in tags but not in .lrc, write them
+if $has_synced_tags && ! $has_synced_lrc; then
+    log "Synced lyrics in tags → writing .lrc"
     printf '%s\n' "$embedded" > "$LRC_FILE"
     exit 0
 fi
 
-if ! $has_tags && $has_lrc; then
-    log ".lrc exists → embedding into tags"
+# If we have synced lyrics in .lrc but not in tags, embed them
+if ! $has_synced_tags && $has_synced_lrc; then
+    log "Synced lyrics in .lrc → embedding into tags"
     plain=$(lrc_to_plain "$(cat "$LRC_FILE")")
     [[ -n "$plain" ]] && embed_lyrics "$plain"
     exit 0
 fi
 
-# Neither — fetch
-log "Fetching..."
+# If we reach here, we either have plain lyrics or no lyrics at all.
+# We should try to fetch synced lyrics.
+log "No synced lyrics found — Searching..."
 result=$(fetch_all "$TITLE" "$ARTIST" "$DURATION")
 
 if [[ -z "$result" ]]; then
-    log "Not found — skipping"
+    # Fallback to existing plain lyrics if available
+    if [[ -n "$embedded" ]]; then
+        log "Not found online, using existing plain lyrics from tags"
+        printf '%s\n' "$embedded" > "$LRC_FILE"
+    elif [[ -f "$LRC_FILE" && -s "$LRC_FILE" ]]; then
+        log "Not found online, using existing plain .lrc file"
+        embed_lyrics "$(cat "$LRC_FILE")"
+    else
+        log "Not found online — skipping"
+    fi
     exit 0
 fi
 
 content="${result#*:}"
-printf '%s\n' "$content" > "$LRC_FILE"
 
+# If we got SYNCED online, always use it
 if [[ "$result" == SYNCED:* ]]; then
-    log "Synced .lrc written"
+    log "Writing synced lyrics from online"
+    printf '%s\n' "$content" > "$LRC_FILE"
     plain=$(lrc_to_plain "$content")
-else
-    log "Plain .lrc written"
-    plain="$content"
+    [[ -n "$plain" ]] && embed_lyrics "$plain"
+    log "Done"
+    exit 0
 fi
 
-[[ -n "$plain" ]] && embed_lyrics "$plain"
-log "Done"
+# If we got PLAIN online, only use it if we have nothing currently
+if [[ "$result" == PLAIN:* ]]; then
+    if [[ -z "$embedded" && ! -f "$LRC_FILE" ]]; then
+        log "Writing plain lyrics from online"
+        printf '%s\n' "$content" > "$LRC_FILE"
+        embed_lyrics "$content"
+    else
+        log "Found plain lyrics online, but keeping existing local version"
+        if [[ -n "$embedded" && ! -f "$LRC_FILE" ]]; then
+            printf '%s\n' "$embedded" > "$LRC_FILE"
+        elif [[ -f "$LRC_FILE" && ! -n "$embedded" ]]; then
+             embed_lyrics "$(cat "$LRC_FILE")"
+        fi
+    fi
+    log "Done"
+fi

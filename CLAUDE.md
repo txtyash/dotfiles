@@ -144,13 +144,19 @@ Default GUI player: Sayonara (for opening files directly).
 - rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track
 - Scripts: `~/.local/bin/rmpc-delete`
 
+### Metadata Integrity
+- **Title Tag**: Must contain ONLY the song title (and features). Never include the main artist name in the `title` tag if it is already in the `artist` tag.
+- **Artist Tag**: Must be a comma-separated list of all contributing artists.
+- **Album Artist**: Set to the primary artist (the folder name) to avoid library fragmentation.
+- **Surgical Metadata**: After downloading, if `ffprobe` shows the artist name leaked into the `title` tag or missing from the `artist` tag, immediately run `ffmpeg -metadata title="Clean Title" -metadata artist="Correct, Artists" -c copy` to fix it.
+
 ### Downloading Songs
 
 **Flow:**
 1. Check duplicates before download
 2. Download via yt-dlp (not installed globally — use `nix shell`)
 3. Place in `~/Music/<Artist>/<Title> - <Artist>.m4a`
-4. Lyrics auto-embedded + `.lrc` created by `embed-lyrics.sh`
+4. Lyrics auto-embedded + `.lrc` created by `embed-lyrics.sh` (always prefer synced lyrics)
 5. Add to `playlist.md` as `- [Artist - Title](YouTube URL)`
 
 **Multiple songs:** Report progress after each download completes — `[N/Total] Artist - Title`. Report failures inline (don't stop batch).
@@ -167,9 +173,10 @@ nix shell nixpkgs#yt-dlp nixpkgs#ffmpeg-full nixpkgs#jq --command bash -c '
     -x --audio-format m4a --audio-quality 0 \
     --format bestaudio --no-playlist \
     --embed-metadata \
+    --parse-metadata "title:%(title)s" \
     --replace-in-metadata "title" "^.+? - " "" \
-    --replace-in-metadata "title" " \((Official|Audio|Video|Lyric|Music Video|HD|HQ|4K|Remaster(ed)?)[^)]*\)$" "" \
-    --replace-in-metadata "title" " \[(Official|Audio|Video|Lyric|Music Video|HD|HQ|4K|Remaster(ed)?)[^]]*\]$" "" \
+    --replace-in-metadata "title" "(?i) \((Official|Audio|Video|Lyric|Music Video|HD|HQ|4K|Remaster(ed)?)[^)]*\)$" "" \
+    --replace-in-metadata "title" "(?i) \[(Official|Audio|Video|Lyric|Music Video|HD|HQ|4K|Remaster(ed)?)[^]]*\]$" "" \
     --cookies-from-browser "chromium:~/.config/net.imput.helium" \
     --exec "bash ~/.config/embed-lyrics.sh {} &" \
     -o "$HOME/Music/<Artist>/<Title> - <Artist>.%(ext)s" \
