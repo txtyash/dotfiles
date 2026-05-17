@@ -7,6 +7,7 @@ x-scheme-handler/about=helium.desktop
 x-scheme-handler/unknown=helium.desktop
 video/x-matroska=org.gnome.Showtime.desktop
 x-scheme-handler/chrome=helium.desktop
+image/svg+xml=helium.desktop
 application/x-extension-htm=helium.desktop
 application/x-extension-html=helium.desktop
 application/x-extension-shtml=helium.desktop
