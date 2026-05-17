@@ -14,6 +14,7 @@
     enable_mouse: true,
     scroll_amount: 1,
     enable_config_hot_reload: true,
+    lyrics_dir: "/home/yash/Music",
     enable_lyrics_hot_reload: false,
     status_update_interval_ms: 1000,
     rewind_to_start_sec: None,
@@ -57,13 +58,14 @@
             "gt":         NextTab,
             "<S-Tab>":    PreviousTab,
             "gT":         PreviousTab,
-            "1":          SwitchToTab("Queue"),
-            "2":          SwitchToTab("Directories"),
-            "3":          SwitchToTab("Artists"),
-            "4":          SwitchToTab("Album Artists"),
-            "5":          SwitchToTab("Albums"),
-            "6":          SwitchToTab("Playlists"),
-            "7":          SwitchToTab("Search"),
+            "1":          SwitchToTab("Lyrics"),
+            "2":          SwitchToTab("Queue"),
+            "3":          SwitchToTab("Directories"),
+            "4":          SwitchToTab("Artists"),
+            "5":          SwitchToTab("Album Artists"),
+            "6":          SwitchToTab("Albums"),
+            "7":          SwitchToTab("Playlists"),
+            "8":          SwitchToTab("Search"),
             "<C-u>":      Update,
             "<C-U>":      Rescan,
             "R":          AddRandom,
@@ -144,74 +146,58 @@
     ),
     tabs: [
         (
-            name: "Queue",
+            name: "Lyrics",
+            borders: "ALL",
+            border_symbols: Rounded,
             pane: Split(
                 direction: Horizontal,
                 panes: [
                     (
-                        size: "35%",
-                        pane: Split(
-                            direction: Vertical,
-                            panes: [
-                                (
-                                    size: "100%",
-                                    borders: "LEFT | RIGHT | TOP",
-                                    border_symbols: Rounded,
-                                    pane: Pane(AlbumArt)
-                                ),
-                                (
-                                    size: "7",
-                                    borders: "ALL",
-                                    border_symbols: Inherited(parent: Rounded, top_left: "├", top_right: "┤",),
-                                    border_title: [(kind: Text(" Lyrics "))],
-                                    border_title_alignment: Right,
-                                    pane: Pane(Lyrics)
-                                ),
-                            ],
-                        ),
-                    ), 
+                        size: "100%",
+                        pane: Pane(Lyrics)
+                    ),
+                ],
+            ),
+        ),
+        (
+            name: "Queue",
+            pane: Split(
+                direction: Vertical,
+                panes: [
                     (
-                        size: "65%",
+                        size: "3",
+                        borders: "ALL",
+                        border_symbols: Inherited(parent: Rounded, bottom_left: "├", bottom_right: "┤",),
                         pane: Split(
-                            direction: Vertical,
+                            direction: Horizontal,
                             panes: [
                                 (
-                                    size: "3",
-                                    borders: "ALL",
-                                    border_symbols: Inherited(parent: Rounded, bottom_left: "├", bottom_right: "┤",),
-                                    pane: Split(
-                                        direction: Horizontal,
-                                        panes: [
-                                            (
-                                                size: "1",
-                                                pane: Pane(Empty())
-                                            ),
-                                            (
-                                                size: "100%",
-                                                pane: Pane(QueueHeader())
-                                            ),
-                                        ]
-                                    )
+                                    size: "1",
+                                    pane: Pane(Empty())
                                 ),
                                 (
                                     size: "100%",
-                                    borders: "LEFT | RIGHT | BOTTOM",
-                                    border_symbols: Rounded,
-                                    pane: Split(
-                                        direction: Horizontal,
-                                        panes: [
-                                            (
-                                                size: "1",
-                                                pane: Pane(Empty())
-                                            ),
-                                            (
-                                                size: "100%",
-                                                pane: Pane(Queue)
-                                            ),
-                                        ]
-                                    )
+                                    pane: Pane(QueueHeader())
                                 ),
-                            ],
+                            ]
+                        )
+                    ),
+                    (
+                        size: "100%",
+                        borders: "LEFT | RIGHT | BOTTOM",
+                        border_symbols: Rounded,
+                        pane: Split(
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty())
+                                ),
+                                (
+                                    size: "100%",
+                                    pane: Pane(Queue)
+                                ),
+                            ]
                         )
                     ),
                 ],
