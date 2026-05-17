@@ -16,6 +16,15 @@ application/x-extension-xhtml=helium.desktop
 application/x-extension-xht=helium.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 application/pdf=helium.desktop
+audio/mpeg=com.sayonara-player.Sayonara.desktop
+audio/mp4=com.sayonara-player.Sayonara.desktop
+audio/x-m4a=com.sayonara-player.Sayonara.desktop
+audio/flac=com.sayonara-player.Sayonara.desktop
+audio/ogg=com.sayonara-player.Sayonara.desktop
+audio/x-vorbis+ogg=com.sayonara-player.Sayonara.desktop
+audio/opus=com.sayonara-player.Sayonara.desktop
+audio/wav=com.sayonara-player.Sayonara.desktop
+audio/x-wav=com.sayonara-player.Sayonara.desktop
 
 [Added Associations]
 video/x-matroska=org.gnome.Showtime.desktop;

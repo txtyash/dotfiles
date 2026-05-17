@@ -263,6 +263,7 @@
       libnotify
       rmpc
       sbctl
+      sayonara
       starship
       swayidle
       tree-sitter

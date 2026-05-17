@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-17 02:47
+**Last Updated**: 2026-05-17 03:15
 
 ## Self-Maintenance Instructions
 
@@ -137,6 +137,7 @@ No rebuild if validation fails.
 ## Music
 
 MPD system service (`services.mpd`), music at `~/Music`. Client: rmpc (TUI).
+Default GUI player: Sayonara (for opening files directly).
 
 - **Verification**: Always verify metadata via search; never assume origin or status (e.g., AI/leaks).
 
