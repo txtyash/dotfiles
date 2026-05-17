@@ -15,7 +15,7 @@
     scroll_amount: 1,
     enable_config_hot_reload: true,
     lyrics_dir: "/home/yash/Music",
-    enable_lyrics_hot_reload: false,
+    enable_lyrics_hot_reload: true,
     status_update_interval_ms: 1000,
     rewind_to_start_sec: None,
     keep_state_on_song_change: true,
@@ -25,13 +25,6 @@
     browser_song_sort: [Disc, Track, Artist, Title],
     directories_sort: SortFormat(group_by_type: true, reverse: false),
     auto_open_downloads: true,
-    album_art: (
-        method: Auto,
-        max_size_px: (width: 1200, height: 1200),
-        disabled_protocols: ["http://", "https://"],
-        vertical_align: Center,
-        horizontal_align: Center,
-    ),
     keybinds: (
         global: {
             "q":          Quit,
@@ -172,10 +165,6 @@
                             direction: Horizontal,
                             panes: [
                                 (
-                                    size: "1",
-                                    pane: Pane(Empty())
-                                ),
-                                (
                                     size: "100%",
                                     pane: Pane(QueueHeader())
                                 ),
@@ -187,12 +176,8 @@
                         borders: "LEFT | RIGHT | BOTTOM",
                         border_symbols: Rounded,
                         pane: Split(
-                            direction: Horizontal,
+                            direction: Vertical,
                             panes: [
-                                (
-                                    size: "1",
-                                    pane: Pane(Empty())
-                                ),
                                 (
                                     size: "100%",
                                     pane: Pane(Queue)
