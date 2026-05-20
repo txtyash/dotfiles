@@ -1,0 +1,107 @@
+# Wishlist
+
+## Songs
+
+- PnB Rock
+- Teddy Swims
+- Jessie Reyez
+- Roddy Ricch
+- Brian Eno
+- Finneas
+- Shea Butter feat. J. Cole
+- Seafret
+- Mac Miller
+- Pusha T
+- Joey Bada$$
+- Earl Sweatshirt
+- Summer Walker
+- Jhené Aiko
+- Brent Faiyaz
+- Silk Sonic
+- Beach House
+- Glass Animals
+- Julien Baker
+- Vampire Weekend
+- Nirvana
+- Pink Floyd
+- The Rolling Stones
+- Zach Bryan
+- Tyler Childers
+- boygenius
+- SZA - Kill Bill
+- SZA - Snooze
+- SZA - Saturn
+- SZA - Nobody Gets Me
+- SZA - Good Days
+- Black Sabbath
+- Ozzy Osbourne
+- d4vd
+- JPEGMAFIA
+- R. Kelly
+- Lil Wayne - How To Love
+- KSI
+- Powfu
+- Dream
+- BoyWithUke
+- Lord Huron
+- The Weeknd - Die For You (Remix) feat. Ariana Grande
+- Frank Ocean - Endless
+- Ali Gatie
+- Tame Impala
+- Twenty One Pilots
+- Russ - Psycho, Pt. 2
+- PinkPantheress - Boy's a liar Pt. 2
+- 6LACK
+- Ty Dolla $ign
+- Jack Harlow
+- Jeremih
+- Tyga
+- Logic
+- A$AP Ferg
+- Tory Lanez
+- blackbear
+- A Boogie wit da Hoodie
+- NBA YoungBoy
+- Bazzi
+- Joyner Lucas
+- 2 Chainz
+- Cordae
+- H.E.R.
+- Nipsey Hussle
+- Rick Ross
+- YG
+- Rich The Kid
+- Mustard
+- Temper City
+- Harry Styles
+- The Neighbourhood
+- Hotel Ugly
+- Arctic Monkeys
+- WILLOW
+- Empire of the Sun
+- TV Girl
+- Yebba
+- Drake - die trying
+- Remi Wolf - Photo ID (feat. Dominic Fike)
+- The Greatest Showman
+- NF
+- Gracie Abrams
+- Baby Rose - Friends Again (feat. Leon Thomas)
+- Baby Rose - Stop The Bleeding
+- Primus - The Ol’ Grizz
+- Ne-Yo
+- Nelly
+- Bryan Adams
+- ElyOtto
+- Miley Cyrus
+- Hannah Montana
+- JPEGMAFIA - War Over Land
+- John Mayer
+- Lil Nas X
+- Nas
+- 2Pac
+- The Notorious B.I.G.
+- DMX
+- Khalid - Skyline
+- The Weeknd - Dawn FM
+- Kali Uchis
