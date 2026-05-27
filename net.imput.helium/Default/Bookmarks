@@ -1,5 +1,5 @@
 {
-   "checksum": "0beb2db27be2126c19db853ed88550d3",
+   "checksum": "89253c7295026b80050e599bfa13d92e",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -330,10 +330,21 @@
                "name": "textyash.com dev deployment",
                "type": "url",
                "url": "https://dev-textyash.textyash.workers.dev/"
+            }, {
+               "date_added": "13423610790352025",
+               "date_last_used": "0",
+               "guid": "82e28f36-46d8-4c13-bacb-927080421bae",
+               "id": "48",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Notes · Standard Notes",
+               "type": "url",
+               "url": "https://app.standardnotes.com/"
             } ],
             "date_added": "13421407741184327",
             "date_last_used": "0",
-            "date_modified": "13421705706510743",
+            "date_modified": "13423610790352025",
             "guid": "001a4203-2434-4ff0-b461-a298369dfcb3",
             "id": "38",
             "name": "Imported from Mozilla Firefox",
