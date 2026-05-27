@@ -105,3 +105,37 @@
 - Khalid - Skyline
 - The Weeknd - Dawn FM
 - Kali Uchis
+- The Boys Season 5 Soundtrack
+- Have You Ever Seen The Rain
+- ABBA
+- Oasis - Don't Look Back in Anger
+- Billy Joel
+- Keane - Somewhere Only We Know
+- Frank Sinatra
+- Alphaville
+- Grover Washington, Jr. - Just the Two of Us (feat. Bill Withers)
+- Bobby Caldwell - What You Won't Do for Love
+- Eagles - Hotel California
+- Sade - Smooth Operator
+- Akon
+- R. City - Locked Away
+- 50 Cent
+- Dev Hynes
+- St. Vincent
+- Creedence Clearwater Revival
+- Elvis Presley
+- Amy Winehouse
+- Paul Anka - Put Your Head on My Shoulder
+- Engelbert Humperdinck
+- The Animals - The House of the Rising Sun
+- John Denver - Take Me Home, Country Roads
+- Michael Jackson - They Don't Care About Us
+- Michael Bublé - Feeling Good
+- Prince - Purple Rain
+- Ed Sheeran - The Joker and the Queen (feat. Taylor Swift)
+- Dijon - HIGHER!
+- Kehlani
+- Christina Aguilera
+- Alicia Keys
+- Pierre Bourne
+- A$AP Rocky
