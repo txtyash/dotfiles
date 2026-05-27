@@ -1288,6 +1288,7 @@
 - [Foster The People - Warrant](https://www.youtube.com/watch?v=UJEuOLauBZE)
 - [Foster The People - Waste](https://www.youtube.com/watch?v=mE6DLY7WQkg)
 - [Foster The People - Your Heart Is My Home](https://www.youtube.com/watch?v=K6F4YVYxe-M)
+- [Brian Eno - Fractal Zoom](https://www.youtube.com/watch?v=QvPnbZoPIxU)
 - [Frank Ocean - Bad Religion](https://www.youtube.com/watch?v=JMpypbtrcCg)
 - [Frank Ocean - Be Yourself](https://www.youtube.com/watch?v=BU59wJ9qb6I)
 - [Frank Ocean - Biking (Solo)](https://www.youtube.com/watch?v=ZKY8-c5CRgU)
