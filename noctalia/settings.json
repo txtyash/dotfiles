@@ -229,7 +229,7 @@
     "brightness": {
         "backlightDeviceMappings": [
         ],
-        "brightnessStep": 5,
+        "brightnessStep": 1,
         "enableDdcSupport": false,
         "enforceMinimum": true
     },
@@ -250,7 +250,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": true,
+        "darkMode": false,
         "generationMethod": "tonal-spot",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -458,7 +458,7 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Pune",
+        "name": "Mumbai",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
@@ -692,7 +692,7 @@
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "ocean",
+        "wallhavenQuery": "factory",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
