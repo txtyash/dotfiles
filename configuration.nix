@@ -272,6 +272,8 @@
       wl-clipboard
       xwayland-satellite
       yazi
+      zathura
+      zed-editor
     ];
     variables = {
       XCURSOR_THEME = "Afterglow-Recolored-Catppuccin-Flamingo";
