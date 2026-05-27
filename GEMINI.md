@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-17 03:15
+**Last Updated**: 2026-05-25 02:00
 
 ## Self-Maintenance Instructions
 
@@ -71,7 +71,7 @@ All config tracked as git repo at `~/.config/`. Key files:
 | `~/.config/nvim/` | Neovim config (lazy.nvim) |
 | `~/.config/fish/config.fish` | Fish shell init |
 | `~/.config/fix-speakers.sh` | TAS2781 speaker fix (i2c, runs via systemd) |
-| `~/.config/wishlist.md` | Wishlist(songs, products, etc.) gitignored |
+| `~/.config/wishlist.md` | Wishlist(songs, products, etc.) |
 | `~/.config/playlist.md` | Music library with YouTube links |
 | `~/.config/watchlist.md` | Movie/show watchlist with IMDB links |
 | `~/.config/planner.md` | TODOs and ideas |
@@ -143,7 +143,7 @@ Default GUI player: Sayonara (for opening files directly).
 
 - MPD uses PipeWire output — needs `systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000"` (MPD is system service)
 - MPRIS bridge: `mpdris2-rs` (user service) — replaced `mpd-mpris` which had unreliable `Seeked` signals causing Noctalia progress bar drift
-- rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track
+- rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track (+ .lrc)
 - Scripts: `~/.local/bin/rmpc-delete`
 
 ### Metadata Integrity
@@ -291,6 +291,7 @@ Kanata runs as NixOS service (enabled in `configuration.nix`).
 | `direnv` | Per-dir env vars |
 | `claude` | Claude Code CLI |
 | `gemini` | Gemini CLI |
+| `zathura` | PDF reader |
 
 ## Docs Quick Links
 

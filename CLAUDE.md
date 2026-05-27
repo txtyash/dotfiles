@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-17 03:16
+**Last Updated**: 2026-05-25 02:00
 
 ## Self-Maintenance Instructions
 
@@ -141,7 +141,7 @@ Default GUI player: Sayonara (for opening files directly).
 
 - MPD uses PipeWire output — needs `systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000"` (MPD is system service)
 - MPRIS bridge: `mpdris2-rs` (user service) — replaced `mpd-mpris` which had unreliable `Seeked` signals causing Noctalia progress bar drift
-- rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track
+- rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track (+ .lrc)
 - Scripts: `~/.local/bin/rmpc-delete`
 
 ### Metadata Integrity
@@ -289,6 +289,7 @@ Kanata runs as NixOS service (enabled in `configuration.nix`).
 | `direnv` | Per-dir env vars |
 | `claude` | Claude Code CLI |
 | `gemini` | Gemini CLI |
+| `zathura` | PDF reader |
 
 ## Docs Quick Links
 
