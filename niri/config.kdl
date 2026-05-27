@@ -62,6 +62,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+B hotkey-overlay-title="Open a Terminal: ghostty" { spawn "helium"; }
+    Mod+G { spawn-sh "niri msg outputs | grep -q '180°' && niri msg output eDP-1 transform normal || niri msg output eDP-1 transform 180"; }
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: Noctalia" { spawn "noctalia-shell ipc call lockScreen lock"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
