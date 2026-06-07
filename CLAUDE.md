@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-25 02:00
+**Last Updated**: 2026-06-07 21:52
 
 ## Self-Maintenance Instructions
 
@@ -137,7 +137,6 @@ No rebuild if validation fails.
 ## Music
 
 MPD system service (`services.mpd`), music at `~/Music`. Client: rmpc (TUI).
-Default GUI player: Sayonara (for opening files directly).
 
 - MPD uses PipeWire output — needs `systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000"` (MPD is system service)
 - MPRIS bridge: `mpdris2-rs` (user service) — replaced `mpd-mpris` which had unreliable `Seeked` signals causing Noctalia progress bar drift
