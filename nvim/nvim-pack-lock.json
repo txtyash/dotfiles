@@ -1,0 +1,68 @@
+{
+  "plugins": {
+    "claudecode.nvim": {
+      "rev": "102d835c964069c9c5e37abaf05ae4f9c3ee6f00",
+      "src": "https://github.com/coder/claudecode.nvim"
+    },
+    "direnv.vim": {
+      "rev": "ab2a7e08dd630060cd81d7946739ac7442a4f269",
+      "src": "https://github.com/direnv/direnv.vim"
+    },
+    "flash.nvim": {
+      "rev": "fcea7ff883235d9024dc41e638f164a450c14ca2",
+      "src": "https://github.com/folke/flash.nvim"
+    },
+    "gitsigns.nvim": {
+      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "grug-far.nvim": {
+      "rev": "5506c2f59dc9ab2ed6c233585412b24d31d51521",
+      "src": "https://github.com/MagicDuck/grug-far.nvim"
+    },
+    "lush.nvim": {
+      "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
+      "src": "https://github.com/rktjmp/lush.nvim"
+    },
+    "mini.files": {
+      "rev": "423d6b5afb7a94e658950d470957f830d43dd41e",
+      "src": "https://github.com/nvim-mini/mini.files"
+    },
+    "nvim-lspconfig": {
+      "rev": "a4ed4e761c400849e8c9f8bda33e5083f890268c",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-surround": {
+      "rev": "2e93e154de9ff326def6480a4358bfc149d5da2c",
+      "src": "https://github.com/kylechui/nvim-surround"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "todo-comments.nvim": {
+      "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+      "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "vim-illuminate": {
+      "rev": "0d1e93684da00ab7c057410fecfc24f434698898",
+      "src": "https://github.com/RRethy/vim-illuminate"
+    },
+    "vscode.nvim": {
+      "rev": "aa1102a7e15195c9cca22730b09224a7f7745ba8",
+      "src": "https://github.com/mofiqul/vscode.nvim"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
+    },
+    "zenbones.nvim": {
+      "rev": "239bdb9a09c8d38c752c43590d02f654ed0da2b0",
+      "src": "https://github.com/zenbones-theme/zenbones.nvim"
+    }
+  }
+}
