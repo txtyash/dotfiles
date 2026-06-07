@@ -65,14 +65,14 @@
   };
 
   services = {
-    xserver.enable = true;
-
-    displayManager = {
-      gdm = {
-        enable = true;
-        banner = "Stay hydrated!";
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --greeting \"Stay hydrated!\" --cmd niri-session";
+          user = "greeter";
+        };
       };
-      defaultSession = "niri";
     };
     printing.enable = true;
     pulseaudio.enable = false;
@@ -134,6 +134,7 @@
       "video"
       "render"
       "tty"
+      "dialout"
     ];
   };
 
@@ -192,14 +193,6 @@
         };
       };
     };
-    tmpfiles.rules =
-      let
-        username = "yash";
-      in
-      [
-        "f+ /var/lib/AccountsService/users/${username}  0600 root root - [User]\\nIcon=/var/lib/AccountsService/icons/${username}\\n"
-        "L+ /var/lib/AccountsService/icons/${username}  - - - - ${./avatar.jpg}"
-      ];
   };
 
   nixpkgs = {
