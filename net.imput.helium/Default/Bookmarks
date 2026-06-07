@@ -1,5 +1,5 @@
 {
-   "checksum": "89253c7295026b80050e599bfa13d92e",
+   "checksum": "205a2592f2c3395c1535777e4a3c8c65",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -341,10 +341,54 @@
                "name": "Notes · Standard Notes",
                "type": "url",
                "url": "https://app.standardnotes.com/"
+            }, {
+               "date_added": "13424458671199279",
+               "date_last_used": "0",
+               "guid": "61e4f5f9-ed7c-45da-be88-54a27d0bf727",
+               "id": "50",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "JOS Home Page",
+               "type": "url",
+               "url": "https://ccrma.stanford.edu/~jos/"
+            }, {
+               "date_added": "13424460921499154",
+               "date_last_used": "0",
+               "guid": "7e4e5364-3de0-42e5-87df-eb9700d32bf4",
+               "id": "51",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "DSPRelated.com - All About Digital Signal Processing",
+               "type": "url",
+               "url": "https://www.dsprelated.com/"
+            }, {
+               "date_added": "13425165024273154",
+               "date_last_used": "0",
+               "guid": "0757457a-6408-4cea-8e03-5cfae3f4c6b6",
+               "id": "52",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "audiodev.blog",
+               "type": "url",
+               "url": "https://audiodev.blog/"
+            }, {
+               "date_added": "13425165157205147",
+               "date_last_used": "0",
+               "guid": "956dd7dd-5eb5-4656-97a9-0407e07cb406",
+               "id": "53",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Foleys Finest Audio",
+               "type": "url",
+               "url": "https://foleysfinest.com/blog/"
             } ],
             "date_added": "13421407741184327",
             "date_last_used": "0",
-            "date_modified": "13423610790352025",
+            "date_modified": "13425165157205147",
             "guid": "001a4203-2434-4ff0-b461-a298369dfcb3",
             "id": "38",
             "name": "Imported from Mozilla Firefox",
