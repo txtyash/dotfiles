@@ -112,6 +112,7 @@
 - Billy Joel
 - Keane - Somewhere Only We Know
 - Frank Sinatra
+- Frank Sinatra - Something Stupid
 - Alphaville
 - Grover Washington, Jr. - Just the Two of Us (feat. Bill Withers)
 - Bobby Caldwell - What You Won't Do for Love
@@ -139,3 +140,7 @@
 - Alicia Keys
 - Pierre Bourne
 - A$AP Rocky
+- Better Call Saul Soundtrack
+- The Ronettes - Be My Baby
+- Nancy Sinatra - Sugar Town
+- Spider-Noir Soundtrack
