@@ -38,7 +38,8 @@ layout {
     gaps 15
     focus-ring {
         width 6
-        active-gradient from="#ff0000aa" to="#ff000000" angle=90
+        active-color "#ff8f40"
+        // active-gradient from="#ff0000aa" to="#ff000000" angle=90
     }
     border {
         off
@@ -52,7 +53,7 @@ window-rule {
     open-floating true
 }
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 window-rule {
@@ -69,7 +70,8 @@ binds {
 
     Mod+Space { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
     Mod+E { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    Mod+Shift+D hotkey-overlay-title="Delete current rmpc track" { spawn "sh" "-c" "~/.local/bin/rmpc-delete"; }
+    Mod+Shift+X hotkey-overlay-title="Delete current rmpc track" { spawn "sh" "-c" "~/.local/bin/rmpc-delete"; }
+    Mod+D { spawn "noctalia-shell" "ipc" "call" "darkMode" "toggle"; }
     Mod+S { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+Shift+S { spawn-sh "noctalia-shell ipc call settings toggle"; }
 
