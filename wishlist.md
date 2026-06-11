@@ -144,3 +144,4 @@
 - The Ronettes - Be My Baby
 - Nancy Sinatra - Sugar Town
 - Spider-Noir Soundtrack
+- Ava Kolker - Your Daughter
