@@ -15,5 +15,6 @@
 
 ## Shows
 
+- [The Sopranos (1999)](https://www.imdb.com/title/tt0141842/)
+- [Arcane (2021)](https://www.imdb.com/title/tt11126994/)
 - [Astro Boy (2003)](https://www.imdb.com/title/tt0387719)
-- [Spider-Noir (2026)](https://www.imdb.com/title/tt30460310/)
