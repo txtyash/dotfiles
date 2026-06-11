@@ -1,5 +1,5 @@
 {
-   "checksum": "205a2592f2c3395c1535777e4a3c8c65",
+   "checksum": "8620439e43f7e017bb358376f2005f53",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -220,7 +220,7 @@
             "url": "https://cses.fi/book/book.pdf"
          }, {
             "date_added": "13419701767000000",
-            "date_last_used": "13421748649169017",
+            "date_last_used": "0",
             "guid": "3ca25501-0cc5-4090-881f-2cd14faf4f8b",
             "id": "32",
             "name": "Mia Heidenstedt",
@@ -385,10 +385,21 @@
                "name": "Foleys Finest Audio",
                "type": "url",
                "url": "https://foleysfinest.com/blog/"
+            }, {
+               "date_added": "13425480854554655",
+               "date_last_used": "0",
+               "guid": "a99ee05f-9b26-4e40-befb-e6e398f96f08",
+               "id": "55",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Subscription - Proton Account",
+               "type": "url",
+               "url": "https://account.proton.me/u/2/mail/subscription"
             } ],
             "date_added": "13421407741184327",
             "date_last_used": "0",
-            "date_modified": "13425165157205147",
+            "date_modified": "13425480854554655",
             "guid": "001a4203-2434-4ff0-b461-a298369dfcb3",
             "id": "38",
             "name": "Imported from Mozilla Firefox",
