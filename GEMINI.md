@@ -1,6 +1,6 @@
 # Yash's NixOS Dotfiles — Agent Instructions
 
-**Last Updated**: 2026-05-25 02:00
+**Last Updated**: 2026-06-11 12:03
 
 ## Self-Maintenance Instructions
 
@@ -15,6 +15,9 @@ git -C ~/.config log --oneline --since="2026-04-25"
 ```
 
 If commits touch system config (`configuration.nix`, `flake.nix`, `flake.lock`, hardware files, etc.), check if changes need reflection here, update accordingly.
+
+### Sync rule
+CLAUDE.md and GEMINI.md are kept in sync. Any edit to one must be applied to the other in the same task.
 
 ### On active changes
 When making system changes — packages, services, keybinds, flake inputs, hardware config, anything documented here — update relevant section(s) same task. No waiting. Bump timestamp.
@@ -72,7 +75,6 @@ All config tracked as git repo at `~/.config/`. Key files:
 | `~/.config/fish/config.fish` | Fish shell init |
 | `~/.config/fix-speakers.sh` | TAS2781 speaker fix (i2c, runs via systemd) |
 | `~/.config/wishlist.md` | Wishlist(songs, products, etc.) |
-| `~/.config/playlist.md` | Music library with YouTube links |
 | `~/.config/watchlist.md` | Movie/show watchlist with IMDB links |
 | `~/.config/planner.md` | TODOs and ideas |
 
@@ -133,98 +135,6 @@ niri validate -c ~/.config/niri/config.kdl
 ```
 
 No rebuild if validation fails.
-
-## Music
-
-MPD system service (`services.mpd`), music at `~/Music`. Client: rmpc (TUI).
-Default GUI player: Sayonara (for opening files directly).
-
-- **Verification**: Always verify metadata via search; never assume origin or status (e.g., AI/leaks).
-
-- MPD uses PipeWire output — needs `systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000"` (MPD is system service)
-- MPRIS bridge: `mpdris2-rs` (user service) — replaced `mpd-mpris` which had unreliable `Seeked` signals causing Noctalia progress bar drift
-- rmpc keybinds: `Mod+P` = toggle pause, `Mod+Shift+D` = delete track (+ .lrc)
-- Scripts: `~/.local/bin/rmpc-delete`
-
-### Metadata Integrity
-- **Title Tag**: Must contain ONLY the song title (and features). Never include the main artist name in the `title` tag if it is already in the `artist` tag.
-- **Artist Tag**: Must be a comma-separated list of all contributing artists.
-- **Album Artist**: Set to the primary artist (the folder name) to avoid library fragmentation.
-- **Surgical Metadata**: After downloading, if `ffprobe` shows the artist name leaked into the `title` tag or missing from the `artist` tag, immediately run `ffmpeg -metadata title="Clean Title" -metadata artist="Correct, Artists" -c copy` to fix it.
-
-### Downloading Songs
-
-**Flow:**
-1. Check duplicates before download
-2. Download via yt-dlp (not installed globally — use `nix shell`)
-3. Place in `~/Music/<Artist>/<Title> - <Artist>.m4a`
-4. Lyrics auto-embedded + `.lrc` created by `embed-lyrics.sh` (always prefer synced lyrics)
-5. Add to `playlist.md` as `- [Artist - Title](YouTube URL)`
-
-**Multiple songs:** Report progress after each download completes — `[N/Total] Artist - Title`. Report failures inline (don't stop batch).
-
-**Duplicate check** (`fd` — faster than `find`):
-```bash
-fd -i "<title-keyword>" ~/Music/<Artist>/ --max-depth 1
-```
-
-**Download command** (lyrics embedded in parallel as each file completes):
-```bash
-nix shell nixpkgs#yt-dlp nixpkgs#ffmpeg-full nixpkgs#jq --command bash -c '
-  yt-dlp \
-    -x --audio-format m4a --audio-quality 0 \
-    --format bestaudio --no-playlist \
-    --embed-metadata \
-    --parse-metadata "title:%(title)s" \
-    --replace-in-metadata "title" "^.+? - " "" \
-    --replace-in-metadata "title" "(?i) \((Official|Audio|Video|Lyric|Music Video|HD|HQ|4K|Remaster(ed)?)[^)]*\)$" "" \
-    --replace-in-metadata "title" "(?i) \[(Official|Audio|Video|Lyric|Music Video|HD|HQ|4K|Remaster(ed)?)[^]]*\]$" "" \
-    --cookies-from-browser "chromium:~/.config/net.imput.helium" \
-    --exec "bash ~/.config/embed-lyrics.sh {} &" \
-    -o "$HOME/Music/<Artist>/<Title> - <Artist>.%(ext)s" \
-    "ytsearch1:<Artist> - <Title> official audio"
-  wait
-'
-```
-
-`bestaudio` = yt-dlp picks highest available bitrate. m4a remux — no reencoding loss.
-`--cookies-from-browser "chromium:~/.config/net.imput.helium"` — bypasses YouTube bot detection via Helium's cookie store; Helium must be open with YouTube logged in.
-`--exec` fires `embed-lyrics.sh` in background per file — downloads don't wait for lyrics.
-`nixpkgs#jq` included so lyrics script skips re-bootstrap.
-`wait` at end ensures all lyrics jobs finish before shell exits.
-
-**Lyrics script:** `~/.config/embed-lyrics.sh` — fetches synced (lrclib) or plain (lyrics.ovh), embeds in tags + creates `.lrc`. Idempotent — safe to re-run.
-
-**Verifying correct video was downloaded:**
-After download, check embedded title matches expected song:
-```bash
-nix shell nixpkgs#ffmpeg-full --command ffprobe -v quiet -print_format json -show_format \
-  "$HOME/Music/<Artist>/<Title> - <Artist>.m4a" | grep -E '"title"|"artist"'
-```
-If title/artist mismatch (e.g. reaction video, wrong song): delete the file + `.lrc` and retry with a direct YouTube URL instead of `ytsearch1:`.
-
-**Wrong video — retry with direct URL:**
-```bash
-# Find correct video URL manually on YouTube, then:
-yt-dlp ... -o "$HOME/Music/<Artist>/<Title> - <Artist>.%(ext)s" "https://youtube.com/watch?v=<ID>"
-```
-
-**Important:** Always use a literal `<Title> - <Artist>.%(ext)s` output template — never `%(title)s`. yt-dlp uses the YouTube video title for `%(title)s`, which produces wrong filenames (e.g. `5 Seconds of Summer - Don't Stop (Lyric video) - 5 Seconds of Summer.m4a`). Provide the exact title/artist you want in the `-o` flag.
-
-### SD Card (Nokia 3210 4G)
-
-32GB HP card at `/dev/mmcblk0p1`. FAT32. Genuine capacity, slow write (~5 MB/s — fake Class 10).
-
-**Note**: SD card reader broken (see Boot & Security → GL9750 conflict). To use, add `pcie_aspm=off` back to kernelParams, rebuild — sleep breaks.
-
-Mount: `sudo mount -o uid=1000,gid=100 /dev/mmcblk0p1 /mnt/sd`
-
-Sync music:
-```bash
-sudo mount -o uid=1000,gid=100 /dev/mmcblk0p1 /mnt/sd
-rsync -av --delete --size-only ~/Music/ /mnt/sd/
-sudo umount /mnt/sd
-```
 
 ## Audio
 
@@ -292,6 +202,8 @@ Kanata runs as NixOS service (enabled in `configuration.nix`).
 | `claude` | Claude Code CLI |
 | `gemini` | Gemini CLI |
 | `zathura` | PDF reader |
+
+**python3 not in PATH** — use `nix run nixpkgs#python3 -- script.py` or inline: `nix run nixpkgs#python3 -- -c 'print("hi")'`
 
 ## Docs Quick Links
 

@@ -69,7 +69,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --greeting \"Stay hydrated!\" --cmd niri-session";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --greeting \"Stay hydrated!\" --cmd niri-session";
           user = "greeter";
         };
       };
@@ -98,7 +98,7 @@
     };
     mpd = {
       enable = true;
-      musicDirectory = "/home/yash/Music";
+      settings.music_directory = "/home/yash/Music";
       user = "yash";
       settings.audio_output = [{
         type = "pipewire";
