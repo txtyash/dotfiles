@@ -15,7 +15,6 @@ vim.opt.shell = "fish"
 vim.g.mapleader = " "
 vim.g.netrw_banner = ""
 vim.g.netrw_liststyle = 3
-vim.cmd("colorscheme oled")
 
 -- Autocmds
 
@@ -59,7 +58,6 @@ vim.pack.add({
 	{ src="https://github.com/RRethy/vim-illuminate" },
 	{ src="https://github.com/lewis6991/gitsigns.nvim" },
 	{ src="https://github.com/folke/which-key.nvim" },
-	{ src="https://github.com/mofiqul/vscode.nvim" },
 	{ src="https://github.com/nvim-treesitter/nvim-treesitter" },
 	{
 		src="https://github.com/neovim/nvim-lspconfig",
@@ -69,7 +67,12 @@ vim.pack.add({
 	{ src="https://github.com/folke/todo-comments.nvim" },
 	-- for todo comments
 	{ src="https://github.com/nvim-lua/plenary.nvim" },
+	-- Colorschemes
+	{ src="https://github.com/Mofiqul/vscode.nvim" },
+	{ src="https://github.com/oskarnurm/koda.nvim" },
 })
+
+vim.cmd("colorscheme koda")
 
 flash = require("flash")
 grug = require("grug-far")

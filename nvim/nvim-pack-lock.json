@@ -1,7 +1,7 @@
 {
   "plugins": {
     "claudecode.nvim": {
-      "rev": "102d835c964069c9c5e37abaf05ae4f9c3ee6f00",
+      "rev": "1536450a3a11850c627c51d8b1e25562ce34ee63",
       "src": "https://github.com/coder/claudecode.nvim"
     },
     "direnv.vim": {
@@ -13,23 +13,19 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
+      "rev": "25050e4ed39e628282831d4cbecb1850454ce915",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "grug-far.nvim": {
-      "rev": "5506c2f59dc9ab2ed6c233585412b24d31d51521",
+      "rev": "c995bbacf8229dc096ec1c3d60f8531059c86c1b",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
-    "lush.nvim": {
-      "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
-      "src": "https://github.com/rktjmp/lush.nvim"
-    },
-    "mini.files": {
-      "rev": "423d6b5afb7a94e658950d470957f830d43dd41e",
-      "src": "https://github.com/nvim-mini/mini.files"
+    "koda.nvim": {
+      "rev": "ac7e746882b31a68bdcd533464a20ca40b712bcb",
+      "src": "https://github.com/oskarnurm/koda.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "a4ed4e761c400849e8c9f8bda33e5083f890268c",
+      "rev": "229b79051b380377664edc4cbd534930154921a1",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -54,15 +50,11 @@
     },
     "vscode.nvim": {
       "rev": "aa1102a7e15195c9cca22730b09224a7f7745ba8",
-      "src": "https://github.com/mofiqul/vscode.nvim"
+      "src": "https://github.com/Mofiqul/vscode.nvim"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
-    },
-    "zenbones.nvim": {
-      "rev": "239bdb9a09c8d38c752c43590d02f654ed0da2b0",
-      "src": "https://github.com/zenbones-theme/zenbones.nvim"
     }
   }
 }
