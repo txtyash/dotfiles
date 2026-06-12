@@ -1,0 +1,122 @@
+[theme]
+mode = "light"
+source = "builtin"
+builtin = "Ayu"
+
+[bar.default]
+position = "left"
+
+[location]
+auto_locate = false
+address = "Pune, India"
+
+[idle]
+pre_action_fade_seconds = 5
+
+[idle.behavior.lock]
+enabled = true
+timeout = 300
+command = "noctalia:session lock"
+
+[idle.behavior.screen-off]
+enabled = true
+timeout = 360
+command = "noctalia:dpms-off"
+
+[idle.behavior.suspend]
+enabled = true
+timeout = 600
+command = "noctalia:session suspend"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003",
+    "lockscreen-widget-0000000000000004",
+    "lockscreen-widget-0000000000000005"
+]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 980.0
+    cy = 657.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1070.5
+    cy = 424.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 224.0
+    box_width = 432.0
+    cx = 376.0
+    cy = 728.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        aspect_ratio = 2.5
+        bands = 32
+        show_when_idle = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1070.5
+    cy = 529.5
+    output = "eDP-1"
+    rotation = 0.0
+    type = "label"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        description = ""
+        title = "Yash Shinde"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+    box_height = 224.0
+    box_width = 432.0
+    cx = 376.0
+    cy = 472.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "media_player"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 830.0
+    cy = 472.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "sticker"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
+        background = true
+        image_path = "/home/yash/.config/avatar.jpg"
+        opacity = 1.0
