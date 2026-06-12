@@ -255,10 +255,10 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Gruvbox",
+        "predefinedScheme": "Ayu",
         "schedulingMode": "location",
         "syncGsettings": true,
-        "useWallpaperColors": true
+        "useWallpaperColors": false
     },
     "controlCenter": {
         "cards": [
@@ -378,7 +378,7 @@
         "enableLockScreenMediaControls": true,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
-        "iRadiusRatio": 1,
+        "iRadiusRatio": 0,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -412,7 +412,7 @@
         ],
         "lockScreenTint": 0,
         "passwordChars": false,
-        "radiusRatio": 1,
+        "radiusRatio": 0,
         "reverseScroll": false,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
@@ -458,7 +458,7 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Mumbai",
+        "name": "Pune",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,

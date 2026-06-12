@@ -100,10 +100,12 @@
       enable = true;
       settings.music_directory = "/home/yash/Music";
       user = "yash";
-      settings.audio_output = [{
-        type = "pipewire";
-        name = "PipeWire";
-      }];
+      settings.audio_output = [
+        {
+          type = "pipewire";
+          name = "PipeWire";
+        }
+      ];
     };
   };
 
@@ -221,6 +223,7 @@
     systemPackages = with pkgs; [
       afterglow-cursors-recolored
       alsa-utils
+      antigravity-cli
       bluetui
       brightnessctl
       btop
@@ -229,17 +232,18 @@
       firefox
       fzf
       gcc
-      gemini-cli
       gh
       ghostty
       git
       gnumake
       google-chrome
+      hyprpicker
       i2c-tools
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
       lazygit
+      libnotify
       localsend
       marksman
       neovim
@@ -253,8 +257,6 @@
       protonmail-desktop
       qbittorrent
       ripgrep
-      libnotify
-      rmpc
       sbctl
       starship
       swayidle
