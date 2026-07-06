@@ -1,0 +1,13 @@
+[user]
+	email = "work@textyash.com"
+	name = "Yash Shinde"
+
+[user "core"]
+	editor = "emacs"
+
+[user "init"]
+	defaultBranch = "master"
+[credential "https://github.com"]
+	helper = !/run/current-system/sw/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/run/current-system/sw/bin/gh auth git-credential

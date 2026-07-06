@@ -1,0 +1,123 @@
+.claude/
+.direnv/
+.gsd-keyboard.settings-ported
+.wrangler
+BraveSoftware/
+Proton*
+QtProject.conf
+Rygel
+alacritty
+beekeeper-studio
+btop/
+cava
+copyq
+cosmic
+danksearch
+dconf
+dgop
+direnv
+dleyna-server-service.conf
+dlv
+enchant
+environment.d
+equibop
+evolution
+fontconfig
+foot
+gh
+gnome-initial-setup-done
+go
+google-chrome
+gtk-3.0
+gtk-4.0
+ibus/
+kew/
+monitors.xml
+mozilla
+nushell/history.txt
+pulse
+qBittorrent
+qt5ct
+qt6ct
+rygel.conf
+systemd
+turso
+vlc
+wezterm
+configstore/
+net.imput.helium/
+sayonara/
+menus/
+
+# Caveman /compress
+*.original.md
+
+# Emacs backup files
+*~
+
+# Emacs autosave files
+\#\#\#*-\#\#\#
+
+# Emacs lockfiles
+.*\.lock
+
+# Compiled lisp files
+*.elc
+
+# tramp temp files
+/.tramp*
+./#*
+
+# Dired bookmarks
+.dir-locals.el
+
+# Projectile cache
+.projectile-cache
+
+# Company completion cache
+.company/*
+
+# Flycheck error lists
+.flycheck-*
+
+# Recentf list
+.recentf
+
+# Helm cache
+.helm-cache/
+
+# Counsel/Marginalia cache
+.marginalia*
+
+# Org mode exports (if you want to ignore)
+*.org_archive*
+*.html
+*.pdf
+*_export.html
+
+# ERC logs
+*erc-log*
+*.log
+
+# Gnus mail spools
+.gnus/
+
+# Message drafts
+.message*
+
+# Package archives
+elpa-packages/  # or ~/.emacs.d/elpa/ if not checked into project
+
+# Custom settings (unless you want to commit them)
+custom-set-variables.el
+
+# Project-local config
+.dir-locals.el  # uncomment if you want to ignore project-local configs
+
+# Temporary org files
+*~$
+
+emacs/*
+!emacs/init.el
+/gpick/
+/qalculate/
