@@ -4,14 +4,46 @@
 
 {
   pkgs,
+  inputs,
   ...
 }:
 let
+  ai = with pkgs; [
+    claude-code
+    antigravity-cli
+  ];
+  browsers = with pkgs; [
+    brave
+    google-chrome
+    inputs.helium.packages.${system}.default
+  ];
   dmsDeps = with pkgs; [
     cliphist
     dsearch
     cups-pk-helper
     wl-clipboard
+  ];
+  editors = with pkgs; [
+    neovim
+    zed-editor
+    tree-sitter
+  ];
+  proton = with pkgs; [
+    proton-vpn
+    proton-vpn-cli
+  ];
+  terminals = with pkgs; [
+    ghostty
+    foot
+  ];
+  utils = with pkgs; [
+    btop
+    fd
+    fzf
+    git
+    gh
+    ripgrep
+    unzip
   ];
 in
 {
@@ -50,12 +82,13 @@ in
     };
   };
 
+  # TODO: Prevent exposing hostname from being to wifi networks
   networking = {
     hostName = "nix";
     networkmanager = {
       enable = true;
       dns = "none";
-      wifi.macAddress = "random";
+      wifi.macAddress = "stable";
       ethernet.macAddress = "random";
     };
     nameservers = [
@@ -64,9 +97,14 @@ in
     ];
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    graphics = {
+      enable = true;
+    };
   };
 
   virtualisation.docker.enable = true;
@@ -82,15 +120,26 @@ in
       alsa.enable = true;
     };
 
+    upower.enable = true;
+
     emacs = {
       enable = true;
       package = pkgs.emacs31-pgtk;
     };
+
     kanata = {
       enable = true;
       keyboards.default = {
         devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
         configFile = ./kanata/vivobook.kbd;
+      };
+    };
+
+    ollama = {
+      enable = true;
+      package = pkgs.ollama-vulkan;
+      environmentVariables = {
+        OLLAMA_IGPU_ENABLE = "1";
       };
     };
   };
@@ -127,13 +176,26 @@ in
     services = {
       fix-vivobook-speakers = {
         description = "Fix TAS2781 speakers.";
+        # Re-init the amp on resume: the TAS2781 loses its registers across
+        # s2idle. These targets are ordered After=systemd-suspend.service,
+        # which only returns once the machine is awake again — so units hung
+        # off them run on *resume*. Do not use sleep.target here: it is
+        # reached on the way *into* suspend, so the registers get written
+        # and then immediately wiped. (post-resume.target does not exist on
+        # this system, so the original wanted-by was a silent no-op.)
         after = [
           "multi-user.target"
-          "post-resume.target"
+          "suspend.target"
+          "hibernate.target"
+          "hybrid-sleep.target"
+          "suspend-then-hibernate.target"
         ];
         wantedBy = [
           "multi-user.target"
-          "post-resume.target"
+          "suspend.target"
+          "hibernate.target"
+          "hybrid-sleep.target"
+          "suspend-then-hibernate.target"
         ];
 
         # This provides i2cset to the script environment
@@ -147,9 +209,9 @@ in
 
         serviceConfig = {
           Type = "oneshot";
-          # Must NOT remain active after exit: post-resume.target only
-          # starts wanted units that are inactive, so a lingering
-          # "active (exited)" state prevents the re-run after suspend.
+          # Must NOT remain active after exit: a wanted unit is only started
+          # if it is inactive, so a lingering "active (exited)" state would
+          # prevent the re-run on the next resume.
           RemainAfterExit = false;
         };
       };
@@ -160,35 +222,45 @@ in
     systemPackages =
       with pkgs;
       [
-        btop
-        claude-code
-        antigravity-cli
-        fd
-        fzf
-        gh
-        ghostty
-        git
-        google-chrome
         google-cursor
         krita
+        xournalpp
+
+        (retroarch.withCores (
+          cores: with cores; [
+            snes9x
+            nestopia
+            mupen64plus
+            genesis-plus-gx
+            beetle-psx-hw
+          ]
+        ))
+
         localsend
-        neovim
+        # TODO: Add Dev Shell to ~/.config and remove these
         nil
         nixfmt
-        proton-vpn
-        proton-vpn-cli
-        qbittorrent
-        ripgrep
         starship
-        unzip
+        qbittorrent
+        spotify
         vlc
-        zed-editor
+        mpv
+        nautilus
+        gcc
       ]
-      ++ dmsDeps;
+      ++ ai
+      ++ browsers
+      ++ dmsDeps
+      ++ editors
+      ++ proton
+      ++ terminals
+      ++ utils;
 
     variables = {
       XCURSOR_THEME = "GoogleDot-Blue";
-      XCURSOR_SIZE = "32";
+      XCURSOR_SIZE = "21";
+      EDITOR = "emacsclient -c -a nvim";
+      VISUAL = "emacsclient -c -a nvim";
     };
   };
 

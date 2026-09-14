@@ -9,7 +9,9 @@ spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
 
 cursor {
     xcursor-theme "GoogleDot-Blue"
-    xcursor-size 32
+    xcursor-size 24
+    hide-when-typing
+    hide-after-inactive-ms 1000
 }
 
 input {
@@ -33,12 +35,10 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 6
     focus-ring {
-        off
+    	off
     }
     border {
-    	on
 	width 6
     }
     background-color "transparent"
@@ -65,7 +65,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty"; }
-    Mod+B hotkey-overlay-title="Open a Browser: Firefox" { spawn "firefox"; }
+    Mod+B hotkey-overlay-title="Open a Browser: Helium" { spawn "helium"; }
     Mod+G { spawn-sh "niri msg outputs | grep -q '180°' && niri msg output eDP-1 transform normal || niri msg output eDP-1 transform 180"; }
     Mod+N { spawn-sh "dms ipc notepad toggle"; }
     Mod+P { spawn-sh "dms ipc mpris playPause"; }

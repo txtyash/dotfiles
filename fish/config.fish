@@ -1,5 +1,6 @@
 ### Environment Variables (from shellInit)
-set -gx EDITOR nvim
+set -gx EDITOR "emacsclient -c -a nvim"
+set -gx VISUAL "emacsclient -c -a nvim"
 set -g fish_greeting
 # set --global fish_key_bindings fish_vi_key_bindings
 set --erase --universal fish_key_bindings
