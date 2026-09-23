@@ -1,72 +1,64 @@
-## Hardware — ASUS Vivobook 14 Flip (TP3407)
+## Hosts
 
-Copilot+ PC / convertible 2-in-1, touchscreen + stylus.
+Shared config in `configuration.nix`; per-host in `hosts/<name>/default.nix`. A
+`configuration.nix` change hits **both** hosts.
+
+| Flake attr | What it is |
+|------------|------------|
+| `vivobook` | ASUS Vivobook 14 Flip (TP3407), bare metal |
+| `p14s` | VMware guest VM on a ThinkPad P14s host |
+
+`networking.hostName` matches the flake attr on both — keep that invariant. There is no `#nix` attr.
+
+## Hardware — Vivobook 14 Flip (TP3407)
+
+Copilot+ convertible 2-in-1, touch + stylus.
 
 | Component | Detail |
 |-----------|--------|
-| **CPU** | Intel Core Ultra 5 226V, 8 cores/8 threads, 2.1 GHz base / 4.5 GHz boost, 8MB cache |
-| **NPU** | Intel AI Boost, up to 40 TOPS |
-| **GPU** | Intel Arc Graphics |
-| **RAM** | 16GB LPDDR5X (on-package, not upgradeable) |
-| **Storage** | 512GB M.2 NVMe PCIe 4.0 SSD |
-| **Display** | 14" WUXGA (1920×1200) OLED, 16:10, 60Hz, 500nits HDR peak, 100% DCI-P3, 1B colors, touch, stylus, anti-glare, TÜV certified |
-| **Camera** | FHD + IR (Windows Hello-capable), privacy shutter |
-| **Wi-Fi** | Wi-Fi 7 (802.11be), tri-band, 2×2 |
-| **Bluetooth** | 5.4 |
-| **Battery** | 70Wh, 4-cell Li-ion |
-| **Charger** | USB-C 65W (20V/3.25A) |
-| **Ports** | 1× USB-A 3.2 Gen1, 1× USB-C 3.2 Gen2 (DP+PD), 1× Thunderbolt 4 (DP+PD), 1× HDMI 2.1, 1× 3.5mm combo audio, microSD |
-| **Hostname** | `nix` |
+| **CPU / NPU / GPU** | Core Ultra 5 226V (8c/8t, 2.1→4.5 GHz) · AI Boost 40 TOPS · Arc Graphics |
+| **RAM / Storage** | 16GB LPDDR5X (soldered) · 512GB NVMe PCIe 4.0 |
+| **Display** | 14" 1920×1200 OLED 16:10, 60Hz, 500nit HDR, 100% DCI-P3, touch + stylus |
+| **Wireless** | Wi-Fi 7 tri-band 2×2 · BT 5.4 |
+| **Power** | 70Wh · USB-C 65W |
+| **Ports** | USB-A 3.2g1 · USB-C 3.2g2 · TB4 · HDMI 2.1 · 3.5mm · microSD |
+| **Camera** | FHD + IR, privacy shutter |
 
-Audio amp: TAS2781.
-Keyboard device: `/dev/input/by-path/platform-i8042-serio-0-event-kbd`
+Audio amp TAS2781. Vivobook-only: `fix-vivobook-speakers` oneshot runs `hosts/vivobook/fix-speakers.sh`
+(i2cset) on boot **and resume** — read the unit-ordering comments before touching it. Also Ollama
+(`ollama-vulkan`, iGPU), Proton VPN, qBittorrent, Bluetooth, Quad9 DNS, MAC randomization.
 
----
+**p14s**: VM only — ~10GB RAM, ext4, zramSwap, `vscode`. No Bluetooth/speaker fix/Ollama.
 
 ## System Overview
 
-- NixOS unstable, flake-based (`~/.config/flake.nix` + `~/.config/configuration.nix`)
-- User: `yash`. State version: `26.05`.
-- WM: niri (nixpkgs module, `programs.niri.enable`). No display manager, no GNOME.
-- Desktop shell/bar: DankMaterialShell (`programs.dms-shell.enable`). DMS generates theme files
-  consumed by other apps: `niri/dms/*.kdl`, `ghostty/themes/dankcolors`, `zed/themes/dank-zed-theme.json`,
-  `DankMaterialShell/firefox.css`
-- Shell: Fish. Audio: Pipewire (+ pulse/alsa compat). Editor: Emacs (`emacs31-pgtk`, as a service)
-- Keyboard remap: Kanata service, config `./kanata/vivobook.kbd`
-- Speaker fix: `fix-vivobook-speakers` systemd oneshot runs `./fix-speakers.sh` (TAS2781 via i2cset)
+- NixOS unstable, flake-based. User `yash`, stateVersion `26.05` (DO NOT CHANGE)
+- WM: niri (`programs.niri.enable`). No display manager or greeter
+- Login: password-protected TTY. `programs.bash.loginShellInit` `exec`s `niri-session` on `/dev/tty1`
+  when `WAYLAND_DISPLAY` is unset; tty2–6 stay plain shells. Autologin deliberately **not** enabled
+- Shell: login shell is **bash**; fish is enabled for interactive use only — login-time setup goes in
+  bash options
+- DankMaterialShell (`programs.dms-shell.enable`) generates themes consumed elsewhere: `niri/dms/*.kdl`,
+  `ghostty/themes/dankcolors`, `zed/themes/dank-zed-theme.json`, `DankMaterialShell/firefox.css`
+- Pipewire (+pulse/alsa). Emacs `emacs31-pgtk` as a service
+- Kanata remap, per-host config `kanata/{vivobook,thinkpad-p14s}.kbd`, both on device
+  `/dev/input/by-path/platform-i8042-serio-0-event-kbd`
+- Single flake input: `nixpkgs` (`nixos-unstable`). No third-party flakes
+- `~/.config` *is* the git repo (`github.com/txtyash/dotfiles`); `.gitignore` excludes app-generated
+  cruft so only intentional dotfiles are tracked
 
-## Repo Layout
-
-`~/.config` itself is the git repo (remote: `codeberg.org/textyash/dotfiles`). `.gitignore` excludes
-app-generated cruft under `~/.config/*` (browsers, dconf, pulse, etc.) — only intentional dotfiles are
-tracked.
-
-## Rebuild Commands
+## Rebuild
 
 ```bash
-# Apply config changes
-sudo nixos-rebuild switch --flake ~/.config#nix
-
-# Test without persisting across reboot
-sudo nixos-rebuild test --flake ~/.config#nix
-
-# Update all flake inputs
-nix flake update --flake ~/.config
-
-# Update a single input
-nix flake update <input> --flake ~/.config
-
-# Validate flake
+sudo nixos-rebuild switch --flake ~/.config#$(hostname)
+sudo nixos-rebuild test  --flake ~/.config#$(hostname)   # no persist across reboot
+nixos-rebuild dry-build  --flake ~/.config#$(hostname)   # eval+build, no sudo
+nix flake update [<input>] --flake ~/.config
 nix flake check ~/.config
 ```
 
-## Flake Inputs
+## Editing config
 
-Single input: `nixpkgs` (nixos/nixpkgs, `nixos-unstable`). Everything (niri, DMS, etc.) comes
-from nixpkgs modules — no third-party flakes.
-
-## Editing `configuration.nix`
-
-- All packages go in `environment.systemPackages`
-- No home-manager — all config is raw files under `~/.config/`
-- After editing, `nixos-rebuild test` before `switch` for anything risky
+- No home-manager — config is raw files under `~/.config/`
+- Packages: `environment.systemPackages` in `configuration.nix` (shared) or the host file (host-only)
+- `dry-build` catches eval errors without sudo; `test` before `switch` for anything risky

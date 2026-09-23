@@ -1,5 +1,6 @@
 .claude/
 .direnv/
+git/config-p14s
 .gsd-keyboard.settings-ported
 .wrangler
 BraveSoftware/
@@ -13,6 +14,7 @@ cava
 copyq
 cosmic
 danksearch
+DankMaterialShell/.changelog*
 dconf
 dgop
 direnv
@@ -48,6 +50,7 @@ configstore/
 net.imput.helium/
 sayonara/
 menus/
+Code/
 
 # Caveman /compress
 *.original.md
