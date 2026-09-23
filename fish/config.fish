@@ -1,10 +1,8 @@
-### Environment Variables (from shellInit)
-set -gx EDITOR "emacsclient -c -a nvim"
-set -gx VISUAL "emacsclient -c -a nvim"
 set -g fish_greeting
 # set --global fish_key_bindings fish_vi_key_bindings
 set --erase --universal fish_key_bindings
 set -gx FZF_DEFAULT_OPTS "--layout=reverse --height=50% --border --info=inline"
+alias claude="caveman claude"
 
 ### Interactive Settings (from interactiveShellInit)
 if status is-interactive

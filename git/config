@@ -2,12 +2,18 @@
 	email = "github@textyash.com"
 	name = "Yash Shinde"
 
-[user "core"]
-	editor = "emacs"
+[core]
+	editor = "f() { if command -v nvim >/dev/null 2>&1; then nvim \"$@\"; elif command -v vim >/dev/null 2>&1; then vim \"$@\"; else emacs \"$@\"; fi; }; f"
 
-[user "init"]
+[init]
 	defaultBranch = "master"
+
+[includeIf "gitdir:~/Projects/p14s/"]
+	path = config-p14s
+
+[credential "https://bitbucket.org"]
+	helper = store
 [credential "https://github.com"]
-	helper = !/run/current-system/sw/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = !/run/current-system/sw/bin/gh auth git-credential
+	helper = !gh auth git-credential

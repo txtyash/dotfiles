@@ -20,11 +20,20 @@
     in
     {
       nixosConfigurations = {
-        nix = lib.nixosSystem {
+        vivobook = lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
             ./configuration.nix
+            ./hosts/vivobook
+          ];
+        };
+        p14s = lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./configuration.nix
+            ./hosts/p14s
           ];
         };
       };
