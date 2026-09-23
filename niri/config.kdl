@@ -36,12 +36,19 @@ output "eDP-1" {
 
 layout {
     focus-ring {
-    	off
+    	width 6
     }
     border {
+	off
 	width 6
     }
     background-color "transparent"
+}
+
+blur {
+    on
+    passes 3
+    noise 0.05
 }
 
 screenshot-path "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"
@@ -50,16 +57,19 @@ window-rule {
     match app-id=r#"helium$"# title="^Picture-in-Picture$"
     open-floating true
 }
+
 window-rule {
     clip-to-geometry true
 }
+
 window-rule {
     match is-active=true
-    opacity 1.0
+    opacity 0.95
 }
+
 window-rule {
     match is-active=false
-    opacity 1.0
+    opacity 0.85
 }
 
 binds {
@@ -72,6 +82,7 @@ binds {
     Mod+E { spawn-sh "dms ipc spotlight toggle"; }
     Mod+D { spawn-sh "dms ipc theme toggle"; }
     Mod+Space { spawn-sh "dms ipc clipboard toggle"; }
+    Mod+Semicolon { spawn "emoji-picker"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "dms ipc audio increment 3"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "dms ipc audio decrement 3"; }
     XF86AudioMute allow-when-locked=true { spawn-sh "dms ipc audio mute"; }
@@ -181,12 +192,11 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
     Print { spawn-sh "dms screenshot"; }
-    Mod+Print { screenshot-window; }
-    Mod+Ctrl+Print { screenshot-screen; }
-    Mod+Shift+Print { screenshot-screen; }
+    Mod+Print { spawn-sh "dms screenshot window"; }
+    Mod+Ctrl+Print { spawn-sh "dms screenshot full"; }
+    Mod+Shift+Print { spawn-sh "dms screenshot full"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-    Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    Mod+Shift+Q { quit; }
     Mod+Shift+P { power-off-monitors; }
 }
 
@@ -194,14 +204,21 @@ debug {
   honor-xdg-activation-with-invalid-serial
 }
 overview {
+  backdrop-color "transparent"
   workspace-shadow {
     off
   }
+}
+
+layer-rule {
+    exclude namespace="^dms:"
+    place-within-backdrop true
 }
 
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
 include "dms/binds.kdl"
-
+include "dms/input.kdl"
+include "dms/windowrules.kdl"
 include "dms/cursor.kdl"
