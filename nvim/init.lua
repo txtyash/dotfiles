@@ -1,16 +1,12 @@
 -- Options
 vim.opt.number = true
-vim.opt.relativenumber = false -- remove line
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 0 -- remove line
 vim.opt.scrolloff = 3
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.wildmenu = true
 vim.opt.wildignorecase = true
-vim.opt.wildmode = { "full" }
 
 if vim.fn.executable("nu") == 1 then
   vim.opt.shell = "nu"
@@ -23,8 +19,6 @@ elseif vim.fn.executable("fish") == 1 then
   vim.opt.shell = "fish"
 end
 vim.g.mapleader = " "
-vim.g.netrw_banner = ""
-vim.g.netrw_liststyle = 3
  
 -- Autocmds
  
@@ -90,6 +84,7 @@ vim.pack.add({
 	{ src="https://github.com/nvim-telescope/telescope.nvim" },
 	{ src="https://github.com/jvgrootveld/telescope-zoxide" },
 	{ src="https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src="https://github.com/stevearc/oil.nvim" },
 	{ src="https://github.com/selimacerbas/live-server.nvim" },
 	{ src="https://github.com/selimacerbas/markdown-preview.nvim" },
 	{ src="https://github.com/OXY2DEV/markview.nvim" },
@@ -122,6 +117,7 @@ markdown_preview = require("markdown_preview")
 todo_comments = require("todo-comments")
 markview = require("markview")
 blink = require("blink.cmp")
+oil = require("oil")
  
 grug.setup()
 surround.setup()
@@ -131,12 +127,14 @@ telescope.load_extension("zoxide")
 markdown_preview.setup()
 todo_comments.setup()
 markview.setup()
+oil.setup()
 -- Lua matcher, not the default Rust one: its prebuilt binary is unsigned and this machine refuses to load it.
 blink.setup({ fuzzy = { implementation = "lua" } })
-treesitter.install { 'go', 'typescript', 'javascript', 'c', 'nix', 'svelte', 'css', 'html', 'json', 'zig', 'lua', 'markdown', 'markdown_inline', 'typst', 'yaml' }
- 
+local langs = { 'go', 'typescript', 'javascript', 'c', 'nix', 'svelte', 'css', 'html', 'json', 'zig', 'lua', 'markdown', 'markdown_inline', 'typst', 'yaml' }
+treesitter.install(langs)
+
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "go", "typescript", "javascript", "nix", "svelte", "css", "html", "json", "zig", "lua", "markdown", "typst" },
+  pattern = langs,
   callback = function() vim.treesitter.start() end,
 })
  
@@ -154,22 +152,9 @@ map({ "n" }, "<leader>w", "<cmd>write<cr>", { desc = "Save File" })
 map({ "n" }, "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete Buffer" })
 map({ "n" }, "<leader>bD", "<cmd>bdelete!<cr>", { desc = "Delete Buffer (force)" })
  
-local netrw_return = nil
 map({ "n" }, "<leader>e", function()
-  if vim.bo.filetype == "netrw" then
-    if netrw_return and vim.api.nvim_buf_is_valid(netrw_return) then
-      vim.api.nvim_win_set_buf(0, netrw_return)
-    else
-      pcall(vim.cmd, "Rexplore")
-    end
-    netrw_return = nil
-  else
-    netrw_return = vim.api.nvim_get_current_buf()
-    local dir = vim.fn.expand("%:p:h")
-    if dir == "" or vim.fn.isdirectory(dir) == 0 then dir = vim.fn.getcwd() end
-    vim.cmd("Explore " .. vim.fn.fnameescape(dir))
-  end
-end, { desc = "Netrw: Toggle at file's dir" })
+  if vim.bo.filetype == "oil" then oil.close() else oil.open() end
+end, { desc = "Oil: Toggle at file's dir" })
  
 map({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash" })
 map({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash Treesitter" })
@@ -178,7 +163,7 @@ map({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Trees
 map({ "c" }, "<c-s>", function() flash.toggle() end, { desc = "Toggle Flash Search" })
  
 -- Telescope. Leader is <space> (set above), so these are space-f-<key>.
--- live_grep shells out to ripgrep, find_files to fd -- both on PATH via scoop.
+-- live_grep shells out to ripgrep, find_files to fd -- both from systemPackages.
 local builtin = require("telescope.builtin")
 map({ "n" }, "<leader>ff", builtin.find_files, { desc = "Telescope: Find Files" })
 map({ "n" }, "<leader>fg", builtin.live_grep, { desc = "Telescope: Live Grep" })
@@ -239,8 +224,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
  
 		-- Harper reports spelling itself, so drop Neovim's overlapping highlights.
 		if vim.lsp.get_client_by_id(ev.data.client_id).name == "harper_ls" then
