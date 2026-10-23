@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
     vim.opt_local.spelllang = "en_us"
     vim.opt_local.spelloptions = "camel"
+    vim.opt_local.textwidth = 80
   end,
 })
  
@@ -141,7 +142,7 @@ telescope.setup({
 telescope.load_extension("zoxide")
 markdown_preview.setup()
 todo_comments.setup()
-markview.setup()
+markview.setup({ preview = { enable = false } })
 oil.setup()
 -- Lua matcher, not the default Rust one: its prebuilt binary is unsigned and this machine refuses to load it.
 blink.setup({ fuzzy = { implementation = "lua" } })
@@ -170,6 +171,9 @@ map({ "n" }, "<leader>bD", "<cmd>bdelete!<cr>", { desc = "Delete Buffer (force)"
 map({ "n" }, "<leader>e", function()
   if vim.bo.filetype == "oil" then oil.close() else oil.open() end
 end, { desc = "Oil: Toggle at file's dir" })
+
+map({ "n" }, "<leader> h", "i <esc>l", { desc = "Insert space before cursor" })
+map({ "n" }, "<leader> l", "a <esc>", { desc = "Insert space after cursor" })
  
 map({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash" })
 map({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash Treesitter" })
