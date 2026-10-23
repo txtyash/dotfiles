@@ -65,6 +65,7 @@ let
     lz4
     libarchive
     lazygit
+    hours
   ];
   emojiPicker = pkgs.writeShellScriptBin "emoji-picker" ''
     css="$HOME/.config/gtk-4.0/dank-colors.css"
