@@ -5,6 +5,11 @@
     "ENABLE_TOOL_SEARCH": "auto"
   },
   "model": "opus",
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
   "hooks": {
     "SessionStart": [
       {
