@@ -62,3 +62,14 @@ nix flake check ~/.config
 - No home-manager — config is raw files under `~/.config/`
 - Packages: `environment.systemPackages` in `configuration.nix` (shared) or the host file (host-only)
 - `dry-build` catches eval errors without sudo; `test` before `switch` for anything risky
+
+## Rules
+
+- Maintaining a clean commit history is a must.
+- Strictly follow no vibe coding, [Conventional
+  Commits](https://www.conventionalcommits.org/en/v1.0.0), and prose wrapped at
+  80 columns.
+- Commit body should explain everything related to the commit.
+- Suggest an update to this file when it is out-of-date or missing something
+  that would have helped, such as a new decision, rule, or command. Show the
+  proposed change and wait for approval before editing it.
